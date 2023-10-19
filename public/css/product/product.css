@@ -1,0 +1,62 @@
+#conta {
+    background: #FFF6F5
+    ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#t {
+    color: yellow;
+}
+
+#con{
+    width: 272px;
+    height: 88px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 3px solid #F7E19F;
+    background: #000;
+
+}
+
+#a {
+    color: #F7E19F;
+    font-family: Inknut Antiqua;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+   
+}
+
+.b{
+    color: #F2AA3D;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+}
+
+.c{
+    color: #A4636C;
+font-family: Inter;
+font-size: 40px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+padding-top: 30px;
+padding-bottom: 30px;
+}
+
+.d{
+    color: #915F6D;
+font-family: Inter;
+font-size: 36px;
+font-style: normal;
+font-weight: 1200;
+line-height: normal;
+padding-top: 30px;
+}
+

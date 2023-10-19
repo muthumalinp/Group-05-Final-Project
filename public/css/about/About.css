@@ -1,0 +1,49 @@
+.class{
+    background-color: #FAE3E3;
+}
+
+.header {
+    
+    text-align: center;
+    color: #633030;
+}
+
+.square {
+    border: 3px solid black;
+    width: 65px;
+    height: 470px;
+    background-color: #633030;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    line-height: 100px;
+}
+
+.header1 {
+    text-align: center;
+    color: black;
+    margin-top: 8px;
+}
+
+.para {
+    margin-bottom: 1px;
+    color: #F8F4F4;
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+.header2 {
+    text-align: center;
+    color: #633030;
+    margin-top: 1px;
+}
+
+.para1 {
+    margin-bottom: 1px;
+    color: #262525;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+
+
