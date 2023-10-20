@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('available_appointments', function (Blueprint $table) {
             $table->id();
-            $table->string('booked_id');
             $table->string('service_id');
             $table->string('time');
             $table->string('date');
