@@ -1,12 +1,15 @@
-* { margin: 0; padding: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box;}
 
 .clearfix { overflow: auto }
- a{ text-decoration: none; color: black;}
+
+a{ text-decoration: none; color: black;}
 
 .mainFrame{
-    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
     width: 1024px;
-    background-color: #e8d3d3 ;
+    margin: 8% auto;
+    background: #e8d3d3 ;
 }
 
 .topMain{
@@ -89,7 +92,7 @@
     color: white;
 }
 
-.Horizontal_line{
+.Horizontal_line1{
     border:1px solid rgb(0, 0, 0);
     margin-top: 20px;
     margin-bottom: 20px;
@@ -97,7 +100,7 @@
     margin-right: 100px;
 }
 
-.topTail{
+.topTail2{
     width: 1024px;
 }
 
@@ -107,67 +110,205 @@
     font-size: 40px;
 }
 
-.topTail_Head p{
+topTail_Head p{
     margin: 50px 0 40px 50px;
     font-size: 30px;
     font-family: Inter;
 }
 
-.topTail_middle{
+topTail_middle{
     width: 1024px;
 }
 
-.middle_left{
+.select p{
+    margin: 70px 0 50px 50px;
+    font-size: 30px;
+    font-family: Inter;
+}
+
+.mainSevies{
+    width: 1024px;
+}
+
+.middle_left1{
     width: 500px;
     float: left; 
 }
 
-.middle_left ul{
+.middle_left1 ul{
     list-style: none;
     margin-left: 30px;
 }
 
-.middle_left ul li{
+.middle_left1 ul li{
     padding: 20px 10px 30px 50px;
 }
 
-.middle_left ul li label{
+.middle_left1 ul li label{
     margin: 0 10px;
     font-size: 25px;
 }
 
-.middle_left ul li select{
+.middle_left1 ul li select{
     border: 0;
     background-color: #b78e8e;
     border-radius: 20px;
 }
 
-.middle_right{
+.middle_right1{
     width: 500px;
     float: right;
 }
 
-.middle_right ul{
+.middle_right1 ul{
     list-style: none;
     margin-left: 30px;
 }
 
-.middle_right ul li{
+.middle_right1 ul li{
     padding: 20px 10px 30px 50px;
 }
 
-.middle_right ul li label{
+.middle_right1 ul li label{
     margin: 0 10px;
     font-size: 25px;
 }
 
-.middle_right ul li select{
+.middle_right1 ul li select{
     border: 0;
     background-color: #b78e8e;
     border-radius: 20px;
 }
 
-.btn1{
+    /*Page 2*/
+
+.Horizontal_line2{
+    border:1px solid rgb(0, 0, 0);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.middelTail{
+    width: 1024px;
+}
+
+.middelLeft{
+    width: 490px;
+    float: left;
+    border: 0;
+}
+
+.middelLeft img{
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+.middelRight{
+    width: 490px;
+    float: right;
+}
+
+.middelRight h3{
+    font-family: Inter;
+    text-align: center;
+    font-size: 25px;
+}
+
+.Main-boxes{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box{
+    width: 150px;
+    height: 50px;
+    background: #b78e8e;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 18px;
+    margin: 40px;
+}
+
+.box:hover{
+    background: rgb(253, 239, 239);
+}
+
+    /*Page 03*/
+
+.formContent{
+    width: 1024px;
+}
+
+.formContent label{
+    width: 240px;
+    display: inline-block;
+    margin: 20px 0 20px 30px;;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.formContent input{
+    padding: 8px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #f9f9f9;
+    width: 520px; /* radio button width case and all input type with adjust*/
+}
+
+#mai, #pho{
+    width: 0.5cm;
+}
+
+.formContent select{
+    border: 0;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+
+}
+
+form textarea{
+    border: 0;
+    border-radius: 10px;
+    width: 520px;
+}
+
+    /* Button Style */
+
+.tailButn{
+    width: 1024px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+form button{
+    width: 510px;
+    height: 35px;
+    margin: 0 10px;
+    background: #333333;
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+form button:hover{
+    background: #b78e8e;
+    color: #333333;
+}
+
+btn1{
     width: 200px;
     height: 45px;
     background: #333;
