@@ -17,14 +17,14 @@
             <div class="topMainTail clearfix">
                 <div class="HeadLink_Left">
                     <ul>
-                        <li><a href="#">Hair Cutting & Setting</a></li>
-                        <li><a href="#">Dressings</a></li>
+                        <li><a href="bookingHar.blade.php">Hair Cutting & Setting</a></li>
+                        <li><a href="bookingDres.blade.php">Dressings</a></li>
                     </ul>
                 </div>
                 <div class="HeadLink_Right">
                     <ul>
-                        <li><a href="#">Facial & Treatments</a></li>
-                        <li><a href="#">Pedicure</a></li>
+                        <li><a href="bookingFaci.blade.php">Facial & Treatments</a></li>
+                        <li><a href="bookingPedi.blade.php">Pedicure</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,7 +40,11 @@
         <div class="topTail2 clearfix">
 
             <div class="topTail_Head">
+
                 <h1>Hairdressing consultation Form</h1>
+
+                <h1>Dressings consultation Form</h1>
+
             </div>
 
             <form>
@@ -141,11 +145,19 @@
                 </div> 
                 -->
 
+
             </form>
  
             <!--second forms-->            
 
             <form>
+
+            
+ 
+            <!--second forms-->            
+
+            
+
                 
                     <!--<div class="Horizontal_line2"></div>-->
                 
@@ -182,11 +194,19 @@
                     </div>
                 -->
          
+
             </form>
 
             <!--thred form-->
 
             <form>
+
+            
+
+            <!--thred form-->
+
+            
+
                 <div class="Horizontal_line1"></div>
              
                 <div class="select">

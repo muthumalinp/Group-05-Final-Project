@@ -1,9 +1,12 @@
-* { margin: 0; padding: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box;}
 
 .clearfix { overflow: auto }
- a{ text-decoration: none; color: black;}
+
+a{ text-decoration: none; color: black;}
 
 .mainFrame{
+    display: flex;
+    flex-wrap: wrap;
     width: 1024px;
     margin: 8% auto;
     background: #e8d3d3 ;
@@ -127,6 +130,20 @@ topTail_middle{
     width: 1024px;
 }
 
+
+    width: 1024px;
+}
+
+.select p{
+    margin: 70px 0 50px 50px;
+    font-size: 30px;
+    font-family: Inter;
+}
+
+.mainSevies{
+    width: 1024px;
+}
+
 .middle_left1{
     width: 500px;
     float: left; 
@@ -232,6 +249,7 @@ topTail_middle{
     line-height: 50px;
     border-radius: 18px;
     margin: 30px;
+    margin: 40px;
 }
 
 .box:hover{
