@@ -1,18 +1,19 @@
+/*
 .class{
     background-color: #FAE3E3;
 }
-
+*/
 .header {
     
     text-align: center;
-    color: #633030;
+    color: #7a4141;
 }
 
 .square {
     border: 3px solid black;
     width: 65px;
     height: 470px;
-    background-color: #633030;
+    background-color: #7a4141;
     text-align: center;
     color: #fff;
     font-size: 24px;
@@ -34,7 +35,7 @@
 
 .header2 {
     text-align: center;
-    color: #633030;
+    color: #7a4141;
     margin-top: 1px;
 }
 

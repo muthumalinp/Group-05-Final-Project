@@ -1,3 +1,4 @@
+@extends('layouts.main')
 @extends('layouts.layouts_login')
 @section('title', 'Registration')
 @section('content')

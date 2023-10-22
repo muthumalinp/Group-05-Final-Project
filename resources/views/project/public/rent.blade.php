@@ -204,7 +204,7 @@
         </style>
 </head>
 
-<body>
+<body style="padding-top: 100px">
     <div class = "frame">
     
     <div class = "box1">

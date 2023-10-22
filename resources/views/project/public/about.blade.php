@@ -12,10 +12,11 @@
         <nav >
             <div class="container-fluid mt-3">
                 <a class="navbar-brand" href="#">
-                    <img src="{{ asset('css/about/logo.jpg') }}" alt="Logo" width="100" height="60" class="d-inline-block align-text-top">
+                    <!--<img src="{{ asset('css/about/logo.jpg') }}" alt="Logo" width="100" height="60" class="d-inline-block align-text-top">-->
                 </a>
             </div>
-        </nav>  <!-- nev bar -->
+        </nav> 
+         <!-- nev bar -->
 
             <div class="container">
                 <div class="row">

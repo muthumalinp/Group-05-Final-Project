@@ -46,6 +46,10 @@ Route::get('/Gallery', function () {
     return view('/project/public/gallery');
 });
 
+Route::get('/Gallery/Hair', function () {
+    return view('/project/public/galleryhair');
+});
+
 Route::get('/Product', function () {
     return view('/project/public/product');
 });
