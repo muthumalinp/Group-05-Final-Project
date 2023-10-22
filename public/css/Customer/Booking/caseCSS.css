@@ -130,6 +130,20 @@ topTail_middle{
     width: 1024px;
 }
 
+
+    width: 1024px;
+}
+
+.select p{
+    margin: 70px 0 50px 50px;
+    font-size: 30px;
+    font-family: Inter;
+}
+
+.mainSevies{
+    width: 1024px;
+}
+
 .middle_left1{
     width: 500px;
     float: left; 
@@ -234,6 +248,7 @@ topTail_middle{
     text-align: center;
     line-height: 50px;
     border-radius: 18px;
+    margin: 30px;
     margin: 40px;
 }
 

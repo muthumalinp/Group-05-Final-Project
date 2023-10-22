@@ -1,3 +1,5 @@
+@extends('layouts.main')
+@section('title', 'Booking')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +40,11 @@
         <div class="topTail2 clearfix">
 
             <div class="topTail_Head">
+
+                <h1>Hairdressing consultation Form</h1>
+
                 <h1>Dressings consultation Form</h1>
+
             </div>
 
             <form>
@@ -139,11 +145,19 @@
                 </div> 
                 -->
 
+
+            </form>
+ 
+            <!--second forms-->            
+
+            <form>
+
             
  
             <!--second forms-->            
 
             
+
                 
                     <!--<div class="Horizontal_line2"></div>-->
                 
@@ -180,11 +194,19 @@
                     </div>
                 -->
          
+
+            </form>
+
+            <!--thred form-->
+
+            <form>
+
             
 
             <!--thred form-->
 
             
+
                 <div class="Horizontal_line1"></div>
              
                 <div class="select">
