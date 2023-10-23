@@ -5,7 +5,7 @@
 
 .mainFrame{
     width: 1024px;
-    margin: 8% auto;
+    margin: auto;
     background: #e8d3d3 ;
 }
 
@@ -13,8 +13,8 @@
     width: 1024px;
 }
 
-.topMainHead{
-    margin-top: 30px;
+div.topMain div.topMainHead{
+    margin-top: 20px;
     margin-bottom: 80px;
     text-align: center;
     width: 1024px;
