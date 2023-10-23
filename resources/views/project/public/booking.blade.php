@@ -1,3 +1,5 @@
+@extends('layouts.main')
+@section('title', 'Booking')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +17,24 @@
             <div class="topMainTail clearfix">
                 <div class="HeadLink_Left">
                     <ul>
+
                         <li><a href="{{url('booking')}}">Hair Cutting & Setting</a></li>
                         <li><a href="{{url('bookingDres')}}">Dressings</a></li>
+
+                        <li><a href="#">Hair Cutting & Setting</a></li>
+                        <li><a href="#">Dressings</a></li>
+
                     </ul>
                 </div>
                 <div class="HeadLink_Right">
                     <ul>
+
                         <li><a href="{{url('bookingFaci')}}">Facial & Treatments</a></li>
                         <li><a href="{{url('bookingPedi')}}">Pedicure</a></li>
+
+                        <li><a href="#">Facial & Treatments</a></li>
+                        <li><a href="#">Pedicure</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -38,7 +50,11 @@
         <div class="topTail2 clearfix">
 
             <div class="topTail_Head">
+
                 <h1>Hair Cutting consultation Form</h1>
+
+                <h1>Hairdressing consultation Form</h1>
+
             </div>
 
             <form>
@@ -140,11 +156,18 @@
                 </div> 
                 -->
 
-            
+            </form>
  
             <!--second forms-->            
 
+
                 <!--<div class="Horizontal_line2"></div>-->
+
+            <form>
+                
+                    <!--<div class="Horizontal_line2"></div>-->
+                
+
                 
                 <div class="select">
                     <p>Please select an appointment bellow</p>
@@ -178,11 +201,11 @@
                     </div>
                 -->
          
-            
+            </form>
 
             <!--thred form-->
 
-            
+            <form>
                 <div class="Horizontal_line1"></div>
              
                 <div class="select">

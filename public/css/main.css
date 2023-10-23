@@ -2,6 +2,10 @@
     border: 1px solid #000;
 }
 
+#navbarcolor {
+    background-color: rgb(23, 22, 22);
+}
+
 .nav a {
     float: left;
     font-size: 20px;
@@ -10,3 +14,7 @@
     margin-left: 10px;
     text-decoration: none;
   }
+
+body {
+    background-color: #e0c2c0;
+}

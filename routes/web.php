@@ -17,7 +17,7 @@ use App\Http\Controllers\CustomerController;
 
 
 /*Route::get('/', function () {
-    return view('/project/admin/adminhome');
+    return view('/project/admin/owner');
 })->name('adminhome');
 
 */
@@ -29,8 +29,9 @@ Route::get('/', function () {
     return view('/project/public/home');
 });
 */
+
 Route::get('/Home', function () {
-    return view('/project/admin/adminhome');
+    return view('/project/owner/owner');
 });
 
 Route::get('/About', function () {
@@ -43,6 +44,10 @@ Route::get('/Services', function () {
 
 Route::get('/Gallery', function () {
     return view('/project/public/gallery');
+});
+
+Route::get('/Gallery/Hair', function () {
+    return view('/project/public/galleryhair');
 });
 
 Route::get('/Product', function () {

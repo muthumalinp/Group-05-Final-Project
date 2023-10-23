@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
+@section('cont')
 <body>
     <div class="container"></div>
 
@@ -31,10 +33,10 @@
     <!-- Slides -->
     <div class="carousel-inner container box">
         <div class="carousel-item active">
-            <img src="css/Home/1.jpg" >
+            <img src="css/salon_image/4.jpg" >
         </div>
         <div class="carousel-item container box">
-            <img src="css/Home/2.jpg" >
+            <img src="css/salon_image/chair.jpg" >
         </div>
         <!-- <div class="carousel-item container box">
             <img src="css/Home/3.jpg" >
@@ -43,13 +45,13 @@
             <img src="css/Home/4.jpg" >
         </div> -->
         <div class="carousel-item container box">
-            <img src="css/Home/5.jpg" >
+            <img src="css/salon_image/hair_styling_resize.jpg" >
         </div>
         <div class="carousel-item container box">
-            <img src="css/Home/6.jpg" >
+            <img src="css/salon_image/tattoo.jpg" >
         </div>
         <div class="carousel-item container box">
-            <img src="css/Home/7.jpg" >
+            <img src="css/salon_image/bride.jpg" >
         </div>
         <!-- Add more slides as needed -->
     </div>
