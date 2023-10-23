@@ -53,6 +53,17 @@ Route::get('/Rent', function () {
     return view('/project/public/rent');
 });
 
+
+
+Route::get('/bookingFaci', function () {
+    return view('/project/public/includ/bookingFaci');
+});
+Route::get('/bookingDres', function () {
+    return view('/project/public/includ/bookingDres');
+});
+Route::get('/bookingPedi', function () {
+    return view('/project/public/includ/bookingPedi');
+});
 Route::get('/Booking', function () {
     return view('/project/public/booking');
 });
