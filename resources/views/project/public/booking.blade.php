@@ -15,14 +15,14 @@
             <div class="topMainTail clearfix">
                 <div class="HeadLink_Left">
                     <ul>
-                        <li><a href="bookingHar.blade.php">Hair Cutting & Setting</a></li>
-                        <li><a href="bookingDres.blade.php">Dressings</a></li>
+                        <li><a href="{{url('booking')}}">Hair Cutting & Setting</a></li>
+                        <li><a href="{{url('bookingDres')}}">Dressings</a></li>
                     </ul>
                 </div>
                 <div class="HeadLink_Right">
                     <ul>
-                        <li><a href="bookingFaci.blade.php">Facial & Treatments</a></li>
-                        <li><a href="bookingPedi.blade.php">Pedicure</a></li>
+                        <li><a href="{{url('bookingFaci')}}">Facial & Treatments</a></li>
+                        <li><a href="{{url('bookingPedi')}}">Pedicure</a></li>
                     </ul>
                 </div>
             </div>
@@ -38,7 +38,7 @@
         <div class="topTail2 clearfix">
 
             <div class="topTail_Head">
-                <h1>Dressings consultation Form</h1>
+                <h1>Hair Cutting consultation Form</h1>
             </div>
 
             <form>
@@ -130,6 +130,7 @@
                         </ul>
                         
                     </div><!--middle_right1-->
+
                 </div>
                 
 
@@ -143,10 +144,7 @@
  
             <!--second forms-->            
 
-            
-                
-                    <!--<div class="Horizontal_line2"></div>-->
-                
+                <!--<div class="Horizontal_line2"></div>-->
                 
                 <div class="select">
                     <p>Please select an appointment bellow</p>
