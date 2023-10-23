@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-class Customer extends Authenticatable implements MustVerifyEmail {
+class customer extends Authenticatable implements MustVerifyEmail {
     use HasFactory;
 
     protected $table = 'customers';
