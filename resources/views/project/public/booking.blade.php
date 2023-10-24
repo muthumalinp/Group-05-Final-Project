@@ -22,7 +22,7 @@
                         <li><a href="{{url('bookingDres')}}">Dressings</a></li>
 
                         <li><a href="#">Hair Cutting & Setting</a></li>
-                        <li><a href="#">Dressings</a></li>
+                        <li><a href="#">CleanUp</a></li>
 
                     </ul>
                 </div>
