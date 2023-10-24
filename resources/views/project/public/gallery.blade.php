@@ -1,25 +1,51 @@
 @extends('layouts.main')
-@section('title', 'Gallery')
-<!DOCTYPE html>
-    <head>
+@section('title', 'Gellery')
+<html lang="en">
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">    
         <title></title>
-        <link rel="stylesheet" href="{{asset('css\gallery\hair.css')}}">
+        <link rel="stylesheet" href="{{asset('css\gallery\first\gallery.css')}}">
+        <link rel="stylesheet" href="{{asset('css\boostrap.css')}}">
+        <link rel="stylesheet" href="{{asset('css\boostrap.min.css')}}">
+</head>
+<body>
+      <div class="a4_10">
+        <div class="e4_10">
+          <h2 div class="e5_12">Gallery</h2>
 
-    </head>
-    <body>
-    <div class="a4_10">
-    <div class="e4_10">
-    <span  class="e5_12">See Our Work!</span>
-    <span  class="e5_13">Here’s a quick look at the beauty transformations that 
-we have worked on. Whether it is a temporary makeup or a complete makeover, you can trust us.</span>
-    <img src="css/gallery/images/1.png" alt="hair" div class="e5_28" ></div>
-    <img src="css/gallery/images/2.png" alt="hair" div class="e5_29"></div>
-    <img src="css/gallery/images/3.png" alt="hair" div class="e25_2"></div>
-    <img src="css/gallery/images/4.png" alt="hair" div class="e5_31"></div>
-    <img src="css/gallery/images/5.png" alt="hair" div class="e5_32"></div>
-    <img src="css/gallery/images/6.png" alt="hair" div class="e5_33"></div>
+            <div class="container">
+          
+              <div class="row-cols-4">
+                <img src="css/gallery/first/7.png" alt="Snow" style="width:335px; height:650px">
+                <a href="/Gallery/Hair">
+                  <button class="btn">MORE PHOTOS</button>
+                </a>
+                  <h1  class="centered">  HAIR STYLE</h1>
 
-    <span class="e12_11">Life is too short to have boring hair...</span>
-</div>
-</div>
+                <img src="css/gallery/first/8.png" alt="Forest" style="width:335px; height:650px">
+                <button class="btn1">MORE POTOS</button>
+                  <h1 class="centered1">  FACE AND <BR>TREATMENT</h1>
+    
+                <img src="css/gallery/first/9.png" alt="Mountains" style="width:335px; height:650px">
+                <button class="btn2">MORE POTOS</button>
+                  <h1 class="centered2">  BRIDAL</h1>
+              </div>
+
+              <div class="row-cols-4">
+                <img src="css/gallery/first/10.png" alt="Snow" style="width:335px; height:650px">
+                <button class="btn3">MORE PHOTOS</button>
+                  <h1  class="centered3"> TATTOS</h1>
+
+                <img src="css/gallery/first/11.png" alt="Forest" style="width:335px; height:650px">
+                <button class="btn4">MORE PHOTOS</button>
+                  <h1  class="centered4"> JEWELERY</h1>
+
+                <img src="css/gallery/first/12.png" alt="Mountains" style="width:335px; height:650px">
+                <button class="btn5">MORE PHOTOS</button>
+                  <h1  class="centered5"> PARPTY WEAR</h1>
+              </div>
+          </div>
+        </div>
+      </div>
+</body>
 </html>

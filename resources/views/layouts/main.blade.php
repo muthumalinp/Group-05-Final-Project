@@ -59,7 +59,7 @@
         @yield('cont')
     </div>
 
-        <!-- Remove the container if you want to extend the Footer to full width. -->
+    <!-- Remove the container if you want to extend the Footer to full width. -->
 <div class=" my-5">
   <!-- Footer -->
   <footer

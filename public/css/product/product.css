@@ -1,8 +1,5 @@
 #conta {
-    background: #FFF6F5
-    ;
-    background-repeat: no-repeat;
-    background-size: cover;
+     padding-top: 100px;
 }
 
 #t {
@@ -40,7 +37,7 @@
 }
 
 .c{
-    color: #A4636C;
+    color: black;
 font-family: Inter;
 font-size: 40px;
 font-style: normal;
@@ -51,7 +48,7 @@ padding-bottom: 30px;
 }
 
 .d{
-    color: #915F6D;
+    color: black;
 font-family: Inter;
 font-size: 36px;
 font-style: normal;
@@ -60,3 +57,14 @@ line-height: normal;
 padding-top: 30px;
 }
 
+.page-content{
+    position:relative;
+
+}
+
+#right-aligned-button{
+    position:absolute;
+    top:0;
+    right:0;
+
+}

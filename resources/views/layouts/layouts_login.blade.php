@@ -19,11 +19,10 @@
             min-height: 100vh; /* Center vertically in viewport 
         } */
 
-        /* #t {
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            border-radius: 10px;
+
+        
+/*        #t {
+
             background-color: #E1A954;
         } */
 
