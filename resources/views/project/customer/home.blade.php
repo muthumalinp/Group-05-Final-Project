@@ -1,4 +1,4 @@
-@extends('layouts.customer_nav')
+@extends('project.customer.layouts.main')
 @section('title', 'Home')
 <!DOCTYPE html>
 <html lang="en">

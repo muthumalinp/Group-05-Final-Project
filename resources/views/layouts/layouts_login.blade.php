@@ -8,31 +8,41 @@
     <style>
         /* Custom styles for centering the form */
         #s {
-            background: #;
+            padding-top: 150px;
+            background: #e0c2c0;
         }
 
-        .center-container {
+        /* .center-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Center vertically in viewport */
-        }
+            min-height: 100vh; /* Center vertically in viewport 
+        } */
+
+
+        /* #t {
 
         
         #t {
+
             width: 100%;
             max-width: 600px;
             padding: 20px;
             border-radius: 10px;
+
+            background-color: #E1A954;
+        } */
+
             /*background-color: #E1A954;*/
         }
         
+
 
         #v {
             color: #000;
             text-align: center;
             font-family: Inria Serif;
-            font-size: 24px;
+            font-size: 20px;
             font-style: italic;
             font-weight: 700;
             line-height: normal;
@@ -48,7 +58,7 @@
             color: #FFF;
             text-align: center;
             font-family: Inria Serif;
-            font-size: 36px;
+            font-size: 20px;
             font-style: normal;
             font-weight: 700;
             line-height: normal;
