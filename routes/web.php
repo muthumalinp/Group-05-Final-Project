@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 /*Route::get('/', function () {
-    return view('/project/admin/adminhome');
+    return view('/project/admin/owner');
 })->name('adminhome');
 
 */
@@ -34,8 +34,9 @@ Route::get('/', function () {
     return view('/project/public/home');
 });
 */
+
 Route::get('/Home', function () {
-    return view('/project/admin/adminhome');
+    return view('/project/owner/owner');
 });
 
 Route::get('/About', function () {
@@ -50,6 +51,10 @@ Route::get('/Gallery', function () {
     return view('/project/public/gallery');
 });
 
+Route::get('/Gallery/Hair', function () {
+    return view('/project/public/galleryhair');
+});
+
 Route::get('/Product', function () {
     return view('/project/public/product');
 });
@@ -58,6 +63,17 @@ Route::get('/Rent', function () {
     return view('/project/public/rent');
 });
 
+
+
+Route::get('/bookingFaci', function () {
+    return view('/project/public/includ/bookingFaci');
+});
+Route::get('/bookingDres', function () {
+    return view('/project/public/includ/bookingDres');
+});
+Route::get('/bookingPedi', function () {
+    return view('/project/public/includ/bookingPedi');
+});
 Route::get('/Booking', function () {
     return view('/project/public/booking');
 });

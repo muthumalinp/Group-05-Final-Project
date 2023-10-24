@@ -36,14 +36,22 @@
             <input type="password" name="password" class="form-control" id="m" /><br />
         </div>
 
+
         <!-- <div class="mb-3 ">
+
+        <!--<div class="mb-3 ">
+
             <select name="roles">
                 <option value="customer">Customer</option>
                 <option value="employee">Employee</option>
                 <option value="owner">Owner</option>
                 <option value="admin">Admin</option>
             </select>
+
         </div> -->
+
+        </div>-->
+
 
         <input type="submit" class="btn btn-success" value="Log In" /><br />
 
