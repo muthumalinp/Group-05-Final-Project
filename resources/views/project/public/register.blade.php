@@ -23,6 +23,7 @@
                 <div class="alert alert-success">{{session('success')}}</div>
             @endif
         </div>
+
         <div id="t">
             <h1 class="text-center mb-4">Register</h1>
             <form method="POST" action="{{ route('registration.post') }}">
@@ -59,21 +60,21 @@
 
 <div class="mb-3">
     <div class="row mb-3">
-        <label for="phone_number" class="col-3 col-form-label">Phone Number:</label>
+        <label for="phone_number" class="col-3 col-form-label">Phone Number</label>
         <div class="col-4">
-            <input type="tel" name="phone_number" class="form-control" placeholder="Enter your phone number">
+        <input type="text" name="phone_number" id="phone_number" class="form-control" value="{{ old('phone_number') }}" placeholder="Enter your phone number">
         </div>
     </div>
 </div>
 
-<div class="mb-3">
+            <div class="mb-3">
                 <div class="row mb-3">
                     <label for="password" class="col-3 col-form-label">Password:</label>
                     <div class="col-4">
                     <input type="password" name="password" class="form-control" placeholder="Create a password">
-                    </div>
-                    
+                    </div> 
                 </div>
+            </div>
 
 <div class="mb-3">
     <div class="row mb-3">
@@ -84,20 +85,9 @@
     </div>
 </div>
 
-                <!-- <div class="mb-3 ">
-                    <div class="row mb-3">
-                    <label for="role" class="col-3 col-form-label">User Role</label>
-                    <div class="col-4">
-                        <select name="role" id="role" class="form-control">
-                             <option value="admin">Admin</option> -->
-                            <!-- <option value="customer">Customer</option> -->
-                            <!-- <option value="employee">Employee</option> -->
-                            <!-- <option value="owner">Owner</option> 
-                        </select>
-                    </div>
-                    </div> -->
-                    <div class="mb-3 ">
-                    <div class="row mb-3">
+                 
+                      <input type="hidden" name="role" value="customer">  
+                      
                 <div class="col-7">
                     <button type="submit" class="btn btn_color">Register</button>
                 </div>
