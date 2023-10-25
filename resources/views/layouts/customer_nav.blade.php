@@ -33,17 +33,17 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="/Home">Salon</a>
+                <a class="navbar-brand" href="/Home">Salon Yaara</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item nav">
-                            <a class="nav-link" href="/Home_Customer">Home</a>
+                            <a class="nav-link" href="/Home-Customer">Home</a>
                         </li>
                         <li class="nav-item nav">
-                            <a class="nav-link" href="/About">About</a>
+                            <a class="nav-link" href="customer.about">About</a>
                         </li>
                         <li class="nav-item nav">
                             <a class="nav-link" href="/Services">Services</a>
@@ -66,7 +66,9 @@
                         </form> -->
                             <li>
                                 <div class="profile-container">
-                                <img src="{{ asset('css/Customer/pp1.jpg') }}" alt="Profile Picture" id="profile-picture">
+                                    <a href="{{ route('edit-profile') }}">
+                                        <img src="{{ asset('css/Customer/pp1.jpg') }}" alt="Profile Picture" id="profile-picture">
+                                    </a>   
                                 </div>
                             </li>                  
                     </ul>

@@ -3,13 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salon Yaara/@yield('title')</title>
+    <title>Salon Yaara@yield('title')</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    
+    <style>
+        .profile-container {
+            position: relative;
+        }
+
+        #profile-picture {
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+        }
+
+        #edit-profile-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+        /* Your button styles */
+        }
+
+    </style>
 
 </head>
 <body id="k">
@@ -23,48 +41,44 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item nav">
-                            <a class="nav-link" href="/Home">Home</a>
+                            <a class="nav-link" href="/Home-Customer">Home</a>
                         </li>
                         <li class="nav-item nav">
-                            <a class="nav-link" href="/About">About</a>
+                            <a class="nav-link" href="/About-Customer">About</a>
                         </li>
                         <li class="nav-item nav">
-                            <a class="nav-link" href="/Services">Services</a>
+                            <a class="nav-link" href="/Services-Customer">Services</a>
                         </li>
                         <li class="nav-item nav">
-                            <a class="nav-link" href="/Gallery">Gallery</a>
+                            <a class="nav-link" href="/Gallery-Customer">Gallery</a>
                         </li>
                         <li class="nav-item nav">
-                            <a class="nav-link" href="/Product">Product</a>
+                            <a class="nav-link" href="/Product-Customer">Product</a>
                         </li>
                         <li class="nav-item nav">
-                            <a class="nav-link" href="/Rent">Rent</a>
+                            <a class="nav-link" href="/Rent-Customer">Rent</a>
                         </li>
                         <li class="nav-item nav">
-                            <a class="nav-link" href="/Booking">Book Now</a>
-                        </li>
-
-                        <li class="nav-item nav ">
-                            <a class="nav-link" href="/LogIn">LogIn</a>
-                        </li>
-                        <li class="nav-item nav">
-                            <a class="nav-link" href="/Register">Register</a>
-                        </li>                        
+                            <a class="nav-link" href="/Booking-Customer">Book Now</a>
+                        </li>  
+                        <li>
+                            <div class="profile-container">
+                                <a href="{{ route('edit-profile') }}">
+                                    <img src="{{ asset('css/Customer/pp1.jpg') }}" alt="Profile Picture" id="profile-picture">
+                                </a>   
+                            </div>
+                        </li>                     
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <div class="container py-10">
+    <div class="container">
         @yield('cont')
     </div>
 
-
         <!-- Remove the container if you want to extend the Footer to full width. -->
-
-    <!-- Remove the container if you want to extend the Footer to full width. -->
-
 <div class=" my-5">
   <!-- Footer -->
   <footer

@@ -28,31 +28,85 @@
             <form method="POST" action="{{ route('registration.post') }}">
                 @csrf
                 <div class="mb-3">
-                    <label for="fname" class="form-label">First Name:</label>
-                    <input type="text" id="i" name="fname" placeholder="Enter your first name" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="lname" class="form-label">Last Name:</label>
-                    <input type="text" name="lname" class="form-control" placeholder="Enter your last name">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">E-mail:</label>
-                    <input type="email" name="email" class="form-control" placeholder="Enter your email">
-                </div>
-                <div class="mb-3">
-                    <label for="pnumber" class="form-label">Phone Number:</label>
-                    <input type="tel" name="pnumber" class="form-control" placeholder="Enter your phone number">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password:</label>
+                <div class="row mb-3">
+                
+    <label for="fname" class="col-3 col-form-label">First Name:</label>
+    <div class="col-4">
+        <input type="text" id="i" name="fname" placeholder="Enter your first name" class="form-control">
+    </div>
+</div>
+
+<div class="mb-3">
+    <div class="row mb-3">
+        <label for="lname" class="col-3 col-form-label">Last Name:</label>
+        <div class="col-4">
+            <input type="text" name="lname" class="form-control" placeholder="Enter your last name">
+        </div>
+    </div>
+</div>
+
+
+
+<div class="mb-3">
+    <div class="row mb-3">
+        <label for="email" class="col-3 col-form-label">E-mail:</label>
+        <div class="col-4">
+            <input type="email" name="email" class="form-control" placeholder="Enter your email">
+        </div>
+    </div>
+</div>
+
+
+<div class="mb-3">
+    <div class="row mb-3">
+        <label for="phone_number" class="col-3 col-form-label">Phone Number:</label>
+        <div class="col-4">
+            <input type="tel" name="phone_number" class="form-control" placeholder="Enter your phone number">
+        </div>
+    </div>
+</div>
+
+<div class="mb-3">
+                <div class="row mb-3">
+                    <label for="password" class="col-3 col-form-label">Password:</label>
+                    <div class="col-4">
                     <input type="password" name="password" class="form-control" placeholder="Create a password">
+                    </div>
+                    
                 </div>
-                <div class="mb-3">
-                    <label for="password_confirmation" class="form-label">Confirm Password:</label>
-                    <input type="password" name="password_confirmation" class="form-control" placeholder="Re-enter your password">
+
+<div class="mb-3">
+    <div class="row mb-3">
+        <label for="password_confirmation" class="col-3 col-form-label">Confirm Password:</label>
+        <div class="col-4">
+            <input type="password" name="password_confirmation" class="form-control" placeholder="Re-enter your password">
+        </div>
+    </div>
+</div>
+
+                <!-- <div class="mb-3 ">
+                    <div class="row mb-3">
+                    <label for="role" class="col-3 col-form-label">User Role</label>
+                    <div class="col-4">
+                        <select name="role" id="role" class="form-control">
+                             <option value="admin">Admin</option> -->
+                            <!-- <option value="customer">Customer</option> -->
+                            <!-- <option value="employee">Employee</option> -->
+                            <!-- <option value="owner">Owner</option> 
+                        </select>
+                    </div>
+                    </div> -->
+                    <div class="mb-3 ">
+                    <div class="row mb-3">
+                <div class="col-7">
+                    <button type="submit" class="btn btn_color">Register</button>
                 </div>
-                <button type="submit" class="btn btn_color">Register</button>
+                    </div>
+                    </div>
+                
             </form>
+        </div>
+    </div>
 
             <!-- Display registration success or error message -->
             @if (Session::has('message'))

@@ -5,7 +5,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
+
 use App\Models\BookedAppointment;
+
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
@@ -88,6 +90,10 @@ Route::get('/LogIn', function () {
     return view('/project/public/login');
 });
 
+
+/*-------Starter of Customer Routes---------*/
+
+
 Route::get('/Home-Customer', function () {
     return view('/project/customer/home');
 })->name('customer.home')->middleware('customer.auth');
@@ -121,6 +127,7 @@ Route::get('/Home-Customer', function () {
     return view('/project/customer/booking');
 })->name('customer.booking');
 
+
 Route::post('/booking',function() {
     $booked_appointments = new BookedAppointment();
     $booked_appointments->fuName = request('fuName');
@@ -136,6 +143,9 @@ Route::post('/booking',function() {
 /*--------- End of Customer Routes ----------*/
 
 
+/*--------- End of Customer Routes ----------*/
+
+
 Auth::routes();
 
 Route::get('/login', [App\Http\Controllers\CustomerController::class, 'login'])->name('login');
@@ -145,17 +155,12 @@ Route::post('/login', [App\Http\Controllers\CustomerController::class, 'loginPos
 
 
 
-Route::controller(CustomerController::class)->group(function (){
-    Route::get('/AddCustomer', [App\Http\Controllers\CustomerController::class, 'AddCustomer'])->name('register');
-    Route::post('/saveCustomer','registrationPost')->name('registration.post');
-     Route::get('/verify/{token}', [App\Http\Controllers\CustomerController::class, 'verify'])->name('verification.verify');
+Route::get('/LogIn', [App\Http\Controllers\AuthController::class, 'login'])->name('Login');
+    Route::post('/LogIn', [App\Http\Controllers\AuthController::class, 'loginPost'])->name('login.post');
+
+Route::controller(AuthController::class)->group(function (){
+    Route::get('/AddUser', [App\Http\Controllers\AuthController::class, 'AddUser'])->name('register');
+    Route::post('/saveUser','registrationPost')->name('registration.post');
+    Route::get('/verify/{token}', [App\Http\Controllers\AuthController::class, 'verify'])->name('verification.verify');
+    Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 });
-// Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/home', function () {
-    return view('home', ['layout' => 'main']);
-});
-
-Route::get('/logout', [App\Http\Controllers\CustomerController::class, 'logout'])->name('logout');
