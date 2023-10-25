@@ -63,6 +63,49 @@ Route::get('/Rent', function () {
     return view('/project/public/rent');
 });
 
+/*
+Route::get('/home', function () {
+    return view('/project/admin/admin_home');
+});
+*/
+
+Route::get('/owner', function () {
+    $message = "";
+    return view('/project/owner/owner', compact('message'));
+});
+
+Route::get('/admin_home', function () {
+    $message = "";
+    return view('/project/admin/admin_home', compact('message'));
+});
+
+
+
+
+Route::get('/manage_appointment', function () {
+    return view('/project/admin/manage_appoinment');
+});
+
+Route::get('/manage_product', function () {
+    return view('/project/admin/manage_product');
+});
+
+Route::get('/view_profile', function () {
+    return view('/project/admin/view_profile');
+});
+
+Route::get('/customer_details', function () {
+    return view('/project/admin/customer_details');
+});
+
+Route::get('/manage_rented_item', function () {
+    return view('/project/admin/manage_rented_item');
+});
+
+Route::get('/setting', function () {
+    return view('/project/admin/setting');
+});
+
 
 
 Route::get('/bookingFaci', function () {
