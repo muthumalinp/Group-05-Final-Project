@@ -5,6 +5,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
+
+use App\Models\BookedAppointment;
+
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
@@ -87,7 +90,9 @@ Route::get('/LogIn', function () {
     return view('/project/public/login');
 });
 
+
 /*-------Starter of Customer Routes---------*/
+
 
 Route::get('/Home-Customer', function () {
     return view('/project/customer/home');
@@ -122,7 +127,24 @@ Route::get('/Home-Customer', function () {
     return view('/project/customer/booking');
 })->name('customer.booking');
 
+
+Route::post('/booking',function() {
+    $booked_appointments = new BookedAppointment();
+    $booked_appointments->fuName = request('fuName');
+    $booked_appointments->eMail = request('eMail');
+    $booked_appointments->nbrCode = request('nbrCode');
+    $booked_appointments->phone = request('phone');
+    $booked_appointments->contact = request('contact');
+    $booked_appointments->massage = request('massage');
+    $booked_appointments->save();
+    
+});
+
 /*--------- End of Customer Routes ----------*/
+
+
+/*--------- End of Customer Routes ----------*/
+
 
 Auth::routes();
 
