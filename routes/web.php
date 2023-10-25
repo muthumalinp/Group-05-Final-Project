@@ -1,8 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CustomerController;
-
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Models\BookedAppointment;
+use Illuminate\Auth\AuthManager;
+use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,9 +88,53 @@ Route::get('/LogIn', function () {
     return view('/project/public/login');
 });
 
-Route::get('/Home_Customer', function () {
+Route::get('/Home-Customer', function () {
     return view('/project/customer/home');
-})->name('customer_home');
+})->name('customer.home')->middleware('customer.auth');
+
+
+    Route::get('/About-Customer', function () {
+    return view('/project/customer/about');
+})->name('customer.about');
+
+    Route::get('/Services-Customer', function () {
+    return view('/project/customer/services');
+})->name('customer.services');
+
+    Route::get('/Gallery-Customer', function () {
+    return view('/project/customer/gallery');
+})->name('customer.gallery');
+
+    Route::get('/Gallery/Hair-Customer', function () {
+    return view('/project/customer/galleryhair');
+})->name('customer.hair');
+
+    Route::get('/Product-Customer', function () {
+    return view('/project/customer/product');
+})->name('customer.product');
+
+    Route::get('/Rent-Customer', function () {
+    return view('/project/customer/rent');
+})->name('customer.rent');
+
+    Route::get('/Booking-Customer', function () {
+    return view('/project/customer/booking');
+})->name('customer.booking');
+
+Route::post('/booking',function() {
+    $booked_appointments = new BookedAppointment();
+    $booked_appointments->fuName = request('fuName');
+    $booked_appointments->eMail = request('eMail');
+    $booked_appointments->nbrCode = request('nbrCode');
+    $booked_appointments->phone = request('fuName');
+    $booked_appointments->contact = request('contact');
+    $booked_appointments->massage = request('massage');
+    $booked_appointments->save();
+    
+});
+
+/*--------- End of Customer Routes ----------*/
+
 
 Auth::routes();
 

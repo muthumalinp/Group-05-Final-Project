@@ -21,8 +21,6 @@
                         <li><a href="{{url('booking')}}">Hair Cutting & Setting</a></li>
                         <li><a href="{{url('bookingDres')}}">Dressings</a></li>
 
-                        <li><a href="#">Hair Cutting & Setting</a></li>
-                        <li><a href="#">CleanUp</a></li>
 
                     </ul>
                 </div>
@@ -32,8 +30,6 @@
                         <li><a href="{{url('bookingFaci')}}">Facial & Treatments</a></li>
                         <li><a href="{{url('bookingPedi')}}">Pedicure</a></li>
 
-                        <li><a href="#">Facial & Treatments</a></li>
-                        <li><a href="#">Pedicure</a></li>
 
                     </ul>
                 </div>
@@ -53,12 +49,10 @@
 
                 <h1>Hair Cutting consultation Form</h1>
 
-                <h1>Hairdressing consultation Form</h1>
-
             </div>
 
-            <form>
-
+            <form action="/booking" method="POST">
+                @csrf
                 <div class="select">
                     <p>Select a service</p>
                 </div>
@@ -156,14 +150,12 @@
                 </div> 
                 -->
 
-            </form>
  
             <!--second forms-->            
 
 
                 <!--<div class="Horizontal_line2"></div>-->
 
-            <form>
                 
                     <!--<div class="Horizontal_line2"></div>-->
                 
@@ -201,11 +193,9 @@
                     </div>
                 -->
          
-            </form>
 
             <!--thred form-->
 
-            <form>
                 <div class="Horizontal_line1"></div>
              
                 <div class="select">
@@ -213,12 +203,13 @@
                 </div>
 
                 <div class="formContent">
+                @csrf
                     <label>Full Name :</label>
                     <input type="text" placeholder="Full Name" id="fuName" name="fuName"><br>
-
+                @csrf
                     <label>E-Mail :</label>
                     <input type="email" placeholder="E-Mail" id="eMail" name="eMail"><br>
-
+                    @csrf
                     <label>Phone No :</label>
                     <select name="nbrCode" id="nbrCode">
                         <option>+94</option>
@@ -230,13 +221,14 @@
                         <option>+91</option>
                         <option>+92</option>
                     </select>
+                    @csrf
                     <input type="phone" placeholder="Phone Number" id="phone" name="phone"><br>
-
+                    @csrf
                     <label>Preferred method of contact ?</label>
                     <input type="radio" name="contact" value="mail" id="mai"> E-Mail
                     <input type="radio" name="contact" value="phone" id="pho"> Phone
                     <br>
-
+                    @csrf
                     <label>Other details you may wish to highlight :</label>
                     <textarea id="massage" name="massage" placeholder="Your Massage" rows="5" cols="60" ></textarea><br>
                 </div>

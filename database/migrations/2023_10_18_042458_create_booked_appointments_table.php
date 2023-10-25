@@ -18,6 +18,11 @@ return new class extends Migration
             $table->string('payment_id');
             $table->string('time');
             $table->string('date');
+            $table->string('fuName');
+            $table->string('eMail');
+            $table->string('nbrCode');
+            $table->string('contact');
+            $table->string('massage');
             $table->timestamps();
         });
     }
