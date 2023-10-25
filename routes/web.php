@@ -126,7 +126,7 @@ Route::post('/booking',function() {
     $booked_appointments->fuName = request('fuName');
     $booked_appointments->eMail = request('eMail');
     $booked_appointments->nbrCode = request('nbrCode');
-    $booked_appointments->phone = request('fuName');
+    $booked_appointments->phone = request('phone');
     $booked_appointments->contact = request('contact');
     $booked_appointments->massage = request('massage');
     $booked_appointments->save();
