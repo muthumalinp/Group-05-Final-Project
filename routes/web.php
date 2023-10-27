@@ -65,6 +65,22 @@ Route::get('/Product', function () {
     return view('/project/public/product');
 });
 
+Route::get('/Product/HairStraghtening', function () {
+    return view('/project/public/producthairstr');
+});
+
+Route::get('/Product/HairColoring&Highliting', function () {
+    return view('/project/public/productcolor');
+});
+
+Route::get('/Product/HairTreatment', function () {
+    return view('/project/public/producthairt');
+});
+
+Route::get('/Product/Facial&CleanUp', function () {
+    return view('/project/public/productfacial');
+});
+
 Route::get('/Rent', function () {
     return view('/project/public/rent');
 });

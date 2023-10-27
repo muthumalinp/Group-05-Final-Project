@@ -14,10 +14,15 @@
 <body id="conta">
     <div class="container">
         <div class="row">
-            <div id="con" class="col-12">
+            <div class="col-md-12">
                 <h1 id="a text-center">
                     Products
                 </h1>
+
+                <a href="/Product/HairStraghtening">
+                    <button class="btn">BUY NOW</button>
+                </a>
+
             </div>
         </div><!--//row header-->
 

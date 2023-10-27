@@ -1,0 +1,117 @@
+* { margin: 0; padding: 0; }
+
+.clearfix { overflow: auto }
+ a{ text-decoration: none; color: black;}
+
+.mainFrame{
+    width: 1024px;
+    margin: auto;
+    background: #e8d3d3 ;
+}
+
+.topMain{
+    width: 1024px;
+}
+
+div.topMain div.topMainHead{
+    margin-top: 20px;
+    margin-bottom: 80px;
+    text-align: center;
+    width: 1024px;
+    height: 58px;
+    font-family: Inter;
+    font-size: 30px;
+    letter-spacing: 0;
+}
+
+.topMainTail{
+    width: 1024px;
+    margin-top: 30px;
+}
+
+.HeadLink_Left{
+    width: 500px;
+    float: left;
+}
+
+.HeadLink_Left ul{
+    margin: 15px;
+    list-style: none;
+}
+
+.HeadLink_Left ul li{
+    padding: 50px 10px 50px 50px;
+    margin: 20px 20px 50px 20px;
+    background-color: #fcf8f8;
+    border-radius: 30px;
+}
+
+.HeadLink_Left ul li a{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+}
+.HeadLink_Left ul li:hover{
+    background: #b78e8e;
+}
+
+.HeadLink_Left ul li a:hover{
+    color: white;
+}
+
+.HeadLink_Right{
+    width: 500px;
+    float: right;
+}
+
+.HeadLink_Right ul{
+    margin: 15px;
+    list-style: none;
+}
+
+.HeadLink_Right ul li{
+    padding: 50px 10px 50px 50px;
+    margin: 20px 20px 50px 20px;
+    background-color: #fcf8f8;
+    border-radius: 30px;
+}
+
+.HeadLink_Right ul li a{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+}
+.HeadLink_Right ul li:hover{
+    background: #b78e8e;
+}
+
+.HeadLink_Right ul li a:hover{
+    color: white;
+}
+
+.Horizontal_line1{
+    border:1px solid rgb(0, 0, 0);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+
+
+
+
+btn1{
+    width: 200px;
+    height: 45px;
+    background: #333;
+    border: 0;
+    outline: 0;
+    border-radius: 40px;
+    box-shadow: 0 0 10px black;
+    cursor: pointer;
+    font-size: 16px;
+    color: azure;
+    font-weight: 600;
+    margin: 20px 0 50px 400px;
+}
