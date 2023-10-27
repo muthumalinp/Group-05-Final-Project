@@ -6,6 +6,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+
+
+use App\Models\BookedAppointment;
+
+
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
@@ -64,6 +69,49 @@ Route::get('/Rent', function () {
     return view('/project/public/rent');
 });
 
+/*
+Route::get('/home', function () {
+    return view('/project/admin/admin_home');
+});
+*/
+
+Route::get('/owner', function () {
+    $message = "";
+    return view('/project/owner/owner', compact('message'));
+});
+
+Route::get('/admin_home', function () {
+    $message = "";
+    return view('/project/admin/admin_home', compact('message'));
+});
+
+
+
+
+Route::get('/manage_appointment', function () {
+    return view('/project/admin/manage_appoinment');
+});
+
+Route::get('/manage_product', function () {
+    return view('/project/admin/manage_product');
+});
+
+Route::get('/view_profile', function () {
+    return view('/project/admin/view_profile');
+});
+
+Route::get('/customer_details', function () {
+    return view('/project/admin/customer_details');
+});
+
+Route::get('/manage_rented_item', function () {
+    return view('/project/admin/manage_rented_item');
+});
+
+Route::get('/setting', function () {
+    return view('/project/admin/setting');
+});
+
 
 
 Route::get('/bookingFaci', function () {
@@ -88,11 +136,19 @@ Route::get('/LogIn', function () {
     return view('/project/public/login');
 });
 
+
 /*-------Starter of Customer Routes---------*/
+
 
 Route::get('/Dashboard-Customer', function () {
     return view('/project/customer/dashboard');
 })->name('customer.dashboard');
+
+
+Route::get('/Home-Customer', function () {
+    return view('/project/customer/home');
+})->name('customer.home')->middleware('customer.auth');
+
 
 
     Route::get('/About-Customer', function () {
@@ -123,6 +179,7 @@ Route::get('/Dashboard-Customer', function () {
     return view('/project/customer/booking');
 })->name('customer.booking');
 
+
 Route::get('/edit-profile', 'ProfileController@edit')->name('edit-profile');
 
 /*--------- End of Customer Routes ----------*/
@@ -134,6 +191,28 @@ Route::get('/Dashboard-Admin', function () {
 })->name('admin.dashboard');
 
 /*-------- End of Admin Routes ----------*/
+
+
+Route::post('/booking',function() {
+    $booked_appointments = new BookedAppointment();
+    $booked_appointments->fuName = request('fuName');
+    $booked_appointments->eMail = request('eMail');
+    $booked_appointments->nbrCode = request('nbrCode');
+    $booked_appointments->phone = request('phone');
+    $booked_appointments->contact = request('contact');
+    $booked_appointments->massage = request('massage');
+    $booked_appointments->save();
+    
+});
+
+/*--------- End of Customer Routes ----------*/
+
+
+/*--------- End of Customer Routes ----------*/
+
+
+Auth::routes();
+
 
 /*-------- Starter of Owner Routes ---------*/
 
