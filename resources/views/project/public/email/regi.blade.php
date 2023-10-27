@@ -1,17 +1,18 @@
 @component('mail::message')
-    <p>Hello {{ $customer->customer_fname }} {{ $customer->customer_lname }}</p>
+# Email Verification
 
-    @if ($customer->remember_token)
-        @component('mail::button', ['url' => route('verification.verify', ['token' => $customer->remember_token])])
-            Verify
-        @endcomponent
-    @else
-        <p>Token missing for email verification.</p>
-    @endif
+Hello {{ $customer->customer_fname }} {{ $customer->customer_lname }},
 
-    <p>In case you have issues, please contact us.</p>
+Please click the "Verify" button to verify your email address:
 
-    Thanks,<br/>
-    {{ config('app.name') }}
+@component('mail::button', ['url' => route('verification.verify', ['token' => $customer->remember_token])])
+Verify
+@endcomponent
 
+If you're unable to click the "Verify" button, you can copy and paste the following URL into your browser's address bar: [{{ route('verification.verify', ['token' => $customer->remember_token]) }}]({{ route('verification.verify', ['token' => $customer->remember_token]) }})
+
+If you didn't request this verification, please ignore this email.
+
+Thanks,<br>
+{{ config('app.name') }}
 @endcomponent

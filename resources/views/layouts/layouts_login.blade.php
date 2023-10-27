@@ -20,23 +20,11 @@
         } */
 
 
-        /* #t {
-
         
-        #t {
-
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            border-radius: 10px;
+/*        #t {
 
             background-color: #E1A954;
         } */
-
-            /*background-color: #E1A954;*/
-        }
-        
-
 
         #v {
             color: #000;

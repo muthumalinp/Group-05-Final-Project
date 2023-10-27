@@ -49,6 +49,7 @@
 
                 <h1>Hair Cutting consultation Form</h1>
 
+
             </div>
 
             <form action="/booking" method="POST">
@@ -144,12 +145,6 @@
                 </div>
                 
 
-
-
-                </div>
-                
-
-
                 <!-- 
                     <div class="tailButn">
                     <button type="submit" class="btn1">Next</button>
@@ -160,13 +155,11 @@
             <!--second forms-->            
 
 
-
                 <!--<div class="Horizontal_line2"></div>-->
 
                 
                     <!--<div class="Horizontal_line2"></div>-->
                 
-
                 
                 <div class="select">
                     <p>Please select an appointment bellow</p>
