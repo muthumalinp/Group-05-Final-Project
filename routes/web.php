@@ -5,8 +5,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+
 
 use App\Models\BookedAppointment;
+
 
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
@@ -62,8 +65,67 @@ Route::get('/Product', function () {
     return view('/project/public/product');
 });
 
+Route::get('/Product/HairStraghtening', function () {
+    return view('/project/public/producthairstr');
+});
+
+Route::get('/Product/HairColoring&Highliting', function () {
+    return view('/project/public/productcolor');
+});
+
+Route::get('/Product/HairTreatment', function () {
+    return view('/project/public/producthairt');
+});
+
+Route::get('/Product/Facial&CleanUp', function () {
+    return view('/project/public/productfacial');
+});
+
 Route::get('/Rent', function () {
     return view('/project/public/rent');
+});
+
+/*
+Route::get('/home', function () {
+    return view('/project/admin/admin_home');
+});
+*/
+
+Route::get('/owner', function () {
+    $message = "";
+    return view('/project/owner/owner', compact('message'));
+});
+
+Route::get('/admin_home', function () {
+    $message = "";
+    return view('/project/admin/admin_home', compact('message'));
+});
+
+
+
+
+Route::get('/manage_appointment', function () {
+    return view('/project/admin/manage_appoinment');
+});
+
+Route::get('/manage_product', function () {
+    return view('/project/admin/manage_product');
+});
+
+Route::get('/view_profile', function () {
+    return view('/project/admin/view_profile');
+});
+
+Route::get('/customer_details', function () {
+    return view('/project/admin/customer_details');
+});
+
+Route::get('/manage_rented_item', function () {
+    return view('/project/admin/manage_rented_item');
+});
+
+Route::get('/setting', function () {
+    return view('/project/admin/setting');
 });
 
 
@@ -94,9 +156,15 @@ Route::get('/LogIn', function () {
 /*-------Starter of Customer Routes---------*/
 
 
+Route::get('/Dashboard-Customer', function () {
+    return view('/project/customer/dashboard');
+})->name('customer.dashboard');
+
+
 Route::get('/Home-Customer', function () {
     return view('/project/customer/home');
 })->name('customer.home')->middleware('customer.auth');
+
 
 
     Route::get('/About-Customer', function () {
@@ -128,6 +196,19 @@ Route::get('/Home-Customer', function () {
 })->name('customer.booking');
 
 
+Route::get('/edit-profile', 'ProfileController@edit')->name('edit-profile');
+
+/*--------- End of Customer Routes ----------*/
+
+/*-------- Starter of Admin Routes ---------*/
+
+Route::get('/Dashboard-Admin', function () {
+    return view('/project/admin/dashboard');
+})->name('admin.dashboard');
+
+/*-------- End of Admin Routes ----------*/
+
+
 Route::post('/booking',function() {
     $booked_appointments = new BookedAppointment();
     $booked_appointments->fuName = request('fuName');
@@ -148,19 +229,32 @@ Route::post('/booking',function() {
 
 Auth::routes();
 
-Route::get('/login', [App\Http\Controllers\CustomerController::class, 'login'])->name('login');
-Route::post('/login', [App\Http\Controllers\CustomerController::class, 'loginPost'])->name('login.post');
 
+/*-------- Starter of Owner Routes ---------*/
 
+Route::get('/Dashboard-Owner', function () {
+    return view('/project/owner/dashboard');
+})->name('owner.dashboard');
 
+/*-------- End of Owner Routes ----------*/
 
+/*-------- Starter of Employee Routes ---------*/
 
-Route::get('/LogIn', [App\Http\Controllers\AuthController::class, 'login'])->name('Login');
-    Route::post('/LogIn', [App\Http\Controllers\AuthController::class, 'loginPost'])->name('login.post');
+Route::get('/Dashboard-Employee', function () {
+    return view('/project/employee/dashboard');
+})->name('employee.dashboard');
 
-Route::controller(AuthController::class)->group(function (){
-    Route::get('/AddUser', [App\Http\Controllers\AuthController::class, 'AddUser'])->name('register');
+/*-------- End of Employee Routes ----------*/
+
+Auth::routes();
+
+    Route::get('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('Login');
+    Route::post('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'loginPost'])->name('login.post');
+    Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+Route::controller(RegisterController::class)->group(function (){
+    Route::get('/AddUser', [App\Http\Controllers\Auth\RegisterController::class, 'AddUser'])->name('register');
     Route::post('/saveUser','registrationPost')->name('registration.post');
-    Route::get('/verify/{token}', [App\Http\Controllers\AuthController::class, 'verify'])->name('verification.verify');
-    Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+    Route::get('/verify/{token}', [App\Http\Controllers\Auth\RegisterController::class, 'verify'])->name('verification.verify');
+    
 });

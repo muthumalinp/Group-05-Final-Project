@@ -43,7 +43,6 @@
                         <li class="nav-item nav">
                             <a class="nav-link" href="/Booking">Book Now</a>
                         </li>
-
                         <li class="nav-item nav ">
                             <a class="nav-link" href="/LogIn">LogIn</a>
                         </li>
@@ -60,11 +59,7 @@
         @yield('cont')
     </div>
 
-
-        <!-- Remove the container if you want to extend the Footer to full width. -->
-
     <!-- Remove the container if you want to extend the Footer to full width. -->
-
 <div class=" my-5">
   <!-- Footer -->
   <footer
