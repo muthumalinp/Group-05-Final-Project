@@ -66,7 +66,7 @@
                                         <td>$value[price]</td>
                                         <td><input class='taxt-center' type='number' value='$value[Quantity]' min='1' max='10'></td>
                                         <td>
-                                            <form action='/Product/Cart' method='GET'>
+                                            <form action='/Product/ManageCart' method='GET'>
                                                  <button name='Remove_Item' class='btn btn-sm btn-outline-danger'>Remove</button>
                                                  <input type='hidden' name='desc' value='$value[desc]'>
                                             </form>
@@ -85,7 +85,7 @@
             <div class="col-lg-3">
                 <div class="border bg-light rounded p-4">
                     <h4>Total:</h4>
-                    <h5 class=""text-right><?php echo $total?></h5>
+                    <h5 class="text-right"><?php echo $total ?></h5>
                     <br>
                     <form>
 
@@ -99,6 +99,7 @@
                         <button class="btn btn-primary btn-block">Make Purchase</button>
                     </form>
                 </div>
+                        </div>
             </div>
 
         </div>
