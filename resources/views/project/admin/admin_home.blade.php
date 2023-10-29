@@ -27,7 +27,7 @@
                 </nav>
         </aside>
         
-        <p>{{ $message }}</p>
+       
         
 
         <main>
