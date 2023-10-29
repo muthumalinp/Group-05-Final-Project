@@ -96,10 +96,10 @@ Route::get('/owner', function () {
     return view('/project/owner/owner', compact('message'));
 });
 
-Route::get('/admin_home', function () {
+/*Route::get('/admin_home', function () {
     $message = "";
     return view('/project/admin/admin_home', compact('message'));
-});
+});*/
 
 
 
@@ -203,7 +203,7 @@ Route::get('/edit-profile', 'ProfileController@edit')->name('edit-profile');
 /*-------- Starter of Admin Routes ---------*/
 
 Route::get('/Dashboard-Admin', function () {
-    return view('/project/admin/dashboard');
+    return view('/project/admin/admin_home');
 })->name('admin.dashboard');
 
 /*-------- End of Admin Routes ----------*/
