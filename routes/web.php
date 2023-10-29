@@ -81,6 +81,15 @@ Route::get('/Product/Facial&CleanUp', function () {
     return view('/project/public/productfacial');
 });
 
+
+Route::get('/Product/Cart', function () {
+    return view('/project/public/cart');
+});
+
+Route::get('/Product/ManageCart', function () {
+    return view('/project/public/managecart');
+});
+
 Route::get('/Rent', function () {
     return view('/project/public/rent');
 });
