@@ -253,6 +253,8 @@ Route::get('/Dashboard-Owner', function () {
     return view('/project/owner/dashboard');
 })->name('owner.dashboard');
 
+
+
 /*-------- End of Owner Routes ----------*/
 
 /*-------- Starter of Employee Routes ---------*/
