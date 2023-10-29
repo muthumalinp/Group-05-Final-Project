@@ -70,6 +70,21 @@
                     }
                 }
             }
+            if(isset($_GET['Remove_Item']))
+            {
+                foreach($_SESSION['cart'] as $key => $value)
+                {
+                    if($value['desc']=$_GET['desc'])
+                    {                        
+                        unset($_SESSION['cart'][$key]);
+                        $_SESSION['cart']=array_values($_SESSION['cart']);
+                        echo"<script>
+                            alert('Item Removed');
+                        window.location.href='/Product/Cart';
+                             </script>";
+                    }
+                }
+            }
         }
     ?>
 
