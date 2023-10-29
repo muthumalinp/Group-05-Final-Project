@@ -191,6 +191,14 @@ Route::get('/Home-Customer', function () {
     return view('/project/customer/rent');
 })->name('customer.rent');
 
+Route::get('/rentbridalwr', function () {
+    return view('/project/public/rentbridalwr');
+});
+
+Route::get('/rentbridalwrgl', function () {
+    return view('/project/public/rentbridalwrgl');
+});
+
     Route::get('/Booking-Customer', function () {
     return view('/project/customer/booking');
 })->name('customer.booking');
