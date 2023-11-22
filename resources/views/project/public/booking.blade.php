@@ -21,6 +21,10 @@
                         <li><a href="{{url('booking')}}">Hair Cutting & Setting</a></li>
                         <li><a href="{{url('bookingDres')}}">Color</a></li>
 
+<<<<<<< Updated upstream
+=======
+                        
+>>>>>>> Stashed changes
 
                     </ul>
                 </div>
@@ -30,6 +34,10 @@
                         <li><a href="{{url('bookingFaci')}}">Finish && Treats</a></li>
                         <li><a href="{{url('bookingPedi')}}">Nail Treats</a></li>
 
+<<<<<<< Updated upstream
+=======
+                        
+>>>>>>> Stashed changes
 
                     </ul>
                 </div>
@@ -49,6 +57,10 @@
 
                 <h1>Hair Cutting consultation Form</h1>
 
+<<<<<<< Updated upstream
+=======
+                
+>>>>>>> Stashed changes
 
             </div>
 
@@ -64,15 +76,22 @@
                             <li>
                                 <label for="col">Boy Child(11-16) : </label>
                                     <select name="cut" id="cut">
+<<<<<<< Updated upstream
                                         <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
                                         <option value="muthu"><a href="#">Muthu:$20.00</a></option>
                                         <option value="malki"><a href="#">Malki:$30.00</a></option>
                                         <option value="harini"><a href="#">Harini:$40.00</a></option>
                                         <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+=======
+                                        <option value="Child"><a href="#">Small Hair : Rs.500.00</a></option>
+                                        <option value="Ladies"><a href="#">Medium Hair : Rs.1000.00</a></option>
+                                        <option value="Gents"><a href="#">Hair : Rs.1500.00</a></option>
+>>>>>>> Stashed changes
                                     </select>
                             </li>
         
                             <li>    
+<<<<<<< Updated upstream
                             <label for="col">Girl Child(11-16) : </label>
                                     <select name="cut" id="cut">
                                         <option value="Any1"><a href="#">Any Stylist:$25.00</a></option>
@@ -81,6 +100,13 @@
                                         <option value="harini"><a href="#">Harini:$50.00</a></option>
                                         <option value="dil"><a href="#">Dilshani:$60.00</a></option>
                                     </select>
+=======
+                                <label for="col">Coloring : </label>
+                                <select name="col" id="col">
+                                    <option value="Ladies"><a href="#">Small Hair : Rs.500.00</a></option>
+                                    <option value="Gents"><a href="#">Medium Hair : Rs.1000.00</a></option>
+                                </select>
+>>>>>>> Stashed changes
                             </li>
 
                             <li>    
