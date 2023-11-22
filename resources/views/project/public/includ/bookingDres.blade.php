@@ -41,7 +41,7 @@
                 <h1>COLORING consultation Form</h1>
             </div>
 
-            <form>
+            <form action="/bookingDres" method="POST">
 
                 <div class="select">
                     <p>Select a service</p>
@@ -49,6 +49,7 @@
 
                 <div class="mainSevies">
                     <div class="middle_left1">
+                    @csrf
                         <ul>
                             <li>
                             <label for="col">Add On Tint : </label>
@@ -208,12 +209,15 @@
                 </div>
 
                 <div class="formContent">
+                @csrf
                     <label>Full Name :</label>
                     <input type="text" placeholder="Full Name" id="fuName" name="fuName"><br>
-
+                    
+                    @csrf
                     <label>E-Mail :</label>
                     <input type="email" placeholder="E-Mail" id="eMail" name="eMail"><br>
 
+                    @csrf
                     <label>Phone No :</label>
                     <select name="nbrCode" id="nbrCode">
                         <option>+94</option>
@@ -225,17 +229,18 @@
                         <option>+91</option>
                         <option>+92</option>
                     </select>
+                    @csrf
                     <input type="phone" placeholder="Phone Number" id="phone" name="phone"><br>
-
+                    @csrf
                     <label>Preferred method of contact ?</label>
                     <input type="radio" name="contact" value="mail" id="mai"> E-Mail
                     <input type="radio" name="contact" value="phone" id="pho"> Phone
                     <br>
-
+                    @csrf
                     <label>Other details you may wish to highlight :</label>
                     <textarea id="massage" name="massage" placeholder="Your Massage" rows="5" cols="60" ></textarea><br>
                 </div>
-
+                @csrf
                 <div class="tailButn">
                     <button type="submit">Submit</button>
                 </div>

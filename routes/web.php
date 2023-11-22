@@ -9,8 +9,6 @@ use App\Http\Controllers\Auth\RegisterController;
 
 
 use App\Models\BookedAppointment;
-
-
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
@@ -208,8 +206,9 @@ Route::get('/Dashboard-Admin', function () {
 
 /*-------- End of Admin Routes ----------*/
 
-
+/*-------- Starter of Booking form database table ---------*/
 Route::post('/booking',function() {
+
     $booked_appointments = new BookedAppointment();
     $booked_appointments->fuName = request('fuName');
     $booked_appointments->eMail = request('eMail');
@@ -220,6 +219,13 @@ Route::post('/booking',function() {
     $booked_appointments->save();
     
 });
+/*--------- End of Booking form database table ----------*/
+
+
+
+
+
+
 
 /*--------- End of Customer Routes ----------*/
 
