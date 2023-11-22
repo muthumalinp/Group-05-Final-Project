@@ -305,8 +305,10 @@
             </div>
 
     <div class="btn2">
+        <a href ="{{url('rentbridalwr')}}">
     <img src="{{ asset('css/Customer/Rent/hnda.jpg') }}" alt="Salon" class="hnda1" style="width: 60px;height: 60px; flex-shrink: 0; border-radius: 90px;">
     <button type="button" class="btn btn-outline-dark"><h3>Please Rent</h3></button>
+        </a>
     </div>
    
 

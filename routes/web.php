@@ -79,6 +79,15 @@ Route::get('/Product/Facial&CleanUp', function () {
     return view('/project/public/productfacial');
 });
 
+
+Route::get('/Product/Cart', function () {
+    return view('/project/public/cart');
+});
+
+Route::get('/Product/ManageCart', function () {
+    return view('/project/public/managecart');
+});
+
 Route::get('/Rent', function () {
     return view('/project/public/rent');
 });
@@ -94,10 +103,10 @@ Route::get('/owner', function () {
     return view('/project/owner/owner', compact('message'));
 });
 
-Route::get('/admin_home', function () {
+/*Route::get('/admin_home', function () {
     $message = "";
     return view('/project/admin/admin_home', compact('message'));
-});
+});*/
 
 
 
@@ -189,6 +198,14 @@ Route::get('/Home-Customer', function () {
     return view('/project/customer/rent');
 })->name('customer.rent');
 
+Route::get('/rentbridalwr', function () {
+    return view('/project/public/rentbridalwr');
+});
+
+Route::get('/rentbridalwrgl', function () {
+    return view('/project/public/rentbridalwrgl');
+});
+
     Route::get('/Booking-Customer', function () {
     return view('/project/customer/booking');
 })->name('customer.booking');
@@ -201,7 +218,7 @@ Route::get('/edit-profile', 'ProfileController@edit')->name('edit-profile');
 /*-------- Starter of Admin Routes ---------*/
 
 Route::get('/Dashboard-Admin', function () {
-    return view('/project/admin/dashboard');
+    return view('/project/admin/admin_home');
 })->name('admin.dashboard');
 
 /*-------- End of Admin Routes ----------*/
@@ -241,6 +258,8 @@ Auth::routes();
 Route::get('/Dashboard-Owner', function () {
     return view('/project/owner/dashboard');
 })->name('owner.dashboard');
+
+
 
 /*-------- End of Owner Routes ----------*/
 

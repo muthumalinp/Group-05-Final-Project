@@ -21,6 +21,19 @@
    
 }
 
+#btn{
+    margin-top: 30px;
+    padding: 15px 30px;
+    border: none;
+    background-color: #f63e4e;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: right;
+
+}
+
 .b{
     color: #F2AA3D;
     font-family: Inter;
