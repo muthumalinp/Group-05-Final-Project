@@ -77,7 +77,7 @@
                            <h5>Full Name</h5>
                         </div>
                         <div class="col-md-9 text-secondary">
-                           Muthumali
+                           Example Owner
                         </div>
                      </div>
                      <hr>
@@ -86,7 +86,7 @@
                            <h5>Email</h5>
                         </div>
                         <div class="col-md-9 text-secondary">
-                           muthumalinp@gmail.com
+                           owner@example.com
                         </div>
                      </div>
                      <hr>
@@ -95,7 +95,7 @@
                            <h5>Phone Number</h5>
                         </div>
                         <div class="col-md-9 text-secondary">
-                           070-2016166
+                           070-257983135
                         </div>
                      </div>                        
                      <hr>
