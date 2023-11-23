@@ -140,6 +140,9 @@ Route::get('/setting', function () {
 Route::get('/bookingFaci', function () {
     return view('/project/public/includ/bookingFaci');
 });
+Route::get('/bookingHair', function () {
+    return view('/project/public/includ/bookingHair');
+});
 Route::get('/bookingDres', function () {
     return view('/project/public/includ/bookingDres');
 });
