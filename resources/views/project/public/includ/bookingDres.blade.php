@@ -15,7 +15,7 @@
             <div class="topMainTail clearfix">
                 <div class="HeadLink_Left">
                     <ul>
-                        <li><a href="{{url('booking')}}">Hair Cutting & Setting</a></li>
+                        <li><a href="{{url('bookingHair')}}">Hair Cutting & Setting</a></li>
                         <li><a href="{{url('bookingDres')}}">Color</a></li>
                     </ul>
                 </div>
