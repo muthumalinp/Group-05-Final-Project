@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ShowController;
+use App\Http\Controllers\EmployeeController;
 
 
 use App\Models\BookedAppointment;
@@ -255,7 +256,7 @@ Route::get('/Dashboard-Owner', function () {
     return view('/project/owner/dashboard');
 })->name('owner.dashboard');
 
-
+Route::resource("/employee", EmployeeController::class);
 
 /*-------- End of Owner Routes ----------*/
 
