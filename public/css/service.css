@@ -4,7 +4,7 @@
 }
 
 .container {
-    max-width: 1170px;
+    max-width: 170px;
 }
 
 #ho_shad:hover.services_box figure img {
@@ -58,13 +58,9 @@
     color: #fff;
 }
 
-.col-hgt{
-    height: 50%;
-}
-
-#sz{
+/*#sz{
     width: 300px;
     height: 200px;
     position: relative;
 }
-
+*/
