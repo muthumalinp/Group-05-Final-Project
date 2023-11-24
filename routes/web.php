@@ -6,9 +6,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ShowController;
 
 
 use App\Models\BookedAppointment;
+
+
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
@@ -286,3 +289,5 @@ Route::controller(RegisterController::class)->group(function (){
     Route::get('/verify/{token}', [App\Http\Controllers\Auth\RegisterController::class, 'verify'])->name('verification.verify');
     
 });
+
+Route::get('/customer_details',[ShowController::class,'show']);
