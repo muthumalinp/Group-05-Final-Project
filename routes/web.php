@@ -38,14 +38,13 @@ Route::get('/', function () {
     return view('/project/public/home');
 })->name('home');
 
-/*Route::get('/Home', function () {
+Route::get('/Home', function () {
     return view('/project/public/home');
 });
-*/
 
-Route::get('/Home', function () {
+/*Route::get('/Home', function () {
     return view('/project/owner/owner');
-});
+});*/
 
 Route::get('/About', function () {
     return view('/project/public/about');
@@ -106,6 +105,7 @@ Route::get('/owner', function () {
     $message = "";
     return view('/project/owner/owner', compact('message'));
 });
+
 
 /*Route::get('/admin_home', function () {
     $message = "";
