@@ -61,7 +61,7 @@
                                         <option value="Any1">Any Stylist:$15.00</option>
                                         <option value="muthu">Muthu:$20.00</option>
                                         <option value="malki">Malki:$30.00</option>
-                                        <option value="harini">>Harini:$40.00</option>
+                                        <option value="harini">Harini:$40.00</option>
                                         <option value="dil">Dilshani:$50.00</option>
 
                                     </select>
