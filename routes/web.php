@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ShowController;
+use App\Http\Controllers\EmployeeController;
 
 
 use App\Models\BookedAppointment;
@@ -37,14 +38,13 @@ Route::get('/', function () {
     return view('/project/public/home');
 })->name('home');
 
-/*Route::get('/Home', function () {
+Route::get('/Home', function () {
     return view('/project/public/home');
 });
-*/
 
-Route::get('/Home', function () {
+/*Route::get('/Home', function () {
     return view('/project/owner/owner');
-});
+});*/
 
 Route::get('/About', function () {
     return view('/project/public/about');
@@ -105,6 +105,7 @@ Route::get('/owner', function () {
     $message = "";
     return view('/project/owner/owner', compact('message'));
 });
+
 
 /*Route::get('/admin_home', function () {
     $message = "";
@@ -265,7 +266,7 @@ Route::get('/Dashboard-Owner', function () {
     return view('/project/owner/dashboard');
 })->name('owner.dashboard');
 
-
+Route::resource("/employee", EmployeeController::class);
 
 /*-------- End of Owner Routes ----------*/
 
