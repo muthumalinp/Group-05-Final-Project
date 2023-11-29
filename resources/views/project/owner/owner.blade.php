@@ -17,10 +17,13 @@
             <div class="Header">Dashboard</div>
             <div class="info">
                <div class="dash_btn">
-               <button type="button" class="btn btn-light">Employee</button>
-               <button type="button" class="btn btn-light">Product</button>
-               <button type="button" class="btn btn-light">Service</button>
+                  <!--<button type="button" class="btn btn-light">Employee</button>-->
+                  <button type="button" class="btn btn-light"><a href="{{ route('project.owner.Employee.index') }}" class="btn btn-primary">Employee</a></button>
+                  <button type="button" class="btn btn-light"><a href="{{ route('project.owner.Employee.index') }}" class="btn btn-primary">Product</a></button>
+                  <button type="button" class="btn btn-light"><a href="{{ route('project.owner.service.index') }}" class="btn btn-primary">Service</a></button>
                </div>
+
+               
                <div  class="content">A good example of a paragraph contains a topic sentence,
                    details and a conclusion. 'There are many different kinds of animals that live in China. 
                    Tigers and leopards are animals that live in China's forests in the north.
