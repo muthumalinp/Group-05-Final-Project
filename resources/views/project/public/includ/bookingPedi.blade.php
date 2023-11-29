@@ -3,6 +3,10 @@
 <head>
 
     <link rel="stylesheet" type="text/css" href="css\Customer\Booking\caseCSS.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Appoinment</title>
 </head>
 <body>
@@ -41,8 +45,8 @@
                 <h1>NAIL SERVICES consultation Form</h1>
             </div>
 
-            <form action="\includ\bookingPedi.blade.php" method="POST">
-
+            <form action="/booking" method="post" class="employee-form">
+                @csrf
                 <div class="select">
                     <p>Select a service</p>
                 </div>
@@ -53,24 +57,26 @@
                             <li>
                             @csrf
                             <label for="col">Complex Design : </label>
-                                    <select name="cut" id="cut">
-                                        <option value="Any1"><a href="#">Any Stylist:$18.00</a></option>
-                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
-                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
-                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
-                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                                    <select name="ped1" id="ped1">
+                                        <option>Any Stylist:$18.00</option>
+                                        <option>Muthu:$20.00</option>
+                                        <option>Malki:$30.00</option>
+                                        <option>Harini:$40.00</option>
+                                        <option>Dilshani:$50.00</option>
                                     </select>
+                                    <button type="submit" class="butX">Book Now</button>
                             </li>
         
                             <li>    
                             <label for="col">Hand Painted : </label>
-                                    <select name="cut" id="cut">
-                                        <option value="Any1"><a href="#">Any Stylist:$38.00</a></option>
-                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
-                                        <option value="malki"><a href="#">Malki:$40.00</a></option>
-                                        <option value="harini"><a href="#">Harini:$45.00</a></option>
-                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                                    <select name="ped2" id="ped2">
+                                        <option>Any Stylist:$38.00</option>
+                                        <option>Muthu:$20.00</option>
+                                        <option>Malki:$40.00</option>
+                                        <option>Harini:$45.00</option>
+                                        <option>Dilshani:$50.00</option>
                                     </select>
+                                    <button type="submit" class="butX">Book Now</button>
                             </li>
                         </ul>
                     </div><!--muddle-left2-->
@@ -79,24 +85,26 @@
                         <ul>
                             <li>
                             <label for="col">Get Removal : </label>
-                                    <select name="cut" id="cut">
-                                        <option value="Any1"><a href="#">Any Stylist:$18.00</a></option>
-                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
-                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
-                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
-                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                                    <select name="ped3" id="ped3">
+                                        <option>Any Stylist:$18.00</option>
+                                        <option>Muthu:$20.00</option>
+                                        <option>Malki:$30.00</option>
+                                        <option>Harini:$40.00</option>
+                                        <option>Dilshani:$50.00</option>
                                     </select>
+                                    <button type="submit" class="butX">Book Now</button>
                             </li>
 
                             <li>    
                             <label for="col">Pedicure : </label>
-                                    <select name="cut" id="cut">
-                                        <option value="Any1"><a href="#">Any Stylist:$18.00</a></option>
-                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
-                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
-                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
-                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                                    <select name="ped4" id="ped4">
+                                        <option>Any Stylist:$18.00</option>
+                                        <option>Muthu:$20.00</option>
+                                        <option>Malki:$30.00</option>
+                                        <option>Harini:$40.00</option>
+                                        <option>Dilshani:$50.00</option>
                                     </select>
+                                    <button type="submit" class="butX">Book Now</button>
                             </li>
                         </ul>
                         
@@ -109,9 +117,6 @@
                     <button type="submit" class="btn1">Next</button>
                 </div> 
                 -->
-
-            
- 
             <!--second forms-->            
 
             
@@ -119,7 +124,7 @@
                     <!--<div class="Horizontal_line2"></div>-->
                 
                 
-                <div class="select">
+                    <div class="select">
                     <p>Please select an appointment bellow</p>
                 </div>
         
@@ -142,7 +147,12 @@
                             <div class="box"><a href="#">7.30 PM</a></div>
                         </div>
                     </span>
+
+                    @csrf
+                    <label>Last Name :</label>
+                    <input type="text" placeholder="Full Name" id="laName" name="laName"><br>
                 </div>
+                
         
                 <!--
                     <div class="tailButn">
@@ -150,15 +160,13 @@
                     <button type="button">Next</button>
                     </div>
                 -->
-         
-            
 
-            <!--thred form-->
+                <!--thred form-->
 
             
-                <div class="Horizontal_line1"></div>
+
              
-                <div class="select">
+        <div class="select">
                     <p>Personal Information</p>
                 </div>
 
