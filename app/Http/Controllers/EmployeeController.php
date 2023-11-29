@@ -4,18 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use Illuminate\Support\Facades\Hash;
+
+use App\Mail\EmployeeRegistered;
+use Illuminate\Support\Facades\Mail;
 
 class EmployeeController extends Controller
 {
     protected $employee;
-    public function __construct(){
-        $this->employee = new Employee();
+
+    public function __construct(Employee $employee){
+        $this->employee = $employee;
         
     }
     public function index()
     {
         $response['employees'] = $this->employee->all();
         return view('project.owner.Employee.index')->with($response);
+
     }
     
     public function store(Request $request)
@@ -42,5 +48,39 @@ class EmployeeController extends Controller
         $employee->delete();
         return redirect('employee');
     }
+/*
+    public function showBlade()
+    {
+        return view('your.blade.view');
+    }
+*/
+
+    public function registerEmployee(Request $request)
+    {
+        // employee registration logic...
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|unique:employees,email',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        // Create a new employee record
+        $employee = Employee::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+        ]);
+
+        // Send the email
+        $employeeData = ['name' => $employee->fname, 'email' => $employee->email];
+        Mail::to($employee->email)->send(new EmployeeRegistered($employeeData));
+
+        // return a response...
+        return response()->json(['message' => 'Employee registered successfully'], 201);
+    }
+
+
+
+
 
 }

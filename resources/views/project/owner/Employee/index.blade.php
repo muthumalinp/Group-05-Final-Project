@@ -55,6 +55,7 @@
                             <input type="text" class="form-control" name="emp_rewards">
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-md-12 mt-3">
                             <input type="submit" class="btn btn-primary" value="Register">
@@ -67,7 +68,7 @@
                 <table class="table mt-5">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
                         <th scope="col">First Name</th>
                         <th scope="col">Lastst Name</th>
                         <th scope="col">Job Title</th>
@@ -120,7 +121,6 @@
     </div>
 
 @endsection
-
 
 @push('css')
     <style>
