@@ -13,7 +13,6 @@ use App\Http\Controllers\EmployeeController;
 use App\Models\BookedAppointment;
 
 
-
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
@@ -145,6 +144,9 @@ Route::get('/setting', function () {
 Route::get('/bookingFaci', function () {
     return view('/project/public/includ/bookingFaci');
 });
+Route::get('/bookingHair', function () {
+    return view('/project/public/includ/bookingHair');
+});
 Route::get('/bookingDres', function () {
     return view('/project/public/includ/bookingDres');
 });
@@ -228,8 +230,9 @@ Route::get('/Dashboard-Admin', function () {
 
 /*-------- End of Admin Routes ----------*/
 
-
+/*-------- Starter of Booking form database table ---------*/
 Route::post('/booking',function() {
+
     $booked_appointments = new BookedAppointment();
     $booked_appointments->fuName = request('fuName');
     $booked_appointments->eMail = request('eMail');
@@ -240,6 +243,13 @@ Route::post('/booking',function() {
     $booked_appointments->save();
     
 });
+/*--------- End of Booking form database table ----------*/
+
+
+
+
+
+
 
 /*--------- End of Customer Routes ----------*/
 
