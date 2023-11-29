@@ -18,6 +18,16 @@ use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmployeeRegistered;
+
+/*Route::get('/test-email', function () {
+    $employeeData = ['emp_fname' => 'muthumali', 'emp_email' => 'muthumalinp@gamil.com'];
+    Mail::to('muthumalinp@gmail.com')->send(new EmployeeRegistered($employeeData));
+    return 'Test email sent successfully';
+});*/
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -252,11 +262,66 @@ Auth::routes();
 
 /*-------- Starter of Owner Routes ---------*/
 
-Route::get('/Dashboard-Owner', function () {
-    return view('/project/owner/dashboard');
-})->name('owner.dashboard');
+    Route::get('/Dashboard-Owner', function () {
+        return view('/project/owner/dashboard');
+    })->name('owner.dashboard');
 
-Route::resource("/employee", EmployeeController::class);
+    Route::get('/Manage-Salary', function () {
+        return view('/project/owner/manage_salary');
+    });
+
+    Route::get('/Feedbacks', function () {
+        return view('/project/owner/feedbacks');
+    });
+
+    Route::get('/Profile', function () {
+        return view('/project/owner/profile');
+    });
+
+    Route::get('/Full-Report', function () {
+        return view('/project/owner/report');
+    });
+
+    Route::get('/Settings', function () {
+        return view('/project/owner/settings');
+    });
+
+    /*-----employee button route-----*/
+    Route::resource('employee', EmployeeController::class)->names([
+        'index' => 'project.owner.Employee.index',
+    ]); 
+
+    use App\Http\Controllers\ServiceController;
+    
+
+    Route::resource('service', ServiceController::class)->names([
+        'index' => 'project.owner.service.index',
+        'create' => 'project.owner.service.create',
+        'store' => 'project.owner.service.store',
+        'edit' => 'project.owner.service.edit',
+        'update' => 'project.owner.service.update',
+        'destroy' => 'project.owner.service.destroy',
+    ]);
+
+    /*--------add service button route----*/
+    Route::get('/servicecreate', function () {
+        return view('/project/owner/service/create');
+    });
+    
+
+
+    /*--------Salary management system route----------*/
+    /*---use App\Http\Controllers\SalaryManagementController;
+
+    Route::get('/salary-management', [SalaryManagementController::class, 'index'])->name('project.owner.salary-management.index');---*/
+
+
+    /*--------Owner Profile route----------*/
+    /*--use App\Http\Controllers\ProfileController;
+
+    Route::get('/profile', [App\Http\Controllers\Auth\ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [App\Http\Controllers\Auth\ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/update', [App\Http\Controllers\Auth\ProfileController::class, 'update'])->name('profile.update');--*/
 
 /*-------- End of Owner Routes ----------*/
 

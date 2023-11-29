@@ -186,6 +186,7 @@ body{
 }
 
 .main_container .container .info .content{
+  background: #fff;
   padding: 25px;
   margin-bottom: 25px;
   text-align: justify;
