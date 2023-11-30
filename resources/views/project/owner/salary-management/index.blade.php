@@ -14,8 +14,10 @@
       <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
       <script src="https://kit.fontawesome.com/cff257cc3a.js" crossorigin="anonymous"></script>
    </head>
+
+    @section('content')
    <body class="full-container">
-   @section('content')
+  
 <div class="container-block container">
   <p class="text-blk team-head-text">
     Our Team
@@ -24,7 +26,9 @@
     <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
       <div class="team-card">
         <div class="team-img-wrapper">
-          <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft12.svg">
+          <a href="{{ route('project.owner.service.index') }}">
+          <img class="team-img" src="{{ asset('css/Owner/owner_profile_image.jpeg') }}" alt="Owner Profile Image">
+          </a>
         </div>
         <div class="team-card-content">
           <p class="text-blk name">
@@ -39,7 +43,7 @@
     <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
       <div class="team-card">
         <div class="team-img-wrapper">
-          <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft13.svg">
+          <img class="team-img" src="css/Owner/owner_profile_image.jpeg">
         </div>
         <div class="team-card-content">
           <p class="text-blk name">
@@ -54,7 +58,7 @@
     <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
       <div class="team-card">
         <div class="team-img-wrapper">
-          <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft14.svg">
+          <img class="team-img" src="css/Owner/owner_profile_image.jpeg">
         </div>
         <div class="team-card-content">
           <p class="text-blk name">
@@ -69,7 +73,7 @@
     <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
       <div class="team-card">
         <div class="team-img-wrapper">
-          <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft12.svg">
+          <img class="team-img" src="css/Owner/owner_profile_image.jpeg">
         </div>
         <div class="team-card-content">
           <p class="text-blk name">
@@ -84,7 +88,7 @@
     <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
       <div class="team-card">
         <div class="team-img-wrapper">
-          <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft13.svg">
+          <img class="team-img" src="css/Owner/owner_profile_image.jpeg">
         </div>
         <div class="team-card-content">
           <p class="text-blk name">

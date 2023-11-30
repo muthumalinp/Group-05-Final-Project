@@ -165,7 +165,7 @@ body{
 }
 
 .hover_collapse .sidebar{
-  width: 60px;
+  width: 90px;
 }
 
 .hover_collapse .sidebar ul li a .text{
@@ -173,7 +173,7 @@ body{
 }
 
 .main_container{
-  width: calc(100% - 60px);
+  width: calc(100% - 90px);
   margin-left: 60px;
   margin-top: 60px;
   padding: 25px;
@@ -231,7 +231,7 @@ body{
   padding: 50px 10px 50px 50px;
   margin: 20px 20px 50px 20px;
   background-color: #fcf8f8;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 .BtnLink_Left ul li a{
@@ -261,7 +261,7 @@ body{
   padding: 50px 10px 50px 50px;
   margin: 20px 20px 50px 20px;
   background-color: #fcf8f8;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 .BtnLink_Right ul li a{
@@ -291,7 +291,7 @@ body{
   padding: 50px 10px 50px 50px;
   margin: 20px 20px 50px 20px;
   background-color: #fcf8f8;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 .BtnLink_Center ul li a{
@@ -305,4 +305,13 @@ body{
 
 .BtnLink_Center ul li a:hover{
   color: white;
+}
+
+.BtnLink_Left1{
+  width: 1500px;
+  float: left;
+}
+
+.BtnLink_left1 content{
+  border-radius: 30px;
 }

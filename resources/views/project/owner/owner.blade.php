@@ -6,7 +6,7 @@
       <title>Salon Yaraa Admin Page</title>
       <link rel="stylesheet" href="{{ asset('css/Owner/owner.css') }}">
       <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+      <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 
       <script src="https://kit.fontawesome.com/cff257cc3a.js" crossorigin="anonymous"></script>
    </head>
@@ -46,10 +46,12 @@
                      </div>
                   </div>
                   <div class="col-md-10">
-                  <div class="row">
-                        <div  class="content">A good example of a paragraph contains a topic sentence,
-                        details and a conclusion. 'There are many different kinds of animals that live in China. 
-                        Tigers and leopards are animals that live in China's forests in the north.
+                     <div class="row">
+                        <div class="BtnLink_Left1">
+                           <div class="content">A good example of a paragraph contains a topic sentence,
+                           details and a conclusion. 'There are many different kinds of animals that live in China. 
+                           Tigers and leopards are animals that live in China's forests in the north.
+                           </div>
                         </div>
                      </div>
                      <div class="row">
