@@ -12,11 +12,8 @@ use App\Http\Controllers\HairstrController;
 use App\Models\BookedAppointment;
 
 
-<<<<<<< Updated upstream
-=======
 
 
->>>>>>> Stashed changes
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
