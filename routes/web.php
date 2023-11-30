@@ -137,7 +137,7 @@ Route::get('/owner', function () {
 
 
 
-
+/*-------- start of admin rout --------*/
 Route::get('/manage_appointment', function () {
     return view('/project/admin/manage_appoinment');
 });
@@ -161,7 +161,7 @@ Route::get('/manage_rented_item', function () {
 Route::get('/setting', function () {
     return view('/project/admin/setting');
 });
-
+/*-------- end of admin rout --------*/
 
 
 Route::get('/bookingFaci', function () {
@@ -375,4 +375,5 @@ Route::controller(RegisterController::class)->group(function (){
     
 });
 
+/*-------- customer data form --------*/
 Route::get('/customer_details',[ShowController::class,'show']);
