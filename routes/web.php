@@ -320,7 +320,10 @@ Auth::routes();
         'destroy' => 'project.owner.service.destroy',
     ]);
 
-    
+    /*--------add service button route----*/
+    Route::get('/servicecreate', function () {
+        return view('/project/owner/service/create');
+    });
 
     /*--------add employee button route----*/
     Route::get('/addemployee', function () {
