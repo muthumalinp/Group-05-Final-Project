@@ -290,7 +290,7 @@ Auth::routes();
     })->name('owner.dashboard');
 
     Route::get('/Manage-Salary', function () {
-        return view('/project/owner/manage_salary');
+        return view('/project/owner/salary-management/index');
     });
 
     Route::get('/Feedbacks', function () {
@@ -298,7 +298,7 @@ Auth::routes();
     });
 
     Route::get('/Profile', function () {
-        return view('/project/owner/profile');
+        return view('/project/owner/profile/create');
     });
 
     Route::get('/Full-Report', function () {
@@ -330,6 +330,12 @@ Auth::routes();
     Route::get('/servicecreate', function () {
         return view('/project/owner/service/create');
     });
+    
+    use App\Http\Controllers\OwnerController;
+
+    Route::get('/owners/create', [OwnerController::class, 'create'])->name('project.owners.profile.create');
+    Route::post('/project/owner/profile/store', [OwnerController::class, 'store'])->name('project.owner.profile.store');
+
     
 
 
