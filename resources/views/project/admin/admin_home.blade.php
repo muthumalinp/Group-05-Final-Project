@@ -8,10 +8,31 @@
 
 
     <body>
+    
+        
         <header>
+            <style>
+                body {
+                    margin: 0;
+                    font-family: Arial, sans-serif;
+                    display: flex;
+                }
+
+                nav {
+                    width:1px
+                    background-color: #333;
+                    color: white;
+                    padding: 20px;
+                }
+
+                main {
+                flex: 1;
+                padding: 20px;
+                }
+            </style>
 
         </header>
-
+        
         <aside>
             <button id="sidebar-toggle"><h1>Salon</h1></button>
                 <nav>
@@ -27,9 +48,10 @@
                 </nav>
         </aside>
         
+        
        
         
-
+        
         <main>
             <h1>Admin Dashboard</h1>
                 <div class="cards">
@@ -51,11 +73,13 @@
                     </div>
                 </div>
         </main>
+        
 
         <footer>
 
         </footer>
 
         <script src="script.js"></script>
+    
     </body>
 </html>

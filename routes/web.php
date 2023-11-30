@@ -131,7 +131,7 @@ Route::get('/owner', function () {
 
 
 
-
+/*-------- start of admin rout --------*/
 Route::get('/manage_appointment', function () {
     return view('/project/admin/manage_appoinment');
 });
@@ -155,7 +155,7 @@ Route::get('/manage_rented_item', function () {
 Route::get('/setting', function () {
     return view('/project/admin/setting');
 });
-
+/*-------- end of admin rout --------*/
 
 
 Route::get('/bookingFaci', function () {
@@ -320,10 +320,7 @@ Auth::routes();
         'destroy' => 'project.owner.service.destroy',
     ]);
 
-    /*--------add service button route----*/
-    Route::get('/servicecreate', function () {
-        return view('/project/owner/service/create');
-    });
+    
 
     /*--------add employee button route----*/
     Route::get('/addemployee', function () {
@@ -374,4 +371,5 @@ Route::controller(RegisterController::class)->group(function (){
     
 });
 
+/*-------- customer data form --------*/
 Route::get('/customer_details',[ShowController::class,'show']);
