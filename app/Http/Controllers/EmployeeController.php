@@ -48,23 +48,16 @@ class EmployeeController extends Controller
         $employee->delete();
         return redirect('employee');
     }
-/*
-    public function showBlade()
-    {
-        return view('your.blade.view');
-    }
-*/
 
+//employee registration.........
     public function registerEmployee(Request $request)
     {
-        // employee registration logic...
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|unique:employees,email',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        // Create a new employee record
         $employee = Employee::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -78,9 +71,5 @@ class EmployeeController extends Controller
         // return a response...
         return response()->json(['message' => 'Employee registered successfully'], 201);
     }
-
-
-
-
 
 }
