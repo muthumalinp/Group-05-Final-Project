@@ -11,9 +11,6 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HairstrController;
 use App\Models\BookedAppointment;
 
-
-
-
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
@@ -323,9 +320,11 @@ Auth::routes();
         'destroy' => 'project.owner.service.destroy',
     ]);
 
-    /*--------add service button route----*/
-    Route::get('/servicecreate', function () {
-        return view('/project/owner/service/create');
+    
+
+    /*--------add employee button route----*/
+    Route::get('/addemployee', function () {
+        return view('/project/owner/employee/create');
     });
     
     use App\Http\Controllers\OwnerController;

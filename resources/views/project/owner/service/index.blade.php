@@ -1,8 +1,9 @@
 @extends('layouts.owner_forms')
 @section('content')
 <div class="container">
+    <div class="mt-5">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
                     <h2>Services</h2>
@@ -49,6 +50,7 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
+  </div>
 @endsection
 
