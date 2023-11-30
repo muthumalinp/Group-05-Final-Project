@@ -8,11 +8,15 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\EmployeeController;
-
-
+use App\Http\Controllers\HairstrController;
 use App\Models\BookedAppointment;
 
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +42,10 @@ use App\Mail\EmployeeRegistered;
 |
 */
 
+//Products Adding Routes begin
+Route::get('Product',[HairstrController::class,'product']);
+Route::get('Create1',[HairstrController::class,'create1']);
+Route::post('Create1',[HairstrController::class,'store']);
 
 /*Route::get('/', function () {
     return view('/project/admin/owner');
@@ -74,6 +82,11 @@ Route::get('/Gallery/Hair', function () {
 
 Route::get('/Product', function () {
     return view('/project/public/product');
+});
+
+//addind products
+Route::get('/Create1', function () {
+    return view('/project/public/create1');
 });
 
 Route::get('/Product/HairStraghtening', function () {
