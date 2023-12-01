@@ -27,6 +27,9 @@
             
             <label>Rewards</label><br/>
             <input type="text" class="form-control" name="emp_rewards"><br/>
+
+            <label for="exampleFormControlFile1">Photo</label><br/>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="emp_profile_image"><br/><br/>
             
             <input type="submit" class="btn btn-primary" value="Register">
         </form>

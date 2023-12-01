@@ -7,7 +7,10 @@
 </head>
 <body>
     <p>Hello {{ $employeeData['emp_fname'] }},</p>
-    <p>Welcome to our company! Thank you for registering.</p>
+    <p>Welcome to our Team! </p><br>
+    <p>
+        Salon Yaraa
+    </p>
 </body>
 </html>
 
