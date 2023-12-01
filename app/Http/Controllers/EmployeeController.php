@@ -36,6 +36,7 @@ class EmployeeController extends Controller
         'emp_email' => ['required', 'string', 'email', 'max:255'],
         'emp_bsalary' => ['required', 'string', 'max:225'],
         'emp_rewards' => ['required', 'string', 'max:225'],
+        
         ]);
 
         // Save the employee data
@@ -71,10 +72,10 @@ class EmployeeController extends Controller
         }
         
 
-        Mail::to('saloonGP05@gmail.com')->send(new EmployeeRegistered($employeeData));
+        //Mail::to('saloonGP05@gmail.com')->send(new EmployeeRegistered($employeeData));
 
         // Redirect or return a response
-        return redirect()->route('employee.index')->with('success', 'Employee registered successfully!');
+        //return redirect()->route('employee.index')->with('success', 'Employee registered successfully!');
     }
 
     public function edit(string $id)

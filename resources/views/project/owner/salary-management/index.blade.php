@@ -22,6 +22,14 @@
   <p class="text-blk team-head-text">
     Our Team
   </p>
+  <div class="col-md-1">
+    <div class="row">
+      <a href="{{url('/attendence')}}" class="btn btn-success btn-sm" title="Attendence">
+      <i class="fa fa-plus" aria-hidden="true"></i> Attendence
+      </a><br/>
+    </div>
+  </div>
+  
   <div class="responsive-container-block teamcard-container">
     <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
       <div class="team-card">

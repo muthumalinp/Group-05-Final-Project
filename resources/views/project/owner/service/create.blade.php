@@ -13,8 +13,8 @@
         <label>Service</label></br>
         <input type="text" name="service_name" id="service_name" class="form-control"></br>
         
-            <label for="exampleFormControlFile1">Images</label><br/>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1"><br/><br/>
+        <label for="exampleFormControlFile1">Images</label><br/>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1"><br/><br/>
         
         <label>Price(Upto)</label></br>
         <input type="text" name="service_price" id="service_price" class="form-control"></br>
