@@ -20,9 +20,9 @@
       <script src="{{asset('js/bootstrap.min.js')}}"></script>
       
 
-        @if(session('success'))
+       <!-- @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
+        @endif-->
 
       <div class="main_container">
          <div class="container">
@@ -80,7 +80,7 @@
                         
                      </div>
                   </div>
-</form>
+               </form>
                </div>
             </div>
          </div>

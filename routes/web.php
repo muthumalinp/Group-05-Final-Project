@@ -280,7 +280,7 @@ Auth::routes();
 /*-------- Starter of Owner Routes ---------*/
 
     Route::get('/Dashboard-Owner', function () {
-        return view('/project/owner/dashboard');
+        return view('/project/owner/owner');
     })->name('owner.dashboard');
 
     Route::get('/Manage-Salary', function () {
@@ -343,9 +343,13 @@ Auth::routes();
 
 
     /*--------Salary management system route----------*/
-    /*---use App\Http\Controllers\SalaryManagementController;
+    /*---use App\Http\Controllers\SalaryManagementController;--------*/
 
-    Route::get('/salary-management', [SalaryManagementController::class, 'index'])->name('project.owner.salary-management.index');---*/
+    Route::get('/attendence', function () {
+        return view('/project/owner/attendence');
+    });
+
+    /*---------Route::get('/salary-management', [SalaryManagementController::class, 'index'])->name('project.owner.salary-management.index');---*/
 
 
     /*--------Owner Profile route----------*/
