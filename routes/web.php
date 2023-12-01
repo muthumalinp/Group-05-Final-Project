@@ -329,6 +329,10 @@ Auth::routes();
         return view('/project/owner/employee/create');
     });
     
+    Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employee.create');
+    Route::get('/employees', [EmployeeController::class, 'index'])->name('employee.index');
+    Route::post('/employees', [EmployeeController::class, 'store'])->name('employee.store');
+
     use App\Http\Controllers\OwnerController;
 
     Route::get('/owners/create', [OwnerController::class, 'create'])->name('project.owners.profile.create');
