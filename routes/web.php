@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HairstrController;
+use App\Http\Controllers\CustomerController;
 use App\Models\BookedAppointment;
 
 use Illuminate\Auth\AuthManager;
@@ -241,9 +242,7 @@ Route::get('/edit-profile', 'ProfileController@edit')->name('edit-profile');
 
 /*-------- Starter of Admin Routes ---------*/
 
-Route::get('/Dashboard-Admin', function () {
-    return view('/project/admin/admin_home');
-})->name('admin.dashboard');
+Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])->name('admin.dashboard');
 
 /*-------- End of Admin Routes ----------*/
 

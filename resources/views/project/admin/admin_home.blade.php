@@ -56,8 +56,9 @@
             <h1>Admin Dashboard</h1>
                 <div class="cards">
                     <div class="card">
-                        <h2>Card 1</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h2>Total Customers</h2>
+                    
+                        <p>Total Admin Users: {{ $totalCustomers }}</p>
                     </div>
                     <div class="card">
                         <h2>Card 2</h2>

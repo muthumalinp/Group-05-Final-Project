@@ -11,10 +11,11 @@ class ShowController extends Controller
     public function show()
     {
 
-        $data=User::all();
+        $data=User::where('role', 'customer')->get();
         return view('/project/admin/customer_details',compact('data'));
     }
 
+    
 
     
 }
