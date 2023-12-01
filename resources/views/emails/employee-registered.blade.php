@@ -6,8 +6,8 @@
     <title>Welcome Email</title>
 </head>
 <body>
-    <p>Dear {{$name}},</p><br><br>
-    <p>Welcome to Our Team!</p><br><br>
-    <p>Owner-Salon Yaraa</p>
+    <p>Hello {{ $employeeData['emp_fname'] }},</p>
+    <p>Welcome to our company! Thank you for registering.</p>
 </body>
 </html>
+
