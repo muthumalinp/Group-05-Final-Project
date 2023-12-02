@@ -96,7 +96,7 @@ class EmployeeController extends Controller
         return redirect('employee');
     }
 
-//employee registration.........
+    //employee registration.........
     public function registerEmployee(Request $request)
     {
         $request->validate([
@@ -118,5 +118,5 @@ class EmployeeController extends Controller
         // return a response...
         return response()->json(['message' => 'Employee registered successfully'], 201);
     }
-
+    
 }

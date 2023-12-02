@@ -24,8 +24,8 @@
   </p>
   <div class="col-md-1">
     <div class="row">
-      <a href="{{url('/attendence')}}" class="btn btn-success btn-sm" title="Attendence">
-      <i class="fa fa-plus" aria-hidden="true"></i> Attendence
+      <a href="{{url('/attendance')}}" class="btn btn-success btn-sm" title="Attendance">
+      <i class="fa fa-plus" aria-hidden="true"></i> Attendance
       </a><br/>
     </div>
   </div>
