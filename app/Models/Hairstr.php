@@ -11,6 +11,7 @@ class Hairstr extends Model
     protected $table = 'hairstrs';
     protected $fillable = [
         'product_ID',
+        'category',
         'name',
         'price',
         'Quantity',

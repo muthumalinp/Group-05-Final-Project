@@ -21,6 +21,7 @@ class HairstrController extends Controller
     {
         $ProductHairstr = new Hairstr;
         $ProductHairstr->product_ID = $request->input('product_ID');
+        $ProductHairstr->category = $request->input('category');
         $ProductHairstr->name = $request->input('name');
         $ProductHairstr->price = $request->input('price');
         $ProductHairstr->Quantity = $request->input('Quantity');
