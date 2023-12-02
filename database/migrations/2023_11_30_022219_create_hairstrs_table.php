@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('hairstrs', function (Blueprint $table) {
             $table->id();
-            $table->string('product_ID')->primary();
+            $table->string('product_ID');
             $table->string('category');
             $table->string('name');
             $table->string('price');
