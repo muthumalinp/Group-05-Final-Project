@@ -5,6 +5,8 @@
       <meta charset="utf-8">
       <title>Salon Yaraa Full Report</title>
       <link rel="stylesheet" href="{{ asset('css/Owner/owner.css') }}">
+      <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
+      <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
       <script src="https://kit.fontawesome.com/cff257cc3a.js" crossorigin="anonymous"></script>
    </head>
 

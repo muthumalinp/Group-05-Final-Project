@@ -1,6 +1,8 @@
 @extends('layouts.owner_forms')
+
 @section('content')
  
+<div class="mt-5 me-5 ms-5">
 <div class="card">
   <div class="card-header">Service Page</div>
   <div class="card-body">
@@ -11,8 +13,8 @@
         <label>Service</label></br>
         <input type="text" name="service_name" id="service_name" class="form-control"></br>
         
-            <label for="exampleFormControlFile1">Images</label><br/>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1"><br/><br/>
+        <label for="exampleFormControlFile1">Images</label><br/>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1"><br/><br/>
         
         <label>Price(Upto)</label></br>
         <input type="text" name="service_price" id="service_price" class="form-control"></br>
@@ -23,5 +25,7 @@
    
   </div>
 </div>
+</div>
+
  
 @endsection

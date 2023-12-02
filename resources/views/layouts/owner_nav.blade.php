@@ -20,7 +20,7 @@
                </div>
                <div class="profile_wrap">
                   <div class="profile">
-                     <img src="css/Owner/ownerprofile.jpg" alt="profile_pic">
+                     <img class="rounded-circle" src="css/Owner/owner_profile_image.jpeg" alt="profile_pic">
                      <span class="name">Yaara</span>
                      <span class="icon"><i class="fas fa-caret-down"></i></span>
                   </div>

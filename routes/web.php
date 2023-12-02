@@ -9,10 +9,9 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\bookingPediController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\EmployeeController;
-
-
+use App\Http\Controllers\HairstrController;
+use App\Http\Controllers\CustomerController;
 use App\Models\BookedAppointment;
-
 
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
@@ -39,6 +38,10 @@ use App\Mail\EmployeeRegistered;
 |
 */
 
+//Products Adding Routes begin
+Route::get('Product',[HairstrController::class,'product']);
+Route::get('Create1',[HairstrController::class,'create1']);
+Route::post('Create1',[HairstrController::class,'store']);
 
 /*Route::get('/', function () {
     return view('/project/admin/owner');
@@ -75,6 +78,11 @@ Route::get('/Gallery/Hair', function () {
 
 Route::get('/Product', function () {
     return view('/project/public/product');
+});
+
+//addind products
+Route::get('/Create1', function () {
+    return view('/project/public/create1');
 });
 
 Route::get('/Product/HairStraghtening', function () {
@@ -125,7 +133,7 @@ Route::get('/owner', function () {
 
 
 
-
+/*-------- start of admin rout --------*/
 Route::get('/manage_appointment', function () {
     return view('/project/admin/manage_appoinment');
 });
@@ -149,7 +157,7 @@ Route::get('/manage_rented_item', function () {
 Route::get('/setting', function () {
     return view('/project/admin/setting');
 });
-
+/*-------- end of admin rout --------*/
 
 /*----------Starter of booking servises blade file---------*/
 
@@ -238,9 +246,7 @@ Route::get('/edit-profile', 'ProfileController@edit')->name('edit-profile');
 
 /*-------- Starter of Admin Routes ---------*/
 
-Route::get('/Dashboard-Admin', function () {
-    return view('/project/admin/admin_home');
-})->name('admin.dashboard');
+Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])->name('admin.dashboard');
 
 /*-------- End of Admin Routes ----------*/
 
@@ -286,11 +292,11 @@ Auth::routes();
 /*-------- Starter of Owner Routes ---------*/
 
     Route::get('/Dashboard-Owner', function () {
-        return view('/project/owner/dashboard');
+        return view('/project/owner/owner');
     })->name('owner.dashboard');
 
     Route::get('/Manage-Salary', function () {
-        return view('/project/owner/manage_salary');
+        return view('/project/owner/salary-management/index');
     });
 
     Route::get('/Feedbacks', function () {
@@ -298,7 +304,7 @@ Auth::routes();
     });
 
     Route::get('/Profile', function () {
-        return view('/project/owner/profile');
+        return view('/project/owner/profile/create');
     });
 
     Route::get('/Full-Report', function () {
@@ -330,13 +336,32 @@ use App\Models\Employee;
     Route::get('/servicecreate', function () {
         return view('/project/owner/service/create');
     });
+
+    /*--------add employee button route----*/
+    Route::get('/addemployee', function () {
+        return view('/project/owner/employee/create');
+    });
+    
+    Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employee.create');
+    Route::get('/employees', [EmployeeController::class, 'index'])->name('employee.index');
+    Route::post('/employees', [EmployeeController::class, 'store'])->name('employee.store');
+
+    use App\Http\Controllers\OwnerController;
+
+    Route::get('/owners/create', [OwnerController::class, 'create'])->name('project.owners.profile.create');
+    Route::post('/project/owner/profile/store', [OwnerController::class, 'store'])->name('project.owner.profile.store');
+
     
 
 
     /*--------Salary management system route----------*/
-    /*---use App\Http\Controllers\SalaryManagementController;
+    /*---use App\Http\Controllers\SalaryManagementController;--------*/
 
-    Route::get('/salary-management', [SalaryManagementController::class, 'index'])->name('project.owner.salary-management.index');---*/
+    Route::get('/attendence', function () {
+        return view('/project/owner/attendence');
+    });
+
+    /*---------Route::get('/salary-management', [SalaryManagementController::class, 'index'])->name('project.owner.salary-management.index');---*/
 
 
     /*--------Owner Profile route----------*/
@@ -369,6 +394,7 @@ Route::controller(RegisterController::class)->group(function (){
     
 });
 
+/*-------- customer data form --------*/
 Route::get('/customer_details',[ShowController::class,'show']);
 
 

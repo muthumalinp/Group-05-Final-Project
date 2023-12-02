@@ -13,14 +13,16 @@ class EmployeeRegistered extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $employeeData;
+
+    public function __construct($employeeData)
+    {
+        $this->employeeData = $employeeData;
+    }
+
     public function build()
     {
         return $this->view('emails.employee-registered');
-    }
-
-    public function __construct()
-    {
-        //
     }
 
     /**
