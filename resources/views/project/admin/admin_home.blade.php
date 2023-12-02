@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
     <link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}">
+   <!-- <link rel="stylesheet" href="{{ asset('js/admin/admin.js') }}">  -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     </head>
@@ -31,6 +32,11 @@
                 }
             </style>
 
+
+
+
+
+
         </header>
         
         <aside>
@@ -57,12 +63,30 @@
                 <div class="cards">
                     <div class="card">
                         <h2>Total Customers</h2>
-                    
-                        <p>Total Admin Users: {{ $totalCustomers }}</p>
+                        <p><b>Total Customers: {{ $totalCustomers }}</b><p>
+                        <img src="{{ asset('css/admin/customer.jpeg') }}" alt="Admin" width="150px" height="60px" class="mx-auto d-block img-fluid">
                     </div>
                     <div class="card">
-                        <h2>Card 2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div>
+                            <h2>To Do List</h2>
+                            
+                        </div>
+
+                        <div class="d-flex mb-2">
+                            <input  type="text" id="input-box" placeholder="Enter task">
+                            <button type="button" class="btn btn-primary ms-2" onclick="addTask()">Add</button>
+                        </div>
+                        
+                        <ul id="taskList">
+                         <!--   <li>Task 1</li>
+                            <li>Task 2</li>
+                            <li>Task 3</li>
+                        </ul>
+                        -->
+                        
+                        
+
+                        
                     </div>
                     <div class="card">
                         <h2>Card 3</h2>
@@ -80,7 +104,7 @@
 
         </footer>
 
-        <script src="script.js"></script>
+        <script src="/js/admin/admin.js"></script>
     
     </body>
 </html>
