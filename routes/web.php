@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\bookingPediController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\EmployeeController;
 
@@ -150,6 +151,7 @@ Route::get('/setting', function () {
 });
 
 
+/*----------Starter of booking servises blade file---------*/
 
 Route::get('/bookingFaci', function () {
     return view('/project/public/includ/bookingFaci');
@@ -166,6 +168,8 @@ Route::get('/bookingPedi', function () {
 Route::get('/Booking', function () {
     return view('/project/public/booking');
 });
+
+/*----------End of booking servises blade file---------*/
 
 
 Route::get('/Register', function () {
@@ -270,6 +274,15 @@ Route::post('/booking',function() {
 Auth::routes();
 
 
+
+
+/*-------- Starter of Employee Routes ---------*/
+    Route::get('/Dashboard-Employee', function () {
+        return view('resources\views\project\employee\dashboard');
+    });
+
+/*-------- End of Employee Routes ---------*/
+
 /*-------- Starter of Owner Routes ---------*/
 
     Route::get('/Dashboard-Owner', function () {
@@ -302,7 +315,7 @@ Auth::routes();
     ]); 
 
     use App\Http\Controllers\ServiceController;
-    
+use App\Models\Employee;
 
     Route::resource('service', ServiceController::class)->names([
         'index' => 'project.owner.service.index',
@@ -357,3 +370,9 @@ Route::controller(RegisterController::class)->group(function (){
 });
 
 Route::get('/customer_details',[ShowController::class,'show']);
+
+
+
+Route::prefix('booking-pedi')->group(function () {
+    Route::get('/', [BookingPediController::class, 'bookingPedi']);
+});
