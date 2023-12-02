@@ -32,7 +32,7 @@
                         <div class="col-md-4">
                            <div class="BtnLink_Center">
                               <ul>
-                                 <li><a href="{{ route('project.owner.Employee.index') }}">Product</a></li>
+                                 <li> <a href="{{url('Create1')}}">Products</a></li>
                               </ul>
                            </div>
                         </div>
