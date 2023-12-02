@@ -28,6 +28,14 @@
             <label>Rewards</label><br/>
             <input type="text" class="form-control" name="emp_rewards"><br/>
 
+            <label>Gender</label><br/>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Select Gender</option>
+                <option value="1">Female</option>
+                <option value="2">Male</option>
+                <option value="3">Transgender</option>
+            </select>
+
             <label for="exampleFormControlFile1">Photo</label><br/>
             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="emp_profile_image"><br/><br/>
             

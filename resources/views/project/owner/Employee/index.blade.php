@@ -5,6 +5,9 @@
     <div class="mt-5">
         <div class="row">
             <div class="col-md-10">
+                @if(session('success'))
+                    <h6 class="alert alert-success">{{session('success')}}</h6>
+                @endif
                 <div class="card">
                     <div class="card-header">
                         <h2>Employee Management</h2>
