@@ -36,7 +36,6 @@ class EmployeeController extends Controller
         'emp_email' => ['required', 'string', 'email', 'max:255'],
         'emp_bsalary' => ['required', 'string', 'max:225'],
         'emp_rewards' => ['required', 'string', 'max:225'],
-        
         ]);
 
         // Save the employee data
@@ -57,19 +56,19 @@ class EmployeeController extends Controller
             'emp_email' => $employee->emp_email,
         ];
 
-        try {
+        
             Mail::to($request->input('emp_email'))->send(new EmployeeRegistered($employeeData));
         
             // Redirect or return a response
             return redirect()->route('employee.index')->with('success', 'Employee registered successfully!');
-        } catch (\Exception $e) {
+        
             // Log the exception
             Log::error("Error sending email: " . $e->getMessage());
         
             // Redirect or return a response with an error message
             return redirect('/employees')->with('success', 'Employee registered successfully!');
 
-        }
+       
         
 
         //Mail::to('saloonGP05@gmail.com')->send(new EmployeeRegistered($employeeData));
@@ -100,15 +99,15 @@ class EmployeeController extends Controller
     public function registerEmployee(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|unique:employees,email',
-            'password' => 'required|string|min:6|confirmed',
+            'emp_fname' => 'required|string|max:255',
+            'emp_email' => 'required|string|unique:employees,email',
+            'emp_password' => 'required|string|min:6|confirmed',
         ]);
 
         $employee = Employee::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
+            'emp_name' => $request->input('name'),
+            'emp_email' => $request->input('email'),
+            'emp_password' => Hash::make($request->input('password')),
         ]);
 
         // Send the email

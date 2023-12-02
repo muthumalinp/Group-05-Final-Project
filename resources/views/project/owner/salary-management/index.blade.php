@@ -24,8 +24,8 @@
   </p>
   <div class="col-md-1">
     <div class="row">
-      <a href="{{url('/attendance')}}" class="btn btn-success btn-sm" title="Attendance">
-      <i class="fa fa-plus" aria-hidden="true"></i> Attendance
+      <a href="{{url('/employeeleave')}}" class="btn btn-success btn-sm" title="Attendance">
+      <i class="fa fa-plus" aria-hidden="true"></i> Employee Leaves
       </a><br/>
     </div>
   </div>
@@ -34,7 +34,7 @@
     <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
       <div class="team-card">
         <div class="team-img-wrapper">
-          <a href="{{ route('project.owner.service.index') }}">
+          <a href="{{url('/viewemployee_salary') }}">
           <img class="team-img" src="{{ asset('css/Owner/owner_profile_image.jpeg') }}" alt="Owner Profile Image">
           </a>
         </div>

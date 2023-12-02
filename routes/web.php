@@ -340,8 +340,12 @@ Auth::routes();
 
     /*--------Salary management system route----------*/
 
-    Route::get('/attendance', function () {
-        return view('/project/owner/attendance/index');
+    Route::get('/employeeleave', function () {
+        return view('/project/owner/leave/index');
+    });
+
+    Route::get('/viewemployee_salary', function () {
+        return view('/project/owner/salary-management/show');
     });
 
     /*---------Route::get('/salary-management', [SalaryManagementController::class, 'index'])->name('project.owner.salary-management.index');---*/

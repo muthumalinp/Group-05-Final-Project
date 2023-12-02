@@ -26,7 +26,7 @@
 
         <div class="main_container">
             <div class="container">
-                <div class="Header"><h2>Attendance</h2></div>
+                <div class="Header"><h2>Manage Employee Leaves</h2></div>
                 <div class="info">
                     <div class="container rounded bg-white mt-5 mb-5">
                         <form method="POST" action="{{ route('project.owner.profile.store') }}" enctype="multipart/form-data">
