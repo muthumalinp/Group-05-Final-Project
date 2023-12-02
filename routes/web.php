@@ -350,9 +350,9 @@ use App\Models\Employee;
 
 /*-------- Starter of Employee Routes ---------*/
 
-Route::get('/Dashboard-Employee', function () {
+Route::get('/dashboard', function () {
     return view('/project/employee/dashboard');
-})->name('employee.dashboard');
+});
 
 /*-------- End of Employee Routes ----------*/
 
