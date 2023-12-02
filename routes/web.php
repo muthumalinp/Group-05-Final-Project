@@ -338,17 +338,14 @@ Auth::routes();
     Route::get('/owners/create', [OwnerController::class, 'create'])->name('project.owners.profile.create');
     Route::post('/project/owner/profile/store', [OwnerController::class, 'store'])->name('project.owner.profile.store');
 
-    
-
-
     /*--------Salary management system route----------*/
-    /*---use App\Http\Controllers\SalaryManagementController;--------*/
 
-    Route::get('/attendence', function () {
-        return view('/project/owner/attendence');
+    Route::get('/attendance', function () {
+        return view('/project/owner/attendance/index');
     });
 
     /*---------Route::get('/salary-management', [SalaryManagementController::class, 'index'])->name('project.owner.salary-management.index');---*/
+
 
 
     /*--------Owner Profile route----------*/
