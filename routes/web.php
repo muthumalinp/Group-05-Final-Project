@@ -388,3 +388,6 @@ Route::controller(RegisterController::class)->group(function (){
 
 /*-------- customer data form --------*/
 Route::get('/customer_details',[ShowController::class,'show']);
+
+/*-------- manage appoinment form --------*/
+Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);
