@@ -17,6 +17,13 @@ class HairstrController extends Controller
         return view('project.public.create1');
     }
 
+    public function index1()
+    {
+        $product = Hairstr::all();
+        
+        return view('project.public.index1',compact('product'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
