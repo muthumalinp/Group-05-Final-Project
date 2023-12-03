@@ -14,7 +14,6 @@
 
    @section('cont')
    <body>
-
       <div class="main_container">
          <div class="container">
             <div class="Header">Dashboard</div>
@@ -69,8 +68,6 @@
                                     </div>
                                  </div>
                                  <div class="col-md-6">
-                                       
-                                       
                                  </div>
                               </div>
                            </div>
