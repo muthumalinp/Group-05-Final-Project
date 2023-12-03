@@ -167,7 +167,7 @@
         <a href="/Product/HairStraghtening">
                     <button id="btn">BUY NOW</button>
                 </a>
-                <a href="{{url('Create1')}}" class="btn btn-primary float-end">Add HairStraghtening Products</a>
+               
     </div><!--//container-->
 
     <script src="{{asset('js/bootstrap.js')}}"></script>

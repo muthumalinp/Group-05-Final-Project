@@ -22,21 +22,28 @@
                <div class="topMainTail clearfix">
                   <div class="col-md-10">
                      <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                            <div class="BtnLink_Left">
                               <ul>
                                  <li><a href="{{ route('project.owner.Employee.index') }}">Employee</a></li>
                               </ul>
                            </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                            <div class="BtnLink_Center">
                               <ul>
-                                 <li><a href="{{ route('project.owner.Employee.index') }}">Product</a></li>
+                                 <li> <a href="{{url('Create1')}}">Products</a></li>
                               </ul>
                            </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
+                           <div class="BtnLink_Center">
+                              <ul>
+                                 <li><a href="{{ route('project.owner.Employee.index') }}">Rent Product</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
                            <div class="BtnLink_Right">
                               <ul>
                                  <li><a href="{{ route('project.owner.service.index') }}">Service</a></li>   

@@ -4,6 +4,9 @@
     <div class="mt-5">
     <div class="row">
         <div class="col-md-10">
+                @if(session('flash_message'))
+                    <h6 class="alert alert-success">{{session('flash_message')}}</h6>
+                @endif
             <div class="card">
                 <div class="card-header">
                     <h2>Services</h2>
