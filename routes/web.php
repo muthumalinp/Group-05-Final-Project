@@ -339,13 +339,13 @@ Auth::routes();
 
     use App\Http\Controllers\OwnerController;
 
-    Route::get('/owners/create', [OwnerController::class, 'create'])->name('project.owners.profile.create');
-    Route::post('/project/owner/profile/store', [OwnerController::class, 'store'])->name('project.owner.profile.store');
+    Route::post('/storeownerdata', [OwnerController::class, 'store'])->name('storeownerdata');
+
 
     /*--------Salary management system route----------*/
 
     Route::get('/employeeleave', function () {
-        return view('/project/owner/leave/index');
+        return view('/project/owner/manage-holidays&leaves/index');
     });
 
     Route::get('/viewemployee_salary', function () {
