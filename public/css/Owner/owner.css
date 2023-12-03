@@ -218,8 +218,7 @@ body{
 }
 
 .BtnLink_Left{
-  width: 400px;
-  float: left;
+  width: 350px;
 }
 
 .BtnLink_Left ul{
@@ -248,8 +247,7 @@ body{
 }
 
 .BtnLink_Right{
-  width: 400px;
-  float: right;
+  width: 350px;
 }
 
 .BtnLink_Right ul{
@@ -278,8 +276,7 @@ body{
 }
 
 .BtnLink_Center{
-  width: 400px;
-  float: right;
+  width: 350px;
 }
 
 .BtnLink_Center ul{

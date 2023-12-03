@@ -23,7 +23,7 @@ class ServiceController extends Controller
     {
         $input = $request->all();
         service::create($input);
-        return redirect('service')->with('flash_message', 'Service Addedd!');  
+        return redirect('service')->with('flash_message', 'Service Addedd Successfully!');  
     }
 
     public function show(string $id): View
@@ -43,12 +43,12 @@ class ServiceController extends Controller
         $service = Service::find($id);
         $input = $request->all();
         $service->update($input);
-        return redirect('service')->with('flash_message', 'Service Updated!');  
+        return redirect('service')->with('flash_message', 'Successfully Service Updated!');  
     }
    
     public function destroy(string $id): RedirectResponse
     {
         Service::destroy($id);
-        return redirect('service')->with('flash_message', 'Service deleted!');  
+        return redirect('service')->with('flash_message', 'SuccessfullyService deleted!');  
     }
 }

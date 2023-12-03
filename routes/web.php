@@ -39,7 +39,7 @@ use App\Mail\EmployeeRegistered;
 */
 
 //Products Adding Routes begin
-Route::get('Product',[HairstrController::class,'product']);
+Route::get('Index1',[HairstrController::class,'index1']);
 Route::get('Create1',[HairstrController::class,'create1']);
 Route::post('Create1',[HairstrController::class,'store']);
 
@@ -84,6 +84,10 @@ Route::get('/Product', function () {
 Route::get('/Create1', function () {
     return view('/project/public/create1');
 });
+// Route::get('/Index1', function () {
+//     return view('/project/public/index1');
+// });
+
 
 Route::get('/Product/HairStraghtening', function () {
     return view('/project/public/producthairstr');
@@ -351,17 +355,18 @@ use App\Models\Employee;
     Route::get('/owners/create', [OwnerController::class, 'create'])->name('project.owners.profile.create');
     Route::post('/project/owner/profile/store', [OwnerController::class, 'store'])->name('project.owner.profile.store');
 
-    
-
-
     /*--------Salary management system route----------*/
-    /*---use App\Http\Controllers\SalaryManagementController;--------*/
 
-    Route::get('/attendence', function () {
-        return view('/project/owner/attendence');
+    Route::get('/employeeleave', function () {
+        return view('/project/owner/leave/index');
+    });
+
+    Route::get('/viewemployee_salary', function () {
+        return view('/project/owner/salary-management/show');
     });
 
     /*---------Route::get('/salary-management', [SalaryManagementController::class, 'index'])->name('project.owner.salary-management.index');---*/
+
 
 
     /*--------Owner Profile route----------*/
