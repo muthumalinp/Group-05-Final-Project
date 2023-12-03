@@ -38,7 +38,7 @@ use App\Mail\EmployeeRegistered;
 */
 
 //Products Adding Routes begin
-Route::get('Product',[HairstrController::class,'product']);
+Route::get('Index1',[HairstrController::class,'index1']);
 Route::get('Create1',[HairstrController::class,'create1']);
 Route::post('Create1',[HairstrController::class,'store']);
 
@@ -83,6 +83,10 @@ Route::get('/Product', function () {
 Route::get('/Create1', function () {
     return view('/project/public/create1');
 });
+// Route::get('/Index1', function () {
+//     return view('/project/public/index1');
+// });
+
 
 Route::get('/Product/HairStraghtening', function () {
     return view('/project/public/producthairstr');

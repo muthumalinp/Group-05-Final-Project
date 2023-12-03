@@ -32,7 +32,7 @@
                         <div class="col-md-3">
                            <div class="BtnLink_Center">
                               <ul>
-                                 <li> <a href="{{url('Create1')}}">Products</a></li>
+                                 <li> <a href="{{url('Index1')}}">Products</a></li>
                               </ul>
                            </div>
                         </div>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add producthairstr</title>
-    <link rel="stylesheet" href="{{asset('css/product/product.css')}}">
+    <title>Product Adding Form</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -30,7 +30,7 @@
 
                         <div class="form-group mb-3">
                             <label for="">Product Category</label>
-                            <select name="category" class="dropdown" size="1">
+                            <select name="category" class="form-select" size="1">
                                 <option>Hair Straightening</option>
                                 <option>Hair Coloring & Highlighting</option>
                                 <option>Hair Treatments</option>
