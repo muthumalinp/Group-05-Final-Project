@@ -3,7 +3,7 @@
 
 <div class="mt-5 me-5 ms-5">
 <div class="card">
-    <div class="card-header">Employee Registration</div>
+    <div class="card-header">Employee Registration<a href="{{url('/backtoempindex')}}" class="btn btn-secondary float-end">BACK</a></div>
     <div class="card-body">
         <form method="POST" action="{{ route('employee.store') }}">
             @csrf
