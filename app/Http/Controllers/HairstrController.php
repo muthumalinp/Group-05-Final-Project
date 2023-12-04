@@ -68,6 +68,7 @@ class HairstrController extends Controller
             $product->category = $request->input('category');
             $product->name = $request->input('name');
             $product->price = $request->input('price');
+            $product->Quantity = $request->input('Quantity');
     
             if ($request->hasfile('product_image'))
              {
