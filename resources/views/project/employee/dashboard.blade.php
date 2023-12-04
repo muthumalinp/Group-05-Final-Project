@@ -1,39 +1,63 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+    <link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}">
+   <!-- <link rel="stylesheet" href="{{ asset('js/admin/admin.js') }}">  -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
-    <link rel="stylesheet" href="public\css\employ\employeeHomeStyle.css">
+    <link rel="stylesheet" type="text/css" href="css\employ\employeeHomeStyle.css">
+    </head>
+
+
+    <body>
     
-    <title>Employee</title>
-</head>
-<body>
-    <div class="Full-Main">
-        <div class="Full1 clearfix">
-                <div class="tailButn">
-                    <button type="button" class="head-but">Home</button>
-                    <button type="button" class="head-but">Work</button>
-                </div>
-                <div class="site-search">
-                    <form method="get" action="employeeHome.html">
-                        <input type="search" name="search-box">
-                        <button type="submit"></button>
-                    </form>
-                </div>
-        </div>
+        
+        <header>
+            <style>
+                body {
+                    margin: 0;
+                    font-family: Arial, sans-serif;
+                    display: flex;
+                }
 
-        <div class="p-tag">
-                <p>
-                    Keep your dreams alive. Understand to achieve anything requires faith and belief in yourself, vision,
-                    hard work, determination, and dedication.Remember all things are possible for those who believe.
-                </p>
-        </div>
+                nav {
+                    width:1px;
+                    background-color: #333;
+                    color: white;
+                    padding: 20px;
+                }
+
+                main {
+                flex: 1;
+                padding: 20px;
+                }
+            </style>
+
+
+
+
+
+
+        </header>
+        
+        <aside>
+            <button id="sidebar-toggle"><h1>Salon</h1></button>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>WORK</a>
+                        <li><a href="{{url('emplLeave')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>LEAVE</a>
+                        <li><a href="/view_profile" class="nav-item nav-link"><i class="fa fa-th me-2"></i>HOLIDAY</a>
+                        <li><a href="/customer_details" class="nav-item nav-link"><i class="fa fa-th me-2"></i>MEETING</a>
+                    </ul>
+                </nav>
+        </aside>
 
         <div class="Full2">
-            <div class="Full21-Left">
+            <!--<div class="Full21-Left">
                 <img src="public\css\employ\img\Attendance_1.jpg">
-            </div>
+            </div>-->
             <div class="Full21-Right clearfix">
                 <div class="Full22-Head clearfix">
                     <div class="work">
@@ -43,24 +67,16 @@
                         <button type="button">QUICK STATES</button>
                     </div>
                 </div>
-                <div class="Full22-Tail">
-                    <div class="boxes">
-                        <div class="box"><a href="#">WORK</a></div>
-                        <div class="box"><a href="#">LEAVE</a></div>
-                        <div class="box"><a href="#">HOLIDAY</a></div>
-                        <div class="box"><a href="#">MEETING</a></div>
-                    </div>
-                </div>
             </div>
         </div>
 
-        <div class="Full3 clearfix">
+        <!--<div class="Full3 clearfix">
             <div class="Full3-Left">
                 <img src="public\css\employ\img\rectangle_12.png">
             </div>
             <div class="Full3-Right">
                 <img src="public\css\employ\img\Attendance_1.jpg">
-            </div>
+            </div>-->
         </div>
         
     </div>

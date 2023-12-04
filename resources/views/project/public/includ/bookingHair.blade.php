@@ -55,8 +55,8 @@
                     <div class="middle_left1">
                         <ul>
                             <li>
-                                <label for="col">Boy Child(11-16) : </label>
-                                    <select name="cut" id="cut">
+                                <label>Boy Child(11-16) : </label>
+                                    <select name="cut1" id="cut1">
 
                                         <option value="Any1">Any Stylist:$15.00</option>
                                         <option value="muthu">Muthu:$20.00</option>
@@ -70,39 +70,39 @@
         
                             <li>    
 
-                            <label for="col">Girl Child(11-16) : </label>
-                                    <select name="cut" id="cut">
-                                        <option value="Any1"><a href="#">Any Stylist:$25.00</a></option>
-                                        <option value="muthu"><a href="#">Muthu:$30.00</a></option>
-                                        <option value="malki"><a href="#">Malki:$40.00</a></option>
-                                        <option value="harini"><a href="#">Harini:$50.00</a></option>
-                                        <option value="dil"><a href="#">Dilshani:$60.00</a></option>
+                            <label>Girl Child(11-16) : </label>
+                                    <select name="cut2" id="cut2">
+                                        <option value="Any1">Any Stylist:$25.00</option>
+                                        <option value="muthu">Muthu:$30.00</option>
+                                        <option value="malki">Malki:$40.00</option>
+                                        <option value="harini">Harini:$50.00</option>
+                                        <option value="dil">Dilshani:$60.00</option>
                                     </select>
                                     <button type="submit" class="butX">Book Now</button>
 
                             </li>
 
                             <li>    
-                            <label for="col">Boy Child(5-10) : </label>
-                                    <select name="cut" id="cut">
-                                        <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
-                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
-                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
-                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
-                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                            <label>Boy Child(5-10) : </label>
+                                    <select name="cut3" id="cut3">
+                                        <option value="Any1">Any Stylist:$15.00</option>
+                                        <option value="muthu">Muthu:$20.00</option>
+                                        <option value="malki">Malki:$30.00</option>
+                                        <option value="harini">Harini:$40.00</option>
+                                        <option value="dil">Dilshani:$50.00</option>
                                     </select>
                                     <button type="submit" class="butX">Book Now</button>
 
                             </li>
 
                             <li>    
-                            <label for="col">Girl Child(5-10) : </label>
-                                    <select name="cut" id="cut">
-                                        <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
-                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
-                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
-                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
-                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                            <label>Girl Child(5-10) : </label>
+                                    <select name="cut4" id="cut4">
+                                        <option value="Any1">Any Stylist:$15.00</option>
+                                        <option value="muthu">Muthu:$20.00</option>
+                                        <option value="malki">Malki:$30.00</option>
+                                        <option value="harini">Harini:$40.00</option>
+                                        <option value="dil">Dilshani:$50.00</option>
                                     </select>
                                     <button type="submit" class="butX">Book Now</button>
 
@@ -114,52 +114,52 @@
                     <div class="middle_right1">
                         <ul>
                             <li>
-                            <label for="col">Boy Child Under 5 : </label>
-                                    <select name="cut" id="cut">
-                                        <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
-                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
-                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
-                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
-                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                            <label>Boy Child Under 5 : </label>
+                                    <select name="cut5" id="cut5">
+                                        <option value="Any1">Any Stylist:$15.00</option>
+                                        <option value="muthu">Muthu:$20.00</option>
+                                        <option value="malki">Malki:$30.00</option>
+                                        <option value="harini">Harini:$40.00</option>
+                                        <option value="dil">Dilshani:$50.00</option>
                                     </select>
                                     <button type="submit" class="butX">Book Now</button>
 
                             </li>
 
                             <li>    
-                            <label for="col">Girl Child Under 5 : </label>
-                                    <select name="cut" id="cut">
-                                        <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
-                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
-                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
-                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
-                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                            <label>Girl Child Under 5 : </label>
+                                    <select name="cut6" id="cut6">
+                                        <option value="Any1">Any Stylist:$15.00</option>
+                                        <option value="muthu">Muthu:$20.00</option>
+                                        <option value="malki">Malki:$30.00</option>
+                                        <option value="harini">Harini:$40.00</option>
+                                        <option value="dil">Dilshani:$50.00</option>
                                     </select>
                                     <button type="submit" class="butX">Book Now</button>
 
                             </li>
 
                             <li>    
-                            <label for="col">Cut & Blow Dry : </label>
-                                    <select name="cut" id="cut">
-                                        <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
-                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
-                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
-                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
-                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                            <label>Cut & Blow Dry : </label>
+                                    <select name="cut7" id="cut7">
+                                        <option value="Any1">Any Stylist:$15.00</option>
+                                        <option value="muthu">Muthu:$20.00</option>
+                                        <option value="malki">Malki:$30.00</option>
+                                        <option value="harini">Harini:$40.00</option>
+                                        <option value="dil">Dilshani:$50.00</option>
                                     </select>
                                     <button type="submit" class="butX">Book Now</button>
 
                             </li>
 
                             <li>    
-                            <label for="col">Gents Cut And Finish : </label>
-                                    <select name="cut" id="cut">
-                                        <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
-                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
-                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
-                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
-                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                            <label>Gents Cut And Finish : </label>
+                                    <select name="cut8" id="cut8">
+                                        <option value="Any1">Any Stylist:$15.00</option>
+                                        <option value="muthu">Muthu:$20.00</option>
+                                        <option value="malki">Malki:$30.00</option>
+                                        <option value="harini">Harini:$40.00</option>
+                                        <option value="dil">Dilshani:$50.00</option>
                                     </select>
                                     <button type="submit" class="butX">Book Now</button>
 
