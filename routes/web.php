@@ -336,6 +336,14 @@ Auth::routes();
     Route::get('/addemployee', function () {
         return view('/project/owner/employee/create');
     });
+
+    Route::get('/backtodashboard', function () {
+        return view('/project/owner/owner');
+    });
+
+    /*-----Route::get('/backtoempindex', function () {
+        return view('/project/owner/Employee/index');
+    });------*/
     
     Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employee.create');
     Route::get('/employees', [EmployeeController::class, 'index'])->name('employee.index');
