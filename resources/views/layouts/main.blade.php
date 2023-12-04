@@ -41,7 +41,7 @@
                             <a class="nav-link" href="/Rent">Rent</a>
                         </li>
                         <li class="nav-item nav">
-                            <a class="nav-link" href="/Booking">Book Now</a>
+                            <a class="nav-link" href="/BookNow">Book Now</a>
                         </li>
                         <li class="nav-item nav ">
                             <a class="nav-link" href="/LogIn">LogIn</a>
