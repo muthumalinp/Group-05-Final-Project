@@ -396,6 +396,10 @@ Route::get('/dashboard', function () {
     return view('/project/employee/dashboard');
 });
 
+Route::get('/emplLeave', function () {
+    return view('project\employee\Leave\emplLeave');
+});
+
 /*-------- End of Employee Routes ----------*/
 
 Auth::routes();
