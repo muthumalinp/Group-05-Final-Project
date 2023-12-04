@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 Use App\Models\User;
+Use App\Models\BookedAppointment;
 
 class ShowController extends Controller
 {
@@ -15,7 +16,13 @@ class ShowController extends Controller
         return view('/project/admin/customer_details',compact('data'));
     }
 
-    
+    public function showAppointment()
+    {
+
+        $appointment=BookedAppointment::all();
+        return view('/project/admin/manage_appoinment',compact('appointment'));
+    }
+
 
     
 }

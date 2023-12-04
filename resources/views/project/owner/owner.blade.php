@@ -14,7 +14,6 @@
 
    @section('cont')
    <body>
-
       <div class="main_container">
          <div class="container">
             <div class="Header">Dashboard</div>
@@ -55,9 +54,22 @@
                   <div class="col-md-10">
                      <div class="row">
                         <div class="BtnLink_Left1">
-                           <div class="content">A good example of a paragraph contains a topic sentence,
-                           details and a conclusion. 'There are many different kinds of animals that live in China. 
-                           Tigers and leopards are animals that live in China's forests in the north.
+                           <div class="content rounded">
+                              <div class="row">
+                                 <div class="col-md-3 border-right">
+                                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                       <img class="rounded-circle mt-0" width="150px" src="css/Owner/owner_profile_image.jpeg">
+                                       <span> ...</span>
+                                       <span class="font-weight-bold">Yaraa De Silva</span>
+                                       <span class="text-black-50">salonyaraa@gmail.com</span>
+                                       <span class="text-black-50">+94 702 016 166</span>
+                                       <span class="text-black-50">No.45, Highlevel Road, Maharagama</span>
+                                       <span> </span>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                 </div>
+                              </div>
                            </div>
                         </div>
                      </div>
