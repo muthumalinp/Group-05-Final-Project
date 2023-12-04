@@ -41,6 +41,26 @@
 
             <div class="col-md-6">
                 <div id="hairContent" class="hidden-content">
+                    <!-- first service -->
+                    <div class="row">
+                        <div class="col-8">
+                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">Hair Cut-Ladies</button>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="stylist">Select a Stylist:</label>
+                                <select class="form-control" name="stylist" id="stylistSelect" required>
+                                    @foreach($hairstylists as $hairstylist)
+                                        <option value="{{ $hairstylist->emp_fname }}">{{ $hairstylist->emp_fname }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">BOOK NOW</button>
+                        </div>
+                    </div>
+                    <!-- second service -->
                     <div class="row">
                         <div class="col-8">
                             <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">Hair Cut-Ladies</button>
@@ -62,7 +82,24 @@
                 </div>
                 
                 <div id="bridalContent" class="hidden-content">
-                    Content for Color goes here.
+                <div class="row">
+                        <div class="col-8">
+                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">Hair Cut-Ladies</button>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="stylist">Select a Stylist:</label>
+                                <select class="form-control" name="stylist" id="stylistSelect" required>
+                                    @foreach($hairstylists as $hairstylist)
+                                        <option value="{{ $hairstylist->emp_fname }}">{{ $hairstylist->emp_fname }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">BOOK NOW</button>
+                        </div>
+                    </div>
                 </div>
                 
                 <div id="nailContent" class="hidden-content">
