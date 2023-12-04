@@ -31,52 +31,54 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>
-                            Add Hair Straightening Products
+                            Edit Products
                             <a href="{{url('Index1')}}" class="btn btn-danger float-end">BACK</a>
                         </h4>
                     </div>
-                    <form action="{{url('Create1')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('Update1/'.$product->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
+                 <div class="form-group mb-3">
+                    <label for="">Product Category</label>
+                    <select name="category" class="form-select" size="1">
+                        <option {{ $product->category === 'Hair Straightening' ? 'selected' : '' }}>Hair Straightening</option>
+                        <option {{ $product->category === 'Hair Coloring & Highlighting' ? 'selected' : '' }}>Hair Coloring & Highlighting</option>
+                        <option {{ $product->category === 'Hair Treatments' ? 'selected' : '' }}>Hair Treatments</option>
+                        <option {{ $product->category === 'Facial & Cleanup' ? 'selected' : '' }}>Facial & Cleanup</option>
+                    </select>
+                </div>
 
-                        <div class="form-group mb-3">
-                            <label for="">Product Category</label>
-                            <select name="category" class="form-select" size="1">
-                                <option>Hair Straightening</option>
-                                <option>Hair Coloring & Highlighting</option>
-                                <option>Hair Treatments</option>
-                                <option>Facial & Cleanup</option>
-                            </select>
-                        </div>
 
                             
 
                         <div class="form-group mb-3">
                             <label for="">Product ID</label>
-                            <input type="text" name="product_ID" class="form-control">
+                            <input type="text" name="product_ID" value="{{$product->product_ID}}" class="form-control">
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="">Product Name</label>
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" name="name" value="{{$product->name}}" class="form-control">
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="">Product Price</label>
-                            <input type="text" name="price" class="form-control">
+                            <input type="text" name="price" value="{{$product->price}}" class="form-control">
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="">Product Quantity</label>
-                            <input type="text" name="Quantity" class="form-control">
+                            <input type="text" name="Quantity" value="{{$product->Quantity}}" class="form-control">
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="">Product Image</label>
                             <input type="file" name="product_image" class="form-control">
+                            <img src="{{asset('uploads/products/'.$product->product_image)}}" width="70px" height="70px" alt="Image">
                         </div>
 
                         <div class="form-group mb-3">
-                            <button type="submit" class="btn btn-primary">Save Product</button>
+                            <button type="submit" class="btn btn-primary">Update Product</button>
                         </div>
                     </form>
                 </div>
