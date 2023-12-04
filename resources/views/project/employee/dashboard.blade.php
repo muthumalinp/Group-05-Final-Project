@@ -23,7 +23,7 @@
                 }
 
                 nav {
-                    width:1px
+                    width:1px;
                     background-color: #333;
                     color: white;
                     padding: 20px;
@@ -47,7 +47,7 @@
                 <nav>
                     <ul>
                         <li><a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>WORK</a>
-                        <li><a href="/manage_product" class="nav-item nav-link"><i class="fa fa-th me-2"></i>LEAVE</a>
+                        <li><a href="{{url('emplLeave')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>LEAVE</a>
                         <li><a href="/view_profile" class="nav-item nav-link"><i class="fa fa-th me-2"></i>HOLIDAY</a>
                         <li><a href="/customer_details" class="nav-item nav-link"><i class="fa fa-th me-2"></i>MEETING</a>
                     </ul>
@@ -55,9 +55,9 @@
         </aside>
 
         <div class="Full2">
-            <div class="Full21-Left">
+            <!--<div class="Full21-Left">
                 <img src="public\css\employ\img\Attendance_1.jpg">
-            </div>
+            </div>-->
             <div class="Full21-Right clearfix">
                 <div class="Full22-Head clearfix">
                     <div class="work">
@@ -70,13 +70,13 @@
             </div>
         </div>
 
-        <div class="Full3 clearfix">
+        <!--<div class="Full3 clearfix">
             <div class="Full3-Left">
                 <img src="public\css\employ\img\rectangle_12.png">
             </div>
             <div class="Full3-Right">
                 <img src="public\css\employ\img\Attendance_1.jpg">
-            </div>
+            </div>-->
         </div>
         
     </div>
