@@ -89,6 +89,23 @@ class HairstrController extends Controller
             $product->update();
             return redirect()->back()->with('status', 'Product Updated Successfully');
         }
+
+        public function delete1($id)
+        {
+            $product = Hairstr::find($id);
+            $destination = 'uploads/products/'.$product->product_image;
+            if(File::exists($destination))
+            {
+                File::delete($destination);
+            }
+
+           
+            $product->delete();
+            return redirect()->back()->with('status', 'Product Deleted Successfully');
+            
+            
+        }
+
         
 
 }
