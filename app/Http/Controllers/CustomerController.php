@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -98,4 +99,14 @@ class CustomerController extends Controller
         Auth::logout();
         return redirect(route('login'));
     }
+
+    public function showTotalCustomers()
+    {
+
+        $totalCustomers = User::where('role', 'customer')->count();
+        //dd($totalCustomers);
+        return view('/project/admin/admin_home', compact('totalCustomers'));
+    }  
+    
+
 }

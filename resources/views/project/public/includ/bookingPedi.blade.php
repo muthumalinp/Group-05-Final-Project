@@ -15,7 +15,7 @@
             <div class="topMainTail clearfix">
                 <div class="HeadLink_Left">
                     <ul>
-                        <li><a href="{{url('booking')}}">Hair Cutting & Setting</a></li>
+                        <li><a href="{{url('bookingHair')}}">Hair Cutting & Setting</a></li>
                         <li><a href="{{url('bookingDres')}}">Color</a></li>
                     </ul>
                 </div>
@@ -41,7 +41,7 @@
                 <h1>NAIL SERVICES consultation Form</h1>
             </div>
 
-            <form>
+            <form action="\includ\bookingPedi.blade.php" method="POST">
 
                 <div class="select">
                     <p>Select a service</p>
@@ -51,6 +51,7 @@
                     <div class="middle_left1">
                         <ul>
                             <li>
+                            @csrf
                             <label for="col">Complex Design : </label>
                                     <select name="cut" id="cut">
                                         <option value="Any1"><a href="#">Any Stylist:$18.00</a></option>
@@ -162,12 +163,13 @@
                 </div>
 
                 <div class="formContent">
+                @csrf
                     <label>Full Name :</label>
                     <input type="text" placeholder="Full Name" id="fuName" name="fuName"><br>
-
+                    @csrf
                     <label>E-Mail :</label>
                     <input type="email" placeholder="E-Mail" id="eMail" name="eMail"><br>
-
+                    @csrf
                     <label>Phone No :</label>
                     <select name="nbrCode" id="nbrCode">
                         <option>+94</option>
@@ -180,12 +182,12 @@
                         <option>+92</option>
                     </select>
                     <input type="phone" placeholder="Phone Number" id="phone" name="phone"><br>
-
+                    @csrf
                     <label>Preferred method of contact ?</label>
                     <input type="radio" name="contact" value="mail" id="mai"> E-Mail
                     <input type="radio" name="contact" value="phone" id="pho"> Phone
                     <br>
-
+                    @csrf
                     <label>Other details you may wish to highlight :</label>
                     <textarea id="massage" name="massage" placeholder="Your Massage" rows="5" cols="60" ></textarea><br>
                 </div>

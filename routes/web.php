@@ -8,15 +8,23 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\EmployeeController;
-
-
+use App\Http\Controllers\HairstrController;
+use App\Http\Controllers\CustomerController;
 use App\Models\BookedAppointment;
-
-
 
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmployeeRegistered;
+
+/*Route::get('/test-email', function () {
+    $employeeData = ['emp_fname' => 'muthumali', 'emp_email' => 'muthumalinp@gamil.com'];
+    Mail::to('muthumalinp@gmail.com')->send(new EmployeeRegistered($employeeData));
+    return 'Test email sent successfully';
+});*/
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +36,14 @@ use Illuminate\Support\Facades\Auth;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+//Products Adding Routes begin
+Route::get('Index1',[HairstrController::class,'index1']);
+Route::get('Create1',[HairstrController::class,'create1']);
+Route::post('Create1',[HairstrController::class,'store']);
+Route::get('Edit1/{id}',[HairstrController::class,'edit1']);
+
+Route::put('Update1/{id}', [HairstrController::class, 'update1']);
 
 
 /*Route::get('/', function () {
@@ -66,6 +82,15 @@ Route::get('/Gallery/Hair', function () {
 Route::get('/Product', function () {
     return view('/project/public/product');
 });
+
+//addind products
+Route::get('/Create1', function () {
+    return view('/project/public/create1');
+});
+// Route::get('/Index1', function () {
+//     return view('/project/public/index1');
+// });
+
 
 Route::get('/Product/HairStraghtening', function () {
     return view('/project/public/producthairstr');
@@ -115,7 +140,7 @@ Route::get('/owner', function () {
 
 
 
-
+/*-------- start of admin rout --------*/
 Route::get('/manage_appointment', function () {
     return view('/project/admin/manage_appoinment');
 });
@@ -139,7 +164,7 @@ Route::get('/manage_rented_item', function () {
 Route::get('/setting', function () {
     return view('/project/admin/setting');
 });
-
+/*-------- end of admin rout --------*/
 
 
 // Route::get('/bookingFaci', function () {
@@ -238,14 +263,13 @@ Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index
 
 /*-------- Starter of Admin Routes ---------*/
 
-Route::get('/Dashboard-Admin', function () {
-    return view('/project/admin/admin_home');
-})->name('admin.dashboard');
+Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])->name('admin.dashboard');
 
 /*-------- End of Admin Routes ----------*/
 
-
+/*-------- Starter of Booking form database table ---------*/
 Route::post('/booking',function() {
+
     $booked_appointments = new BookedAppointment();
     $booked_appointments->fuName = request('fuName');
     $booked_appointments->eMail = request('eMail');
@@ -256,6 +280,13 @@ Route::post('/booking',function() {
     $booked_appointments->save();
     
 });
+/*--------- End of Booking form database table ----------*/
+
+
+
+
+
+
 
 /*--------- End of Customer Routes ----------*/
 
@@ -268,11 +299,94 @@ Auth::routes();
 
 /*-------- Starter of Owner Routes ---------*/
 
-Route::get('/Dashboard-Owner', function () {
-    return view('/project/owner/dashboard');
-})->name('owner.dashboard');
+    Route::get('/Dashboard-Owner', function () {
+        return view('/project/owner/owner');
+    })->name('owner.dashboard');
 
-Route::resource("/employee", EmployeeController::class);
+    Route::get('/Manage-Salary', function () {
+        return view('/project/owner/salary-management/index');
+    });
+
+    Route::get('/Feedbacks', function () {
+        return view('/project/owner/feedbacks');
+    });
+
+    Route::get('/Profile', function () {
+        return view('/project/owner/profile/create');
+    });
+
+    Route::get('/Full-Report', function () {
+        return view('/project/owner/report');
+    });
+
+    Route::get('/Settings', function () {
+        return view('/project/owner/settings');
+    });
+
+    /*-----employee button route-----*/
+    Route::resource('employee', EmployeeController::class)->names([
+        'index' => 'project.owner.Employee.index',
+    ]); 
+
+    use App\Http\Controllers\ServiceController;
+    
+
+    Route::resource('service', ServiceController::class)->names([
+        'index' => 'project.owner.service.index',
+        'create' => 'project.owner.service.create',
+        'store' => 'project.owner.service.store',
+        'edit' => 'project.owner.service.edit',
+        'update' => 'project.owner.service.update',
+        'destroy' => 'project.owner.service.destroy',
+    ]);
+
+    /*--------add service button route----*/
+    Route::get('/servicecreate', function () {
+        return view('/project/owner/service/create');
+    });
+
+    /*--------add employee button route----*/
+    Route::get('/addemployee', function () {
+        return view('/project/owner/employee/create');
+    });
+
+    Route::get('/backtodashboard', function () {
+        return view('/project/owner/owner');
+    });
+
+    /*-----Route::get('/backtoempindex', function () {
+        return view('/project/owner/Employee/index');
+    });------*/
+    
+    Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employee.create');
+    Route::get('/employees', [EmployeeController::class, 'index'])->name('employee.index');
+    Route::post('/employees', [EmployeeController::class, 'store'])->name('employee.store');
+
+    use App\Http\Controllers\OwnerController;
+
+    Route::post('/storeownerdata', [OwnerController::class, 'store'])->name('storeownerdata');
+
+
+    /*--------Salary management system route----------*/
+
+    Route::get('/employeeleave', function () {
+        return view('/project/owner/manage-holidays&leaves/index');
+    });
+
+    Route::get('/viewemployee_salary', function () {
+        return view('/project/owner/salary-management/show');
+    });
+
+    /*---------Route::get('/salary-management', [SalaryManagementController::class, 'index'])->name('project.owner.salary-management.index');---*/
+
+
+
+    /*--------Owner Profile route----------*/
+    /*--use App\Http\Controllers\ProfileController;
+
+    Route::get('/profile', [App\Http\Controllers\Auth\ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [App\Http\Controllers\Auth\ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/update', [App\Http\Controllers\Auth\ProfileController::class, 'update'])->name('profile.update');--*/
 
 /*-------- End of Owner Routes ----------*/
 
@@ -297,4 +411,8 @@ Route::controller(RegisterController::class)->group(function (){
     
 });
 
+/*-------- customer data form --------*/
 Route::get('/customer_details',[ShowController::class,'show']);
+
+/*-------- manage appoinment form --------*/
+Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);

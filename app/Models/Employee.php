@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
@@ -18,5 +19,10 @@ class Employee extends Model
         'emp_bsalary',
         'emp_rewards',
     ];
+
+    public function leave(): HasOne
+    {
+        return $this->hasOne(EmployeeLeave::class);
+    }
     use HasFactory;
 }

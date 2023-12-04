@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scal=1.0">
-    <title>Document</title>
+    <title>Salon Managemet</title>
 
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">

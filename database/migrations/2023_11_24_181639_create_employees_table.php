@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('emp_email');
             $table->string('emp_bsalary');
             $table->string('emp_rewards');
+            $table->string('emp_password')->default('12345678');
             $table->timestamps();
         });
     }
