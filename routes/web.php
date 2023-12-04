@@ -380,7 +380,6 @@ use App\Models\Employee;
 
     Route::post('/storeownerdata', [OwnerController::class, 'store'])->name('storeownerdata');
 
-
     /*--------Salary management system route----------*/
 
     Route::get('/employeeleave', function () {

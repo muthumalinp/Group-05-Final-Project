@@ -1,42 +1,33 @@
-@extends('layouts.owner_nav')
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-        <meta charset="utf-8">
-        <title>Salon Yaraa owner-profile</title>
-        <link rel="stylesheet" href="{{ asset('css/Owner/owner.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/Owner/profile.css') }}">
+@extends('layouts.owner_forms')
+@section('content')
+   <!--
+    <div class="mt-5 ms-5 me-5">
+        <div class="card">
+            <div class="card-header"><h3>Manage Employee Leaves</h3></div>
+            <div class="card-body">
+                <form method="POST" action="{{ route('project.owner.profile.store') }}" enctype="multipart/form-data">
+                    @csrf
+                    <label for="position">Position</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option value="1" selected>
+                            @foreach
+                        </option>
+                        
+                    </select><br/>
 
-        <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
-        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-        <script src="https://kit.fontawesome.com/cff257cc3a.js" crossorigin="anonymous"></script>
-   </head>
+                    <label for="Number of Leaves">Number of Leaves</label>
+                    <input type="text" class="form-control" name="available_leaves"><br/>
 
+                    <label for="Number of Leaves">Number of Leaves</label>
+                    <input type="text" class="form-control" name="available_leaves"><br/>
 
-   @section('cont')
-   <body>
+                    <input type="submit" class="btn btn-primary" value="OK">
+                </form>
 
-        <script src="{{asset('js/bootstrap.js')}}"></script>
-        <script src="{{asset('js/bootstrap.min.js')}}"></script>
-      
-
-        <!-- @if(session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif-->
-
-        <div class="main_container">
-            <div class="container">
-                <div class="Header"><h2>Manage Employee Leaves</h2></div>
-                <div class="info">
-                    <div class="container rounded bg-white mt-5 mb-5">
-                        <form method="POST" action="{{ route('project.owner.profile.store') }}" enctype="multipart/form-data">
-                        @csrf
-              
-                        </form>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
-    </body>
+    </div>
 @endsection
-</html>
+
+-->
