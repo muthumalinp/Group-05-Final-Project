@@ -44,7 +44,7 @@
                                     <td>{{$item->price}}</td>
                                     <td>{{$item->Quantity}}</td>
                                     <td><img src="{{asset('uploads/products/'.$item->product_image)}}" width="70px" height="70px" alt="Image"></td>
-                                    <td><a href="" class="btn btn-primary btn-sm">Edit</a></td>
+                                    <td><a href="{{url('Edit1/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a></td>
                                     <td><a href="" class="btn btn-danger btn-sm">Delete</a></td>
                                     
                                 </tr>

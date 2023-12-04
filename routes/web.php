@@ -41,6 +41,10 @@ use App\Mail\EmployeeRegistered;
 Route::get('Index1',[HairstrController::class,'index1']);
 Route::get('Create1',[HairstrController::class,'create1']);
 Route::post('Create1',[HairstrController::class,'store']);
+Route::get('Edit1/{id}',[HairstrController::class,'edit1']);
+
+Route::put('Update1/{id}', [HairstrController::class, 'update1']);
+
 
 /*Route::get('/', function () {
     return view('/project/admin/owner');
