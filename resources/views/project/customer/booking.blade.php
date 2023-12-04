@@ -32,18 +32,18 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="col-12">
-                    <button type="button" class="btn btn-custom" onclick="toggleContent('cutsContent')">Cuts</button><br/>
-                    <button type="button" class="btn btn-custom" onclick="toggleContent('colorContent')">Color</button><br/>
-                    <button type="button" class="btn btn-custom" onclick="toggleContent('finishContent')">Finish & Treats</button><br/>
-                    <button type="button" class="btn btn-custom" onclick="toggleContent('keratinContent')">Keratin Treatment</button><br/>
+                    <button type="button" class="btn btn-custom" onclick="toggleContent('hairContent')">Hair Services</button><br/>
+                    <button type="button" class="btn btn-custom" onclick="toggleContent('bridalContent')">Bridal Services</button><br/>
+                    <button type="button" class="btn btn-custom" onclick="toggleContent('nailContent')">Nail Services</button><br/>
+                    <button type="button" class="btn btn-custom" onclick="toggleContent('otherContent')">Other Services</button><br/>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <div id="cutsContent" class="hidden-content">
+                <div id="hairContent" class="hidden-content">
                     <div class="row">
                         <div class="col-8">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#cutBlowDryModal">Cut & Blow Dry</button>
+                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">Hair Cut-Ladies</button>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
@@ -56,20 +56,20 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#cutBlowDryModal">BOOK NOW</button>
+                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">BOOK NOW</button>
                         </div>
                     </div>
                 </div>
                 
-                <div id="colorContent" class="hidden-content">
+                <div id="bridalContent" class="hidden-content">
                     Content for Color goes here.
                 </div>
                 
-                <div id="finishContent" class="hidden-content">
+                <div id="nailContent" class="hidden-content">
                     Content for Finish & Treats goes here.
                 </div>
                 
-                <div id="keratinContent" class="hidden-content">
+                <div id="otherContent" class="hidden-content">
                     Content for Keratin Treatment goes here.
                 </div>
             </div>
