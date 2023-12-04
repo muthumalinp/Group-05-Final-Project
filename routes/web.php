@@ -42,6 +42,10 @@ use App\Mail\EmployeeRegistered;
 Route::get('Index1',[HairstrController::class,'index1']);
 Route::get('Create1',[HairstrController::class,'create1']);
 Route::post('Create1',[HairstrController::class,'store']);
+Route::get('Edit1/{id}',[HairstrController::class,'edit1']);
+
+Route::put('Update1/{id}', [HairstrController::class, 'update1']);
+
 
 /*Route::get('/', function () {
     return view('/project/admin/owner');
@@ -345,6 +349,14 @@ use App\Models\Employee;
     Route::get('/addemployee', function () {
         return view('/project/owner/employee/create');
     });
+
+    Route::get('/backtodashboard', function () {
+        return view('/project/owner/owner');
+    });
+
+    /*-----Route::get('/backtoempindex', function () {
+        return view('/project/owner/Employee/index');
+    });------*/
     
     Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employee.create');
     Route::get('/employees', [EmployeeController::class, 'index'])->name('employee.index');
@@ -352,13 +364,13 @@ use App\Models\Employee;
 
     use App\Http\Controllers\OwnerController;
 
-    Route::get('/owners/create', [OwnerController::class, 'create'])->name('project.owners.profile.create');
-    Route::post('/project/owner/profile/store', [OwnerController::class, 'store'])->name('project.owner.profile.store');
+    Route::post('/storeownerdata', [OwnerController::class, 'store'])->name('storeownerdata');
+
 
     /*--------Salary management system route----------*/
 
     Route::get('/employeeleave', function () {
-        return view('/project/owner/leave/index');
+        return view('/project/owner/manage-holidays&leaves/index');
     });
 
     Route::get('/viewemployee_salary', function () {
@@ -407,3 +419,6 @@ Route::get('/customer_details',[ShowController::class,'show']);
 Route::prefix('booking-pedi')->group(function () {
     Route::get('/', [BookingPediController::class, 'bookingPedi']);
 });
+
+/*-------- manage appoinment form --------*/
+Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);

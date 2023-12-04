@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\EmployeeLeave;
 use Illuminate\Support\Facades\Hash;
 
 use App\Mail\EmployeeRegistered;
@@ -49,6 +50,13 @@ class EmployeeController extends Controller
             'emp_rewards' => $request->input('emp_rewards'),
         ]);
         $employee->save();
+
+        EmployeeLeave::create([
+            'employee_id' => $employee->id,
+            'available_leaves' => 0,
+            'used_leaves' => 0,
+            'remaining_leaves' => 0,
+        ]);
 
         // Send email notification
         $employeeData = [

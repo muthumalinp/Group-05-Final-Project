@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Hairstr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+
 
 class HairstrController extends Controller
 {
@@ -34,23 +36,59 @@ class HairstrController extends Controller
             'Quantity' => 'required|integer',
             'product_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
-        $ProductHairstr = new Hairstr;
-        $ProductHairstr->product_ID = $request->input('product_ID');
-        $ProductHairstr->category = $request->input('category');
-        $ProductHairstr->name = $request->input('name');
-        $ProductHairstr->price = $request->input('price');
-        $ProductHairstr->Quantity = $request->input('Quantity');
-
+        $product = new Hairstr;
+        $product->product_ID = $request->input('product_ID');
+        $product->category = $request->input('category');
+        $product->name = $request->input('name');
+        $product->price = $request->input('price');
+        $product->Quantity = $request->input('Quantity'); 
         if ($request->hasfile('product_image')) {
             $file = $request->file('product_image');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
             $file->move('uploads/products/', $filename);
-            $ProductHairstr->product_image = $filename;
+            $product->product_image = $filename;
         }
 
-        $ProductHairstr->save();
+        $product->save();
         return redirect()->back()->with('status', 'Product Added Successfully');
     }
+    
+        public function edit1($id)
+        {
+            $product = Hairstr::find($id);
+            
+            return view('project.public.edit1',compact('product'));
+        }
+
+        public function update1(Request $request,$id)
+        {
+            $product = Hairstr::find($id);
+            $product->product_ID = $request->input('product_ID');
+            $product->category = $request->input('category');
+            $product->name = $request->input('name');
+            $product->price = $request->input('price');
+            $product->Quantity = $request->input('Quantity');
+    
+            if ($request->hasfile('product_image'))
+             {
+                $destination = 'uploads/products/'.$product->product_image;
+
+                if(File::exists($destination))
+                {
+                    File::delete($destination);
+                }
+
+                $file = $request->file('product_image');
+                $extension = $file->getClientOriginalExtension();
+                $filename = time() . '.' . $extension;
+                $file->move('uploads/products/', $filename);
+                $product->product_image = $filename;
+            }
+    
+            $product->update();
+            return redirect()->back()->with('status', 'Product Updated Successfully');
+        }
+        
+
 }

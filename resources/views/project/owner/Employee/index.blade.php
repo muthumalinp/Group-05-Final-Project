@@ -11,6 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h2>Employee Management</h2>
+                        <a href="{{url('/backtodashboard')}}" class="btn btn-secondary float-end">Back</a>
                     </div>
                     <div class="card-body">
                         <a href="{{url('/addemployee')}}" class="btn btn-success btn-sm" title="Add New Employee">
