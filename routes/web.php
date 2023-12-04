@@ -170,21 +170,18 @@ Route::get('/setting', function () {
 
 /*----------Starter of booking servises blade file---------*/
 
-Route::get('/bookingFaci', function () {
-    return view('/project/public/includ/bookingFaci');
-});
-Route::get('/bookingHair', function () {
-    return view('/project/public/includ/bookingHair');
-});
-Route::get('/bookingDres', function () {
-    return view('/project/public/includ/bookingDres');
-});
-Route::get('/bookingPedi', function () {
-    return view('/project/public/includ/bookingPedi');
-});
-Route::get('/Booking', function () {
-    return view('/project/public/booking');
-});
+// Route::get('/bookingFaci', function () {
+//     return view('/project/public/includ/bookingFaci');
+// });
+// Route::get('/bookingDres', function () {
+//     return view('/project/public/includ/bookingDres');
+// });
+// Route::get('/bookingPedi', function () {
+//     return view('/project/public/includ/bookingPedi');
+// });
+// Route::get('/Booking', function () {
+//     return view('/project/public/booking');
+// });
 
 /*----------End of booking servises blade file---------*/
 
@@ -244,12 +241,28 @@ Route::get('/rentbridalwrgl', function () {
     return view('/project/public/rentbridalwrgl');
 });
 
-    Route::get('/Booking-Customer', function () {
-    return view('/project/customer/booking');
-})->name('customer.booking');
+//     Route::get('/Booking-Customer', function () {
+//     return view('/project/customer/booking');
+// })->name('customer.booking');
 
 
 Route::get('/edit-profile', 'ProfileController@edit')->name('edit-profile');
+
+// routes/web.php
+
+use App\Http\Controllers\AppointmentController;
+
+Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
+
+use App\Http\Controllers\BookingController;
+
+Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index');
+
+// Route::get('/BookNow', function () {
+//     return view('/project/customer/booking');
+// })->name('customer.booking');
+// Add other routes as needed
+
 
 /*--------- End of Customer Routes ----------*/
 
@@ -407,7 +420,7 @@ Auth::routes();
 
     Route::get('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('Login');
     Route::post('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'loginPost'])->name('login.post');
-    Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+    Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('custom.logout');
 
 Route::controller(RegisterController::class)->group(function (){
     Route::get('/AddUser', [App\Http\Controllers\Auth\RegisterController::class, 'AddUser'])->name('register');
