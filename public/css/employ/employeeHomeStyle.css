@@ -10,7 +10,7 @@ a{ text-decoration: none; color: black;}
 }
 
 .Full1{
-    width: 1000px;
+    width: 100%;
 }
 
 .tailButn{
@@ -46,7 +46,7 @@ a{ text-decoration: none; color: black;}
 }
 
 div.Full2{
-    width: 970px;
+    width: 100%;
     margin: 15px;
 }
 
