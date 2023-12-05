@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="BtnLink_Right">
                                     <ul>
-                                        <li><a href="{{ route('project.owner.Employee.index') }}">Rent Product</a></li>
+                                        <li><a href="{{url('/rentitems')}}">Rent Product</a></li>
                                     </ul>
                                 </div>
                             </div>

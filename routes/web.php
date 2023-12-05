@@ -425,6 +425,11 @@ Auth::routes();
         return view('/project/owner/employee/create');
     });
 
+    /*-------add rent product button route----*/
+    Route::get('/rentitems', function () {
+        return view('/project/owner/rentproduct/index');
+    });
+
     Route::get('/backtodashboard', function () {
         return view('/project/owner/owner');
     });
