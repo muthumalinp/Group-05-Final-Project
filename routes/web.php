@@ -236,7 +236,7 @@ Route::get('/rentbridalwrgl', function () {
 })->name('customer.booking');
 
 
-Route::get('/edit-profile', 'ProfileController@edit')->name('edit-profile');
+// Route::get('/edit-profile', 'ProfileController@edit')->name('edit-profile');
 
 /*--------- End of Customer Routes ----------*/
 
@@ -384,3 +384,16 @@ Route::controller(RegisterController::class)->group(function (){
 
 /*-------- customer data form --------*/
 Route::get('/customer_details',[ShowController::class,'show']);
+
+
+
+/* user profile dropdown */
+
+use App\Http\Controllers\ProfileController;
+
+// Route::get('/edit-profile', [ProfileController::class, 'edit'])->name('edit-profile');
+
+
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');

@@ -63,7 +63,7 @@
                         </li>  
                         <li>
                             <div class="profile-container">
-                                <a href="{{ route('edit-profile') }}">
+                                <a href="{{ route('profile.show') }}">
                                     <img src="{{ asset('css/Customer/pp1.jpg') }}" alt="Profile Picture" id="profile-picture">
                                 </a>   
                             </div>
