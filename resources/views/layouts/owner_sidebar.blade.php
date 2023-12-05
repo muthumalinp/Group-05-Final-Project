@@ -31,8 +31,8 @@
          <div class="top_navbar">
             <div class="logo">Salon <span>Yaraa</span></div>
             <div class="menu">
-               <div class="humberger">
-                  <i class="fas fa-bars"></i>
+                <div class="humberger">
+                  
                </div>
                <div class="profile_wrap">
                   <div class="profile">

@@ -266,8 +266,8 @@ a{ text-decoration: none; color: black;}
   }
   
   .top_navbar .logo{
-    width: 250px;
-    font-size: 25px;
+    width: 280px;
+    font-size: 30px;
     font-weight: 600;
     padding: 0 25px;
     color: white;
@@ -276,7 +276,7 @@ a{ text-decoration: none; color: black;}
   }
   
   .top_navbar .logo span{
-    font-weight: 400;
+    font-weight: 600;
   }
   
   .top_navbar .menu{
@@ -284,7 +284,7 @@ a{ text-decoration: none; color: black;}
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 25px;
+    padding: 0 30px;
   }
   
   .top_navbar .menu .humberger{
