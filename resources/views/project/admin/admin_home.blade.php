@@ -1,4 +1,4 @@
-
+@extends('layouts.admin_navbar')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -6,6 +6,7 @@
    <!-- <link rel="stylesheet" href="{{ asset('js/admin/admin.js') }}">  -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/layout.css') }}">
     
     
     
@@ -44,7 +45,7 @@
         </header>
         
         <aside>
-            <button id="sidebar-toggle"><h1>Salon</h1></button>
+            <button id="sidebar-toggle"><h3>Salon</h3></button>
                 <nav>
                     <ul>
                         <li><a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Dashboard</a>
@@ -93,8 +94,20 @@
                         
                     </div>
                     <div class="card">
-                        <h2>Card 3</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div class="content rounded col-md-12">
+                                 <div class="border-right">
+                                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                       <h3 style="color:#633030; font-weight:bold">PROFILE</h3>
+                                       <img class="rounded-circle mt-0" width="118px" src="css/Owner/owner_profile_image.jpeg">
+                                       <span> ...</span>
+                                       <span class="font-weight-bold">Yaraa De Silva</span>
+                                       <span class="text-black-50">salonyaraa@gmail.com</span>
+                                       <span class="text-black-50">+94 702 016 166</span>
+                                       <span class="text-black-50">No.45, Highlevel Road, Maharagama</span>
+                                       <span> </span>
+                                    </div>
+                                 </div>
+                        </div>
                     </div>
                     <div class="card">
                         <h2>Card 4</h2>
