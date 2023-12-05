@@ -15,14 +15,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+
                 <h1 id="a text-center">
                     Products
                 </h1>
 
-                <a href="/Product/HairStraghtening">
-                    <button class="btn">BUY NOW</button>
-                </a>
-
+                
             </div>
         </div><!--//row header-->
 
@@ -36,16 +34,16 @@
 
         <div class="row">
             <div class="e col-3">
-                <img src="css/hairstr1.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/hairstr11.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
             <div class="e col-3">
-                <img src="css/hairstr2.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/hairstr12.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
             <div class="e col-3">
-                <img src="css/hairstr3.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/hairstr13.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
             <div class="e col-3">
-                <img src="css/hairstr4.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/hairstr14.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
         </div><!--//photos of hairstr-->
 
@@ -60,7 +58,7 @@
                 Xtenso
             </div>
             <div class="d col-3 text-center lead">
-                Evon
+               Streax-Canvo
             </div>
         </div><!--//text hairt-->
 
@@ -72,25 +70,25 @@
 
         <div class="row">
             <div class="col-4">
-                <img src="css/color1.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/color11.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
             <div class="col-4">
-                <img src="css/color2.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/color12.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
             <div class="col-4">
-                <img src="css/color3.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/color13.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
         </div><!--//photos of color-->
 
         <div class="row">
             <div class="d col-4 text-center lead">
-                Revlon
+                Luxury
             </div>
             <div class="d col-4 text-center lead">
-                Loreal
+                 Serioxyl
             </div>
             <div class="d col-4 text-center lead">
-                Streax
+                Show
             </div>
         </div><!--//text color-->
 
@@ -102,35 +100,31 @@
 
         <div class="row">
             <div class="col-3">
-                <img src="css/hairt1.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/hairt11.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
             <div class="col-3">
-                <img src="css/hairt2.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/hairt12.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
             <div class="col-3">
-                <img src="css/hairt3.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/hairt13.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
             <div class="col-3">
-                <img src="css/hairt4.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/hairt14.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
         </div><!--//photos of hairt-->
 
         <div class="row">
             <div class="d col-3 text-center lead">
-                Tresemme<br>
-                Shampoo and Conditioner
+                Musk
             </div>
             <div class="d col-3 text-center lead">
-                Bellose<br>
-                Shampoo and Conditioner
+             Keracare
             </div>
             <div class="d col-3 text-center lead">
-                Bellose<br>
-                Keratin hair therapy
+              Christophe Robin
             </div>
             <div class="d col-3 text-center lead">
-                Tresemme<br>
-                Deep Smoothing Mask
+                Tresemme
             </div>
         </div><!--//text hairt-->
 
@@ -142,33 +136,38 @@
 
         <div class="row">
             <div class="col-3">
-                <img src="css/facial1.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/facial11.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
             <div class="col-3">
-                <img src="css/facial2.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/facial12.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
             <div class="col-3">
-                <img src="css/facial3.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/facial13.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
             <div class="col-3">
-                <img src="css/facial4.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
+                <img src="css/facial14.jpg" class="mx-auto d-block" alt="" style="width: 250px; height:250px; border-radius: 30px;">
             </div>
         </div><!--//photos of facial-->
 
         <div class="row">
             <div class="d col-3 text-center lead">
-                Himalaya
+                Gold Infusion
             </div>
             <div class="d col-3 text-center lead">
-                Clean & Clear
+                Growme
             </div>
             <div class="d col-3 text-center lead">
-                Nivea
+               Omni
             </div>
             <div class="d col-3 text-center lead">
-                Lakme Scrub
+                Spa Ceylon
             </div>
         </div><!--//text facial-->
+
+        <a href="/Product/HairStraghtening">
+                    <button id="btn">BUY NOW</button>
+                </a>
+               
     </div><!--//container-->
 
     <script src="{{asset('js/bootstrap.js')}}"></script>

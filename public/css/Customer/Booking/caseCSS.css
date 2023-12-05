@@ -11,6 +11,7 @@
 
 .topMain{
     width: 1024px;
+    margin-top: 90px;
 }
 
 div.topMain div.topMainHead{
@@ -134,7 +135,7 @@ topTail_middle{
 
 .middle_left1 ul{
     list-style: none;
-    margin-left: 30px;
+    margin-left: 10px;
 }
 
 .middle_left1 ul li{
@@ -286,6 +287,18 @@ form textarea{
     margin-top: 30px;
     margin-bottom: 30px;
     text-align: center;
+}
+
+form .butX{
+    width: 100px;
+    height: 35px;
+    margin: 0 10px;
+    background: #333333;
+    border-radius: 10px;
+    border: 0;
+    outline: none;
+    color: aliceblue;
+    cursor: pointer;
 }
 
 form button{

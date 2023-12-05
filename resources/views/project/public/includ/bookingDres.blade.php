@@ -15,13 +15,13 @@
             <div class="topMainTail clearfix">
                 <div class="HeadLink_Left">
                     <ul>
-                        <li><a href="{{url('booking')}}">Hair Cutting & Setting</a></li>
-                        <li><a href="{{url('bookingDres')}}">Dressings</a></li>
+                        <li><a href="{{url('bookingHair')}}">Hair Cutting & Setting</a></li>
+                        <li><a href="{{url('bookingDres')}}">Color</a></li>
                     </ul>
                 </div>
                 <div class="HeadLink_Right">
                     <ul>
-                        <li><a href="{{url('bookingFaci')}}">Facial & Treatments</a></li>
+                        <li><a href="{{url('bookingFaci')}}">Finish && Treats</a></li>
                         <li><a href="{{url('bookingPedi')}}">Pedicure</a></li>
                     </ul>
                 </div>
@@ -38,10 +38,10 @@
         <div class="topTail2 clearfix">
 
             <div class="topTail_Head">
-                <h1>Dressings consultation Form</h1>
+                <h1>COLORING consultation Form</h1>
             </div>
 
-            <form>
+            <form action="/bookingDres" method="POST">
 
                 <div class="select">
                     <p>Select a service</p>
@@ -49,41 +49,50 @@
 
                 <div class="mainSevies">
                     <div class="middle_left1">
+                    @csrf
                         <ul>
                             <li>
-                                <label for="col">Cutting : </label>
+                            <label for="col">Add On Tint : </label>
                                     <select name="cut" id="cut">
-                                        <option value="small"><a href="#">Small Hair : Rs.500.00</a></option>
-                                        <option value="medium"><a href="#">Medium Hair : Rs.1000.00</a></option>
-                                        <option value="large"><a href="#">Hair : Rs.1500.00</a></option>
+                                        <option value="Any1"><a href="#">Any Stylist:$18.00</a></option>
+                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
+                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
+                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
+                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
                                     </select>
                             </li>
         
                             <li>    
-                                <label for="col">Coloring : </label>
-                                <select name="col" id="col">
-                                    <option value="small"><a href="#">Small Hair : Rs.500.00</a></option>
-                                    <option value="medium"><a href="#">Medium Hair : Rs.1000.00</a></option>
-                                    <option value="large"><a href="#">Hair : Rs.1500.00</a></option>
-                                </select>
+                                <label for="col">Classic : </label>
+                                    <select name="cut" id="cut">
+                                        <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
+                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
+                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
+                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
+                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                                    </select>
                             </li>
 
                             <li>    
-                                <label for="col">Hair Extensions : </label>
-                                <select name="col" id="col">
-                                    <option value="small"><a href="#">Small Hair : Rs.500.00</a></option>
-                                    <option value="medium"><a href="#">Medium Hair : Rs.1000.00</a></option>
-                                    <option value="large"><a href="#">Hair : Rs.1500.00</a></option>
-                                </select>
+                                <label for="col">Fullhead Highlights : </label>
+                                    <select name="cut" id="cut">
+                                        <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
+                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
+                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
+                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
+                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                                    </select>
                             </li>
 
                             <li>    
-                                <label for="col">Threading : </label>
-                                <select name="col" id="col">
-                                    <option value="small"><a href="#">Small Hair : Rs.500.00</a></option>
-                                    <option value="medium"><a href="#">Medium Hair : Rs.1000.00</a></option>
-                                    <option value="large"><a href="#">Hair : Rs.1500.00</a></option>
-                                </select>
+                                <label for="col">Halfhead Highlights : </label>
+                                    <select name="cut" id="cut">
+                                        <option value="Any1"><a href="#">Any Stylist:$10.00</a></option>
+                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
+                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
+                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
+                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                                    </select>
                             </li>
 
                         </ul>
@@ -92,39 +101,47 @@
                     <div class="middle_right1">
                         <ul>
                             <li>
-                                <label for="col">Cutting : </label>
+                            <label for="col">Full Head Tint : </label>
                                     <select name="cut" id="cut">
-                                        <option value="small"><a href="#">Small Hair : Rs.500.00</a></option>
-                                        <option value="medium"><a href="#">Medium Hair : Rs.1000.00</a></option>
-                                        <option value="large"><a href="#">Hair : Rs.1500.00</a></option>
+                                        <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
+                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
+                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
+                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
+                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
                                     </select>
                             </li>
 
                             <li>    
-                                    <label for="col">Coloring : </label>
-                                    <select name="col" id="col">
-                                        <option value="small"><a href="#">Small Hair : Rs.500.00</a></option>
-                                        <option value="medium"><a href="#">Medium Hair : Rs.1000.00</a></option>
-                                        <option value="large"><a href="#">Hair : Rs.1500.00</a></option>
+                            <label for="col">Curl : </label>
+                                    <select name="cut" id="cut">
+                                        <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
+                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
+                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
+                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
+                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
                                     </select>
                             </li>
 
                             <li>    
-                                <label for="col">Hair Extensions : </label>
-                                <select name="col" id="col">
-                                    <option value="small"><a href="#">Small Hair : Rs.500.00</a></option>
-                                    <option value="medium"><a href="#">Medium Hair : Rs.1000.00</a></option>
-                                    <option value="large"><a href="#">Hair : Rs.1500.00</a></option>
-                                </select>
+                            <label for="col">Tink Regrowth : </label>
+                                    <select name="cut" id="cut">
+                                        <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
+                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
+                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
+                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
+                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                                    </select>
                             </li>
 
                             <li>    
-                                <label for="col">Threading : </label>
-                                <select name="col" id="col">
-                                    <option value="small"><a href="#">Small Hair : Rs.500.00</a></option>
-                                    <option value="medium"><a href="#">Medium Hair : Rs.1000.00</a></option>
-                                    <option value="large"><a href="#">Hair : Rs.1500.00</a></option>
-                                </select>
+                            <label for="col">LD Bespoke : </label>
+                                    <select name="cut" id="cut">
+                                        <option value="Any1"><a href="#">Any Stylist:$15.00</a></option>
+                                        <option value="muthu"><a href="#">Muthu:$20.00</a></option>
+                                        <option value="malki"><a href="#">Malki:$30.00</a></option>
+                                        <option value="harini"><a href="#">Harini:$40.00</a></option>
+                                        <option value="dil"><a href="#">Dilshani:$50.00</a></option>
+                                    </select>
                             </li>
 
                         </ul>
@@ -192,12 +209,15 @@
                 </div>
 
                 <div class="formContent">
+                @csrf
                     <label>Full Name :</label>
                     <input type="text" placeholder="Full Name" id="fuName" name="fuName"><br>
-
+                    
+                    @csrf
                     <label>E-Mail :</label>
                     <input type="email" placeholder="E-Mail" id="eMail" name="eMail"><br>
 
+                    @csrf
                     <label>Phone No :</label>
                     <select name="nbrCode" id="nbrCode">
                         <option>+94</option>
@@ -209,17 +229,18 @@
                         <option>+91</option>
                         <option>+92</option>
                     </select>
+                    @csrf
                     <input type="phone" placeholder="Phone Number" id="phone" name="phone"><br>
-
+                    @csrf
                     <label>Preferred method of contact ?</label>
                     <input type="radio" name="contact" value="mail" id="mai"> E-Mail
                     <input type="radio" name="contact" value="phone" id="pho"> Phone
                     <br>
-
+                    @csrf
                     <label>Other details you may wish to highlight :</label>
                     <textarea id="massage" name="massage" placeholder="Your Massage" rows="5" cols="60" ></textarea><br>
                 </div>
-
+                @csrf
                 <div class="tailButn">
                     <button type="submit">Submit</button>
                 </div>

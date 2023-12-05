@@ -1,0 +1,131 @@
+* { margin: 0; padding: 0; box-sizing: border-box;}
+
+.clearfix { overflow: auto; }
+a{ text-decoration: none; color: black;}
+
+.Full-Main{
+    margin: 0 auto;
+    width: 1000px;
+    background: rgb(45, 44, 44);
+}
+
+.Full1{
+    width: 100%;
+}
+
+.tailButn{
+    float: left;
+    padding: 0 5px;
+    margin: 10px;
+}
+
+.head-but{
+    width: 150px;
+    height: 35px;
+    margin: 0 10px;
+    background: #5e2828;
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.site-search{
+    float: right;
+    margin: 10px;
+}
+
+.p-tag{
+    color: aliceblue;
+    font-size: 18px;
+	font-weight: normal;
+	letter-spacing: -1px;
+	font-variant: small-caps;
+    margin-bottom: 15px;
+}
+
+div.Full2{
+    width: 100%;
+    margin: 15px;
+}
+
+div.Full2 div.Full21-Left{
+    width: auto;
+    float: left;
+}
+
+div.Full2 div.Full21-Right{
+    width: 570px;
+    float: right;
+}
+
+div.Full22-Head{
+    width: 570px;
+}
+
+.work{
+    width: 500px;
+    border-radius: 20px;
+    background: rgb(236, 224, 201);
+    padding: 10px;
+}
+
+.leave{
+    width: 570px;
+}
+
+.leave button{
+    width: 150px;
+    height: 35px;
+    margin: 10px 0 10px 0;
+    background: #ebe9e9;
+    /*color: white;*/
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.Full22-Tail{
+    width: 570px;
+}
+
+.boxes{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box{
+    width: 250px;
+    height: 70px;
+    background: #ebe9e9;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 6px;
+    margin: 10px 20px 30px 0;
+    text-align: center;
+}
+
+.box:hover{
+    background: rgb(253, 239, 239);
+}
+
+.Full3{
+    width: 1000px;
+}
+
+.Full3 .Full3-Left{
+    float: left;
+    margin: 15px;
+}
+
+.Full3 .Full3-Right{
+    float: right;
+    margin-right: 50px;
+}
