@@ -10,6 +10,7 @@
             <div class="card">
                 <div class="card-header">
                     <h2>Services</h2>
+                    <a href="{{url('/backtodashboard')}}" class="btn btn-secondary float-end">Back</a>
                 </div>
                 <div class="card-body">
                     <a href="{{url('/servicecreate')}}" class="btn btn-success btn-sm" title="Add New Service">

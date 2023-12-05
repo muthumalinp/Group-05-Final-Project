@@ -3,7 +3,7 @@
 
 <div class="mt-5 me-5 ms-5">
 <div class="card">
-    <div class="card-header">Employee Registration</div>
+    <div class="card-header">Employee Registration<a href="{{url('/backtoempindex')}}" class="btn btn-secondary float-end">BACK</a></div>
     <div class="card-body">
         <form method="POST" action="{{ route('employee.store') }}">
             @csrf
@@ -35,9 +35,6 @@
                 <option value="2">Male</option>
                 <option value="3">Transgender</option>
             </select>
-
-            <label for="exampleFormControlFile1">Photo</label><br/>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="emp_profile_image"><br/><br/>
             
             <input type="submit" class="btn btn-primary" value="Register">
         </form>

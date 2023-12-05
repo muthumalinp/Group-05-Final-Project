@@ -6,10 +6,14 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\bookingPediController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HairstrController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\ServiceController;
+use App\Models\Employee;
 use App\Models\BookedAppointment;
 
 use Illuminate\Auth\AuthManager;
@@ -38,9 +42,14 @@ use App\Mail\EmployeeRegistered;
 */
 
 //Products Adding Routes begin
-Route::get('Product',[HairstrController::class,'product']);
+Route::get('Index1',[HairstrController::class,'index1']);
 Route::get('Create1',[HairstrController::class,'create1']);
 Route::post('Create1',[HairstrController::class,'store']);
+Route::get('Edit1/{id}',[HairstrController::class,'edit1']);
+Route::get('Delete1/{id}',[HairstrController::class,'delete1']);
+
+Route::put('Update1/{id}', [HairstrController::class, 'update1']);
+
 
 /*Route::get('/', function () {
     return view('/project/admin/owner');
@@ -83,6 +92,10 @@ Route::get('/Product', function () {
 Route::get('/Create1', function () {
     return view('/project/public/create1');
 });
+// Route::get('/Index1', function () {
+//     return view('/project/public/index1');
+// });
+
 
 Route::get('/Product/HairStraghtening', function () {
     return view('/project/public/producthairstr');
@@ -158,22 +171,22 @@ Route::get('/setting', function () {
 });
 /*-------- end of admin rout --------*/
 
+/*----------Starter of booking servises blade file---------*/
 
-Route::get('/bookingFaci', function () {
-    return view('/project/public/includ/bookingFaci');
-});
-Route::get('/bookingHair', function () {
-    return view('/project/public/includ/bookingHair');
-});
-Route::get('/bookingDres', function () {
-    return view('/project/public/includ/bookingDres');
-});
-Route::get('/bookingPedi', function () {
-    return view('/project/public/includ/bookingPedi');
-});
-Route::get('/Booking', function () {
-    return view('/project/public/booking');
-});
+// Route::get('/bookingFaci', function () {
+//     return view('/project/public/includ/bookingFaci');
+// });
+// Route::get('/bookingDres', function () {
+//     return view('/project/public/includ/bookingDres');
+// });
+// Route::get('/bookingPedi', function () {
+//     return view('/project/public/includ/bookingPedi');
+// });
+// Route::get('/Booking', function () {
+//     return view('/project/public/booking');
+// });
+
+/*----------End of booking servises blade file---------*/
 
 
 Route::get('/Register', function () {
@@ -231,12 +244,28 @@ Route::get('/rentbridalwrgl', function () {
     return view('/project/public/rentbridalwrgl');
 });
 
-    Route::get('/Booking-Customer', function () {
-    return view('/project/customer/booking');
-})->name('customer.booking');
+//     Route::get('/Booking-Customer', function () {
+//     return view('/project/customer/booking');
+// })->name('customer.booking');
 
 
 // Route::get('/edit-profile', 'ProfileController@edit')->name('edit-profile');
+
+// routes/web.php
+
+use App\Http\Controllers\AppointmentController;
+
+Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
+
+use App\Http\Controllers\BookingController;
+
+Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index');
+
+// Route::get('/BookNow', function () {
+//     return view('/project/customer/booking');
+// })->name('customer.booking');
+// Add other routes as needed
+
 
 /*--------- End of Customer Routes ----------*/
 
@@ -276,7 +305,21 @@ Route::post('/booking',function() {
 Auth::routes();
 
 
-/*-------- Starter of Owner Routes ---------*/
+
+
+/*-------- Starter of Employee Routes ---------*/
+    Route::get('/Dashboard-Employee', function () {
+        return view('resources\views\project\employee\dashboard');
+    });
+
+/*-------- End of Employee Routes ---------*/
+
+
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------ Starter of Owner Routes ----------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------*/
 
     Route::get('/Dashboard-Owner', function () {
         return view('/project/owner/owner');
@@ -307,9 +350,6 @@ Auth::routes();
         'index' => 'project.owner.Employee.index',
     ]); 
 
-    use App\Http\Controllers\ServiceController;
-    
-
     Route::resource('service', ServiceController::class)->names([
         'index' => 'project.owner.service.index',
         'create' => 'project.owner.service.create',
@@ -328,20 +368,27 @@ Auth::routes();
     Route::get('/addemployee', function () {
         return view('/project/owner/employee/create');
     });
+
+    Route::get('/backtodashboard', function () {
+        return view('/project/owner/owner');
+    });
+
+    /*-----Route::get('/backtoempindex', function () {
+        return view('/project/owner/Employee/index');
+    });------*/
     
     Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employee.create');
     Route::get('/employees', [EmployeeController::class, 'index'])->name('employee.index');
     Route::post('/employees', [EmployeeController::class, 'store'])->name('employee.store');
 
-    use App\Http\Controllers\OwnerController;
+    Route::post('/storeownerdata', [OwnerController::class, 'store'])->name('storeownerdata');
 
-    Route::get('/owners/create', [OwnerController::class, 'create'])->name('project.owners.profile.create');
-    Route::post('/project/owner/profile/store', [OwnerController::class, 'store'])->name('project.owner.profile.store');
+    /*----owner-report-part-----*/
+    Route::get('/Full-Report',[OwnerController::class,'showTtlCustomers'])->name('owner.report');
 
     /*--------Salary management system route----------*/
-
     Route::get('/employeeleave', function () {
-        return view('/project/owner/leave/index');
+        return view('/project/owner/manage-holidays&leaves/index');
     });
 
     Route::get('/viewemployee_salary', function () {
@@ -349,9 +396,6 @@ Auth::routes();
     });
 
     /*---------Route::get('/salary-management', [SalaryManagementController::class, 'index'])->name('project.owner.salary-management.index');---*/
-
-
-
     /*--------Owner Profile route----------*/
     /*--use App\Http\Controllers\ProfileController;
 
@@ -359,13 +403,22 @@ Auth::routes();
     Route::get('/profile/edit', [App\Http\Controllers\Auth\ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update', [App\Http\Controllers\Auth\ProfileController::class, 'update'])->name('profile.update');--*/
 
-/*-------- End of Owner Routes ----------*/
+/*-----------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------- End of Owner Routes ---------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
 
 /*-------- Starter of Employee Routes ---------*/
 
-Route::get('/Dashboard-Employee', function () {
+Route::get('/dashboard', function () {
     return view('/project/employee/dashboard');
-})->name('employee.dashboard');
+});
+
+Route::get('/emplLeave', function () {
+    return view('project\employee\Leave\emplLeave');
+});
 
 /*-------- End of Employee Routes ----------*/
 
@@ -373,7 +426,7 @@ Auth::routes();
 
     Route::get('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('Login');
     Route::post('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'loginPost'])->name('login.post');
-    Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+    Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('custom.logout');
 
 Route::controller(RegisterController::class)->group(function (){
     Route::get('/AddUser', [App\Http\Controllers\Auth\RegisterController::class, 'AddUser'])->name('register');
@@ -397,3 +450,9 @@ use App\Http\Controllers\ProfileController;
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+Route::prefix('booking-pedi')->group(function () {
+    Route::get('/', [BookingPediController::class, 'bookingPedi']);
+});
+
+/*-------- manage appoinment form --------*/
+Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);

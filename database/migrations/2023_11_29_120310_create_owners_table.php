@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('owner_email');
             $table->string('owner_phone');
             $table->string('owner_address');
-            $table->string('owner_bio');
-            $table->binary('owner_photo');
+            $table->string('owner_bio')->default();
+            $table->string('owner_photo');
             $table->string('owner_addetails');
             $table->string('owner_rewards');
             $table->timestamps();
