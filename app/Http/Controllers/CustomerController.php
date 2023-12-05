@@ -106,7 +106,7 @@ class CustomerController extends Controller
         $totalCustomers = User::where('role', 'customer')->count();
         //dd($totalCustomers);
         return view('/project/admin/admin_home', compact('totalCustomers'));
-    }  
+    } 
     
 
 }
