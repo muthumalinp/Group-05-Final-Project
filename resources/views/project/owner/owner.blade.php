@@ -53,7 +53,7 @@
                                  <div class="border-right">
                                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                                        <h3 style="color:#633030; font-weight:bold">PROFILE</h3>
-                                       <img class="rounded-circle mt-0" width="150px" src="css/Owner/owner_profile_image.jpeg">
+                                       <img class="rounded-circle mt-0" width="118px" src="css/Owner/owner_profile_image.jpeg">
                                        <span> ...</span>
                                        <span class="font-weight-bold">Yaraa De Silva</span>
                                        <span class="text-black-50">salonyaraa@gmail.com</span>
