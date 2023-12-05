@@ -6,10 +6,21 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+
 use App\Http\Controllers\BjwelController;
 use App\Http\Controllers\PjwelController;
 use App\Http\Controllers\BdlwrController;
 use App\Http\Controllers\PwrController;
+
+
+use App\Http\Controllers\bookingPediController;
+use App\Http\Controllers\ShowController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\HairstrController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\ServiceController;
+use App\Models\Employee;
 
 use App\Models\BookedAppointment;
 
@@ -359,7 +370,12 @@ Auth::routes();
 
 /*-------- End of Employee Routes ---------*/
 
-/*-------- Starter of Owner Routes ---------*/
+
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------ Starter of Owner Routes ----------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------*/
 
     Route::get('/Dashboard-Owner', function () {
         return view('/project/owner/owner');
@@ -389,9 +405,6 @@ Auth::routes();
     Route::resource('employee', EmployeeController::class)->names([
         'index' => 'project.owner.Employee.index',
     ]); 
-
-    use App\Http\Controllers\ServiceController;
-use App\Models\Employee;
 
     Route::resource('service', ServiceController::class)->names([
         'index' => 'project.owner.service.index',
@@ -424,12 +437,12 @@ use App\Models\Employee;
     Route::get('/employees', [EmployeeController::class, 'index'])->name('employee.index');
     Route::post('/employees', [EmployeeController::class, 'store'])->name('employee.store');
 
-    use App\Http\Controllers\OwnerController;
-
     Route::post('/storeownerdata', [OwnerController::class, 'store'])->name('storeownerdata');
 
-    /*--------Salary management system route----------*/
+    /*----owner-report-part-----*/
+    Route::get('/Full-Report',[OwnerController::class,'showTtlCustomers'])->name('owner.report');
 
+    /*--------Salary management system route----------*/
     Route::get('/employeeleave', function () {
         return view('/project/owner/manage-holidays&leaves/index');
     });
@@ -439,9 +452,6 @@ use App\Models\Employee;
     });
 
     /*---------Route::get('/salary-management', [SalaryManagementController::class, 'index'])->name('project.owner.salary-management.index');---*/
-
-
-
     /*--------Owner Profile route----------*/
     /*--use App\Http\Controllers\ProfileController;
 
@@ -449,7 +459,12 @@ use App\Models\Employee;
     Route::get('/profile/edit', [App\Http\Controllers\Auth\ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update', [App\Http\Controllers\Auth\ProfileController::class, 'update'])->name('profile.update');--*/
 
-/*-------- End of Owner Routes ----------*/
+/*-----------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------- End of Owner Routes ---------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
 
 /*-------- Starter of Employee Routes ---------*/
 
