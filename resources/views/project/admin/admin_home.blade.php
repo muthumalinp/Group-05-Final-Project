@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/layout.css') }}">
-    
+    <script src="https://kit.fontawesome.com/cff257cc3a.js" crossorigin="anonymous"></script>
     
     
     </head>
