@@ -6,7 +6,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-
+use App\Http\Controllers\BjwelController;
+use App\Http\Controllers\PjwelController;
+use App\Http\Controllers\BdlwrController;
+use App\Http\Controllers\PwrController;
 
 use App\Models\BookedAppointment;
 
@@ -187,6 +190,7 @@ Route::get('/Home-Customer', function () {
     return view('/project/customer/product');
 })->name('customer.product');
 
+
     Route::get('/Rent-Customer', function () {
     return view('/project/customer/rent');
 })->name('customer.rent');
@@ -199,7 +203,51 @@ Route::get('/rentbridalwrgl', function () {
     return view('/project/public/rentbridalwrgl');
 });
 
-    Route::get('/Booking-Customer', function () {
+Route::get('/rentbridalwrgl1', function () {
+    return view('/project/public/rentbridalwrgl1');
+});
+
+Route::get('/create', function () {
+    return view('/project/public/create');
+});
+
+Route::get('/create1', function () {
+    return view('/project/public/create1');
+});
+
+Route::get('/create3', function () {
+    return view('/project/public/create3');
+});
+
+Route::get('/create4', function () {
+    return view('/project/public/create4');
+});
+
+Route::get('/rentbridlwrdisplay', function () {
+    return view('/project/public/rentbridlwrdisplay');
+});
+
+
+
+
+
+
+Route::get('add-bjwel', [BjwelController::class,'create']);
+Route::post('add-bjwel', [BjwelController::class,'store']);
+
+Route::get('add-pjwel', [PjwelController::class,'create1']);
+Route::post('add-pjwel', [PjwelController::class,'store']);
+
+Route::get('add-bdlwr', [BdlwrController::class, 'create3']);
+Route::post('add-bdlwr', [BdlwrController::class, 'store']);
+
+Route::get('add-pwr', [PwrController::class, 'create4']);
+Route::post('add-pwr',[PwrController::class, 'store']);
+
+
+
+
+Route::get('/Booking-Customer', function () {
     return view('/project/customer/booking');
 })->name('customer.booking');
 
