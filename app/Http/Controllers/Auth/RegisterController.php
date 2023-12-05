@@ -69,7 +69,7 @@ class RegisterController extends Controller
     if(!$User) {
         return redirect(route('register'))->with("error", "Registration failed, try again.");
     }
-        return redirect(route('Login'))->with("success", "Registration success and verify your email address");
+        return redirect(route('LogIn'))->with("success", "Registration success and verify your email address");
     
 }
 

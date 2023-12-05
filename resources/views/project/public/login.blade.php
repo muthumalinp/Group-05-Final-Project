@@ -21,7 +21,7 @@
             <div class="alert alert-success">{{session('success')}}</div>
         @endif
     </div>
-    <form action="{{route('login.post')}}" method="POST" class="ms-auto me-auto mt-auto" style="width: 500px">
+    <form action="{{route('LogIn')}}" method="POST" class="ms-auto me-auto mt-auto" style="width: 500px">
         @csrf
         <h2>Log In</h2>
         <p>Don't have an account yet? <a href="/Register">Sign Up</a></p>

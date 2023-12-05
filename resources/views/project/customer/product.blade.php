@@ -55,7 +55,7 @@
                 Xtenso
             </div>
             <div class="d col-3 text-center lead">
-               Streax-Canvo
+                Evon
             </div>
 
                 <!--//<a class="read_more" href="service.html">Read More</a>-->
@@ -82,13 +82,13 @@
 
         <div class="row">
             <div class="d col-4 text-center lead">
-                Luxury
+                Revlon
             </div>
             <div class="d col-4 text-center lead">
-                Serioxyl
+                Loreal
             </div>
             <div class="d col-4 text-center lead">
-               Show
+                Streax
             </div>
         </div><!--//text color-->
 
@@ -115,16 +115,20 @@
 
         <div class="row">
             <div class="d col-3 text-center lead">
-               Musk
+                Tresemme<br>
+                Shampoo and Conditioner
             </div>
             <div class="d col-3 text-center lead">
-               Keracare
+                Bellose<br>
+                Shampoo and Conditioner
             </div>
             <div class="d col-3 text-center lead">
-           Christophe Robin
+                Bellose<br>
+                Keratin hair therapy
             </div>
             <div class="d col-3 text-center lead">
-                Tresemme
+                Tresemme<br>
+                Deep Smoothing Mask
             </div>
         </div><!--//text hairt-->
 
@@ -151,16 +155,16 @@
 
         <div class="row">
             <div class="d col-3 text-center lead">
-              Gold Infusion
+                Himalaya
             </div>
             <div class="d col-3 text-center lead">
-              Growme
+                Clean & Clear
             </div>
             <div class="d col-3 text-center lead">
-              Omni
+                Nivea
             </div>
             <div class="d col-3 text-center lead">
-                Spa Ceylon
+                Lakme Scrub
             </div>
         </div><!--//text facial-->
     </div><!--//container-->

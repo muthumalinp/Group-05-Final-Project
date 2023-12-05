@@ -1,15 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Service;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
-use Illuminate\View\View;
 
 class ServiceController extends Controller
 {
+<<<<<<< Updated upstream
     public function index(): View{
         $services = Service::all();
         return view('project.owner.service.index')->with('services', $services);
@@ -51,4 +48,7 @@ class ServiceController extends Controller
         Service::destroy($id);
         return redirect('service')->with('flash_message', 'SuccessfullyService deleted!');  
     }
+=======
+    //
+>>>>>>> Stashed changes
 }

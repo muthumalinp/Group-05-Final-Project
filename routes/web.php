@@ -9,23 +9,14 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\bookingPediController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\HairstrController;
-use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProfileController;
 use App\Models\BookedAppointment;
+
+
 
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
-
-use Illuminate\Support\Facades\Mail;
-use App\Mail\EmployeeRegistered;
-
-/*Route::get('/test-email', function () {
-    $employeeData = ['emp_fname' => 'muthumali', 'emp_email' => 'muthumalinp@gamil.com'];
-    Mail::to('muthumalinp@gmail.com')->send(new EmployeeRegistered($employeeData));
-    return 'Test email sent successfully';
-});*/
-
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +29,7 @@ use App\Mail\EmployeeRegistered;
 |
 */
 
+<<<<<<< Updated upstream
 //Products Adding Routes begin
 Route::get('Index1',[HairstrController::class,'index1']);
 Route::get('Create1',[HairstrController::class,'create1']);
@@ -47,6 +39,8 @@ Route::get('Delete1/{id}',[HairstrController::class,'delete1']);
 
 Route::put('Update1/{id}', [HairstrController::class, 'update1']);
 
+=======
+>>>>>>> Stashed changes
 
 /*Route::get('/', function () {
     return view('/project/admin/owner');
@@ -85,6 +79,7 @@ Route::get('/Product', function () {
     return view('/project/public/product');
 });
 
+<<<<<<< Updated upstream
 //addind products
 Route::get('/Create1', function () {
     return view('/project/public/create1');
@@ -94,6 +89,8 @@ Route::get('/Create1', function () {
 // });
 
 
+=======
+>>>>>>> Stashed changes
 Route::get('/Product/HairStraghtening', function () {
     return view('/project/public/producthairstr');
 });
@@ -123,6 +120,11 @@ Route::get('/Rent', function () {
     return view('/project/public/rent');
 });
 
+
+Route::get('/Profile', function () {
+    return view('/project/public/dashboard/profile');
+});
+
 /*
 Route::get('/home', function () {
     return view('/project/admin/admin_home');
@@ -142,7 +144,7 @@ Route::get('/owner', function () {
 
 
 
-/*-------- start of admin rout --------*/
+
 Route::get('/manage_appointment', function () {
     return view('/project/admin/manage_appoinment');
 });
@@ -166,10 +168,45 @@ Route::get('/manage_rented_item', function () {
 Route::get('/setting', function () {
     return view('/project/admin/setting');
 });
-/*-------- end of admin rout --------*/
+
+
+/*************************************************************/
+/****************EMPLOYEE ROUTE BEGIN*************************/
+/************************************************************/
+Route::get('/employee-dashboard', function () {
+    return view('/project/employee/dashboard');
+});
+
+Route::get('/employee-meetings', function () {
+    return view('/project/employee/meetings');
+});
+
+Route::get('/employee-leaves', function () {
+    return view('/project/employee/leaves');
+});
+
+Route::get('/employee-apoinments', function () {
+    return view('/project/employee/appoinments');
+});
+
+Route::get('/employee-holidays', function () {
+    return view('/project/employee/holidays');
+});
+
+// Route::get('/employee-profile', function () {
+//     return view('/project/employee/profile');
+// });
+Route::get('/employee-profile', [ProfileController::class, 'editProfile'])
+->name('employee-profile');
+
+/***********************************************************/
+/****************EMPLOYEE ROUTE END*************************/
+/***********************************************************/
+
 
 /*----------Starter of booking servises blade file---------*/
 
+<<<<<<< Updated upstream
 // Route::get('/bookingFaci', function () {
 //     return view('/project/public/includ/bookingFaci');
 // });
@@ -184,6 +221,20 @@ Route::get('/setting', function () {
 // });
 
 /*----------End of booking servises blade file---------*/
+=======
+Route::get('/bookingFaci', function () {
+    return view('/project/public/includ/bookingFaci');
+});
+Route::get('/bookingDres', function () {
+    return view('/project/public/includ/bookingDres');
+});
+Route::get('/bookingPedi', function () {
+    return view('/project/public/includ/bookingPedi');
+});
+Route::get('/Booking', function () {
+    return view('/project/public/booking');
+});
+>>>>>>> Stashed changes
 
 
 Route::get('/Register', function () {
@@ -268,13 +319,14 @@ Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index
 
 /*-------- Starter of Admin Routes ---------*/
 
-Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])->name('admin.dashboard');
+Route::get('/Dashboard-Admin', function () {
+    return view('/project/admin/admin_home');
+})->name('admin.dashboard');
 
 /*-------- End of Admin Routes ----------*/
 
-/*-------- Starter of Booking form database table ---------*/
-Route::post('/booking',function() {
 
+Route::post('/booking',function() {
     $booked_appointments = new BookedAppointment();
     $booked_appointments->fuName = request('fuName');
     $booked_appointments->eMail = request('eMail');
@@ -283,15 +335,8 @@ Route::post('/booking',function() {
     $booked_appointments->contact = request('contact');
     $booked_appointments->massage = request('massage');
     $booked_appointments->save();
-    
+
 });
-/*--------- End of Booking form database table ----------*/
-
-
-
-
-
-
 
 /*--------- End of Customer Routes ----------*/
 
@@ -313,10 +358,11 @@ Auth::routes();
 
 /*-------- Starter of Owner Routes ---------*/
 
-    Route::get('/Dashboard-Owner', function () {
-        return view('/project/owner/owner');
-    })->name('owner.dashboard');
+Route::get('/Dashboard-Owner', function () {
+    return view('/project/owner/dashboard');
+})->name('owner.dashboard');
 
+<<<<<<< Updated upstream
     Route::get('/Manage-Salary', function () {
         return view('/project/owner/salary-management/index');
     });
@@ -400,6 +446,9 @@ use App\Models\Employee;
     Route::get('/profile', [App\Http\Controllers\Auth\ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [App\Http\Controllers\Auth\ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update', [App\Http\Controllers\Auth\ProfileController::class, 'update'])->name('profile.update');--*/
+=======
+Route::resource("/employee", EmployeeController::class);
+>>>>>>> Stashed changes
 
 /*-------- End of Owner Routes ----------*/
 
@@ -417,18 +466,29 @@ Route::get('/emplLeave', function () {
 
 Auth::routes();
 
+<<<<<<< Updated upstream
     Route::get('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('Login');
     Route::post('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'loginPost'])->name('login.post');
     Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('custom.logout');
+=======
+    // Route::get('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('Login');
+    Route::post('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'loginPost'])->name('LogIn');
+    Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'testLogin'])->name('testLogin');
+    // Route::post('/editProfile', [App\Http\Controllers\Auth\LoginController::class, 'testprofile'])->name('editProfile');
+    Route::put('/update-profile/{id}', [ProfileController::class, 'updateProfile'])
+    ->name('update-profile');
+
+
+    Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+>>>>>>> Stashed changes
 
 Route::controller(RegisterController::class)->group(function (){
     Route::get('/AddUser', [App\Http\Controllers\Auth\RegisterController::class, 'AddUser'])->name('register');
     Route::post('/saveUser','registrationPost')->name('registration.post');
     Route::get('/verify/{token}', [App\Http\Controllers\Auth\RegisterController::class, 'verify'])->name('verification.verify');
-    
+
 });
 
-/*-------- customer data form --------*/
 Route::get('/customer_details',[ShowController::class,'show']);
 
 

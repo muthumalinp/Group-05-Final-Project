@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 @extends('layouts.owner_forms')
 @section('content')
 
@@ -41,3 +42,5 @@
     </div>
 </div>
 </div>
+=======
+>>>>>>> Stashed changes

@@ -44,11 +44,10 @@ class LoginController extends Controller
 
     public function loginPost(Request $request) {
         
-        
         $user = User::where('email', $request->email)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
-            // Redirect based on the user's role
+            $request->session()->put('user_id', $user->id);
             switch ($user->role) {
                 case 'customer':
                     return redirect()->route('customer.dashboard');
@@ -62,11 +61,12 @@ class LoginController extends Controller
                     return redirect()->route('home');
             }
         } else {
-            return redirect()->route('login')->with('error', 'Login details are not valid');
+            return redirect()->route('LogIn')->with('error', 'Login details are not valid');
         }
 
         
      }
+
     /**
      * Create a new controller instance.
      *

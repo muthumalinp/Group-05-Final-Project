@@ -289,18 +289,6 @@ form textarea{
     text-align: center;
 }
 
-form .butX{
-    width: 100px;
-    height: 35px;
-    margin: 0 10px;
-    background: #333333;
-    border-radius: 10px;
-    border: 0;
-    outline: none;
-    color: aliceblue;
-    cursor: pointer;
-}
-
 form button{
     width: 510px;
     height: 35px;

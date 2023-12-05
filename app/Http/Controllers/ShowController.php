@@ -12,10 +12,11 @@ class ShowController extends Controller
     public function show()
     {
 
-        $data=User::where('role', 'customer')->get();
+        $data=User::all();
         return view('/project/admin/customer_details',compact('data'));
     }
 
+<<<<<<< Updated upstream
     public function showAppointment()
     {
 
@@ -23,6 +24,8 @@ class ShowController extends Controller
         return view('/project/admin/manage_appoinment',compact('appointment'));
     }
 
+=======
+>>>>>>> Stashed changes
 
     
 }

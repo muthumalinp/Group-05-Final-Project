@@ -2,32 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employee;
+<<<<<<< Updated upstream
 use App\Models\EmployeeLeave;
 use Illuminate\Support\Facades\Hash;
 
 use App\Mail\EmployeeRegistered;
 use Illuminate\Support\Facades\Mail;
+=======
+>>>>>>> Stashed changes
 
 class EmployeeController extends Controller
 {
     protected $employee;
-
-    public function __construct(Employee $employee){
-        $this->employee = $employee;
+    public function __construct(){
+        $this->employee = new Employee();
         
     }
     public function index()
     {
         $response['employees'] = $this->employee->all();
         return view('project.owner.Employee.index')->with($response);
-
     }
     
     public function store(Request $request)
     {
+<<<<<<< Updated upstream
         // Validate the request
         $request->validate([
         'emp_fname' => ['required', 'string', 'max:255'],
@@ -83,6 +84,11 @@ class EmployeeController extends Controller
 
         // Redirect or return a response
         //return redirect()->route('employee.index')->with('success', 'Employee registered successfully!');
+=======
+      
+        $this->employee->create($request->all());
+        return redirect()->back();
+>>>>>>> Stashed changes
     }
 
     public function edit(string $id)
@@ -103,6 +109,7 @@ class EmployeeController extends Controller
         return redirect('employee');
     }
 
+<<<<<<< Updated upstream
     //employee registration.........
     public function registerEmployee(Request $request)
     {
@@ -126,4 +133,6 @@ class EmployeeController extends Controller
         return response()->json(['message' => 'Employee registered successfully'], 201);
     }
     
+=======
+>>>>>>> Stashed changes
 }
