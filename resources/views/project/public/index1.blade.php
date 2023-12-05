@@ -46,7 +46,7 @@
                                     <td><img src="{{asset('uploads/products/'.$item->product_image)}}" width="70px" height="70px" alt="Image"></td>
                                     <td><a href="{{url('Edit1/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a></td>
                                     <td>
-                                     <a href="{{url('Delete1/'.$item->id)}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                                     <a href="{{url('Delete1/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
 
                                     
