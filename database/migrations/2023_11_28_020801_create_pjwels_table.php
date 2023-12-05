@@ -11,11 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rent_items', function (Blueprint $table) {
+        Schema::create('pjwels', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('quantity');
-            $table->string('price');
+            $table->string('pjwid');
+            $table->integer('pjwprice');
+            $table->integer('pjwquantity');
+            $table->string('pjwimg1');
+            $table->string('pjwimg2');
+            $table->string('pjwimg3');
+            $table->string('pjwimg4');
+
             $table->timestamps();
         });
     }
@@ -25,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rent_items');
+        Schema::dropIfExists('pjwels');
     }
 };

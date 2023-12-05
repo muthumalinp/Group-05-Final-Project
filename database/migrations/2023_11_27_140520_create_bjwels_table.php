@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rented_items', function (Blueprint $table) {
+        Schema::create('bjwels', function (Blueprint $table) {
             $table->id();
-            $table->string('customer_id');
-            $table->string('start_date');
-            $table->string('end_date');
+            $table->string('bjwid');
+            $table->integer('bjwprice');
+            $table->integer('bjwquantity');
+            $table->string('image');
+            
+            
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rented_items');
+        Schema::dropIfExists('bjwels');
     }
 };
