@@ -1,0 +1,34 @@
+/* public/css/admin/customer_details.css */
+
+/* Apply general styles to the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style the table headers */
+th {
+    background-color: #efe8e8;
+    padding: 10px;
+    border: 1px solid #e6dfdf;
+    text-align: left;
+}
+
+/* Style the table cells */
+td {
+    padding: 10px;
+    border: 1px solid #f2efef;
+    text-align: left;
+}
+
+/* Add line borders between rows */
+tr {
+    border-bottom: 2px solid #f2eded;
+}
+
+/* Hover effect on rows */
+tr:hover {
+    background-color: #e0e0e0;
+}
+
+

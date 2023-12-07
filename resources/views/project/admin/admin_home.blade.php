@@ -110,6 +110,7 @@
                         <h2>Total Customers</h2>
                         <p><b>Total Customers: {{ $totalCustomers }}</b><p>
                         <img src="{{ asset('css/admin/customer.jpeg') }}" alt="Admin" width="150px" height="60px" class="mx-auto d-block img-fluid">
+                        
                         <h2>Available Rent Items</h2>
                         <a href="{{url('/rentitems')}}" class="btn btn-secondary float-end">Check</a>
                         <h2>Available Products</h2>
