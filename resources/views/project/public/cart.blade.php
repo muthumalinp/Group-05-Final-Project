@@ -1,6 +1,5 @@
- 
-    <?php 
-    session_start();
+<?php
+session_start();  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +22,19 @@
             <li><a href="/Product/HairColoring&Highliting">Hair Coloring & Highlighting </a></li>
             <li><a href="/Product/HairTreatment" >Hair Treatment</a></li>
             <li><a href="/Product/Facial&CleanUp" >Facial & Cleanup</a></li>
-            <li><a href="/Product/Cart" ><i class="fas fa-shopping-cart"></i></a></li>
+            <li>
+            <div>
+                <?php
+                    $count=0;
+                    if(isset($_SESSION['cart']))
+                    {
+                        $count=count($_SESSION['cart']);
+                    }
+                ?>
+                <a href="/Product/Cart" ><i class="fas fa-shopping-cart"> <?php echo $count; ?></i></a>
+                
+            </div>
+            </li>
         </ul>
 
             <!--for responsive button-->
@@ -54,6 +65,7 @@
 
                     <tbody class="text-center">
                         <?php
+                                         
                             $total=0;
                             if(isset($_SESSION['cart'])){
                                 foreach($_SESSION['cart'] as $key => $value)
@@ -71,6 +83,7 @@
                                                  <button name='Remove_Item' class='btn btn-sm btn-outline-danger'>Remove</button>
                                                  <input type='hidden' name='desc' value='$value[desc]'>
                                             </form>
+                                           
                                         </td>
                                         </tr>
                                     ";
