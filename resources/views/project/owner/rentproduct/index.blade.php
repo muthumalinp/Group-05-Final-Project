@@ -23,24 +23,24 @@
                             <div class="col-md-6">
                                 <div class="BtnLink_Left">
                                     <ul>
-                                        <li><a href="{{ route('project.owner.Employee.index') }}">Bridal Wear</a></li>
+                                        <li><a href="{{url('create3')}}">Bridal Wear</a></li>
                                     </ul>
                                 </div>
                                 <div class="BtnLink_Left">
                                     <ul>
-                                        <li><a href="{{ route('project.owner.service.index') }}">Bridal Jewellery</a></li>   
+                                        <li><a href="{{url('create')}}">Bridal Jewellery</a></li>   
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="BtnLink_Right">
                                     <ul>
-                                        <li> <a href="{{url('Index1')}}">Party Wear</a></li>  
+                                        <li> <a href="{{url('create4')}}">Party Wear</a></li>  
                                     </ul>
                                 </div>
                                 <div class="BtnLink_Right">
                                     <ul>
-                                        <li><a href="{{ url('addrentproduct') }}">Party Jewellery</a></li>
+                                        <li><a href="{{url('create1')}}">Party Jewellery</a></li>
                                     </ul>
                                 </div>
                             </div>
