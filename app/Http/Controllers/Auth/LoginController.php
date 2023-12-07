@@ -50,7 +50,7 @@ class LoginController extends Controller
         if ($user && Hash::check($request->password, $user->password)) {
             // Redirect based on the user's role
             switch ($user->role) {
-                case 'customer':
+                case 'customer':  
                     return redirect()->route('customer.dashboard');
                 case 'admin':
                     return redirect()->route('admin.dashboard');
