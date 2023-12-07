@@ -97,8 +97,8 @@ Route::get('/Product', function () {
 });
 
 //addind products
-Route::get('/Create1', function () {
-    return view('/project/public/create1');
+Route::get('/Create11', function () {
+    return view('/project/public/create11');
 });
 // Route::get('/Index1', function () {
 //     return view('/project/public/index1');
