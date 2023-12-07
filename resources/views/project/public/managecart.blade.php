@@ -40,7 +40,7 @@
         </div>
     </nav><!--navigation bar end-->
     
-       <p>Thank you for Confirming</p>
+      
     
     <?php 
      session_start();
@@ -55,7 +55,7 @@
                     if(in_array($_GET['desc'],$myitems))
                         {
                         echo"<script>
-                        alert('Items Already Addded');
+                   
                         window.location.href='/Product/HairStraghtening';
                         </script>";
                         }
@@ -63,7 +63,7 @@
                         $count=count($_SESSION['cart']);
                          $_SESSION['cart'][$count]=array('desc'=>$_GET['desc'],'price'=>$_GET['price'],'Quantity'=>1);
                          echo"<script>
-                         alert('Items Addded');
+                         
                          window.location.href='/Product/HairStraghtening';
                          </script>"; 
                         }
@@ -72,7 +72,7 @@
                 {
                     $_SESSION['cart'][0]=array('desc'=>$_GET['desc'],'price'=>$_GET['price'],'Quantity'=>1);
                     echo"<script>
-                        alert('Items Addded');
+                        
                         window.location.href='/Product/HairStraghtening';
                         </script>";
                 } 
@@ -92,7 +92,7 @@
                         unset($_SESSION['cart'][$key]);
                         $_SESSION['cart']=array_values($_SESSION['cart']);
                         echo"<script>
-                            alert('Item Removed');
+                            
                         window.location.href='/Product/Cart';
                              </script>";
                     }

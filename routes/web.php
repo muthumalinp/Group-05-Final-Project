@@ -51,8 +51,8 @@ use App\Mail\EmployeeRegistered;
 
 //Products Adding Routes begin
 Route::get('Index1',[HairstrController::class,'index1']);
-Route::get('Create1',[HairstrController::class,'create1']);
-Route::post('Create1',[HairstrController::class,'store']);
+Route::get('Create11',[HairstrController::class,'create11']);
+Route::post('Create11',[HairstrController::class,'store']);
 Route::get('Edit1/{id}',[HairstrController::class,'edit1']);
 Route::get('Delete1/{id}',[HairstrController::class,'delete1']);
 
