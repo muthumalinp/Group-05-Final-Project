@@ -93,24 +93,3 @@
 </body>
 </html>
 
-
-
-echo"<script>
-                        alert('Items Already Addded');
-                        window.location.href='/Product/HairStraghtening';
-                        </script>";
-
-echo"<script>
-                         alert('Items Addded');
-                         window.location.href='/Product/HairStraghtening';
-                         </script>"; 
-
-echo"<script>
-                        alert('Items Addded');
-                        window.location.href='/Product/HairStraghtening';
-                        </script>";
-
-echo"<script>
-                            alert('Item Removed');
-                        window.location.href='/Product/Cart';
-                             </script>";
