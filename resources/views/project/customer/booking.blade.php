@@ -26,10 +26,9 @@
 </head>
 <body class="body1">
     <div class="container">
-        <form action="{{ route('appointments.store') }}" method="POST">
+        <form action="{{ route('bookings.store') }}" method="POST">
             @csrf
-        </form>
-        <div class="row">
+        <div class="row" id="contentToHide">
             <div class="col-md-3">
                 <div class="col-12">
                     <button type="button" class="btn btn-custom" onclick="toggleContent('hairContent')">Hair Services</button><br/>
@@ -41,63 +40,25 @@
 
             <div class="col-md-6">
                 <div id="hairContent" class="hidden-content">
-                    <!-- first service -->
                     <div class="row">
-                        <div class="col-8">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">Hair Cut-Ladies</button>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="stylist">Select a Stylist:</label>
-                                <select class="form-control" name="stylist" id="stylistSelect" required>
-                                    @foreach($hairstylists as $hairstylist)
-                                        <option value="{{ $hairstylist->emp_fname }}">{{ $hairstylist->emp_fname }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">BOOK NOW</button>
+                        <div class="col-6">
+                            <label>
+                                <input type="radio" name="hairCutType" class="btn-check" id="hcl01" onclick="showContent('hairCutLadies')">
+                                <span class="btn btn-custom" id="hideContentButton">Hair Cut - Ladies - Rs. 5000</span>
+                            </label>
                         </div>
                     </div>
-                    <!-- second service -->
                     <div class="row">
                         <div class="col-8">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">Hair Cut-Ladies</button>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="stylist">Select a Stylist:</label>
-                                <select class="form-control" name="stylist" id="stylistSelect" required>
-                                    @foreach($hairstylists as $hairstylist)
-                                        <option value="{{ $hairstylist->emp_fname }}">{{ $hairstylist->emp_fname }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">BOOK NOW</button>
+                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">Hair Cut - Gents - Rs. 4000</button>
                         </div>
                     </div>
                 </div>
                 
                 <div id="bridalContent" class="hidden-content">
-                <div class="row">
+                    <div class="row">
                         <div class="col-8">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">Hair Cut-Ladies</button>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="stylist">Select a Stylist:</label>
-                                <select class="form-control" name="stylist" id="stylistSelect" required>
-                                    @foreach($hairstylists as $hairstylist)
-                                        <option value="{{ $hairstylist->emp_fname }}">{{ $hairstylist->emp_fname }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">BOOK NOW</button>
+                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel"></button>
                         </div>
                     </div>
                 </div>
@@ -113,38 +74,42 @@
         </div>
     </div>
 
-    <!-- Modal for Cut & Blow Dry -->
-    <div class="modal fade" id="cutBlowDryModal" tabindex="-1" role="dialog" aria-labelledby="cutBlowDryModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="cutBlowDryModalLabel">Cut & Blow Dry</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Content for the Cut & Blow Dry pop-up goes here -->
-                    This is the content for Cut & Blow Dry. Stylist: {{ $selectedStylist ?? 'No stylist selected' }}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add to Cart</button>
-                </div>
+    <div id="hairCutLadies" class="hidden-content">
+        <h1>You Select Hair Cut - Ladies - Rs. 5000</h1>
+        <div class="col-4">
+            <div class="form-group">
+                <label for="stylist">Select a Stylist:</label>
+                <select class="form-control" name="stylist" id="stylistSelect" required>
+                    @foreach($hairstylists as $hairstylist)
+                        <option>Any</option>
+                        <option value="{{ $hairstylist->emp_fname }}">{{ $hairstylist->emp_fname }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
     </div>
 
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+
+    </form>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function toggleContent(contentId) {
-            // Hide all content sections
             var allContent = document.querySelectorAll('.hidden-content');
             allContent.forEach(function(content) {
                 content.style.display = 'none';
             });
+            var content = document.getElementById(contentId);
+            content.style.display = 'block';
+        }
 
-            // Show the selected content section
+        function showContent(contentId) {
+            var allContent = document.querySelectorAll('.hidden-content');
+            allContent.forEach(function(content) {
+                content.style.display = 'none';
+            });
             var content = document.getElementById(contentId);
             content.style.display = 'block';
         }
