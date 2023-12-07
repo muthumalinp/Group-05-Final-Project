@@ -14,9 +14,9 @@ class HairstrController extends Controller
         return view('project.owner');
     }
 
-    public function create1()
+    public function create11()
     {
-        return view('project.public.create1');
+        return view('project.public.create11');
     }
 
     public function index1()
