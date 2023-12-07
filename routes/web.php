@@ -21,6 +21,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ServiceController;
 use App\Models\Employee;
+use App\Models\Owner;
 
 use App\Models\BookedAppointment;
 
@@ -445,11 +446,16 @@ Auth::routes();
     Route::post('/storeownerdata', [OwnerController::class, 'store'])->name('storeownerdata');
 
     /*----owner-report-part-----*/
-    Route::get('/Full-Report',[OwnerController::class,'showTtlCustomers'])->name('owner.report');
+    Route::get('/Full-Report',[OwnerController::class,'showTtls'])->name('owner.report');
+
+    /*---show owner profile-----*/
+    /*--Route::get('/dashboard-owner', [OwnerController::class, 'showProfile'])->name('owner.dashboard');--*/
+
+
 
     /*--------Salary management system route----------*/
     Route::get('/employeeleave', function () {
-        return view('/project/owner/manage-holidays&leaves/index');
+        return view('/project/owner/manage-holidays&leaves/create');
     });
 
     Route::get('/viewemployee_salary', function () {

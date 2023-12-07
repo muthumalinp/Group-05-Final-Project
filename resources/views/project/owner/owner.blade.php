@@ -14,8 +14,33 @@
     
     <body>
     @section('cont')
+
+        
+
         <h2>Dashboard</h2>
         <div class="cards">
+           
+            <div class="card">
+                            <div class="content rounded col-md-12">
+                                 <div class="border-right">
+                                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                        
+
+                                        <h3 style="color:#633030; font-weight:bold">PROFILE</h3>
+                                        <img class="rounded-circle mt-0" width="118px" src="css/Owner/owner_profile_image.jpeg">
+                                        <span> ...</span>
+                                        <span class="font-weight-bold">Yaraa De Silva</span>
+                                        <span class="text-black-50">salonyaraa@gmail.com</span>
+                                        <span class="text-black-50">+94 702 016 166</span>
+                                        <span class="text-black-50">No.45, Highlevel Road, Maharagama</span>
+                                        <span> </span>
+                                    </div>
+                                 </div>
+                           </div>
+            </div>
+
+            
+
             <div class="card row">
                 <div class="topMainTail clearfix">
                     <div class="col-md-6">
@@ -48,24 +73,36 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="card">
-                            <div class="content rounded col-md-12">
-                                 <div class="border-right">
-                                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                       <h3 style="color:#633030; font-weight:bold">PROFILE</h3>
-                                       <img class="rounded-circle mt-0" width="118px" src="css/Owner/owner_profile_image.jpeg">
-                                       <span> ...</span>
-                                       <span class="font-weight-bold">Yaraa De Silva</span>
-                                       <span class="text-black-50">salonyaraa@gmail.com</span>
-                                       <span class="text-black-50">+94 702 016 166</span>
-                                       <span class="text-black-50">No.45, Highlevel Road, Maharagama</span>
-                                       <span> </span>
-                                    </div>
-                                 </div>
-                           </div>
+                        <div>
+                            <h2>To Do List</h2>
+                            
+                        </div>
+
+                        <div class="d-flex mb-2">
+                            <input  type="text" id="input-box" placeholder="Enter task">
+                            <button type="button" class="btn btn-primary ms-2" onclick="addTask()">Add</button>
+                        </div>
+                        
+                        <ul id="taskList">
+                         <!--   <li>Task 1</li>
+                            <li>Task 2</li>
+                            <li>Task 3</li>
+                        </ul>
+                        -->
             </div>
+
+            
         </div>
+
+        
     @endsection
     </body>
 </html>
+
+
+
+
 
