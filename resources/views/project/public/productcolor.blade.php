@@ -12,11 +12,23 @@
     <nav class="navbar">
         <div class="logo"><h1>Salon Yaara</h1></div>
         <ul class="menu">
-            <li><a href="/Product/HairStraghtening" >Hair Straightening</a></li>
+            <li><a href="/Product/HairStraghtening">Hair Straightening</a></li>
             <li><a href="/Product/HairColoring&Highliting" class="active">Hair Coloring & Highlighting </a></li>
             <li><a href="/Product/HairTreatment" >Hair Treatment</a></li>
-            <li><a href="/Product/Facial&CleanUp" >Facial & Cleanup</a></li>
-            <li><a href="/Product/Cart" ><i class="fas fa-shopping-cart"></i></a></li>
+            <li><a href="/Product/Facial&CleanUp">Facial & Cleanup</a></li>
+            <li>
+            <div>
+                <?php
+                    $count=0;
+                    if(isset($_SESSION['cart']))
+                    {
+                        $count=count($_SESSION['cart']);
+                    }
+                ?>
+                <a href="/Product/Cart" ><i class="fas fa-shopping-cart"> <?php echo $count; ?></i></a>
+                
+            </div>
+            </li>
         </ul>
 
 <!--for responsive button-->
@@ -29,21 +41,25 @@
     <section calss="content">
         <h1>Grab your Beauty Products Now</h1>
         <p>Invest in your beauty,invest in yourself</p>
-    </section>   
+    </section>  
     
     <h1 class="pheading">Our Latest Beauty Products</h1>
     <section class="sec">
         <div class="products">
 
             <!--card starts-->
-
+           
             <div class="card">
-                <div class="img"><img src="css/color11.jpg.jpg" alt="" ></div>
-                <div class="desc"> Revlon</div>
+            <form action="/Product/ManageCart" method="GET">
+                <div class="img"><img src="asset('css/color11.jpg') }}" alt="" ></div>
+                <div class="desc"> Himalaya</div>
                 <div class="box">
                     <div class="price">Rs.2500</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
+                    <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
+                    </div>
+                    <input type="hidden" name="desc" value="Himalaya<">
+                    <input type="hidden" name="price" value="Rs.2500">
+                </form>
             </div>
 
             <!--card end-->
@@ -51,8 +67,8 @@
              <!--card starts-->
 
              <div class="card">
-                <div class="img"><img src="css/color12.jpg" alt="" ></div>
-                <div class="desc">Loreal</div>
+                <div class="img"><img src="hairstr12.jpg" alt="" ></div>
+                <div class="desc">  Clean & Clear</div>
                 <div class="box">
                     <div class="price">Rs.6500</div>
                     <button class="btn">Add to Cart</button>
@@ -64,8 +80,8 @@
              <!--card starts-->
 
              <div class="card">
-                <div class="img"><img src="css/color13.jpg" alt="" ></div>
-                <div class="desc">Streax</div>
+                <div class="img"><img src="hairstr13.jpg" alt="" ></div>
+                <div class="desc">Nivea</div>
                 <div class="box">
                     <div class="price">Rs.7500</div>
                     <button class="btn">Add to Cart</button>
@@ -74,10 +90,13 @@
 
             <!--card end-->
 
-             
-
+            
         </div>
     </section>
     
 </body>
 </html>
+
+
+
+

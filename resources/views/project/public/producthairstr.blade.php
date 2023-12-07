@@ -1,5 +1,5 @@
-<?php session_start();
-       
+<?php 
+session_start();     
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,19 @@
             <li><a href="/Product/HairColoring&Highliting">Hair Coloring & Highlighting </a></li>
             <li><a href="/Product/HairTreatment" >Hair Treatment</a></li>
             <li><a href="/Product/Facial&CleanUp" >Facial & Cleanup</a></li>
-            <li><a href="/Product/Cart" ><i class="fas fa-shopping-cart"></i></a></li>
+            <li>
+            <div>
+                <?php
+                    $count=0;
+                    if(isset($_SESSION['cart']))
+                    {
+                        $count=count($_SESSION['cart']);
+                    }
+                ?>
+                <a href="/Product/Cart" ><i class="fas fa-shopping-cart"> <?php echo $count; ?></i></a>
+                
+            </div>
+            </li>
         </ul>
 
                 <!--for responsive button-->
@@ -30,7 +42,7 @@
     </nav><!--navigation bar end-->
  
 
-    <section calss="content">
+    <section class="content">
         <h1>Grab your Beauty Products Now</h1>
         <p>Invest in your beauty,invest in yourself</p>
     </section>  
