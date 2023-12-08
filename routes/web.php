@@ -42,6 +42,7 @@ use App\Mail\EmployeeRegistered;
 });*/
 
 
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,8 +60,9 @@ Route::get('Create11',[HairstrController::class,'create11']);
 Route::post('Create11',[HairstrController::class,'store']);
 Route::get('Edit1/{id}',[HairstrController::class,'edit1']);
 Route::get('Delete1/{id}',[HairstrController::class,'delete1']);
-
 Route::put('Update1/{id}', [HairstrController::class, 'update1']);
+Route::post('/products', [ProductController::class, 'store'])->name('cartstore');
+
 
 
 /*Route::get('/', function () {

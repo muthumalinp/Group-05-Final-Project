@@ -137,10 +137,10 @@ session_start();
                         <button class="btn btn-primary btn-block">Make Purchase</button>
                     </form>
                 </div>
-                        </div>
-            </div>
+                </div>
 
         </div>
+      
     </div>
     <script src="{{asset('js/bootstrap.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
