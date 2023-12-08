@@ -36,15 +36,49 @@
         <div class="products">
 
             <!--card starts-->
+            <div class="card">
+                <form action="/Product/ManageCart" method="GET">
+                    <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
+                    <div class="desc">Musk</div>
+                    <div class="box">
+                        <div class="price">Rs.7500</div>
+                        <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
+                    </div>
+                    <input type="hidden" name="desc" value="Musk">
+                    <input type="hidden" name="price" value="Rs.7500">
+                </form>
+            </div>
+            <!--card end-->
+
+             <!--card starts-->
+
+             <div class="card">
+                <form action="/Product/ManageCart" method="GET">
+                    <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
+                    <div class="desc">Keracare</div>
+                    <div class="box">
+                        <div class="price">Rs.5500</div>
+                        <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
+                    </div>
+                    <input type="hidden" name="desc" value="Keracare">
+                    <input type="hidden" name="price" value="Rs.5500">
+                </form>
+            </div>
+            <!--card end-->
+
+             <!--card starts-->
 
             <div class="card">
-                <div class="img"><img src="css/hairstr11.jpg" alt="" ></div>
-                <div class="desc"> Tresemme<br>
-                Shampoo and Conditioner</div>
-                <div class="box">
-                    <div class="price">Rs.2500</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
+                <form action="/Product/ManageCart" method="GET">
+                    <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
+                    <div class="desc">Christophe Robin</div>
+                    <div class="box">
+                        <div class="price">Rs.3500</div>
+                        <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
+                    </div>
+                    <input type="hidden" name="desc" value="Christophe Robin">
+                    <input type="hidden" name="price" value="Rs.3500">
+                </form>
             </div>
 
             <!--card end-->
@@ -52,41 +86,16 @@
              <!--card starts-->
 
              <div class="card">
-                <div class="img"><img src="hairstr12.jpg" alt="" ></div>
-                <div class="desc"> Bellose<br>
-                Shampoo and Conditioner</div>
-                <div class="box">
-                    <div class="price">Rs.6500</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <!--card end-->
-
-             <!--card starts-->
-
-             <div class="card">
-                <div class="img"><img src="hairstr13.jpg" alt="" ></div>
-                <div class="desc">  Bellose<br>
-                Keratin hair therapy</div>
-                <div class="box">
-                    <div class="price">Rs.7500</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <!--card end-->
-
-             <!--card starts-->
-
-             <div class="card">
-                <div class="img"><img src="hairstr14.jpg" alt="" ></div>
-                <div class="desc">Tresemme<br>
-                Deep Smoothing Mask</div>
-                <div class="box">
-                    <div class="price">Rs.4500</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
+                <form action="/Product/ManageCart" method="GET">
+                    <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
+                    <div class="desc">Tresemme</div>
+                    <div class="box">
+                        <div class="price">Rs.8500</div>
+                        <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
+                    </div>
+                    <input type="hidden" name="desc" value="Tresemme">
+                    <input type="hidden" name="price" value="Rs.8500">
+                </form>
             </div>
 
             <!--card end-->

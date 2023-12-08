@@ -87,7 +87,7 @@
             {
                 foreach($_SESSION['cart'] as $key => $value)
                 {
-                    if($value['desc']=$_GET['desc'])
+                    if($value['desc']==$_GET['desc'])
                     {                        
                         unset($_SESSION['cart'][$key]);
                         $_SESSION['cart']=array_values($_SESSION['cart']);
