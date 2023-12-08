@@ -18,7 +18,7 @@ aside {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
+    padding: 0px;
     transition: width 0.3s;
 }
 
@@ -44,6 +44,10 @@ aside nav ul {
 
 aside nav ul li {
     margin-bottom: 10px;
+}
+
+aside nav ul li:hover{
+    background: #756968;
 }
 
 aside nav ul li a {
@@ -172,3 +176,4 @@ ul li span{
 ul li span:hover{
     background: #edeef0;
 }
+

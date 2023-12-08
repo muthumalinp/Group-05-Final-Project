@@ -36,8 +36,9 @@ class LoginController extends Controller
             ]);
 
             // Redirect based on the user's role
+            $request->session()->put('user_id', $user->id);
             switch ($user->role) {
-                case 'customer':
+                case 'customer':  
                     return redirect()->route('customer.dashboard');
                 case 'admin':
                     return redirect()->route('admin.dashboard');

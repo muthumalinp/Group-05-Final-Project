@@ -1,5 +1,5 @@
-<?php 
-    session_start();
+<?php
+session_start();  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,19 @@
             <li><a href="/Product/HairColoring&Highliting">Hair Coloring & Highlighting </a></li>
             <li><a href="/Product/HairTreatment" >Hair Treatment</a></li>
             <li><a href="/Product/Facial&CleanUp" >Facial & Cleanup</a></li>
-            <li><a href="/Product/Cart" ><i class="fas fa-shopping-cart"></i></a></li>
+            <li>
+            <div>
+                <?php
+                    $count=0;
+                    if(isset($_SESSION['cart']))
+                    {
+                        $count=count($_SESSION['cart']);
+                    }
+                ?>
+                <a href="/Product/Cart" ><i class="fas fa-shopping-cart"> <?php echo $count; ?></i></a>
+                
+            </div>
+            </li>
         </ul>
 
             <!--for responsive button-->
@@ -53,11 +65,18 @@
 
                     <tbody class="text-center">
                         <?php
+                                         
                             $total=0;
+                           
                             if(isset($_SESSION['cart'])){
+                               
+                            
                                 foreach($_SESSION['cart'] as $key => $value)
                                 {
-                                    $total=$total+intval($value['price']);
+                              
+                                
+                                    $total += intval(explode(".",$value['price'])[1]);
+                              
 
                                      echo "
                                         <tr>
@@ -70,6 +89,7 @@
                                                  <button name='Remove_Item' class='btn btn-sm btn-outline-danger'>Remove</button>
                                                  <input type='hidden' name='desc' value='$value[desc]'>
                                             </form>
+                                           
                                         </td>
                                         </tr>
                                     ";
@@ -81,6 +101,24 @@
                     </tbody>
                 </table>
             </div>
+
+            <script>
+                    function updateQuantity(rowId, newQuantity) {
+                        // Assuming 'product-row-' + rowId is the id of the corresponding row
+                        var row = document.getElementById('product-row-' + rowId);
+                        var priceCell = row.cells[2]; // Index of the cell containing the price
+                        var totalCell = row.cells[4]; // Index of the cell containing the total
+
+                        // Extract the numeric part of the price
+                        var price = parseInt(priceCell.innerText.split('.')[1]);
+
+                        // Calculate the new total
+                        var newTotal = price * newQuantity;
+
+                        // Update the total cell
+                        totalCell.innerText = newTotal;
+                    }
+             </script>
 
             <div class="col-lg-3">
                 <div class="border bg-light rounded p-4">

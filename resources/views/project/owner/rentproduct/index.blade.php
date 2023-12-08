@@ -16,38 +16,7 @@
     @section('cont')
         <h2>Dashboard</h2>
         <div class="cards">
-            <div class="card row">
-                <div class="topMainTail clearfix">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="BtnLink_Left">
-                                    <ul>
-                                        <li><a href="{{ route('project.owner.Employee.index') }}">Bridal Wear</a></li>
-                                    </ul>
-                                </div>
-                                <div class="BtnLink_Left">
-                                    <ul>
-                                        <li><a href="{{ route('project.owner.service.index') }}">Bridal Jewellery</a></li>   
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="BtnLink_Right">
-                                    <ul>
-                                        <li> <a href="{{url('Index1')}}">Party Wear</a></li>  
-                                    </ul>
-                                </div>
-                                <div class="BtnLink_Right">
-                                    <ul>
-                                        <li><a href="{{ url('addrentproduct') }}">Party Jewellery</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="card">
                             <div class="content rounded col-md-12">
                                  <div class="border-right">
@@ -63,6 +32,60 @@
                                     </div>
                                  </div>
                            </div>
+            </div>
+
+            
+
+            <div class="card row">
+                <div class="topMainTail clearfix">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="BtnLink_Left">
+                                    <ul>
+                                        <li><a href="{{url('create3')}}">Bridal Wear</a></li>
+                                    </ul>
+                                </div>
+                                <div class="BtnLink_Left">
+                                    <ul>
+                                        <li><a href="{{url('create')}}">Bridal Jewellery</a></li>   
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="BtnLink_Right">
+                                    <ul>
+                                        <li> <a href="{{url('create4')}}">Party Wear</a></li>  
+                                    </ul>
+                                </div>
+                                <div class="BtnLink_Right">
+                                    <ul>
+                                        <li><a href="{{url('create1')}}">Party Jewellery</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                        <div>
+                            <h2>To Do List</h2>
+                            
+                        </div>
+
+                        <div class="d-flex mb-2">
+                            <input  type="text" id="input-box" placeholder="Enter task">
+                            <button type="button" class="btn btn-primary ms-2" onclick="addTask()">Add</button>
+                        </div>
+                        
+                        <ul id="taskList">
+                         <!--   <li>Task 1</li>
+                            <li>Task 2</li>
+                            <li>Task 3</li>
+                        </ul>
+                        -->
             </div>
         </div>
     @endsection
