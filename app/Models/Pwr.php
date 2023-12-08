@@ -12,7 +12,8 @@ class Pwr extends Model
     protected $fillable = [
 
         'pwrsid',
-        'pwrssize',
+        'pwrstitle',
+        'pwrsdesc',
         'pwrsprice',
         'pwrsquantity',
         'pwrsimg1',

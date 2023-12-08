@@ -10,7 +10,8 @@ class BdlwrController extends Controller
 {
     public function index()
     {
-        return view('bdlwr.index');
+        $products = Bdlwr::all();
+        return view('bdlwrs.index', ['products' => $products]);
 
     }
 
@@ -29,11 +30,11 @@ class BdlwrController extends Controller
             'bdlwrsdesc' => 'required',
             'price' => 'required|numeric',
             'quantity' => 'required|integer',
-            'bdlwrsimg1' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust file type and size as needed
-            'bdlwrsimg2' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust file type and size as needed
-            'bdlwrsimg3' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust file type and size as needed
-            'bdlwrsimg4' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust file type and size as needed
-            'bdlwrsimg5' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust file type and size as needed
+            'bdlwrsimg1' => 'required', // Adjust file type and size as needed
+            'bdlwrsimg2' => 'required', // Adjust file type and size as needed
+            'bdlwrsimg3' => 'required', // Adjust file type and size as needed
+            'bdlwrsimg4' => 'required', // Adjust file type and size as needed
+            'bdlwrsimg5' => 'required', // Adjust file type and size as needed
         ]);
 
         $bdlwr = new Bdlwr;
@@ -47,55 +48,55 @@ class BdlwrController extends Controller
 
             $file = $request->file('bdlwrsimg1');
             $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('uploads/bdlwrs/',$filename);
+            $filename =  'bdlwrsimg1'. time().'.'.$extension;
+            $file->move('uploads/bdlwrs1/',$filename);
             $bdlwr->bdlwrsimg1 = $filename;
         }else{
-            $bdlwr->bdlwrsimg1 = 'default_image.jpg';
+            $bdlwr->bdlwrsimg1 = 'default_image1.jpg';
         }
 
         if($request-> hasfile('bdlwrsimg2')){
 
             $file = $request->file('bdlwrsimg2');
             $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('uploads/bdlwrs/',$filename);
+            $filename ='bdlwrsimg2' . time().'.'.$extension;
+            $file->move('uploads/bdlwrs2/',$filename);
             $bdlwr->bdlwrsimg2 = $filename;
         }else{
-            $bdlwr->bdlwrsimg2 = 'default_image.jpg';
+            $bdlwr->bdlwrsimg2 = 'default2_image.jpg';
         }
 
         if($request-> hasfile('bdlwrsimg3')){
 
             $file = $request->file('bdlwrsimg3');
             $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('uploads/bdlwrs/',$filename);
+            $filename ='bdlwrsimg3' . time().'.'.$extension;
+            $file->move('uploads/bdlwrs3/',$filename);
             $bdlwr->bdlwrsimg3 = $filename;
         }else{
-            $bdlwr->bdlwrsimg3 = 'default_image.jpg';
+            $bdlwr->bdlwrsimg3 = 'default_image3.jpg';
         }
 
         if($request-> hasfile('bdlwrsimg4')){
 
             $file = $request->file('bdlwrsimg4');
             $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('uploads/bdlwrs/',$filename);
+            $filename = 'bdlwrsimg4' . time().'.'.$extension;
+            $file->move('uploads/bdlwrs4/',$filename);
             $bdlwr->bdlwrsimg4 = $filename;
         }else{
-            $bdlwr->bdlwrsimg4 = 'default_image.jpg';
+            $bdlwr->bdlwrsimg4 = 'default_image4.jpg';
         }
 
         if($request-> hasfile('bdlwrsimg5')){
 
             $file = $request->file('bdlwrsimg5');
             $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('uploads/bdlwrs/',$filename);
+            $filename ='bdlwrsimg5' . time().'.'.$extension;
+            $file->move('uploads/bdlwrs5/',$filename);
             $bdlwr->bdlwrsimg5 = $filename;
         }else{
-            $bdlwr->bdlwrsimg5 = 'default_image.jpg';
+            $bdlwr->bdlwrsimg5 = 'default_image5.jpg';
         }
 
 

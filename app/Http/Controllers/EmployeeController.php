@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\EmployeeLeave;
@@ -14,16 +13,14 @@ use Illuminate\Support\Facades\Mail;
 class EmployeeController extends Controller
 {
     protected $employee;
-
-    public function __construct(Employee $employee){
-        $this->employee = $employee;
+    public function __construct(){
+        $this->employee = new Employee();
         
     }
     public function index()
     {
         $response['employees'] = $this->employee->all();
         return view('project.owner.Employee.index')->with($response);
-
     }
     
     public function store(Request $request)

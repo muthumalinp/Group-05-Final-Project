@@ -19,7 +19,9 @@
         </div>
         <div class = "top1">
             <div class ="btn1">
+            <a href ="{{url('bdlwrs')}}">   
             <button type="button" class="btn btn-outline-dark"><h3>Bridal Wear</h3></button>
+            </a>
             </div>
 
             <div class = "btn2">

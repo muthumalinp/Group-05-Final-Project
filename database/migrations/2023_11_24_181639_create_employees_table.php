@@ -4,19 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateEmployeesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('employees', function (Blueprint $table) {
-
             $table->id();
             $table->string('emp_fname');
             $table->string('emp_lname');
-            $table->string('emp_jobtitle');
+            $table->string('emp_jobtitle'); // Note: It's better to have separate columns for job titles
             $table->string('emp_phone')->nullable();
             $table->string('emp_email')->unique();
             $table->string('emp_bsalary');
@@ -26,11 +22,8 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('employees');
     }
-};
+}
