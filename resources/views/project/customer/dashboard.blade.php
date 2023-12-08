@@ -28,6 +28,9 @@
         <!-- Add more indicators as needed -->
     </ul>
 
+   
+
+
     <!-- Slides -->
     <div class="carousel-inner container box">
         <div class="carousel-item active">
@@ -99,5 +102,15 @@ $(document).ready(function() {
     <!-- <div class="foalt-image">
         <img src="/css/Home/15.jpg" id="m">
     </div> -->
+
+    @if(Session::has('user_data'))
+    <h1>Welcome, {{ Session::get('user_data')['fname'] }}!</h1>
+    <p>Email: {{ Session::get('user_data')['email'] }}</p>
+    <p>Role: {{ Session::get('user_data')['role'] }}</p>
+    <!-- Add any other fields you want to display -->
+@else
+    <h1>Guest User</h1>
+@endif
+
 </body>
 </html>
