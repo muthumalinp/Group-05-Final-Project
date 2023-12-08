@@ -312,3 +312,34 @@ body{
 .BtnLink_left1 content{
   border-radius: 30px;
 }
+
+
+/*-- To Do List css Part --*/
+ul li{
+  list-style: none;
+  font-size: 17px;
+  padding: 12px 8px 12px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+
+
+ul li::before{
+  content: '';
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  
+  background-size: cover;
+  background-position: center;
+  top: 5px;
+  left: 0px;
+}
+
+ul li span:hover{
+  background: #edeef0;
+}
+
+
