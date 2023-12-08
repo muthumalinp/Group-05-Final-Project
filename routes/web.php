@@ -435,24 +435,30 @@ Route::controller(RegisterController::class)->group(function (){
     
 });
 
-/*-------- customer data form --------*/
-Route::get('/customer_details',[ShowController::class,'show']);
+// /*-------- customer data form --------*/
+// Route::get('/customer_details',[ShowController::class,'show']);
 
 
 
-/* user profile dropdown */
+// /* user profile dropdown */
 
-use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\ProfileController;
 
 // Route::get('/edit-profile', [ProfileController::class, 'edit'])->name('edit-profile');
 
 
-// Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
-Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
-Route::prefix('booking-pedi')->group(function () {
-    Route::get('/', [BookingPediController::class, 'bookingPedi']);
+//  Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+// Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+// Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+// Route::prefix('booking-pedi')->group(function () {
+//     Route::get('/', [BookingPediController::class, 'bookingPedi']);
+// }
+
+
+Route::get('/cprofile', function () {
+    return view('profile/show');
 });
+
 
 /*-------- manage appoinment form --------*/
 Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);
