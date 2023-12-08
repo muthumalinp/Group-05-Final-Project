@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('emp_lname');
             $table->string('emp_jobtitle');
             $table->string('emp_phone')->nullable();
-            $table->string('emp_email');
+            $table->string('emp_email')->unique();
             $table->string('emp_bsalary');
             $table->string('emp_rewards');
             $table->string('emp_password')->default('12345678');

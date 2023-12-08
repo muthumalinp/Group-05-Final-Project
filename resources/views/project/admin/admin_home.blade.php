@@ -1,3 +1,4 @@
+@extends('layouts.admin_navbar')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -5,6 +6,10 @@
    <!-- <link rel="stylesheet" href="{{ asset('js/admin/admin.js') }}">  -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/layout.css') }}">
+    <script src="https://kit.fontawesome.com/cff257cc3a.js" crossorigin="anonymous"></script>
+    
+    
     </head>
 
 
@@ -40,7 +45,7 @@
         </header>
         
         <aside>
-            <button id="sidebar-toggle"><h1>Salon</h1></button>
+            <button id="sidebar-toggle"><h3>Salon</h3></button>
                 <nav>
                     <ul>
                         <li><a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Dashboard</a>
@@ -62,10 +67,23 @@
             <h1>Admin Dashboard</h1>
                 <div class="cards">
                     <div class="card">
-                        <h2>Total Customers</h2>
-                        <p><b>Total Customers: {{ $totalCustomers }}</b><p>
-                        <img src="{{ asset('css/admin/customer.jpeg') }}" alt="Admin" width="150px" height="60px" class="mx-auto d-block img-fluid">
+                        <div class="content rounded col-md-12">
+                                 <div class="border-right">
+                                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                       <h3 style="color:#633030; font-weight:bold">PROFILE</h3>
+                                       <img class="rounded-circle mt-0" width="118px" src="css/Owner/owner_profile_image.jpeg">
+                                       <span> ...</span>
+                                       <span class="font-weight-bold">Yaraa De Silva</span>
+                                       <span class="text-black-50">salonyaraa@gmail.com</span>
+                                       <span class="text-black-50">+94 702 016 166</span>
+                                       <span class="text-black-50">No.45, Highlevel Road, Maharagama</span>
+                                       <span> </span>
+                                    </div>
+                                 </div>
+                        </div>
                     </div>
+
+                    
                     <div class="card">
                         <div>
                             <h2>To Do List</h2>
@@ -89,9 +107,17 @@
                         
                     </div>
                     <div class="card">
-                        <h2>Card 3</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h2>Total Customers</h2>
+                        <p><b>Total Customers: {{ $totalCustomers }}</b><p>
+                        <img src="{{ asset('css/admin/customer.jpeg') }}" alt="Admin" width="150px" height="60px" class="mx-auto d-block img-fluid">
+                        
+                        <h2>Available Rent Items</h2>
+                        <a href="{{url('/rentitems')}}" class="btn btn-secondary float-end">Check</a>
+                        <h2>Available Products</h2>
+                        <a href="{{url('/Index1')}}" class="btn btn-secondary float-end">Check</a>
+
                     </div>
+                    
                     <div class="card">
                         <h2>Card 4</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

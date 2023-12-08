@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\EmployeeLeave;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\User;
 use App\Mail\EmployeeRegistered;
 use Illuminate\Support\Facades\Mail;
 
@@ -122,5 +122,6 @@ class EmployeeController extends Controller
         // return a response...
         return response()->json(['message' => 'Employee registered successfully'], 201);
     }
+
     
 }
