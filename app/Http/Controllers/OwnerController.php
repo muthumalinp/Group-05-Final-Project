@@ -13,6 +13,7 @@ use Illuminate\View\View;
 
 class OwnerController extends Controller
 {
+
     public function store(Request $request)
 {
     // Validate the form data
@@ -45,7 +46,7 @@ class OwnerController extends Controller
             'owner_phone' => $request->input('owner_phone'),
             'owner_address' => $request->input('owner_address'),
             'owner_bio' => $request->input('owner_bio'),
-            'owner_photo' => $path ?? $existingOwner->owner_photo, // Use the existing path if no new file is uploaded
+            'owner_photo' => $path ?? $existingOwner->owner_photo,
             'owner_addetails' => $request->input('owner_addetails'),
             'owner_rewards' => $request->input('owner_rewards'),
         ]);
@@ -58,7 +59,7 @@ class OwnerController extends Controller
             'owner_phone' => $request->input('owner_phone'),
             'owner_address' => $request->input('owner_address'),
             'owner_bio' => $request->input('owner_bio'),
-            'owner_photo' => $path ?? null, // Store the new path or null if no file is uploaded
+            'owner_photo' => $path ?? null, 
             'owner_addetails' => $request->input('owner_addetails'),
             'owner_rewards' => $request->input('owner_rewards'),
         ]);
@@ -89,7 +90,7 @@ class OwnerController extends Controller
 }*/
 
     /*-----reportpart------*/
-    public function showTtlCustomers()
+    public function showTtls()
     {
 
         $totalCustomers = User::where('role', 'customer')->count();
@@ -97,6 +98,17 @@ class OwnerController extends Controller
         //dd($totalCustomers);
         return view('/project/owner/report', compact('totalCustomers','totalEmployees'));
     }
+
+    //owner profile display function
+    /*--public function showProfile()
+    {
+        $owner = Owner::first();
+
+        if (!$owner) {
+            abort(404, 'Owner not found');
+        }
+        return view('/project/owner/owner', compact('owner'));
+    }--*/
 
 
 }
