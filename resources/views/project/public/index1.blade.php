@@ -15,8 +15,8 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>
-                            Available Hair Straightening Products
-                            <a href="{{url('Create1')}}" class="btn btn-primary float-end">Add Products</a>
+                            Available Products
+                            <a href="{{url('Create11')}}" class="btn btn-primary float-end">Add Products</a>
                         </h4>
                     </div>
 

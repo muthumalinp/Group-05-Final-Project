@@ -40,24 +40,25 @@
                         <label class="nav-link shadow-sm step2 border ml-2 ">Step Three</label>
                     </div>-->
 
-                    <form action="/post" method="post" class="employee-form">
+                    <form action="{{ route('employee.store') }}" method="POST" class="employee-form">
                         @csrf
                         <div class="form-section">
                             <label for="">Employee Name</label>
                             <input type="text" class="form-control mb-3" name="name" required>
-                            <label for="">Employee ID</label>
-                            <input type="text" class="form-control mb-3" name="last_name" required>
+                            <label for="">Position</label>
+                            <input type="text" class="form-control mb-3" name="position" required>
+                            <label for="">Email Adress</label>
+                            <input type="email" class="form-control mb-3" name="email" required>
                             <label for="">Phone</label>
                             <input type="tel" class="form-control mb-3" name="phone" required>
                         
 
-                            <label for="">Position</label>
-                            <input type="text" class="form-control mb-3" name="position" required>
+                            
                             <label for="">How many working days are you applying for leave</label>
                             <input type="text" class="form-control mb-3" name="workDays" required>
 
-                            <label for="">Reason for Sickness Leave</label>
-                            <textarea name="adress" class="form-control mb-3" cols="30" rows="5" required></textarea>
+                            <label for="">Reason for Leave</label>
+                            <textarea name="reason" class="form-control mb-3" cols="30" rows="5" required></textarea>
                         </div>
 
                         <div class="form-navigation mt-3">

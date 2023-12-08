@@ -38,12 +38,48 @@
             <!--card starts-->
 
             <div class="card">
-                <div class="img"><img src="css/hairstr11.jpg" alt="" ></div>
-                <div class="desc"> Himalaya</div>
-                <div class="box">
-                    <div class="price">Rs.2500</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
+                <form action="/Product/ManageCart" method="GET">
+                    <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
+                    <div class="desc">Gold Infusion</div>
+                    <div class="box">
+                        <div class="price">Rs.2500</div>
+                        <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
+                    </div>
+                    <input type="hidden" name="desc" value="Gold Infusion">
+                    <input type="hidden" name="price" value="Rs.2500">
+                </form>
+            </div>
+            <!--card end-->
+
+             <!--card starts-->
+
+             <div class="card">
+                <form action="/Product/ManageCart" method="GET">
+                    <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
+                    <div class="desc">Grow Me</div>
+                    <div class="box">
+                        <div class="price">Rs.6500</div>
+                        <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
+                    </div>
+                    <input type="hidden" name="desc" value="Grow Me">
+                    <input type="hidden" name="price" value="Rs.6500">
+                </form>
+            </div>
+
+            <!--card end-->
+
+             <!--card starts-->
+             <div class="card">
+                <form action="/Product/ManageCart" method="GET">
+                    <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
+                    <div class="desc">Omni</div>
+                    <div class="box">
+                        <div class="price">Rs.7500</div>
+                        <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
+                    </div>
+                    <input type="hidden" name="desc" value="Omni">
+                    <input type="hidden" name="price" value="Rs.7500">
+                </form>
             </div>
 
             <!--card end-->
@@ -51,38 +87,16 @@
              <!--card starts-->
 
              <div class="card">
-                <div class="img"><img src="hairstr12.jpg" alt="" ></div>
-                <div class="desc">  Clean & Clear</div>
-                <div class="box">
-                    <div class="price">Rs.6500</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <!--card end-->
-
-             <!--card starts-->
-
-             <div class="card">
-                <div class="img"><img src="hairstr13.jpg" alt="" ></div>
-                <div class="desc">Nivea</div>
-                <div class="box">
-                    <div class="price">Rs.7500</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <!--card end-->
-
-             <!--card starts-->
-
-             <div class="card">
-                <div class="img"><img src="hairstr14.jpg" alt="" ></div>
-                <div class="desc">Lakme Scrub</div>
-                <div class="box">
-                    <div class="price">Rs.4500</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
+                <form action="/Product/ManageCart" method="GET">
+                    <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
+                    <div class="desc">Spa Ceylon</div>
+                    <div class="box">
+                        <div class="price">Rs.5000</div>
+                        <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
+                    </div>
+                    <input type="hidden" name="desc" value="Spa Ceylon">
+                    <input type="hidden" name="price" value="Rs.5000">
+                </form>
             </div>
 
             <!--card end-->
@@ -92,7 +106,4 @@
     
 </body>
 </html>
-
-
-
 
