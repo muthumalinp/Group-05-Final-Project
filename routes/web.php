@@ -307,6 +307,8 @@ Route::post('add-bdlwr', [BdlwrController::class, 'store']);
 Route::get('add-pwr', [PwrController::class, 'create4']);
 Route::post('add-pwr',[PwrController::class, 'store']);
 
+Route::get('/bdlwrs', [BdlwrController::class, 'index']);
+
 
 
 

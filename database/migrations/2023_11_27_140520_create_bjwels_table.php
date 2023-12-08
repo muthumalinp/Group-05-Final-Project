@@ -14,9 +14,15 @@ return new class extends Migration
         Schema::create('bjwels', function (Blueprint $table) {
             $table->id();
             $table->string('bjwid');
+            $table->string('bjwtitle');
+            $table->string('bjwdesc');
             $table->integer('bjwprice');
             $table->integer('bjwquantity');
-            $table->string('image');
+            $table->string('bjwimg1');
+            $table->string('bjwimg2');
+            $table->string('bjwimg3');
+            $table->string('bjwimg4');
+            $table->string('bjwimg5');
             
             
             $table->timestamps();

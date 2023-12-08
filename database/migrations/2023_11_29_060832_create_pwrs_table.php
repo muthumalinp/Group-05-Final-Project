@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('pwrs', function (Blueprint $table) {
             $table->id();
             $table->string('pwrsid');
-            $table->string('pwrssize');
+            $table->string('pwrstitle');
+            $table->string('pwrsdesc');
             $table->integer('pwrsprice');
             $table->integer('pwrsquantity');
             $table->string('pwrsimg1');
