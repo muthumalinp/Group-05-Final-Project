@@ -1,0 +1,51 @@
+/* Example CSS styles for FullCalendar */
+#calendar {
+    background-color: #f5f5f5; /* Container background color */
+    border-radius: 8px; /* Add border radius to the container */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Add box shadow */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.fc-day {
+    background-color: #ffffff; /* Set a background color */
+    border: 1px solid #ddd; /* Add a border */
+    padding: 10px; /* Adjust padding for spacing */
+}
+
+
+.fc-event {
+    background-color: #2ecc71; /* Event box background color */
+    color: #fff; /* Text color for events */
+    border: 1px solid #2ecc71; /* Add a border */
+    padding: 5px; /* Adjust padding for spacing */
+}
+
+.fc-toolbar {
+    background-color: #e1a9a9; /* Header background color */
+    color: #fff; /* Text color in the header */
+    border-radius: 8px 8px 0 0; /* Add border radius to the header */
+}
+
+.fc-button {
+    background-color: #e1a9a9; /* Navigation button background color */
+    color: #fff; /* Text color for buttons */
+    border: none; /* Remove button border */
+}
+
+.fc-today {
+    background-color: #e1a9a9; /* Today's background color */
+    color: #fff; /* Text color for today */
+}
+
+td{
+    width: 90px;
+}
+
+fc-content-skeleton{
+    width: 650px;
+}
+
+div.panel-primary,
+div.panel-heading{
+    border-color: white;
+}
