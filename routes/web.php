@@ -12,6 +12,9 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HairstrController;
 use App\Http\Controllers\CustomerController;
 use App\Models\BookedAppointment;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\EmployeeDashBoardController;
+use App\Http\Controllers\EmployeeLeaveController;
 
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
@@ -73,14 +76,23 @@ Route::get('/Services', function () {
     return view('/project/public/services');
 });
 
+/*******************************gallery*****************************/
+/*******************************************************************/
 Route::get('/Gallery', function () {
     return view('/project/public/gallery');
+});
+
+Route::get('/Gallery/FACE-AND-TREATMENT', function () {
+    return view('/project/public/galleryfaceandtreament');
 });
 
 Route::get('/Gallery/Hair', function () {
     return view('/project/public/galleryhair');
 });
 
+
+/*******************************gallery*****************************/
+/*******************************************************************/
 Route::get('/Product', function () {
     return view('/project/public/product');
 });
@@ -272,6 +284,42 @@ Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])-
 
 /*-------- End of Admin Routes ----------*/
 
+/*************************************************************/
+/****************EMPLOYEE ROUTE BEGIN*************************/
+/************************************************************/
+Route::middleware(['employee_protect'])->group(function () {
+    Route::get('/employee-dashboard', EmployeeDashBoardController::class)->name('employee.dashboard');
+
+    Route::get('/employee-meetings', function () {
+        return view('/project/employee/meetings');
+    });
+
+    Route::get('/employee-leaves', [EmployeeLeaveController::class, 'employeeDetails'])->name('employee.leaves');
+
+    Route::get('/employee-apoinments', function () {
+        return view('/project/employee/appoinments');
+    });
+
+    Route::get('/employee-holidays', function () {
+        return view('/project/employee/holidays');
+    });
+
+    Route::get('/employee-profile', [ProfileController::class, 'editProfile'])
+    ->name('employee.profile');
+
+    Route::put('/update-profile/{id}', [ProfileController::class, 'updateProfile'])
+    ->name('update-profile');
+
+    Route::get('/employee-leave-request', [EmployeeLeaveController::class, 'employeeDetails'])
+    ->name('employee.leave.request');
+
+    Route::post('/employee-leave-request', [EmployeeLeaveController::class, 'requestLeave'])
+    ->name('employee.leave.request.form');
+});
+/***********************************************************/
+/****************EMPLOYEE ROUTE END*************************/
+/***********************************************************/
+
 /*-------- Starter of Booking form database table ---------*/
 Route::post('/booking',function() {
 
@@ -283,7 +331,7 @@ Route::post('/booking',function() {
     $booked_appointments->contact = request('contact');
     $booked_appointments->massage = request('massage');
     $booked_appointments->save();
-    
+
 });
 /*--------- End of Booking form database table ----------*/
 
@@ -340,7 +388,7 @@ Auth::routes();
     /*-----employee button route-----*/
     Route::resource('employee', EmployeeController::class)->names([
         'index' => 'project.owner.Employee.index',
-    ]); 
+    ]);
 
     use App\Http\Controllers\ServiceController;
 use App\Models\Employee;
@@ -371,7 +419,7 @@ use App\Models\Employee;
     /*-----Route::get('/backtoempindex', function () {
         return view('/project/owner/Employee/index');
     });------*/
-    
+
     Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employee.create');
     Route::get('/employees', [EmployeeController::class, 'index'])->name('employee.index');
     Route::post('/employees', [EmployeeController::class, 'store'])->name('employee.store');
@@ -421,11 +469,12 @@ Auth::routes();
     Route::post('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'loginPost'])->name('login.post');
     Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('custom.logout');
 
+
 Route::controller(RegisterController::class)->group(function (){
     Route::get('/AddUser', [App\Http\Controllers\Auth\RegisterController::class, 'AddUser'])->name('register');
     Route::post('/saveUser','registrationPost')->name('registration.post');
     Route::get('/verify/{token}', [App\Http\Controllers\Auth\RegisterController::class, 'verify'])->name('verification.verify');
-    
+
 });
 
 /*-------- customer data form --------*/
