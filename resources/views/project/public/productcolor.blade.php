@@ -52,12 +52,12 @@
             <div class="card">
             <form action="/Product/ManageCart" method="GET">
                 <div class="img"><img src="asset('css/color11.jpg') }}" alt="" ></div>
-                <div class="desc"> Himalaya</div>
+                <div class="desc"> Luxury</div>
                 <div class="box">
                     <div class="price">Rs.2500</div>
                     <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
-                    <input type="hidden" name="desc" value="Himalaya">
+                    <input type="hidden" name="desc" value="Luxury">
                     <input type="hidden" name="price" value="Rs.2500">
                 </form>
             </div>
@@ -68,12 +68,12 @@
              <div class="card">
             <form action="/Product/ManageCart" method="GET">
                 <div class="img"><img src="asset('css/color12.jpg') }}" alt="" ></div>
-                <div class="desc"> Clean & Clear</div>
+                <div class="desc"> Serioxyl</div>
                 <div class="box">
                     <div class="price">Rs.6500</div>
                     <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
-                    <input type="hidden" name="desc" value="Clean & Clear">
+                    <input type="hidden" name="desc" value="Serioxyl">
                     <input type="hidden" name="price" value="Rs.6500">
                 </form>
             </div>
@@ -85,12 +85,12 @@
              <div class="card">
             <form action="/Product/ManageCart" method="GET">
                 <div class="img"><img src="asset('css/color13.jpg') }}" alt="" ></div>
-                <div class="desc"> Nivea</div>
+                <div class="desc"> Show</div>
                 <div class="box">
                     <div class="price">Rs.7500</div>
                     <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
-                    <input type="hidden" name="desc" value="Nivea">
+                    <input type="hidden" name="desc" value="Show">
                     <input type="hidden" name="price" value="Rs.7500">
                 </form>
             </div>

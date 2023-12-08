@@ -72,7 +72,7 @@ session_start();
 
              <div class="card">
                 <form action="/Product/ManageCart" method="GET">
-                    <div class="img"><img src="css/hairstr11.jpg" alt="" ></div>
+                    <div class="img"><img src="css/hairstr12.jpg" alt="" ></div>
                     <div class="desc">   Bellose</div>
                     <div class="box">
                         <div class="price">Rs.6500</div>
@@ -89,7 +89,7 @@ session_start();
 
              <div class="card">
                 <form action="/Product/ManageCart" method="GET">
-                    <div class="img"><img src="css/hairstr11.jpg" alt="" ></div>
+                    <div class="img"><img src="{{ asset('css/hairstr13.jpg') }}" alt="" ></div>
                     <div class="desc">Xtenso</div>
                     <div class="box">
                         <div class="price">Rs.7500</div>
@@ -107,12 +107,12 @@ session_start();
              <div class="card">
                 <form action="/Product/ManageCart" method="GET">
                     <div class="img"><img src="{{ asset('css/hairstr14.jpg') }}" alt="" ></div>
-                    <div class="desc">Evon</div>
+                    <div class="desc">Streax-Canvo</div>
                     <div class="box">
                         <div class="price">Rs.4500</div>
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
-                    <input type="hidden" name="desc" value="Evon">
+                    <input type="hidden" name="desc" value="Streax-Canvo">
                     <input type="hidden" name="price" value="Rs.4500">
                 </form>    
             </div>

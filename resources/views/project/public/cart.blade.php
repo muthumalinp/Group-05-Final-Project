@@ -67,10 +67,16 @@ session_start();
                         <?php
                                          
                             $total=0;
+                           
                             if(isset($_SESSION['cart'])){
+                               
+                            
                                 foreach($_SESSION['cart'] as $key => $value)
                                 {
-                                    $total=$total+intval($value['price']);
+                              
+                                
+                                    $total += intval(explode(".",$value['price'])[1]);
+                              
 
                                      echo "
                                         <tr>
@@ -95,6 +101,24 @@ session_start();
                     </tbody>
                 </table>
             </div>
+
+            <script>
+                    function updateQuantity(rowId, newQuantity) {
+                        // Assuming 'product-row-' + rowId is the id of the corresponding row
+                        var row = document.getElementById('product-row-' + rowId);
+                        var priceCell = row.cells[2]; // Index of the cell containing the price
+                        var totalCell = row.cells[4]; // Index of the cell containing the total
+
+                        // Extract the numeric part of the price
+                        var price = parseInt(priceCell.innerText.split('.')[1]);
+
+                        // Calculate the new total
+                        var newTotal = price * newQuantity;
+
+                        // Update the total cell
+                        totalCell.innerText = newTotal;
+                    }
+             </script>
 
             <div class="col-lg-3">
                 <div class="border bg-light rounded p-4">
