@@ -2,24 +2,56 @@
 @section('title', 'Booking')
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Gallery - Our Beauty Transformations</title>
-    <link rel="stylesheet" href="{{ asset('css/gallery/hair.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/gallery/hair.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css\boostrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css\boostrap.min.css') }}">
+    <style>
+        .rectangular-img {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="a4_10">
-        <div class="e4_10">
-            <span class="e5_12"><strong>See Our Work!</strong></span>
-            <span class="e5_13">Here’s a quick look at the beauty transformations that we have worked on. Whether it is a temporary makeup or a complete makeover, you can trust us.</span>
-                <img src="{{ asset('css/gallery/images/1.png') }}" alt="hair" class="e5_28">
-                <img src="{{ asset('css/gallery/images/2.png') }}" alt="hair" class="e5_29">
-                <img src="{{ asset('css/gallery/images/3.png') }}" alt="hair" class="pic_3">
-                <img src="{{ asset('css/gallery/images/4.png') }}" alt="hair" class="e5_31">
-                <img src="{{ asset('css/gallery/images/5.png') }}" alt="hair" class="e5_32">
-                <img src="{{ asset('css/gallery/images/6.png') }}" alt="hair" class="e5_33">
-  
-            <p class="e12_11">Life is too short to have boring hair...</p>
+    <div class="container"
+        style="margin-top: 100px; background-color: #171616; padding: 20px 20px 20px 20px; border-radius: 5px;">
+        <div style="text-align: center; margin: 10px 50px 50px 50px; color: #E0C2C0;">
+            <h1>See Our Work!</h1>
+            <h4 style="font-weight: 200">Here’s a quick look at the beauty transformations that we have worked on. Whether it is a temporary
+                makeup or a complete makeover, you can trust us.</h4>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <img src="{{ asset('css/gallery/images/1.png') }}" alt="Image 1" class="img-fluid rectangular-img">
+            </div>
+            <div class="col-md-4">
+                <img src="{{ asset('css/gallery/images/2.png') }}" alt="Image 2" class="img-fluid rectangular-img">
+            </div>
+            <div class="col-md-4">
+                <img src="{{ asset('css/gallery/images/3.png') }}" alt="Image 3" class="img-fluid rectangular-img">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ asset('css/gallery/images/4.png') }}" alt="Image 1" class="img-fluid rectangular-img">
+            </div>
+            <div class="col-md-4">
+                <img src="{{ asset('css/gallery/images/5.png') }}" alt="Image 2" class="img-fluid rectangular-img">
+            </div>
+            <div class="col-md-4">
+                <img src="{{ asset('css/gallery/images/6.png') }}" alt="Image 3" class="img-fluid rectangular-img">
+            </div>
+        </div>
+        <div style="text-align: center; margin: 50px 50px 10px 50px; color: #E0C2C0;">
+            <h4 style="font-weight: 200">Life is too short to have boring haire...</h4>
         </div>
     </div>
 </body>
+
 </html>
