@@ -131,7 +131,7 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
-
+            
             <!-- Facebook -->
             <a
                class="btn btn-primary btn-floating m-1"
@@ -184,6 +184,9 @@
                role="button"
                ><i class="fab fa-github"></i
               ></a> -->
+              <div class="containers">
+                <h4>Embed Location Map</h4>
+              </div>
           </div>
         </div>
         <!--Grid row-->

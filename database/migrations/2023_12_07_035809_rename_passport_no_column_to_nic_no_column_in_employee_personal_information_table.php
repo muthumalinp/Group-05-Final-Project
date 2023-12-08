@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('employee_personal_information', function (Blueprint $table) {
+        /*Schema::table('employee_personal_information', function (Blueprint $table) {
             $table->renameColumn('passport_no', 'nic_no');
-        });
+        });*/
     }
 
     /**
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('employee_personal_information', function (Blueprint $table) {
+        /*Schema::table('employee_personal_information', function (Blueprint $table) {
             //
-        });
+        });*/
     }
 };
