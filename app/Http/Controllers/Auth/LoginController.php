@@ -7,47 +7,34 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use App\Mail\RegisterMail;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    public function login() {
-        return view('project\public\login');
+    public function login()
+    {
+        return view('project.public.login');
     }
 
-    public function loginPost(Request $request) {
-
-
+    public function loginPost(Request $request)
+    {
         $user = User::where('email', $request->email)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
+            // Store user information in the session
+            Session::put('user_data', [
+                'id' => $user->id,
+                'fname' => $user->fname,
+                'email' => $user->email,
+                'role' => $user->role,
+                // Add any other fields you want to store
+            ]);
+
             // Redirect based on the user's role
             $request->session()->put('user_id', $user->id);
             switch ($user->role) {
@@ -65,19 +52,20 @@ class LoginController extends Controller
         } else {
             return redirect()->route('login')->with('error', 'Login details are not valid');
         }
-
-
-     }
-
-    public function logout (Request $request) {
-        $request->session()->flush();
-        return redirect()->route('login.post');
     }
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
+    public function logout(Request $request)
+    {
+        // Clear user information from the session
+        Session::forget('user_data');
+
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/Home');
+    }
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');

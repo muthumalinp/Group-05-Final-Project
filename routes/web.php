@@ -324,10 +324,11 @@ Route::get('/edit-profile', 'ProfileController@edit')->name('edit-profile');
 
 use App\Http\Controllers\AppointmentController;
 
-Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
+// Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
 
 use App\Http\Controllers\BookingController;
 
+Route::post('/Bookings', [AppointmentController::class, 'store'])->name('bookings.store');
 Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index');
 
 // Route::get('/BookNow', function () {
