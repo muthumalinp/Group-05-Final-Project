@@ -50,7 +50,6 @@ class EmployeeSeeder extends Seeder
                 'emp_bsalary' => '60000',
                 'emp_rewards' => '7',
             ],
-            // Add more employees as needed
         ];
 
         // Insert the sample data into the 'employees' table

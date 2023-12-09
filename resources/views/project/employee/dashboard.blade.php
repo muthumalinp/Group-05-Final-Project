@@ -88,9 +88,8 @@
                             <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                                 <!-- Title -->
                                 <h1 class="h2 mb-0 ls-tight secondary-font-color" style="text-transform: capitalize">
-                                    Hello, {{ $user->fname . ' ' . $user->lname }}</h1>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>

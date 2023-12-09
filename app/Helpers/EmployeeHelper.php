@@ -12,7 +12,7 @@ use App\Models\User;
 
 class EmployeeHelper
 {
-    public static function getAllDataRelatedEmployee()
+    /*public static function getAllDataRelatedEmployee()
     {
         $id = session('user_id');
         $user = User::find($id);
@@ -79,6 +79,6 @@ class EmployeeHelper
         }
 
         $employee->save();
-    }
+    }*/
 
 }
