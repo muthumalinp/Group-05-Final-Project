@@ -42,37 +42,33 @@
                         @endif
                     </div>
                 </div>
+
                 <div class="col-md-6">
-                    <div id="servicesContainer" class="hidden-content"></div>
-                    <div id="hairContent" class="hidden-content">
-                        <!-- ... existing content ... -->
-                    </div>
-                    <div id="bridalContent" class="hidden-content">
-                        <!-- ... existing content ... -->
-                    </div>
-                    <div id="nailContent" class="hidden-content">
-                        Content for Finish & Treats goes here.
-                    </div>
-                    <div id="otherContent" class="hidden-content">
-                        Content for Keratin Treatment goes here.
+            <!-- Container to display services -->
+            <div id="servicesContainer" class="hidden-content">
+                <h1>Hi</h1>
+                <div class="row" id="contentToHide">
+                <div class="col-md-3">
+                    <div class="col-12">
+                        @if(isset($services))
+                            @foreach($services as $service)
+                                <button type="button" class="btn btn-custom" onclick="toggleContent('{{ $service->id }}')">
+                                    {{ $service->name }}
+                                </button><br/>
+                            @endforeach
+                        @else
+                            <p>No service found.</p>
+                        @endif
                     </div>
                 </div>
+                <!-- Dynamic content will be added here using JavaScript -->
             </div>
 
-            <div id="hairCutLadies" class="hidden-content">
-                <h1>You Select Hair Cut - Ladies - Rs. 5000</h1>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="stylist">Select a Stylist:</label>
-                        <select class="form-control" name="stylist" id="stylistSelect" required>
-                            @foreach($hairstylists as $hairstylist)
-                                <option>Any</option>
-                                <option value="{{ $hairstylist->emp_fname }}">{{ $hairstylist->emp_fname }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div>
+            <!-- Container to display selected service content -->
+            <div id="selectedServiceContent" class="hidden-content"></div>
+            <h1>Bye</h1>
+        </div>
+    </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -109,6 +105,10 @@
                         services.forEach(service => {
                             const serviceElement = document.createElement('div');
                             serviceElement.textContent = service.name;
+                            // Attach a click event to display the selected service content
+                            serviceElement.addEventListener('click', function() {
+                                displaySelectedService(service.name);
+                            });
                             servicesContainer.appendChild(serviceElement);
                         });
                     } else {
@@ -119,6 +119,12 @@
                 .catch(error => {
                     console.error('Error fetching services:', error);
                 });
+        }
+
+        function displaySelectedService(serviceName) {
+            const selectedServiceContent = document.getElementById('selectedServiceContent');
+            selectedServiceContent.innerHTML = `<h1>You Selected ${serviceName}</h1>`;
+            selectedServiceContent.style.display = 'block';
         }
     </script>
 </body>

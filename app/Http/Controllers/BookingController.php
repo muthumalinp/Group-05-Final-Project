@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Service;
 use App\Models\ServiceCategory; // Add this line to import the ServiceCategory model
 use App\Booking;
 
@@ -12,9 +13,9 @@ class BookingController extends Controller
     public function index()
     {
         // Fetch hairstylists, BridalDressers, and NailArtists separately
-        $hairstylists = Employee::where('emp_jobtitle', 'Hairstylist')->pluck('emp_fname');
-        $BridalDressers = Employee::where('emp_jobtitle', 'BridalDresser')->pluck('emp_fname');
-        $NailArtists = Employee::where('emp_jobtitle', 'NailArtist')->pluck('emp_fname');
+        $hairstylists = Employee::where('emp_jobtitles', 'Hairstylist')->pluck('emp_fname');
+        $BridalDressers = Employee::where('emp_jobtitles', 'BridalDresser')->pluck('emp_fname');
+        $NailArtists = Employee::where('emp_jobtitles', 'NailArtist')->pluck('emp_fname');
 
         $serviceCategories = ServiceCategory::all(); // Fetch all service categories from the database
 

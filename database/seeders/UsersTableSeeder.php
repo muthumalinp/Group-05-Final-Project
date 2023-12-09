@@ -51,5 +51,17 @@ class UsersTableSeeder extends Seeder
             'remember_token' => Str::random(60),
         ]);
 
+        DB::table('users')->insert([
+            'id' => '2',
+            'fname' => 'Sandy',
+            'lname' => 'Dilshani',
+            'email' => 'sandydilshani@gmail.com',
+            'email_verified_at' => now(),
+            'phone_number' => '0775769796',
+            'password' => Hash::make('sandydilshani'), 
+            'role' => 'employee',
+            'remember_token' => Str::random(60),
+        ]);
+
     }
 }
