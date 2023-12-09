@@ -65,8 +65,10 @@
                 <div class="img-container">
                     <img src="{{ asset('css/gallery/first/9.png') }}" alt="Image 3" class="img-fluid">
                 </div>
+                <a href="/Gallery/Bridal">
                 <button class="btn">MORE PHOTOS</button>
                 <h1 class="centered1">BRIDAL</h1>
+                </a>
             </div>
         </div>
         <div class="row">
@@ -74,22 +76,28 @@
                 <div class="img-container">
                     <img src="{{ asset('css/gallery/first/10.png') }}" alt="Image 1" class="img-fluid">
                 </div>
+                <a href="/Gallery/Tattoo">
                 <button class="btn">MORE PHOTOS</button>
                 <h1 class="centered1">TATTOOS</h1>
+                </a>
             </div>
             <div class="col-md-4">
                 <div class="img-container">
                     <img src="{{ asset('css/gallery/first/11.png') }}" alt="Image 2" class="img-fluid">
                 </div>
+                <a href="/Gallery/Jewelry">
                 <button class="btn">MORE PHOTOS</button>
                 <h1 class="centered1">Jewellery</h1>
+                </a>
             </div>
             <div class="col-md-4">
                 <div class="img-container">
                     <img src="{{ asset('css/gallery/first/12.png') }}" alt="Image 3" class="img-fluid">
                 </div>
+                <a href="/Gallery/Party-wear">
                 <button class="btn">MORE PHOTOS</button>
                 <h1 class="centered1">Party Wear</h1>
+                </a>
             </div>
         </div>
     </div>
