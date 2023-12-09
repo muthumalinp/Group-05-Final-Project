@@ -221,6 +221,14 @@ Route::get('/LogIn', function () {
 
 /*-------Starter of Customer Routes---------*/
 
+// web.php
+
+// Route::middleware(['checkRole:customer'])->group(function () {
+//     Route::get('/customer/dashboard', function () {
+//         return view('customer.dashboard');
+//     })->name('customer.dashboard');
+// });
+
 
 Route::get('/Dashboard-Customer', function () {
     return view('/project/customer/dashboard');
@@ -229,7 +237,8 @@ Route::get('/Dashboard-Customer', function () {
 
 Route::get('/Home-Customer', function () {
     return view('/project/customer/home');
-})->name('customer.home')->middleware('customer.auth');
+})->name('customer.home');
+// ->middleware('customer.auth');
 
 
 
@@ -329,7 +338,16 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\BookingController;
 
 Route::post('/Bookings', [AppointmentController::class, 'store'])->name('bookings.store');
+// Use the 'index' method for the '/BookNow' route
 Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index');
+
+Route::get('/api/services/{category}', [BookingController::class, 'getServices']);
+
+// Use the 'serviceCategories' method for the '/BookNow/categories' route
+// Route::get('/BookNow/categories', [BookingController::class, 'serviceCategories'])->name('booking.categories');
+
+
+
 
 // Route::get('/BookNow', function () {
 //     return view('/project/customer/booking');

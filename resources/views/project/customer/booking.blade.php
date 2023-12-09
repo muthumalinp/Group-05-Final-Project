@@ -28,90 +28,97 @@
     <div class="container">
         <form action="{{ route('bookings.store') }}" method="POST">
             @csrf
-        <div class="row" id="contentToHide">
-            <div class="col-md-3">
-                <div class="col-12">
-                    <button type="button" class="btn btn-custom" onclick="toggleContent('hairContent')">Hair Services</button><br/>
-                    <button type="button" class="btn btn-custom" onclick="toggleContent('bridalContent')">Bridal Services</button><br/>
-                    <button type="button" class="btn btn-custom" onclick="toggleContent('nailContent')">Nail Services</button><br/>
-                    <button type="button" class="btn btn-custom" onclick="toggleContent('otherContent')">Other Services</button><br/>
+            <div class="row" id="contentToHide">
+                <div class="col-md-3">
+                    <div class="col-12">
+                        @if(isset($serviceCategories))
+                            @foreach($serviceCategories as $serviceCategory)
+                                <button type="button" class="btn btn-custom" onclick="toggleContent('{{ $serviceCategory->id }}')">
+                                    {{ $serviceCategory->name }}
+                                </button><br/>
+                            @endforeach
+                        @else
+                            <p>No service categories found.</p>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="servicesContainer" class="hidden-content"></div>
+                    <div id="hairContent" class="hidden-content">
+                        <!-- ... existing content ... -->
+                    </div>
+                    <div id="bridalContent" class="hidden-content">
+                        <!-- ... existing content ... -->
+                    </div>
+                    <div id="nailContent" class="hidden-content">
+                        Content for Finish & Treats goes here.
+                    </div>
+                    <div id="otherContent" class="hidden-content">
+                        Content for Keratin Treatment goes here.
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <div id="hairContent" class="hidden-content">
-                    <div class="row">
-                        <div class="col-6">
-                            <label>
-                                <input type="radio" name="hairCutType" class="btn-check" id="hcl01" onclick="showContent('hairCutLadies')">
-                                <span class="btn btn-custom" id="hideContentButton">Hair Cut - Ladies - Rs. 5000</span>
-                            </label>
-                        </div>
+            <div id="hairCutLadies" class="hidden-content">
+                <h1>You Select Hair Cut - Ladies - Rs. 5000</h1>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="stylist">Select a Stylist:</label>
+                        <select class="form-control" name="stylist" id="stylistSelect" required>
+                            @foreach($hairstylists as $hairstylist)
+                                <option>Any</option>
+                                <option value="{{ $hairstylist->emp_fname }}">{{ $hairstylist->emp_fname }}</option>
+                            @endforeach
+                        </select>
                     </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">Hair Cut - Gents - Rs. 4000</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="bridalContent" class="hidden-content">
-                    <div class="row">
-                        <div class="col-8">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel"></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="nailContent" class="hidden-content">
-                    Content for Finish & Treats goes here.
-                </div>
-                
-                <div id="otherContent" class="hidden-content">
-                    Content for Keratin Treatment goes here.
                 </div>
             </div>
-        </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
-
-    <div id="hairCutLadies" class="hidden-content">
-        <h1>You Select Hair Cut - Ladies - Rs. 5000</h1>
-        <div class="col-4">
-            <div class="form-group">
-                <label for="stylist">Select a Stylist:</label>
-                <select class="form-control" name="stylist" id="stylistSelect" required>
-                    @foreach($hairstylists as $hairstylist)
-                        <option>Any</option>
-                        <option value="{{ $hairstylist->emp_fname }}">{{ $hairstylist->emp_fname }}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-
-
-    </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function toggleContent(contentId) {
+        function toggleContent(categoryId) {
             var allContent = document.querySelectorAll('.hidden-content');
             allContent.forEach(function(content) {
                 content.style.display = 'none';
             });
-            var content = document.getElementById(contentId);
-            content.style.display = 'block';
+
+            // Show the services container
+            const servicesContainer = document.getElementById('servicesContainer');
+            servicesContainer.style.display = 'block';
+
+            // Load services when a category is clicked
+            loadServices(categoryId);
         }
 
-        function showContent(contentId) {
-            var allContent = document.querySelectorAll('.hidden-content');
-            allContent.forEach(function(content) {
-                content.style.display = 'none';
-            });
-            var content = document.getElementById(contentId);
-            content.style.display = 'block';
+        function loadServices(categoryId) {
+            // Make an asynchronous request to fetch services for the selected category
+            // Replace the URL with the actual endpoint to fetch services
+            fetch(`/api/services/${categoryId}`)
+                .then(response => response.json())
+                .then(services => {
+                    // Update the services container with the fetched services
+                    const servicesContainer = document.getElementById('servicesContainer');
+                    servicesContainer.innerHTML = '';
+
+                    if (services.length > 0) {
+                        // Display each service
+                        services.forEach(service => {
+                            const serviceElement = document.createElement('div');
+                            serviceElement.textContent = service.name;
+                            servicesContainer.appendChild(serviceElement);
+                        });
+                    } else {
+                        // Display a message if no services are available
+                        servicesContainer.textContent = 'No services found for this category.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching services:', error);
+                });
         }
     </script>
 </body>

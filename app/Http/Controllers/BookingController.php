@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\ServiceCategory; // Add this line to import the ServiceCategory model
 use App\Booking;
 
 class BookingController extends Controller
@@ -16,8 +16,18 @@ class BookingController extends Controller
         $BridalDressers = Employee::where('emp_jobtitle', 'BridalDresser')->pluck('emp_fname');
         $NailArtists = Employee::where('emp_jobtitle', 'NailArtist')->pluck('emp_fname');
 
-        return view('project.customer.booking', compact('hairstylists', 'BridalDressers', 'NailArtists'));
+        $serviceCategories = ServiceCategory::all(); // Fetch all service categories from the database
+
+        return view('project.customer.booking', compact('hairstylists', 'BridalDressers', 'NailArtists', 'serviceCategories'));
     }
+
+    public function getServices($category)
+{
+    // Retrieve services for the specified category (you may need to adjust this logic)
+    $services = Service::where('category', $category)->get();
+
+    return response()->json($services);
+}
 
     public function store(Request $request)
     {
