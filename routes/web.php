@@ -576,3 +576,10 @@ Route::prefix('booking-pedi')->group(function () {
 /*-------- manage appoinment form --------*/
 Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);
 
+
+use App\Http\Controllers\EventCalendarController;
+use App\Models\EventCalendar;
+
+Route::get('/geteventcalendar',[EventCalendarController::class,'geteventcalendar']);
+Route::get('/createeventcalendar',[EventCalendarController::class,'createeventcalendar']);
+Route::get('/deleteeventcalendar',[EventCalendarController::class,'deleteeventcalendar']);
