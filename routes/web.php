@@ -540,6 +540,11 @@ Route::get('/emplLeave', function () {
     return view('project\employee\Leave\emplLeave');
 });
 
+use App\Http\Controllers\RequestEmployeeLeaveController;
+
+Route::post('/submit-leave-request', [RequestEmployeeLeaveController::class, 'store'])->name('leave-request.store');
+
+
 /*-------- End of Employee Routes ----------*/
 
 Auth::routes();
