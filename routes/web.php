@@ -104,6 +104,22 @@ Route::get('/Gallery/Hair', function () {
     return view('/project/public/galleryhair');
 });
 
+Route::get('/Gallery/Party-wear', function () {
+    return view('/project/public/gallerypartywear');
+});
+
+Route::get('/Gallery/Bridal', function () {
+    return view('/project/public/gallerybridal');
+});
+
+Route::get('/Gallery/Tattoo', function () {
+    return view('/project/public/gallerytattoo');
+});
+
+Route::get('/Gallery/Jewelry', function () {
+    return view('/project/public/galleryjewelry');
+});
+
 
 /*******************************gallery*****************************/
 /*******************************************************************/
