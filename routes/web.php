@@ -593,6 +593,9 @@ Route::controller(RegisterController::class)->group(function (){
 /*-------- customer data form --------*/
 Route::get('/customer_details',[ShowController::class,'show']);
 
+/*-------- product data form --------*/
+Route::get('/manage_product',[ShowController::class,'item']);
+
 
 
 Route::prefix('booking-pedi')->group(function () {
