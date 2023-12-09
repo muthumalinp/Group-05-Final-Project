@@ -12,6 +12,8 @@ class Pjwel extends Model
     protected $fillable = [
 
         'pjwid',
+        'pjwtitle',
+        'pjwdesc',
         'pjwprice',
         'pjwquantity',
         'pjwimg1',

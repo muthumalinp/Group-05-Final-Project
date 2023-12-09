@@ -31,6 +31,18 @@
                             </div>
 
                             <div class="form-group mb3">
+                                <label for="">Jwellary Title</label>
+                                <input type="text" name="pjwtitle" class="form-control">
+
+                            </div>
+
+                            <div class="form-group mb3">
+                                <label for="">Jwellary Description</label>
+                                <input type="text" name="pjwdesc" class="form-control">
+
+                            </div>
+
+                            <div class="form-group mb3">
                                 <label for="">Jwellary price</label>
                                 <input type="text" name="price" class="form-control">
 
@@ -63,6 +75,12 @@
                             <div class="form-group mb3">
                                 <label for="">BridalJwellary Picture 4</label>
                                 <input type="file" name="pjwimg4" class="form-control">
+
+                            </div>
+
+                            <div class="form-group mb3">
+                                <label for="">BridalJwellary Picture 5</label>
+                                <input type="file" name="pjwimg5" class="form-control">
 
                             </div>
 

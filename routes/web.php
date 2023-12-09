@@ -296,6 +296,10 @@ Route::post('add-pwr',[PwrController::class, 'store']);
 
 Route::get('/bdlwrs', [BdlwrController::class, 'index']);
 
+Route::get('/bjwel', [BjwelController::class, 'index']);
+Route::get('/pwr', [PwrController::class, 'index']);
+Route::get('/pjwel', [PjwelController::class, 'index']);
+
 
 
 

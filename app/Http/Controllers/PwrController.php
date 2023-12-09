@@ -10,7 +10,8 @@ class PwrController extends Controller
 {
     public function index()
     {
-        return view('pwr.index');
+        $products = Pwr::all();
+        return view('pwr.index', ['products' => $products]);
 
     }
 

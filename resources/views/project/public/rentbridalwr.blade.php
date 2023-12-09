@@ -25,17 +25,23 @@
             </div>
 
             <div class = "btn2">
+            <a href ="{{url('pwr')}}"> 
             <button type="button" class="btn btn-outline-dark"><h3>Party wear</h3></button>
+            </a>
             </div>
         </div>
 
         <div class= "top2">
             <div class ="btn3">
-            <button type="button" class="btn btn-outline-dark"><h3>Bridal Wear</h3></button>
+            <a href ="{{url('bjwel')}}"> 
+            <button type="button" class="btn btn-outline-dark"><h3>Bridal Jewelleries</h3></button>
+        </a>
             </div>
 
             <div class = "btn4">
-            <button type="button" class="btn btn-outline-dark"><h3>Party wear</h3></button>
+            <a href ="{{url('pjwel')}}"> 
+            <button type="button" class="btn btn-outline-dark"><h3>Party Jewelleries</h3></button>
+        </a>
             </div>
         </div>
 
