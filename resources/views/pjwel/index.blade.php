@@ -21,31 +21,30 @@
            
         </ul>
     </nav>
-    <form action="">
     <div class="flex-box">
         <div class="left">
             <div class="big-img">
-            <img src="{{asset('uploads/bdlwrs1/'.$product->bdlwrsimg1)}}" alt="{{ $product->bdlwrstitle }}">
+            <img src="{{asset('uploads/pjwels1/'.$product->pjwimg1)}}" alt="{{ $product->bdlwrstitle }}">
             </div>
             <div class="images">
                 <div class="small-img">
-                <img src="{{asset('uploads/bdlwrs2/'.$product->bdlwrsimg2)}}" onclick="showImg(this.src)">
+                <img src="{{asset('uploads/pjwels2/'.$product->pjwimg2)}}" onclick="showImg(this.src)">
                 </div>
                 <div class="small-img">
-                <img src="{{asset('uploads/bdlwrs3/'.$product->bdlwrsimg3)}}" onclick="showImg(this.src)">
+                <img src="{{asset('uploads/pjwels3/'.$product->pjwimg3)}}" onclick="showImg(this.src)">
                 </div>
                 <div class="small-img">
-                <img src="{{asset('uploads/bdlwrs4/'.$product->bdlwrsimg4)}}" onclick="showImg(this.src)">
+                <img src="{{asset('uploads/pjwels4/'.$product->pjwimg4)}}" onclick="showImg(this.src)">
                 </div>
                 <div class="small-img">
-                <img src="{{asset('uploads/bdlwrs5/'.$product->bdlwrsimg5)}}" onclick="showImg(this.src)">
+                <img src="{{asset('uploads/pjwels5/'.$product->pjwimg5)}}" onclick="showImg(this.src)">
                 </div>
             </div>
         </div>
 
         <div class="right">
             <div class="url"></div>
-            <div class="pname"><h2>{{ $product->bdlwrstitle }}</h2></div>
+            <div class="pname"><h2>{{ $product->pjwtitle }}</h2></div>
             
             <div class="ratings">
                 <i class="fas fa-star"></i>
@@ -54,8 +53,8 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
-            <div class="desc">{{ $product->bdlwrsdesc }}</div>
-            <div class="price">Rate Per One Day: Rs.{{ $product->bdlwrsprice }}.00</div>
+            <div class="desc">{{ $product->pjwdesc }}</div>
+            <div class="price">Rate Per One Day: Rs.{{ $product->pjwprice }}.00</div>
 
             <div class="date">
                 <label for="borrowingdate">Borrowing date:</label>
@@ -63,8 +62,6 @@
 
                 <label for="returningdate">Returning date:</label>
                 <input type="date" id="returningdate" name="returningdate">
-
-                <input type="hidden" name = "item_name" value="{{ $product->bdlwrstitle }}">
 
                     
 
@@ -75,12 +72,12 @@
                 <input type="number" min="1" max="5" value="1">
             </div>
             <div class="btn-box">
-                <button class="cart-btn" type="submit">Add to Cart</button>
+                <button class="cart-btn">Add to Cart</button>
               
             </div>
         </div>
     </div>
-    </form>
+
     @endforeach
     <script>
         let bigImg = document.querySelector('.big-img img');
