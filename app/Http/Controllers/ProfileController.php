@@ -3,21 +3,39 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Employee;
-use App\Models\EmployeeEmergencyContact;
-use App\Models\EmployeePersonalInformation;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\File;
-use App\Helpers\EmployeeHelper;
-use App\Rules\EmployeeNewPasswordRule;
-use App\Rules\EmployeeOldPasswordRule;
-use Illuminate\Validation\ValidationException;
+//use App\Models\Employee;
+//use App\Models\EmployeeEmergencyContact;
+//use App\Models\EmployeePersonalInformation;
+//use App\Models\User;
+//use Illuminate\Support\Facades\DB;
+//use Illuminate\Validation\Rule;
+//use Illuminate\Support\Facades\File;
+//use App\Helpers\EmployeeHelper;
+//use App\Rules\EmployeeNewPasswordRule;
+//use App\Rules\EmployeeOldPasswordRule;
+//use Illuminate\Validation\ValidationException;
 
 class ProfileController extends Controller
 {
-    public function editProfile()
+    public function index()
+    {
+        $user = auth()->user();
+        return view('project/owner/profile/index', compact('user'));
+    }
+
+    public function edit()
+    {
+        $user = auth()->user();
+        return view('project/owner/profile/edit', compact('user'));
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $user=$this->user->find($id);
+        $user->update(array_merge($user->toArray(),$request->toArray()));
+        return redirect('user');
+    }
+    /*public function editProfile()
     {
         $compact = EmployeeHelper::getAllDataRelatedEmployee();
         return view('/project/employee/profile', $compact);
@@ -85,6 +103,6 @@ class ProfileController extends Controller
                 DB::rollBack();
                 return back()->with('error', 'Error updating user. Please try again.');
             }
-        }
+        }*/
 
 }

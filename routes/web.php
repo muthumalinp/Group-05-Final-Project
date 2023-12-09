@@ -379,14 +379,18 @@ Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])-
 /*************************************************************/
 /****************EMPLOYEE ROUTE BEGIN*************************/
 /************************************************************/
-Route::middleware(['employee_protect'])->group(function () {
-    Route::get('/employee-dashboard', EmployeeDashBoardController::class)->name('employee.dashboard');
+//Route::middleware(['employee_protect'])->group(function () {
+    //Route::get('/employee-dashboard', EmployeeDashBoardController::class)->name('employee.dashboard');
 
+    Route::get('/employee-dashboard',function(){
+        return view('/project/employee/dashboard');
+    });
+    
     Route::get('/employee-meetings', function () {
         return view('/project/employee/meetings');
     });
 
-    Route::get('/employee-leaves', [EmployeeLeaveController::class, 'employeeDetails'])->name('employee.leaves');
+    //Route::get('/employee-leaves', [EmployeeLeaveController::class, 'employeeDetails'])->name('employee.leaves');
 
     Route::get('/employee-apoinments', function () {
         return view('/project/employee/appoinments');
@@ -396,18 +400,26 @@ Route::middleware(['employee_protect'])->group(function () {
         return view('/project/employee/holidays');
     });
 
-    Route::get('/employee-profile', [ProfileController::class, 'editProfile'])
-    ->name('employee.profile');
+    Route::get('/employee-profile', function () {
+        return view('/project/employee/profile');
+    });
 
-    Route::put('/update-profile/{id}', [ProfileController::class, 'updateProfile'])
-    ->name('update-profile');
+    Route::get('/employee-leaves', function () {
+        return view('/project/employee/leaves');
+    });
 
-    Route::get('/employee-leave-request', [EmployeeLeaveController::class, 'employeeDetails'])
-    ->name('employee.leave.request');
+    //Route::get('/employee-profile', [ProfileController::class, 'editProfile'])
+    //->name('employee.profile');
 
-    Route::post('/employee-leave-request', [EmployeeLeaveController::class, 'requestLeave'])
-    ->name('employee.leave.request.form');
-});
+    //Route::put('/update-profile/{id}', [ProfileController::class, 'updateProfile'])
+    //->name('update-profile');
+
+    //Route::get('/employee-leave-request', [EmployeeLeaveController::class, 'employeeDetails'])
+    //->name('employee.leave.request');
+
+    //Route::post('/employee-leave-request', [EmployeeLeaveController::class, 'requestLeave'])
+    //->name('employee.leave.request.form');
+//});
 /***********************************************************/
 /****************EMPLOYEE ROUTE END*************************/
 /***********************************************************/

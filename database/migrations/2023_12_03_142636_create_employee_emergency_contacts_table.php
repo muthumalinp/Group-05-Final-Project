@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employee_emergency_contacts', function (Blueprint $table) {
+        /*Schema::create('employee_emergency_contacts', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->string('relationship')->nullable();
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('address_secondary')->nullable();
             $table->timestamps();
             $table->foreignId('user_id')->constrained();
-        });
+        });*/
     }
 
     /**
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employee_emergency_contacts');
+        /*Schema::dropIfExists('employee_emergency_contacts');*/
     }
 };
