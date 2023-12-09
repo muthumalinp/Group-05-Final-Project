@@ -141,9 +141,16 @@ Route::get('/Product/Cart', function () {
     return view('/project/public/cart');
 });
 
+
 Route::get('/Product/ManageCart', function () {
     return view('/project/public/managecart');
 });
+
+
+Route::get('/Product/MakePurchase', function () {
+    return view('/project/public/makepurchase');
+});
+
 
 Route::get('/Rent', function () {
     return view('/project/public/rent');
