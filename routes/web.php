@@ -605,6 +605,7 @@ Route::get('/customer_details',[ShowController::class,'show']);
 
 /*-------- product data form --------*/
 Route::get('/manage_product',[ShowController::class,'item']);
+Route::get('/delivered_product',[ShowController::class,'cell']);
 
 
 
@@ -615,6 +616,7 @@ Route::prefix('booking-pedi')->group(function () {
 
 /*-------- manage appoinment form --------*/
 Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);
+
 
 
 use App\Http\Controllers\EventCalendarController;

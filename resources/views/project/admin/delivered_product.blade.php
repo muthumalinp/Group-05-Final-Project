@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>
-                            Manage Products
+                            Delevered Products
                         
                         </h4>
                     </div>
@@ -29,26 +29,25 @@
                                     <td>Product Name</td>
                                     <td>Product Price</td>
                                     <td>quantity</td>
-                                    <td>Submit</td>
+                                    
                                     
                                 </tr>
                             </thead>
 
                             <tbody>
-                            @foreach($sell as $sell)
+                            @foreach($buy as $buy)
                                 <tr>
-                                    <td>{{$sell->id}}</td>
-                                    <td>{{$sell->product_no}}</td>
-                                    <td>{{$sell->product_name}}</td>
-                                    <td>{{$sell->product_price}}</td>
-                                    <td>{{$sell->quantity}}</td>
+                                    <td>{{$buy->id}}</td>
+                                    <td>{{$buy->product_no}}</td>
+                                    <td>{{$buy->product_name}}</td>
+                                    <td>{{$buy->product_price}}</td>
+                                    <td>{{$buy->quantity}}</td>
                                     
-                                    <td><a href="{{url('/delivered_product')}}" class="btn btn-secondary float-end">Delivered</a></td>
+                                    
 
 
                                     
                                 </tr>
-                               
                                 @endforeach
                             </tbody>
                         </table>

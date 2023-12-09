@@ -20,8 +20,18 @@ class ShowController extends Controller
     public function item()
     {
 
+
         $sell=Product::all();
         return view('/project/admin/manage_product',compact('sell'));
+        
+    }
+
+    public function cell()
+    {
+
+        $buy=Product::all();
+        return view('/project/admin/delivered_product',compact('buy'));
+        
     }
 
     
