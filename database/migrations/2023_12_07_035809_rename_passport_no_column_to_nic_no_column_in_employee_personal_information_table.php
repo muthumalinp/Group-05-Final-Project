@@ -19,10 +19,10 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    /*public function down(): void
     {
-        /*Schema::table('employee_personal_information', function (Blueprint $table) {
+        Schema::table('employee_personal_information', function (Blueprint $table) {
             //
-        });*/
-    }
+        });
+    }*/
 };
