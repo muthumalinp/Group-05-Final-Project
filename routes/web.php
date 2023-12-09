@@ -42,6 +42,7 @@ use App\Mail\EmployeeRegistered;
 });*/
 
 
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,8 +60,9 @@ Route::get('Create11',[HairstrController::class,'create11']);
 Route::post('Create11',[HairstrController::class,'store']);
 Route::get('Edit1/{id}',[HairstrController::class,'edit1']);
 Route::get('Delete1/{id}',[HairstrController::class,'delete1']);
-
 Route::put('Update1/{id}', [HairstrController::class, 'update1']);
+Route::post('/products', [ProductController::class, 'store'])->name('cartstore');
+
 
 
 /*Route::get('/', function () {
@@ -139,9 +141,16 @@ Route::get('/Product/Cart', function () {
     return view('/project/public/cart');
 });
 
+
 Route::get('/Product/ManageCart', function () {
     return view('/project/public/managecart');
 });
+
+
+Route::get('/Product/MakePurchase', function () {
+    return view('/project/public/makepurchase');
+});
+
 
 Route::get('/Rent', function () {
     return view('/project/public/rent');
@@ -315,6 +324,12 @@ Route::post('add-bdlwr', [BdlwrController::class, 'store']);
 
 Route::get('add-pwr', [PwrController::class, 'create4']);
 Route::post('add-pwr',[PwrController::class, 'store']);
+
+Route::get('/bdlwrs', [BdlwrController::class, 'index']);
+
+Route::get('/bjwel', [BjwelController::class, 'index']);
+Route::get('/pwr', [PwrController::class, 'index']);
+Route::get('/pjwel', [PjwelController::class, 'index']);
 
 
 
@@ -554,6 +569,11 @@ Route::get('/emplLeave', function () {
     return view('project\employee\Leave\emplLeave');
 });
 
+use App\Http\Controllers\RequestEmployeeLeaveController;
+
+Route::post('/submit-leave-request', [RequestEmployeeLeaveController::class, 'store'])->name('leave-request.store');
+
+
 /*-------- End of Employee Routes ----------*/
 
 Auth::routes();
@@ -583,3 +603,10 @@ Route::prefix('booking-pedi')->group(function () {
 /*-------- manage appoinment form --------*/
 Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);
 
+
+use App\Http\Controllers\EventCalendarController;
+use App\Models\EventCalendar;
+
+Route::get('/geteventcalendar',[EventCalendarController::class,'geteventcalendar']);
+Route::get('/createeventcalendar',[EventCalendarController::class,'createeventcalendar']);
+Route::get('/deleteeventcalendar',[EventCalendarController::class,'deleteeventcalendar']);

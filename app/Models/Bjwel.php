@@ -12,9 +12,15 @@ class Bjwel extends Model
     protected $fillable = [
 
         'bjwid',
+        'bjwtitle',
+        'bjwdesc',
         'bjwprice',
         'bjwquantity',
-        'image',
+        'bjwimage1',
+        'bjwimage2',
+        'bjwimage3',
+        'bjwimage4',
+        'bjwimage5',
     ];
 }
 

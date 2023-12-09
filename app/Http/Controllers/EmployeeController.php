@@ -55,6 +55,15 @@ class EmployeeController extends Controller
             'remaining_leaves' => 0,
         ]);
 
+        $user = User::create([
+            'fname' => $request->input('emp_fname'),
+            'lname' => $request->input('emp_lname'),
+            'email' => $request->input('emp_email'),
+            'phone_number' => $request->input('emp_phone'),
+            'password' => bcrypt($request->input('emp_password')), // Set a default password or use the employee's password
+            'role' => 'employee', // Adjust the role accordingly
+        ]);
+
         // Send email notification
         $employeeData = [
             'emp_fname' => $employee->emp_fname,

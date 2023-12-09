@@ -91,6 +91,7 @@ session_start();
                                             </form>
                                            
                                         </td>
+                                        
                                         </tr>
                                     ";
                                 } 
@@ -125,22 +126,24 @@ session_start();
                     <h4>Total:</h4>
                     <h5 class="text-right"><?php echo $total ?></h5>
                     <br>
-                    <form>
+                    <!--<form>
 
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Cash On Delivery
                             </label>
-                        </div>
+                        </div>-->
                         <br>
-                        <button class="btn btn-primary btn-block">Make Purchase</button>
-                    </form>
+                        <a href="/Product/MakePurchase">
+                    <button id="btn">Make Purchase</button>
+                </a>
+                   <!-- </form>-->
                 </div>
-                        </div>
-            </div>
+                </div>
 
         </div>
+      
     </div>
     <script src="{{asset('js/bootstrap.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>

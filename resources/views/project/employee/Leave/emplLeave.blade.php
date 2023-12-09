@@ -40,25 +40,23 @@
                         <label class="nav-link shadow-sm step2 border ml-2 ">Step Three</label>
                     </div>-->
 
-                    <form action="{{ route('employee.store') }}" method="POST" class="employee-form">
+                    <form action="{{ route('leave-request.store') }}" method="post" class="employee-form">
                         @csrf
                         <div class="form-section">
                             <label for="">Employee Name</label>
-                            <input type="text" class="form-control mb-3" name="name" required>
+                            <input type="text" class="form-control mb-3" name="leave_emp_name" required>
                             <label for="">Position</label>
-                            <input type="text" class="form-control mb-3" name="position" required>
+                            <input type="text" class="form-control mb-3" name="leave_emp_position" required>
                             <label for="">Email Adress</label>
-                            <input type="email" class="form-control mb-3" name="email" required>
+                            <input type="email" class="form-control mb-3" name="leave_emp_email" required>
                             <label for="">Phone</label>
-                            <input type="tel" class="form-control mb-3" name="phone" required>
+                            <input type="tel" class="form-control mb-3" name="leave_emp_phone" required>
                         
-
-                            
                             <label for="">How many working days are you applying for leave</label>
-                            <input type="text" class="form-control mb-3" name="workDays" required>
+                            <input type="text" class="form-control mb-3" name="leave_days" required>
 
                             <label for="">Reason for Leave</label>
-                            <textarea name="reason" class="form-control mb-3" cols="30" rows="5" required></textarea>
+                            <textarea name="leave_reason" class="form-control mb-3" cols="30" rows="5" required></textarea>
                         </div>
 
                         <div class="form-navigation mt-3">

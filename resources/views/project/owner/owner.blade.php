@@ -9,7 +9,25 @@
         <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
         <script src="https://kit.fontawesome.com/cff257cc3a.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="{{ asset('css/owner/calendar.css') }}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" ref="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
         
+        <style>
+        /* Add this CSS to create a smooth transition effect for numbers */
+        .fc-day-number {
+            transition: transform 0.3s ease-out; /* Smooth transition effect */
+        }
+
+        /* Move away on hover */
+        .fc-day-number:hover {
+            transform: translateX(10px); /* Adjust the horizontal distance as needed */
+        }
+    </style>
     </head>
 
     
@@ -28,7 +46,7 @@
                                         
 
                                         <h3 style="color:#633030; font-weight:bold">PROFILE</h3>
-                                        <img class="rounded-circle mt-0" width="118px" src="css/Owner/owner_profile_image.jpeg">
+                                        <img class="rounded-circle mt-0" width="175px" src="css/Owner/owner_profile_image.jpeg">
                                         <span> ...</span>
                                         <span class="font-weight-bold">Yaraa De Silva</span>
                                         <span class="text-black-50">salonyaraa@gmail.com</span>
@@ -75,6 +93,83 @@
                 </div>
             </div>
 
+            <div class="card">
+                <!--<div class="panel panel-primary">-->
+                    <div class="panel-heading">
+                        <h5>Calendar</h5>
+                    </div>
+                    <div class="panel-body" >
+                        <div id='calendar'></div>
+                    </div>
+                <!--</div>-->
+                <script>
+                    $(document).ready(function () {
+                        var calendar = $('#calendar').fullCalendar({
+                            header: {
+                                left: 'prev,next today',
+                                center: 'title',
+                                right: 'month,basicWeek,basicDay'
+                            },
+                            navLinks: true,
+                            editable: true,
+                            events: "getevent",           
+                            displayEventTime: false,
+                            eventRender: function (event, element, view) {
+                                if (event.allDay === 'true') {
+                                    event.allDay = true;
+                                } else {
+                                    event.allDay = false;
+                                }
+                            },
+                            selectable: true,
+                            selectHelper: true,
+                            select: function (start, end, allDay) {
+                                var title = prompt('Event Title:');
+                                if (title) {
+                                    var start = moment(start, 'DD.MM.YYYY').format('YYYY-MM-DD');
+                                    var end = moment(end, 'DD.MM.YYYY').format('YYYY-MM-DD');
+
+                                    $.ajax({
+                                        url: 'createevent',
+                                        data: 'title=' + title + '&start=' + start + '&end=' + end +'&_token=' +"{{ csrf_token() }}",
+                                        type: "post",
+                                        success: function (data) {
+                                            alert("Added Successfully");
+                                        }
+                                    });
+                                    calendar.fullCalendar('renderEvent',
+                                    {
+                                        title: title,
+                                        start: start,
+                                        end: end,
+                                        allDay: allDay
+                                    },
+                                    true
+                                    );
+                                }
+                                calendar.fullCalendar('unselect');
+                            },
+                            eventClick: function (event) {
+
+                                var deleteMsg = confirm("Do you really want to delete?");
+                                if (deleteMsg) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "delete",
+                                        data: "&id=" + event.id+'&_token=' +"{{ csrf_token() }}",
+                                        success: function (response) {
+                                            if(parseInt(response) > 0) {
+                                                $('#calendar').fullCalendar('removeEvents', event.id);
+                                                alert("Deleted Successfully");
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    });
+                </script>
+            </div>
 
             <div class="card">
                         <div>
@@ -92,17 +187,9 @@
                             <li>Task 2</li>
                             <li>Task 3</li>
                         </ul>
-                        -->
-                         
-                        
-                        
-
-                        
-                    
+                        -->      
             </div>
 
-            
-        </div>
 
         <script src="/js/Owner/owner.js"></script>
     @endsection
