@@ -41,14 +41,19 @@
                                         <td>{{ $leaveRequest->leave_status }}</td>
                                         <td>
                                         @if ($leaveRequest->leave_status == 'pending')
-        <button class="btn btn-primary btn-sm accept-btn" data-leave-request-id="{{ $leaveRequest->id }}">
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Accept
-        </button>
+                                                    <form method="post" action="{{ route('acceptLeave', $leaveRequest->id) }}">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-primary btn-sm">
+                                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Accept
+                                                        </button>
+                                                    </form>
 
-        <button class="btn btn-danger btn-sm reject-btn" data-leave-request-id="{{ $leaveRequest->id }}">
-            Reject
-        </button>
-    @endif
+                                                    <form action="{{ route('rejectLeave', $leaveRequest->id) }}" method="POST" style="display:inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                                                    </form>
+                                                @endif
                                         </td>
                                     </tr>
                                     @endforeach
