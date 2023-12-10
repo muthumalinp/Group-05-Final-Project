@@ -102,7 +102,7 @@
                         <div id='calendar'></div>
                     </div>
                 <!--</div>-->
-                <script>
+                <!--<script>
                     $(document).ready(function () {
                         var calendar = $('#calendar').fullCalendar({
                             header: {
@@ -168,7 +168,7 @@
                             }
                         });
                     });
-                </script>
+                </script>-->
             </div>
 
             <div class="card">
