@@ -466,6 +466,9 @@ Auth::routes();
         return view('/project/owner/settings');
     });
 
+    //Ratings
+    Route::get('ratings','RatingController@ratings');
+
     /*-----employee button route-----*/
     Route::resource('employee', EmployeeController::class)->names([
         'index' => 'project.owner.Employee.index',
