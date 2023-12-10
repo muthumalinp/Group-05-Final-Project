@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Owner;
 //use App\Models\Employee;
 //use App\Models\EmployeeEmergencyContact;
 //use App\Models\EmployeePersonalInformation;
@@ -17,6 +18,7 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    //owner profile
     public function index()
     {
         $user = auth()->user();
@@ -35,6 +37,8 @@ class ProfileController extends Controller
         $user->update(array_merge($user->toArray(),$request->toArray()));
         return redirect('user');
     }
+
+    
     /*public function editProfile()
     {
         $compact = EmployeeHelper::getAllDataRelatedEmployee();

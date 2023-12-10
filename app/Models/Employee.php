@@ -20,6 +20,11 @@ class Employee extends Model
         'emp_rewards',
     ];
 
+    public function leaveRequests(): HasMany
+    {
+        return $this->hasMany(RequestEmployeeLeave::class, 'leave_emp_name', 'emp_fname');
+    }
+
     public function leave(): HasOne
     {
         return $this->hasOne(EmployeeLeave::class);

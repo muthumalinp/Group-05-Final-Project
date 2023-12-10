@@ -2,37 +2,82 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\RequestEmployeeLeave;
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\View;
 
 class RequestEmployeeLeaveController extends Controller
 {
-    public function store(Request $request)
-{
-    // Validate the form data
-    $request->validate([
-        'leave_emp_name' => 'required|string|max:255',
-        'leave_emp_position' => 'required|string|max:255',
-        'leave_emp_email' => 'required|string|max:255',
-        'leave_emp_phone' => 'required|string|max:255',
-        'leave_days' => 'required|string|max:255',
-        'leave_reason' => 'required|string|max:255',
-    ]);
+    public function submitLeaveRequest(Request $request)
+    {
+        // Validate the form data
+        $request->validate([
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'reason' => 'required|string',
+        ]);
 
-    RequestEmployeeLeave::create([
-        'leave_emp_name' => $request->input('leave_emp_name'),
-        'leave_emp_position' => $request->input('leave_emp_position'),
-        'leave_emp_email' => $request->input('leave_emp_email'),
-        'leave_emp_phone' => $request->input('leave_emp_phone'),
-        'leave_days' => $request->input('leave_days'),
-        'leave_reason' => $request->input('leave_reason'),
-    ]);
+        // Create a new leave request
+        /*RequestEmployeeLeave::create([
+            'leave_emp_name' => auth()->user()->emp_fname . ' ' . auth()->user()->emp_lname,
+            'leave_emp_position' => auth()->user()->emp_jobtitle,
+            'leave_emp_phone' => $request->input('contact_number'),
+            'leave_start_date' => $request->input('start_date'),
+            'leave_end_date' => $request->input('end_date'),
+            'leave_reason' => $request->input('reason'),
+            'leave_status' => 'pending', // You can set the default status
+        ]);*/
 
+        RequestEmployeeLeave::create([
+            'leave_emp_name' => $request->input('employee_name'),
+            'leave_emp_position' => $request->input('position'),
+            'leave_emp_phone' => $request->input('contact_number'),
+            'leave_start_date' => $request->input('start_date'),
+            'leave_end_date' => $request->input('end_date'),
+            'leave_reason' => $request->input('reason'),
+            'leave_status' => 'pending', // You can set the default status
+        ]);
 
-    return redirect()->back()->with('flash_message', 'Send Request Successfully!');
-}
+        // Optionally, you can redirect the user or return a response
+        return redirect()->back()->with('success', 'Leave request submitted successfully');
+
+        Log::info('Leave request created:', ['leave_request' => $leaveRequest]);
+    }
+
+    public function index()
+    {
+        // Retrieve all leave requests from the database
+        $leaveRequests = RequestEmployeeLeave::all();
+
+        // Pass the leave requests to the view
+        return View::make('project.owner.leave-requests.index', ['leaveRequests' => $leaveRequests]);
+
+    }
+
+    public function acceptLeave($id)
+    {
+        // Find the leave request by ID
+        $leaveRequest = RequestEmployeeLeave::findOrFail($id);
+
+        // Update the leave status to "accepted"
+        $leaveRequest->update(['leave_status' => 'accepted']);
+
+        // Optionally, you can redirect the user or return a response
+        return redirect()->back()->with('success', 'Leave request accepted successfully');
+    }
+
+    public function rejectLeave($id)
+    {
+        $leaveRequest = RequestEmployeeLeave::find($id);
+
+        if (!$leaveRequest) {
+            // Handle case where leave request is not found
+            return redirect()->back()->with('error', 'Leave request not found.');
+        }
+
+        $leaveRequest->update(['leave_status' => 'rejected']);
+
+        return redirect()->back()->with('success', 'Leave request rejected successfully.');
+    }
+
 }

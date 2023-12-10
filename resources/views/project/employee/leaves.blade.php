@@ -170,21 +170,22 @@
                                 <div class=" px-5 py-3 mt-5 shadow secondary-bg">
                                     <h1 class="text-denger text-center mt-3 mb-4">Request Leave</h1>
 
-                                    <form method="POST" action="">
+                                    
+                                    <form method="post" action="{{ url('/submit-leave-request') }}">
                                         @csrf
                                         <div class="form-row row g-3">
                                             <div class="col-md-6 mb-3">
                                                 <label for="input1">Employee ID</label>
                                                 <input type="text" class="form-control" id="input1"
                                                     name="employee_id" value=""
-                                                    onfocus="this.blur()">
+                                                    >
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="input2">Employee Name</label>
                                                 <input type="text" class="form-control" id="input2"
                                                     name="employee_name"
                                                     value=""
-                                                    onfocus="this.blur()">
+                                                    >
                                             </div>
                                         </div>
 
@@ -194,7 +195,7 @@
                                                 <label for="input3">Position</label>
                                                 <input type="text" class="form-control" id="input3"
                                                     name="position" value=""
-                                                    onfocus="this.blur()">
+                                                    >
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="input4">Mobile Number</label>
@@ -230,6 +231,7 @@
                                             </div>
                                         </div>
                                     </form>
+                                   
                                 </div>
                             </div>
                         </div>
