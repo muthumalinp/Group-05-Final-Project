@@ -16,6 +16,7 @@
                     <div class="card-header">
                         <h4>
                             Manage Products
+                            <a href="{{url('Dashboard-Admin')}}" class="btn btn-primary float-end">Back</a>
                         
                         </h4>
                     </div>
@@ -31,6 +32,7 @@
                                     <td>quantity</td>
                                     <td>Submit</td>
                                     
+                                    
                                 </tr>
                             </thead>
 
@@ -42,8 +44,43 @@
                                     <td>{{$sell->product_name}}</td>
                                     <td>{{$sell->product_price}}</td>
                                     <td>{{$sell->quantity}}</td>
+                                    <td id="deliveryRow{{$sell->id}}">
+                                        <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery(this,{{$sell->id}})">Delivered</a>
+                                    </td>
+
                                     
-                                    <td><a href="{{url('/delivered_product')}}" class="btn btn-secondary float-end">Delivered</a></td>
+                                    <script>
+                                        
+                                        var isDelivered = localStorage.getItem('deliveryState{{$sell->id}}');
+
+                                        if (isDelivered) {
+                                            
+                                            var successMessage = document.createElement('span');
+                                            successMessage.textContent = 'Delivery successful!';
+                                            var deliveryRow = document.getElementById('deliveryRow{{$sell->id}}');
+                                            deliveryRow.innerHTML = '';
+                                            deliveryRow.appendChild(successMessage);
+                                        }
+
+                                        function handleDelivery(button, id) {
+                            
+                                            var successMessage = document.createElement('span');
+                                            successMessage.textContent = 'Delivery successful!';
+
+                                        
+                                            var deliveryRow = document.getElementById('deliveryRow' + id);
+
+                                            
+                                            deliveryRow.innerHTML = ''; 
+                                            deliveryRow.appendChild(successMessage);
+
+                                            
+                                            localStorage.setItem('deliveryState' + id, 'true');
+                                        }
+                                    </script>
+                                    
+
+
 
 
                                     
@@ -59,10 +96,15 @@
     </div>
 
 
+    
+</body>
+</html>
+
+
 
     
     
 
                     
-</body>
-</html>
+
+

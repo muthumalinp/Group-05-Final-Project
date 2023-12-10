@@ -26,6 +26,9 @@ class ShowController extends Controller
         
     }
 
+
+    
+
     public function cell()
     {
 
