@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employee_personal_information', function (Blueprint $table) {
+        /*Schema::create('employee_personal_information', function (Blueprint $table) {
             $table->id();
             $table->date('birth_date')->nullable();
             $table->string('passport_no')->nullable();
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('marital_status')->nullable();
             $table->timestamps();
             $table->foreignId('user_id')->constrained();
-        });
+        });*/
     }
 
     /**

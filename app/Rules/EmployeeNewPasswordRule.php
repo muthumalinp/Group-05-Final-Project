@@ -7,7 +7,7 @@ use App\Models\User;
 
 class EmployeeNewPasswordRule implements Rule
 {
-    protected $oldPassword;
+    /*protected $oldPassword;
 
     public function __construct($oldPassword)
     {
@@ -26,5 +26,5 @@ class EmployeeNewPasswordRule implements Rule
     public function message()
     {
         return 'The passwords do not match.';
-    }
+    }*/
 }

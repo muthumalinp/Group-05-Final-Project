@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Helpers\EmployeeHelper;
-use Illuminate\Support\Facades\DB;
-use App\Models\EmployeeLeaveRequest;
+//use App\Helpers\EmployeeHelper;
+//use Illuminate\Support\Facades\DB;
+//use App\Models\EmployeeLeaveRequest;
 
 class EmployeeLeaveController extends Controller
 {
-    public function employeeDetails(Request $request)
+    /*public function employeeDetails(Request $request)
     {
         $compact = EmployeeHelper::getAllEmployeeLeaveDetails();
         return view('/project/employee/leaves', $compact);
@@ -45,5 +45,6 @@ class EmployeeLeaveController extends Controller
                 return back()->with('error', 'Error updating user. Please try again.');
         }
     }
+    */
 
 }

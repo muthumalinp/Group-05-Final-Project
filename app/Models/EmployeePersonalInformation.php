@@ -9,7 +9,7 @@ class EmployeePersonalInformation extends Model
 {
     use HasFactory;
 
-    protected $table = 'employee_personal_information';
+    /*protected $table = 'employee_personal_information';
 
     protected $fillable = [
         'birth_date',
@@ -24,10 +24,10 @@ class EmployeePersonalInformation extends Model
     protected $dates = [
         'birth_date',
         'address',
-    ];
+    ];*/
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        /*return $this->belongsTo(User::class);*/
     }
 }

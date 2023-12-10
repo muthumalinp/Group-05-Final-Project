@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employee_leave_request', function (Blueprint $table) {
+        /*Schema::create('employee_leave_request', function (Blueprint $table) {
             $table->id();
             $table->string('employee_name');
             $table->string('position');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('leave_status')->default('pending');
             $table->foreignId('employee_id')->constrained();
             $table->timestamps();
-        });
+        });*/
     }
 
     /**
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employee_leave_request');
+        /*Schema::dropIfExists('employee_leave_request');*/
     }
 };

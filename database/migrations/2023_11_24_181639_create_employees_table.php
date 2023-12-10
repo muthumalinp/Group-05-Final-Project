@@ -17,6 +17,22 @@ class CreateEmployeesTable extends Migration
             $table->string('emp_bsalary');
             $table->string('emp_rewards');
             $table->string('emp_password')->default('12345678');
+            //personal infomation
+           /* $table->date('emp_birth_date');
+            $table->string('emp_nic_no');
+            $table->string('emp_address');
+            $table->string('emp_nationality');
+            $table->string('emp_religion');
+            $table->string('emp_marital_status');
+            //perfile image
+            $table->string('profile_image');
+            //emergency contacts
+            $table->string('emp_em_name');
+            $table->string('emp_em_relationship');
+            $table->string('emp_em_mobile_number_primary');
+            $table->string('emp_em_mobile_number_secondary');
+            $table->string('emp_em_address_primary');
+            $table->string('emp_em_address_secondary');*/
             $table->timestamps();
         });
     }

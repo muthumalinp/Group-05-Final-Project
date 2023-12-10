@@ -7,9 +7,9 @@ use App\Helpers\EmployeeHelper;
 
 class EmployeeDashBoardController extends Controller
 {
-    public function __invoke()
+   /* public function __invoke()
     {
         $compact = EmployeeHelper::getAllDataRelatedEmployee();
         return view('/project/employee/dashboard', $compact);
-    }
+    }*/
 }

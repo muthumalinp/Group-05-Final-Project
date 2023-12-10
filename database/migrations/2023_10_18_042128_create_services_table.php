@@ -13,16 +13,14 @@ return new class extends Migration
     {
        // migration file: create_services_table.php
        Schema::create('services', function (Blueprint $table) {
-            $table->id();
-            $table->string('name'); // Use the appropriate data type for the 'name' column
-            $table->decimal('price'); // Use the appropriate data type for the 'price' column
-            // Other columns...
-
-            // $table->unsignedBigInteger('service_category_id');
-            // $table->foreign('service_category_id')->references('id')->on('service_categories')->onDelete('cascade');
-
-            $table->timestamps();
-        });
+        $table->id();
+        // Other columns...
+        $table->string('service_name');
+        $table->string('service_price');
+        // $table->unsignedBigInteger('service_category_id');
+        // $table->foreign('service_category_id')->references('id')->on('service_categories')->onDelete('cascade');
+        $table->timestamps();
+    });
     }
 
     /**
