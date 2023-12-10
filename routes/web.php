@@ -473,7 +473,7 @@ Auth::routes();
     Route::get('/Dashboard-Owner', function () {
         return view('/project/owner/owner');
     })->name('owner.dashboard');
-    Route::get('/Dashboard-Owner', [OwnerController::class, 'showProfile']);
+    //Route::get('/Dashboard-Owner', [OwnerController::class, 'showProfile']);
 
     Route::get('/Manage-Salary', function () {
         return view('/project/owner/salary-management/index');
