@@ -368,11 +368,22 @@ use App\Http\Controllers\AppointmentController;
 
 use App\Http\Controllers\BookingController;
 
-Route::post('/Bookings', [AppointmentController::class, 'store'])->name('bookings.store');
+// Other routes...
+
 // Use the 'index' method for the '/BookNow' route
 Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index');
 
+// Define a route for fetching services based on the selected category
 Route::get('/api/services/{category}', [BookingController::class, 'getServices']);
+
+Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+
+Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
+
+Route::get('/bookings/{category}', [BookingController::class, 'show'])->name('bookings.show');
+
+// Add other routes as needed
+
 
 // Use the 'serviceCategories' method for the '/BookNow/categories' route
 // Route::get('/BookNow/categories', [BookingController::class, 'serviceCategories'])->name('booking.categories');
@@ -443,18 +454,18 @@ Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])-
 /***********************************************************/
 
 /*-------- Starter of Booking form database table ---------*/
-Route::post('/booking',function() {
+// Route::post('/booking',function() {
 
-    $booked_appointments = new BookedAppointment();
-    $booked_appointments->fuName = request('fuName');
-    $booked_appointments->eMail = request('eMail');
-    $booked_appointments->nbrCode = request('nbrCode');
-    $booked_appointments->phone = request('phone');
-    $booked_appointments->contact = request('contact');
-    $booked_appointments->massage = request('massage');
-    $booked_appointments->save();
+//     $booked_appointments = new BookedAppointment();
+//     $booked_appointments->fuName = request('fuName');
+//     $booked_appointments->eMail = request('eMail');
+//     $booked_appointments->nbrCode = request('nbrCode');
+//     $booked_appointments->phone = request('phone');
+//     $booked_appointments->contact = request('contact');
+//     $booked_appointments->massage = request('massage');
+//     $booked_appointments->save();
 
-});
+// });
 /*--------- End of Booking form database table ----------*/
 
 

@@ -26,7 +26,7 @@ class EmployeeSeeder extends Seeder
             [
                 'emp_fname' => 'Kevin',
                 'emp_lname' => 'Perera',
-                'emp_jobtitle' => 'Hairstylist',
+                'emp_jobtitles' => ['Hairstylist'],
                 'emp_phone' => '987654321',
                 'emp_email' => 'kevinperera@gmail.com',
                 'emp_bsalary' => '60000',
@@ -35,7 +35,7 @@ class EmployeeSeeder extends Seeder
             [
                 'emp_fname' => 'Yeshani',
                 'emp_lname' => 'De Silva',
-                'emp_jobtitle' => 'Hairstylist','NailArtist','BridalDresser',
+                'emp_jobtitles' => ['Hairstylist', 'NailArtist', 'BridalDresser'],
                 'emp_phone' => '987654321',
                 'emp_email' => 'yeshan@gmail.com',
                 'emp_bsalary' => '60000',
@@ -44,7 +44,7 @@ class EmployeeSeeder extends Seeder
             [
                 'emp_fname' => 'Malki',
                 'emp_lname' => 'Jayawardena',
-                'emp_jobtitle' => 'Hairstylist','NailArtist',
+                'emp_jobtitles' => ['Hairstylist', 'NailArtist'],
                 'emp_phone' => '987654321',
                 'emp_email' => 'malkijaya@gmail.com',
                 'emp_bsalary' => '60000',
@@ -54,8 +54,6 @@ class EmployeeSeeder extends Seeder
 
         // Insert the sample data into the 'employees' table
         foreach ($employees as $employeeData) {
-            // Convert job titles array to a comma-separated string
-            $employeeData['emp_jobtitles'] = implode(',', $employeeData['emp_jobtitles']);
             Employee::create($employeeData);
         }
     }

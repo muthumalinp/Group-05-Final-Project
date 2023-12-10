@@ -11,13 +11,11 @@ class Employee extends Model
     protected $table = 'employees';
     protected $primarykey = 'id';
     protected $fillable = [
-        'emp_fname',
-        'emp_lname',
-        'emp_jobtitle',
-        'emp_phone',
-        'emp_email',
-        'emp_bsalary',
-        'emp_rewards',
+        'emp_fname', 'emp_lname', 'emp_jobtitles', 'emp_phone', 'emp_email', 'emp_bsalary', 'emp_rewards',
+    ];
+
+    protected $casts = [
+        'emp_jobtitles' => 'json', // Specify JSON casting for the emp_jobtitles field
     ];
 
     public function leave(): HasOne

@@ -1,4 +1,5 @@
 @extends('project.customer.layouts.main')
+
 @section('title', 'Book Now')
 
 <!DOCTYPE html>
@@ -28,15 +29,21 @@
     <div class="container">
         <form action="{{ route('bookings.store') }}" method="POST">
             @csrf
-            <div class="row" id="contentToHide">
+            <div class="row contentToHide">
                 <div class="col-md-3">
                     <div class="col-12">
                         @if(isset($serviceCategories))
-                            @foreach($serviceCategories as $serviceCategory)
-                                <button type="button" class="btn btn-custom" onclick="toggleContent('{{ $serviceCategory->id }}')">
-                                    {{ $serviceCategory->name }}
-                                </button><br/>
-                            @endforeach
+                        @foreach($serviceCategories as $serviceCategory)
+    @if(is_object($serviceCategory) && property_exists($serviceCategory, 'id'))
+        <button type="button" class="btn btn-custom" onclick="toggleContent('{{ $serviceCategory->id }}')">
+            {{ $serviceCategory->name }}
+        </button><br/>
+    @else
+        <p>Invalid service category data:</p>
+        <pre>{{ var_dump($serviceCategory) }}</pre>
+    @endif
+@endforeach
+
                         @else
                             <p>No service categories found.</p>
                         @endif
@@ -44,31 +51,22 @@
                 </div>
 
                 <div class="col-md-6">
-            <!-- Container to display services -->
-            <div id="servicesContainer" class="hidden-content">
-                <h1>Hi</h1>
-                <div class="row" id="contentToHide">
-                <div class="col-md-3">
-                    <div class="col-12">
-                        @if(isset($services))
-                            @foreach($services as $service)
-                                <button type="button" class="btn btn-custom" onclick="toggleContent('{{ $service->id }}')">
-                                    {{ $service->name }}
-                                </button><br/>
-                            @endforeach
-                        @else
-                            <p>No service found.</p>
-                        @endif
+                    <!-- Container to display services -->
+                    <div id="servicesContainer" class="hidden-content">  
+                        <div class="row contentToHide">
+                            <div class="col-md-3">
+                                <div class="col-12">
+                                    @foreach($services as $service)
+                                        <button type="button" class="btn btn-custom" onclick="toggleContent('{{ $service->id }}')">
+                                            {{ $service->service_name }}
+                                        </button>      
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Dynamic content will be added here using JavaScript -->
             </div>
-
-            <!-- Container to display selected service content -->
-            <div id="selectedServiceContent" class="hidden-content"></div>
-            <h1>Bye</h1>
-        </div>
-    </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -100,14 +98,15 @@
                     const servicesContainer = document.getElementById('servicesContainer');
                     servicesContainer.innerHTML = '';
 
+                    console.log(services);
                     if (services.length > 0) {
                         // Display each service
                         services.forEach(service => {
                             const serviceElement = document.createElement('div');
-                            serviceElement.textContent = service.name;
+                            serviceElement.textContent = service.service_name;
                             // Attach a click event to display the selected service content
                             serviceElement.addEventListener('click', function() {
-                                displaySelectedService(service.name);
+                                displaySelectedService(service.service_name);
                             });
                             servicesContainer.appendChild(serviceElement);
                         });
