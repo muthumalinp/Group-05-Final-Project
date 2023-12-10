@@ -13,7 +13,6 @@ return new class extends Migration
             $table->id();
             $table->string('leave_emp_name');
             $table->string('leave_emp_position');
-            $table->string('leave_emp_email');
             $table->string('leave_emp_phone');
             $table->date('leave_start_date');
             $table->date('leave_end_date');

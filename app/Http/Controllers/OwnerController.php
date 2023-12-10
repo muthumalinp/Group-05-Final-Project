@@ -78,6 +78,7 @@ class OwnerController extends Controller
         'owner_rewards' => $request->input('owner_rewards'),
     ]);*/
 
+    
     // Redirect back with a success message
     return redirect()->back()->with('flash_message', 'Owner Details Stored Successfully!');
 }
@@ -109,6 +110,14 @@ class OwnerController extends Controller
         }
         return view('/project/owner/owner', compact('owner'));
     }--*/
+
+    /*public function showProfile()
+    {
+        $owner = Owner::first();
+        return view('project.owner.owner', ['owner' => $owner]);
+    }*/
+
+    
 
 
 }

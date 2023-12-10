@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Mail\EmployeeRegistered;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 
 class EmployeeController extends Controller
 {
     protected $employee;
+
     public function __construct(){
         $this->employee = new Employee();
         
@@ -37,6 +39,7 @@ class EmployeeController extends Controller
         'emp_rewards' => ['required', 'string', 'max:225'],
         ]);
 
+        
         // Save the employee data
         $employee = new Employee([
             'emp_fname' => $request->input('emp_fname'),
@@ -76,7 +79,7 @@ class EmployeeController extends Controller
         
             // Redirect or return a response
             return redirect()->route('employee.index')->with('success', 'Employee registered successfully!');
-        
+    
             // Log the exception
             Log::error("Error sending email: " . $e->getMessage());
         
@@ -131,6 +134,21 @@ class EmployeeController extends Controller
 
         // return a response...
         return response()->json(['message' => 'Employee registered successfully'], 201);
+    }
+
+
+    public function leaveRequests($id)
+    {
+        $employee = Employee::find($id);
+
+        if (!$employee) {
+            // Handle the case where the employee is not found, e.g., redirect or show an error
+            return redirect()->route('some.error.route');
+        }
+
+        $leaveRequests = $employee->leaveRequests;
+
+        return view('employee.leave-requests', ['employee' => $employee, 'leaveRequests' => $leaveRequests]);
     }
 
     

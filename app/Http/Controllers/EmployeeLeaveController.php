@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\RequestEmployeeLeave;
 //use App\Helpers\EmployeeHelper;
 //use Illuminate\Support\Facades\DB;
 //use App\Models\EmployeeLeaveRequest;
@@ -46,5 +47,47 @@ class EmployeeLeaveController extends Controller
         }
     }
     */
+
+    public function store(Request $request)
+    {
+        // Validate the form data
+        $request->validate([
+            'leave_emp_name' => 'required|string|max:255',
+            'leave_emp_position' => 'required|string|max:255',
+            'leave_emp_phone' => 'required|string|max:255',
+            'leave_start_date' => 'required|date|max:255',
+            'leave_end_date' => 'required|date|max:255',
+            'leave_reason' => 'required|string|max:255',
+        ]);
+
+        $employeeleave = new EmployeeLeave([
+            'leave_emp_name' => $request->input('employee_name'),
+            'leave_emp_position' => $request->input('position'),
+            'leave_emp_phone' => $request->input('contact_number'),
+            'leave_start_date' => $request->input('start_date'),
+            'leave_end_date' => $request->input('end_date'),
+            'leave_reason' => $request->input('reason'),
+        ]);
+        $employeeleave->save();
+
+        try {
+            RequestEmployeeLeave::create([
+                'leave_emp_name' => $request->input('employee_name'),
+                'leave_emp_position' => $request->input('position'),
+                'leave_emp_phone' => $request->input('contact_number'),
+                'leave_start_date' => $request->input('start_date'),
+                'leave_end_date' => $request->input('end_date'),
+                'leave_reason' => $request->input('reason'),
+            ]);
+
+            return redirect()->back()->with('flash_message', 'Leave request sent successfully!');
+        } catch (\Exception $e) {
+            // Log the exception
+            \Log::error("Error storing leave request data: " . $e->getMessage());
+
+            // Redirect or return a response with an error message
+            return redirect()->back()->with('error', 'Error sending leave request. Please try again.');
+        }
+    }
 
 }

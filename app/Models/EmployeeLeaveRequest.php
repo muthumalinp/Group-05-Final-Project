@@ -12,18 +12,18 @@ class EmployeeLeaveRequest extends Model
     /*protected $table = 'employee_leave_request';
 
     protected $fillable = [
-        'employee_name',
-        'position',
-        'contact_number',
-        'start_date',
-        'end_date',
-        'reason',
+        'emp_id',
+        'leave_emp_name',
+        'leave_emp_position',
+        'leave_emp_phone',
+        'leave_start_date',
+        'leave_end_date',
+        'leave_reason',
         'leave_status',
-        'employee_id',
-    ];*/
+    ];
 
     public function employee()
     {
-        /*return $this->belongsTo(Employee::class, 'employee_id');*/
-    }
+        return $this->belongsTo(Employee::class, 'emp_id');
+    }*/
 }
