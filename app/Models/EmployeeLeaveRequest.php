@@ -9,7 +9,7 @@ class EmployeeLeaveRequest extends Model
 {
     use HasFactory;
 
-    protected $table = 'employee_leave_request';
+    /*protected $table = 'employee_leave_request';
 
     protected $fillable = [
         'employee_name',
@@ -20,10 +20,10 @@ class EmployeeLeaveRequest extends Model
         'reason',
         'leave_status',
         'employee_id',
-    ];
+    ];*/
 
     public function employee()
     {
-        return $this->belongsTo(Employee::class, 'employee_id');
+        /*return $this->belongsTo(Employee::class, 'employee_id');*/
     }
 }

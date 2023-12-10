@@ -48,6 +48,7 @@
             <button id="sidebar-toggle"><h3>Salon</h3></button>
                 <nav>
                     <ul>
+                        <li><a href="/Home" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Home</a>
                         <li><a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Dashboard</a>
                         <li><a href="/manage_product" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Product</a>
                         <li><a href="/view_profile" class="nav-item nav-link"><i class="fa fa-th me-2"></i>View Profile</a>

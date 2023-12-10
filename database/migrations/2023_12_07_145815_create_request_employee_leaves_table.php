@@ -15,8 +15,10 @@ return new class extends Migration
             $table->string('leave_emp_position');
             $table->string('leave_emp_email');
             $table->string('leave_emp_phone');
-            $table->string('leave_days');
+            $table->date('leave_start_date');
+            $table->date('leave_end_date');
             $table->text('leave_reason');
+            $table->string('leave_status')->default('pending');
             $table->timestamps();
         });
     }

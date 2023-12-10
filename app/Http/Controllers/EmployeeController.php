@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Mail\EmployeeRegistered;
 use Illuminate\Support\Facades\Mail;
 
+
 class EmployeeController extends Controller
 {
     protected $employee;
