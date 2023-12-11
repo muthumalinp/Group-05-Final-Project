@@ -27,7 +27,7 @@
             <div class="img1"><img class="rounded-circle mt-0" width="200px" height="165px" src="css/Owner/e1.png"></div>
          </div>
          <div class="card">
-            <p>Total Products</p>
+            <p>Total Products  : : {{ $totalProducts }}</p>
             <div class="img1"><img class="rounded-circle mt-0" width="220px" height="165px" src="css/Owner/p2.webp"></div>
          </div>
          <div class="card">

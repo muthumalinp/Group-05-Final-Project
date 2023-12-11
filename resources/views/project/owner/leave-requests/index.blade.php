@@ -40,7 +40,7 @@
                                         <td>{{ $leaveRequest->leave_reason }}</td>
                                         <td>{{ $leaveRequest->leave_status }}</td>
                                         <td>
-                                        @if ($leaveRequest->leave_status == 'pending')
+                                                @if ($leaveRequest->leave_status == 'pending')
                                                     <form method="post" action="{{ route('acceptLeave', $leaveRequest->id) }}">
                                                         @csrf
                                                         <button type="submit" class="btn btn-primary btn-sm">
