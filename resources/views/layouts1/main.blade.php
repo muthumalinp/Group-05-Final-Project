@@ -43,12 +43,31 @@
                         <li class="nav-item nav">
                             <a class="nav-link" href="/BookNow">Book Now</a>
                         </li>
-                        <li class="nav-item nav ">
+                        <!-- <li class="nav-item nav ">
                             <a class="nav-link" href="/LogIn">LogIn</a>
                         </li>
                         <li class="nav-item nav">
                             <a class="nav-link" href="/Register">Register</a>
-                        </li>                        
+                        </li>                         -->
+                        @if (Route::has('login'))
+                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                    @auth
+                    <li class="nav-item nav">
+                        <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
+                      </li>
+                    @else
+                      <li class="nav-item nav">
+                        <a href="{{ route('login') }}" class="nav-link">Log in</a>
+                      </li>
+                      <li class="nav-item nav">
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="nav-link">Register</a>
+                      </li>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+
                     </ul>
                 </div>
             </div>

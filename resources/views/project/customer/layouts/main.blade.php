@@ -61,13 +61,7 @@
                         <li class="nav-item nav">
                             <a class="nav-link" href="/Booking-Customer">Book Now</a>
                         </li>  
-                        <li>
-                            <div class="profile-container">
-                                <a href="{{ route('edit-profile') }}">
-                                    <img src="{{ asset('css/Customer/pp1.jpg') }}" alt="Profile Picture" id="profile-picture">
-                                </a>   
-                            </div>
-                        </li>                     
+                        
                     </ul>
                 </div>
             </div>
