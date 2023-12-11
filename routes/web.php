@@ -651,9 +651,7 @@ Route::get('/delivered_product',[ShowController::class,'cell']);
 
 
 
-Route::prefix('booking-pedi')->group(function () {
-    Route::get('/', [BookingPediController::class, 'bookingPedi']);
-});
+
 
 
 /*-------- manage appoinment form --------*/

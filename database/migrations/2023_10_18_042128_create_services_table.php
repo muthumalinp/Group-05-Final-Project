@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('service_name');
             $table->decimal('service_price', 8, 2);
+            $table->integer('duration');
             $table->unsignedBigInteger('service_category_id');
             $table->timestamps();
         

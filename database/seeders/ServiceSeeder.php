@@ -15,11 +15,13 @@ class ServiceSeeder extends Seeder
             [
                 'service_name' => 'Hair Cut - Ladies',
                 'service_price' => 5000.00,
+                'duration' => 90,
                 'service_category_id' => 1, // Make sure '1' exists in 'service_categories' table
             ],
             [
                 'service_name' => 'Hair Cut - Gents',
                 'service_price' => 4000.00,
+                'duration' => 60,
                 'service_category_id' => 1, // Make sure '1' exists in 'service_categories' table
             ],
             // Add more services as needed
