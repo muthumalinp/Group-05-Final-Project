@@ -502,6 +502,7 @@ Auth::routes();
     Route::get('/Dashboard-Owner', function () {
         return view('/project/owner/owner');
     })->name('owner.dashboard');
+    //Route::get('/Dashboard-Owner', [OwnerController::class, 'showProfile']);
 
     Route::get('/Manage-Salary', function () {
         return view('/project/owner/salary-management/index');
@@ -611,9 +612,18 @@ Route::get('/emplLeave', function () {
     return view('project\employee\Leave\emplLeave');
 });
 
+//leave requesting proccess
 use App\Http\Controllers\RequestEmployeeLeaveController;
+Route::post('/submit-leave-request', [RequestEmployeeLeaveController::class, 'submitLeaveRequest']);
+Route::get('/Leave-Request', [RequestEmployeeLeaveController::class, 'index']);
+Route::any('/accept-leave/{id}', [RequestEmployeeLeaveController::class, 'acceptLeave'])->name('acceptLeave');
+Route::delete('/reject-leave/{id}', [RequestEmployeeLeaveController::class, 'rejectLeave'])->name('rejectLeave');
 
-Route::post('/submit-leave-request', [RequestEmployeeLeaveController::class, 'store'])->name('leave-request.store');
+
+
+
+//Route::get('/employee/{id}/leave-requests', [EmployeeController::class, 'leaveRequests']);
+
 
 
 /*-------- End of Employee Routes ----------*/

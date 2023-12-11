@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>
-                            Delevered Products
+                            Manage Products
                         
                         </h4>
                     </div>
@@ -29,6 +29,7 @@
                                     <td>Product Name</td>
                                     <td>Product Price</td>
                                     <td>quantity</td>
+                                    
                                     
                                     
                                 </tr>
@@ -48,6 +49,7 @@
 
                                     
                                 </tr>
+                               
                                 @endforeach
                             </tbody>
                         </table>
@@ -57,11 +59,22 @@
         </div>
     </div>
 
+    <!--<script>
+        function markDelivered(id) {
+            // Assuming you have an AJAX call to update the delivery status
+            // Here, we're using a simple text update for demonstration purposes
+            $("#status" + id).text("Success").addClass("text-success");
+        }
+    </script>-->
+    
+</body>
+</html>
+
 
 
     
     
 
                     
-</body>
-</html>
+
+

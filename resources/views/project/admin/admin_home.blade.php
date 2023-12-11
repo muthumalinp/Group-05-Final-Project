@@ -48,14 +48,16 @@
             <button id="sidebar-toggle"><h3>Salon</h3></button>
                 <nav>
                     <ul>
-                        <li><a href="/Home" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Home</a>
+                        
                         <li><a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Dashboard</a>
-                        <li><a href="/manage_product" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Product</a>
                         <li><a href="/view_profile" class="nav-item nav-link"><i class="fa fa-th me-2"></i>View Profile</a>
                         <li><a href="/customer_details" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Customer Details</a>
                         <li><a href="/manage_appointment" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Appoinment</a>
+                        <li><a href="/manage_product" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Product</a>
                         <li><a href="/manage_rented_item" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Rented Item</a>
-                        <li><a href="/setting" class="nav-item nav-link"><i class="fa fa-th me-2"></i>setting</a>
+                        <li><a href="/employee-leaves" class="nav-item nav-link"><i class="fa fa-th me-2"></i>My Leaves</a>
+                        <li><a href="/setting" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Setting</a>
+                        <li><a href="/Home" class="nav-item nav-link"><i class="fa fa-th me-2"></i>LogOut</a>
                     </ul>
                 </nav>
         </aside>
