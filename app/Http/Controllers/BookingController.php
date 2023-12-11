@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Appointment;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\Service;
@@ -13,25 +14,58 @@ class BookingController extends Controller
 {
     public function index()
     {
-        // Fetch hairstylists, BridalDressers, and NailArtists separately
-        $hairstylists = Employee::where('emp_jobtitles', 'Hairstylist')->pluck('emp_fname');
-        $BridalDressers = Employee::where('emp_jobtitles', 'BridalDresser')->pluck('emp_fname');
-        $NailArtists = Employee::where('emp_jobtitles', 'NailArtist')->pluck('emp_fname');
 
-        $serviceCategories = ServiceCategory::where('id', '1')->pluck('name'); // Fetch all service categories from the database
+        // $categoryId = 1; // Replace 1 with the ID of the category you want to retrieve
 
-        return view('project.customer.booking', compact('hairstylists', 'BridalDressers', 'NailArtists', 'serviceCategories'));
+        // $serviceCategories = ServiceCategory::where('id', $categoryId)->all();
+
+         $HairServices  = ServiceCategory::where('id','=', '1')->pluck('name');
+         $HairCuts = Service::where('id','=', '1')->pluck('service_name');
+         $Hairstylists = Employee::whereJsonContains('emp_jobtitles', 'Hairstylist')->pluck('emp_fname');
+
+        //  $BridalDresser = Employee::where('emp_jobtitles', 'BridalDresser')->pluck('emp_fname');
+        //  $NailArtis = Employee::where('emp_jobtitles', 'NailArtist')->pluck('emp_fname');
+
+        return view('project.customer.booking', compact('HairServices', 
+                                                        'HairCuts', 
+                                                        'Hairstylists',
+                                                        // 'BridalDresser',
+                                                        // 'NailArtis'
+                                                    ));
+
     }
 
-    public function getServices($category)
-{
-    // Retrieve services for the specified category
-    // Assuming service_category_id is used to store the category information
-    $services = Service::where('service_category_id', $category)->pluck('service_name');
+//     public function calender()
+// {
+//     try {
+//         $events = array();
+//         $bookings = Booking::all();
 
-    return response()->json($services);
-}
+//         foreach ($bookings as $booking) {
+//             $events[] = [
+//                 'title' => $booking->title,
+//                 'start' => $booking->start_date,
+//                 'end' => $booking->end_date,
+//             ];
+//         }
 
+//         // Retrieve and include appointments in the events array
+//         $appointments = Appointment::all();
+//         foreach ($appointments as $appointment) {
+//             $events[] = [
+//                 'title' => $appointment->title,
+//                 'start' => $appointment->start_date,
+//                 'end' => $appointment->end_date,
+//                 'color' => '#FF5733', // Customize the color for appointments
+//             ];
+//         }
+
+//         return view('project.customer.calendar', ['events' => $events]);
+//     } catch (\Exception $e) {
+//         // Log the error or handle it appropriately
+//         return response()->json(['error' => 'Error retrieving data'], 500);
+//     }
+// }
 
     public function store(Request $request)
     {

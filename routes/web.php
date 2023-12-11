@@ -373,14 +373,14 @@ use App\Http\Controllers\BookingController;
 // Use the 'index' method for the '/BookNow' route
 Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index');
 
-// Define a route for fetching services based on the selected category
-Route::get('/api/services/{category}', [BookingController::class, 'getServices']);
+// // Define a route for fetching services based on the selected category
+// Route::get('/api/services/{category}', [BookingController::class, 'getServices']);
 
-Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+ Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
 
-Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
+// Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 
-Route::get('/bookings/{category}', [BookingController::class, 'show'])->name('bookings.show');
+// Route::get('/bookings/{category}', [BookingController::class, 'show'])->name('bookings.show');
 
 // Add other routes as needed
 
