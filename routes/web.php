@@ -525,7 +525,8 @@ Auth::routes();
     });
 
     //Ratings
-    Route::get('ratings','RatingController@ratings');
+    Route::get('ratings', 'RatingController@index')->name('ratings');
+
 
     /*-----employee button route-----*/
     Route::resource('employee', EmployeeController::class)->names([
