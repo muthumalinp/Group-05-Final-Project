@@ -18,10 +18,46 @@ class RatingTableSeeder extends Seeder
             ['id'=>1,
             'user_id'=>6,
             'product_id'=>1,
-            'review'=>'really good',
+            'review'=>'really bad',
+            'rating'=>5,
+            'status'=>1,
+        ],
+
+            ['id'=>2,
+            'user_id'=>6,
+            'product_id'=>1,
+            'review'=>'bad',
             'rating'=>4,
             'status'=>1,
-            ]
+        ],
+
+            ['id'=>3,
+            'user_id'=>6,
+            'product_id'=>1,
+            'review'=>'normal',
+            'rating'=>3,
+            'status'=>1,
+        ],
+
+            ['id'=>4,
+            'user_id'=>6,
+            'product_id'=>1,
+            'review'=>'good',
+            'rating'=>2,
+            'status'=>1,
+        ],
+
+            ['id'=>5,
+            'user_id'=>6,
+            'product_id'=>1,
+            'review'=>'very good',
+            'rating'=>1,
+            'status'=>1,
+        ],
+
+
+
+
         ];
         Rating::insert($ratingRecords);
     }
