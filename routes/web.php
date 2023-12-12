@@ -561,6 +561,23 @@ Auth::routes();
         return view('/project/owner/owner');
     });
 
+    //web setting part
+    Route::get('/salon-details', function(){
+        return view('/project/owner/web-settings/salon-index');
+    });
+
+    Route::get('/home-page', function(){
+        return view('/project/owner/web-settings/home-index');
+    });
+
+    Route::get('/gallery-page', function(){
+        return view('/project/owner/web-settings/gallery-index');
+    });
+
+    Route::get('/service-page', function(){
+        return view('/project/owner/web-settings/service-index');
+    });
+
     /*-----Route::get('/backtoempindex', function () {
         return view('/project/owner/Employee/index');
     });------*/

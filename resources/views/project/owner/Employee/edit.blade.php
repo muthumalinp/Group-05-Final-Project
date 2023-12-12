@@ -1,14 +1,14 @@
-@extends('layouts.owner_forms')
+@extends('layouts1.owner_forms')
 
 @section('content')
 
-    <div class="container">
-
-        <h3 align="center" class="mt-5">Employee Management</h3>
-
+<div class="mt-5 me-5 ms-5">
+        <div class="card" style="width:600px; margin-left:420px">
+        <div class="card-header text-bg-dark p-3">
+            <h3 align="center" class="mt-5">Employee Management</h3>
+        </div>
         <div class="row">
-            <div class="col-md-2">
-            </div>
+            
             <div class="col-md-8">
 
             <div class="form-area">
@@ -66,6 +66,13 @@
 
             </div>
         </div>
+        
+
+    </div>
+
+        
+
+        
     </div>
 
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts1.main')
 @section('title', 'Gellery')
 <html lang="en">
 

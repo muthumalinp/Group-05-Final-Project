@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 
 </head>    
-<body>
+<body style="background-color:#e0c2c0">
     @yield('content')
 
     <script src="{{asset('js/bootstrap.js')}}"></script>

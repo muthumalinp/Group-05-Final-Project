@@ -39,7 +39,9 @@ class EmployeeController extends Controller
         'emp_rewards' => ['required', 'string', 'max:225'],
         ]);
 
-        
+        // Handle file upload
+        $path = $request->file('owner_photo') ? $request->file('owner_photo')->store('owner_photos', 'public') : 'css/owner/owner_profile_image.jpeg';
+
         // Save the employee data
         $employee = new Employee([
             'emp_fname' => $request->input('emp_fname'),
