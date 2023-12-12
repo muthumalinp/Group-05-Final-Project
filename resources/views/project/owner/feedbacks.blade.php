@@ -1,4 +1,4 @@
-@extends('layouts.owner_sidebar')
+@extends('layout1.owner_sidebar')
 <!DOCTYPE html>
 <html lang="en">
    <head>

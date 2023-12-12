@@ -1,4 +1,4 @@
-@extends('layouts.owner_forms')
+@extends('layouts1.owner_forms')
 @section('content')
 
 <div class="mt-5 me-5 ms-5">
