@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts1.main')
 @section('title', 'Home')
 <!DOCTYPE html>
 <html lang="en">

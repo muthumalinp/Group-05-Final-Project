@@ -15,11 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('fname');
             $table->string('lname');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('remember_token', 100)->nullable();
             $table->string('phone_number');
+            $table->enum('gender', ['male', 'female', 'other']);
+            $table->date('dob');
             $table->string('password');
+            // $table->string('usertype')->default('customer');
+            $table->string('role')->default('customer');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

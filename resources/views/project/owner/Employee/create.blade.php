@@ -1,9 +1,9 @@
-@extends('layouts.owner_forms')
+@extends('layouts1.owner_forms')
 @section('content')
 
 <div class="mt-5 me-5 ms-5">
-<div class="card">
-    <div class="card-header">Employee Registration<a href="{{url('/backtoempindex')}}" class="btn btn-secondary float-end">BACK</a></div>
+<div class="card" style="width:600px; margin-left:420px">
+    <div class="card-header text-bg-dark p-3"><h3>Employee Registration<a href="{{url('/backtoempindex')}}" class="btn btn-secondary float-end">BACK</a></h3></div>
     <div class="card-body">
         <form method="POST" action="{{ route('employee.store') }}">
             @csrf
@@ -34,9 +34,9 @@
                 <option value="1">Female</option>
                 <option value="2">Male</option>
                 <option value="3">Transgender</option>
-            </select>
+            </select><br/>
             
-            <input type="submit" class="btn btn-primary" value="Register">
+            <input type="submit" class="btn btn-primary float-end" value="Register">
         </form>
     </div>
 </div>

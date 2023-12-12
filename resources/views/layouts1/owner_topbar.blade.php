@@ -44,23 +44,6 @@
             </div>
          </div>
 
-        <aside>
-                <nav>
-                    <ul>
-
-                        <li><a href="/owner" class="nav-item nav-link"><i class="fas fa-gauge"><span class="text">Dashboard</span></a></i>
-                        <li><a href="/Manage-Salary" class="nav-item nav-link"><i class="fas fa-hand-holding-dollar"><span class="text">Manage Salary</span></a></i>
-                        <li><a href="/Feedbacks" class="nav-item nav-link"><i class="fas fa-comments"><span class="text">Feedbacks</span></a></i>
-                        <li><a href="/Profile" class="nav-item nav-link"><i class="fas fa-user"><span class="text">Profile</span></a></i>
-                        <li><a href="/Leave-Request" class="nav-item nav-link"><i class="fa-solid fa-clipboard"><span class="text">Leave Requests</span></a></i>
-                        <li><a href="/Full-Report" class="nav-item nav-link"><i class="fas fa-chart-pie"><span class="text">Report</span></a></i>
-                        <li><a href="/Settings" class="nav-item nav-link"><i class="fas fa-gears"><span class="text">Setting</span></a></i>
-                        <li><a href="/Home" class="nav-item nav-link"><i class="fa-solid fa-right-from-bracket"><span class="text">Log Out</span></a></i>
-                        <!--<li><a href="/test" class="nav-item nav-link"><i class="fas fa-gears"><span class="text">Test</span></a></i>-->
-                    </ul>
-                </nav>
-        </aside>
-
         <main>
             @yield('cont')
         </main>

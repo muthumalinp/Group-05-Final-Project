@@ -27,6 +27,7 @@ use App\Models\BookedAppointment;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmployeeDashBoardController;
 use App\Http\Controllers\EmployeeLeaveController;
+use App\Http\Controllers\HomeTryController;
 
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
@@ -70,9 +71,9 @@ Route::post('/products', [ProductController::class, 'store'])->name('cartstore')
 })->name('adminhome');
 
 */
-Route::get('/', function () {
-    return view('/project/public/home');
-})->name('home');
+// Route::get('/', function () {
+//     return view('/project/public/home');
+// })->name('home');
 
 Route::get('/Home', function () {
     return view('/project/public/home');
@@ -486,9 +487,9 @@ Auth::routes();
 
 
 /*-------- Starter of Employee Routes ---------*/
-    Route::get('/Dashboard-Employee', function () {
-        return view('resources\views\project\employee\dashboard');
-    });
+    // Route::get('/Dashboard-Employee', function () {
+    //     return view('resources\views\project\employee\dashboard');
+    // });
 
 /*-------- End of Employee Routes ---------*/
 
@@ -499,9 +500,9 @@ Auth::routes();
 ------------------------------------------------------ Starter of Owner Routes ----------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------*/
 
-    Route::get('/Dashboard-Owner', function () {
-        return view('/project/owner/owner');
-    })->name('owner.dashboard');
+    // Route::get('/Dashboard-Owner', function () {
+    //     return view('/project/owner/owner');
+    // })->name('owner.dashboard');
     //Route::get('/Dashboard-Owner', [OwnerController::class, 'showProfile']);
 
     Route::get('/Manage-Salary', function () {
@@ -559,6 +560,23 @@ Auth::routes();
 
     Route::get('/backtodashboard', function () {
         return view('/project/owner/owner');
+    });
+
+    //web setting part
+    Route::get('/salon-details', function(){
+        return view('/project/owner/web-settings/salon-index');
+    });
+
+    Route::get('/home-page', function(){
+        return view('/project/owner/web-settings/home-index');
+    });
+
+    Route::get('/gallery-page', function(){
+        return view('/project/owner/web-settings/gallery-index');
+    });
+
+    Route::get('/service-page', function(){
+        return view('/project/owner/web-settings/service-index');
     });
 
     /*-----Route::get('/backtoempindex', function () {
@@ -631,17 +649,6 @@ Route::delete('/reject-leave/{id}', [RequestEmployeeLeaveController::class, 'rej
 
 Auth::routes();
 
-    Route::get('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('Login');
-    Route::post('/LogIn', [App\Http\Controllers\Auth\LoginController::class, 'loginPost'])->name('login.post');
-    Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('custom.logout');
-
-
-Route::controller(RegisterController::class)->group(function (){
-    Route::get('/AddUser', [App\Http\Controllers\Auth\RegisterController::class, 'AddUser'])->name('register');
-    Route::post('/saveUser','registrationPost')->name('registration.post');
-    Route::get('/verify/{token}', [App\Http\Controllers\Auth\RegisterController::class, 'verify'])->name('verification.verify');
-
-});
 
 /*-------- customer data form --------*/
 Route::get('/customer_details',[ShowController::class,'show']);
@@ -666,3 +673,21 @@ use App\Models\EventCalendar;
 Route::get('/geteventcalendar',[EventCalendarController::class,'geteventcalendar']);
 Route::get('/createeventcalendar',[EventCalendarController::class,'createeventcalendar']);
 Route::get('/deleteeventcalendar',[EventCalendarController::class,'deleteeventcalendar']);
+
+Route::get('/', function () {
+    return view('project.public.home');
+});
+
+Route::get('/dashboard', function () {
+    return view('project.customer.dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+route::get('/HomeTry',[HomeTryController::class, 'index']);
+
+require __DIR__.'/auth.php';
