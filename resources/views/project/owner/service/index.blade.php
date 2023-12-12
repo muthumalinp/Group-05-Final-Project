@@ -1,7 +1,7 @@
-@extends('layouts.owner_forms')
+@extends('layouts1.owner_forms')
 @section('content')
 <div class="container">
-    <div class="mt-5">
+    <div style="margin-top:100px">
     <div class="row">
         <div class="col-md-10">
                 @if(session('flash_message'))

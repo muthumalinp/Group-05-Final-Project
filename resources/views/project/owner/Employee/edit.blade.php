@@ -1,4 +1,4 @@
-@extends('layouts.owner_forms')
+@extends('layouts1.owner_forms')
 
 @section('content')
 

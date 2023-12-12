@@ -22,7 +22,7 @@ class EmployeeRegistered extends Mailable
 
     public function build()
     {
-        return $this->view('emails.employee-registered');
+        return $this->view('emailsmy.employee-registered');
     }
 
     /**
@@ -41,7 +41,7 @@ class EmployeeRegistered extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.employee-registered',
+            view: 'emailsmy.employee-registered',
         );
     }
 

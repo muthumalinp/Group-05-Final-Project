@@ -1,4 +1,4 @@
-@extends('layouts.owner_nav')
+@extends('layouts1.owner_nav')
 <!DOCTYPE html>
 <html lang="en">
    <head>
