@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Validation\Rule;
 
 class RegisteredUserController extends Controller
 {
@@ -31,14 +32,32 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'phone_number' => ['required', 'regex:/^0[0-9]{9}$/'],
+            'gender' => ['required', 'string', Rule::in(['male', 'female', 'other'])],
+            'dob' => ['required', 'date', 'date_format:Y-m-d'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        // $user = User::create([
+        //     'fname' => $request->fname,
+        //     'lname' => $request->lname,
+        //     'email' => $request->email,
+        //     'phone_number' => $request->phone_number,
+        //     'gender' => $request->gender,
+        //     'DOB' => $request->DOB,
+        //     'password' => Hash::make($request->password),
+        // ]);
+
         $user = User::create([
-            'name' => $request->name,
+            'fname' => $request->fname,
+            'lname' => $request->lname,
             'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'gender' => $request->gender,
+            'dob' => $request->dob,
             'password' => Hash::make($request->password),
         ]);
 
