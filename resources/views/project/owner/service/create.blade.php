@@ -1,10 +1,10 @@
-@extends('layouts.owner_forms')
+@extends('layouts1.owner_forms')
 
 @section('content')
  
 <div class="mt-5 me-5 ms-5">
-<div class="card">
-  <div class="card-header">Service Page</div>
+<div class="card" style="width:500px; margin-left:480px">
+  <div class="card-header text-bg-dark p-3"><h3>Service Page</h3></div>
   <div class="card-body">
       
       <form action="{{ route('project.owner.service.store') }}" method="post">

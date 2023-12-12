@@ -16,17 +16,22 @@
    
    <body>
    @section('cont')
-      <div class="main_container">
-         <div class="container">
-            <div class="Header">Settings</div>
-            <div class="info">
-                <div>
-                    <h3>This is the admin settings</h3>
-                </div>
-               
-            </div>
-         </div> 
+      <h2>Customer Home Settings</h2>
+      <div class="cards" style="margin-top:50px">
+         <div class="card">
+            <p>Salon Details <a href="{{url('/salon-details')}}" class="btn btn-success btn-sm float-end"> Edit Salon Details</a> </p>
+         </div>
+         <div class="card">
+            <p>Home images <a href="{{url('/home-page')}}" class="btn btn-success btn-sm float-end"> Edit Home Page</a> </p> 
+         </div>
+         <div class="card">
+            <p>Gallery <a href="{{url('/gallery-page')}}" class="btn btn-success btn-sm float-end"> Edit Gallery Page</a> </p>
+         </div>
+         <div class="card">
+            <p>Service <a href="{{url('/service-page')}}" class="btn btn-success btn-sm float-end"> Edit Service Page</a> </p>
+         </div>
       </div>
+      
    @endsection   
       
    </body>
