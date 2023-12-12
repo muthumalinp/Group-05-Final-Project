@@ -24,7 +24,7 @@
         @endif-->
         <h2>Profile</h2>
       
-        <div class="cards">
+        <div class="cards" style="width:400px; margin-left:5px">
          <div class="container">
             <div class="info">
                @if(session('flash_message'))

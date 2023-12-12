@@ -7,10 +7,10 @@
                 @if(session('flash_message'))
                     <h6 class="alert alert-success">{{session('flash_message')}}</h6>
                 @endif
-            <div class="card">
-                <div class="card-header">
-                    <h2>Services</h2>
-                    <a href="{{url('/backtodashboard')}}" class="btn btn-secondary float-end">Back</a>
+            <div class="card" style="width:1000px; margin-left:180px">
+                <div class="card-header text-bg-dark p-3">
+                    <h2>Services
+                    <a href="{{url('/backtodashboard')}}" class="btn btn-secondary float-end">Back</a></h2>
                 </div>
                 <div class="card-body">
                     <a href="{{url('/servicecreate')}}" class="btn btn-success btn-sm" title="Add New Service">
