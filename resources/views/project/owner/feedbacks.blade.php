@@ -21,9 +21,11 @@
             <div class="Header">Customer Feedbacks</div>
             <div class="info">
                 <div>
-                    <h3>This is the feedback Page</h3>
+                    <h3>Products Reviews</h3>
                 </div>
-               
+
+                <!-- <a @if(Session::get('page')=="ratings") @endif href="{{url('admin/ratings')}}">Ratings</a> -->
+               <a href="{{ url('/ratings')}}">Ratings</a>
             </div>
          </div> 
       </div>
