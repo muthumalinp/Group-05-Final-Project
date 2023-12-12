@@ -19,6 +19,12 @@ class HomeTryController extends Controller
                 else if($role == 'owner') {
                     return view('project.owner.owner');
                 }
+                else if($role == 'admin') {
+                    return view('project.admin.admin_home');
+                }
+                else if($role == 'employee') {
+                    return view('project.employee.dashboard');
+                }
             }
     }
 }
