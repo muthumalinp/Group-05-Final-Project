@@ -16,7 +16,7 @@
                     display: flex;
                 }
                 nav {
-                    width:1px
+                    width:1px;
                     background-color: #333;
                     color: white;
                     padding: 20px;
