@@ -33,6 +33,31 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
+     * The user has been authenticated.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $user
+     * @return mixed
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->role === 'admin') {
+            return redirect()->intended('/project/admin/dashboard');
+        } elseif ($user->role === 'owner') {
+            return redirect()->intended('project/owner/dashboard');
+        } elseif ($user->role === 'customer') {
+            return redirect()->intended('prject/customer/dashboard');
+        } elseif ($user->role === 'employee') {
+            return redirect()->intended('project/employee/dashboard');
+        }
+
+        // Add other role checks here...
+
+        return redirect()->intended('/home');
+    }
+
+    /**
      * Destroy an authenticated session.
      */
     public function destroy(Request $request): RedirectResponse

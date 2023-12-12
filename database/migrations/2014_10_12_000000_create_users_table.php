@@ -21,8 +21,8 @@ return new class extends Migration
             $table->enum('gender', ['male', 'female', 'other']);
             $table->date('dob');
             $table->string('password');
-            $table->string('usertype')->default('customer');
-            // $table->string('user_role')->default('customer');
+            // $table->string('usertype')->default('customer');
+            $table->string('role')->default('customer');
             $table->rememberToken();
             $table->timestamps();
         });

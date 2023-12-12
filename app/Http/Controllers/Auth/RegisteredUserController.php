@@ -33,11 +33,11 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'fname' => ['required', 'string', 'max:255'],
-            'lname' => ['required', 'string', 'max:255'],
+            // 'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'phone_number' => ['required', 'regex:/^0[0-9]{9}$/'],
-            'gender' => ['required', 'string', Rule::in(['male', 'female', 'other'])],
-            'dob' => ['required', 'date', 'date_format:Y-m-d'],
+            // 'phone_number' => ['required', 'regex:/^0[0-9]{9}$/'],
+            // 'gender' => ['required', 'string', Rule::in(['male', 'female', 'other'])],
+            // 'dob' => ['required', 'date', 'date_format:Y-m-d'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 

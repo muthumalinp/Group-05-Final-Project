@@ -38,36 +38,38 @@
         @enderror
     </div>
 
-    <div class="mb-4">
-        <label class="block text-sm font-medium text-gray-700">Gender</label>
-        <div class="mt-2">
-            <label class="inline-flex items-center">
-                <input type="radio" name="gender" value="{{ old('gender') == 'male' ? 'checked' : '' }}" class="form-radio">
-                <span class="ml-2">Male</span>
-            </label>
+    <!-- Gender -->
+<div class="mb-4">
+    <label class="block text-sm font-medium text-gray-700">Gender</label>
+    <div class="mt-2">
+        <label class="inline-flex items-center">
+            <input type="radio" name="gender" value="male" class="form-radio" {{ old('gender') == 'male' ? 'checked' : '' }}>
+            <span class="ml-2">Male</span>
+        </label>
 
-            <label class="inline-flex items-center ml-6">
-                <input type="radio" name="gender" value="{{ old('gender') == 'female' ? 'checked' : '' }}" class="form-radio">
-                <span class="ml-2">Female</span>
-            </label>
+        <label class="inline-flex items-center ml-6">
+            <input type="radio" name="gender" value="female" class="form-radio" {{ old('gender') == 'female' ? 'checked' : '' }}>
+            <span class="ml-2">Female</span>
+        </label>
 
-            <label class="inline-flex items-center ml-6">
-                <input type="radio" name="gender" value=" {{ old('gender') == 'other' ? 'checked' : '' }}" class="form-radio">
-                <span class="ml-2">Other</span>
-            </label>
-        </div>
-        @error('gender')
-            <p class="text-red-500 text-sm">{{ $message }}</p>
-        @enderror
+        <label class="inline-flex items-center ml-6">
+            <input type="radio" name="gender" value="other" class="form-radio" {{ old('gender') == 'other' ? 'checked' : '' }}>
+            <span class="ml-2">Other</span>
+        </label>
     </div>
+    @error('gender')
+        <p class="text-red-500 text-sm">{{ $message }}</p>
+    @enderror
+</div>
+
 
         <!-- <div>
             <x-input-label for="gender" :value="__('Gender')" />
             <x-text-input id="gender" class="block mt-1 w-full" type="text" gender="gender" :value="old('gender')" required autofocus autocomplete="gender" />
             <x-input-error :messages="$errors->get('gender')" class="mt-2" />
-        </div> -->
+        </div>
 
-        <!--Date of Birth -->
+        Date of Birth -->
         <div class="mb-4">
         <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth</label>
         <input type="date" id="dob" name="dob" value="{{ old('dob') }}" class="mt-1 p-2 border rounded-md w-full" required autofocus>

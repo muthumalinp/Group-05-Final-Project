@@ -27,6 +27,7 @@ use App\Models\BookedAppointment;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmployeeDashBoardController;
 use App\Http\Controllers\EmployeeLeaveController;
+use App\Http\Controllers\HomeTryController;
 
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
@@ -486,9 +487,9 @@ Auth::routes();
 
 
 /*-------- Starter of Employee Routes ---------*/
-    Route::get('/Dashboard-Employee', function () {
-        return view('resources\views\project\employee\dashboard');
-    });
+    // Route::get('/Dashboard-Employee', function () {
+    //     return view('resources\views\project\employee\dashboard');
+    // });
 
 /*-------- End of Employee Routes ---------*/
 
@@ -499,9 +500,9 @@ Auth::routes();
 ------------------------------------------------------ Starter of Owner Routes ----------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------*/
 
-    Route::get('/Dashboard-Owner', function () {
-        return view('/project/owner/owner');
-    })->name('owner.dashboard');
+    // Route::get('/Dashboard-Owner', function () {
+    //     return view('/project/owner/owner');
+    // })->name('owner.dashboard');
     //Route::get('/Dashboard-Owner', [OwnerController::class, 'showProfile']);
 
     Route::get('/Manage-Salary', function () {
@@ -668,5 +669,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+route::get('/HomeTry',[HomeTryController::class, 'index']);
 
 require __DIR__.'/auth.php';
