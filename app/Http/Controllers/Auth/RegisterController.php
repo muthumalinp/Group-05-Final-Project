@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Session;
 use App\Mail\RegisterMail;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -46,20 +47,24 @@ class RegisterController extends Controller
     
         $request->validate([
             'fname' => ['required', 'string', 'max:255'],
-            'lname' => ['required', 'string', 'max:255'],
+            // 'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'phone_number' => ['required', 'regex:/^0[0-9]{9}$/'],
+            // 'phone_number' => ['required', 'regex:/^0[0-9]{9}$/'],
+            // 'gender' => ['required', 'string', Rule::in(['male', 'female', 'other'])],
+            // 'dob' => ['required', 'date', 'date_format:Y-m-d'],
             'password' => ['required', 'min:8', 'confirmed'],
         ]);
         
 
         $data['fname'] = $request->fname;
-        $data['lname'] = $request->lname;
+        // $data['lname'] = $request->lname;
         $data['email'] = $request->email;
-        $data['phone_number'] = $request->phone_number;
+        // $data['phone_number'] = $request->phone_number;
+        // $data['gender'] = $request->gender;
+        // $data['dob'] = $request->dob;
         $data['password'] = Hash::make($request->password);
-        $data['remember_token'] = Str::random(40);
-        $data['role'] = $request->input('role');
+        // $data['remember_token'] = Str::random(40);
+        // $data['role'] = $request->input('role');
 
         $User = User::create($data);
 
@@ -111,8 +116,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'fname' => ['required', 'string', 'max:255'],
+            // 'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            // 'phone_number' => ['required', 'regex:/^0[0-9]{9}$/'],
+            // 'gender' => ['required', 'string', Rule::in(['male', 'female', 'other'])],
+            // 'dob' => ['required', 'date', 'date_format:Y-m-d'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -126,8 +135,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'fname' => $data['fname'],
+            // 'lname' => $data['lname'],
             'email' => $data['email'],
+            // 'gender' => $data['gender'],
+            // 'dob' => $data['dob'],
+            // 'name' => $data['name'],
             'password' => Hash::make($data['password']),
         ]);
     }
