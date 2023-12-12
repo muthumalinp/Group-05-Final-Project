@@ -35,6 +35,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EmployeeRegistered;
 
+use App\Http\Controllers\RatingController;
+
 /*Route::get('/test-email', function () {
     $employeeData = ['emp_fname' => 'muthumali', 'emp_email' => 'muthumalinp@gamil.com'];
     Mail::to('muthumalinp@gmail.com')->send(new EmployeeRegistered($employeeData));
@@ -494,8 +496,13 @@ Auth::routes();
         return view('/project/owner/settings');
     });
 
+    Route::get('/Ratings', function () {
+        return view('resources/views/project/owner/ratings/ratings');
+    });
+
     //Ratings
-    Route::get('ratings','RatingController@ratings');
+    //Route::get('ratings','RatingController@ratings');
+    Route::get('ratings', [RatingController::class, 'ratings']);
 
     /*-----employee button route-----*/
     Route::resource('employee', EmployeeController::class)->names([

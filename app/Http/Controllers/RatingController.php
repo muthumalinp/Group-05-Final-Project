@@ -8,9 +8,11 @@ use App\Models\Rating;
 
 class RatingController extends Controller
 {
-    public function ratings(){
-        $ratings = Rating::get()->toArray();
-        dd($ratings);
-        return view('admin.ratings.ratings')->with(compact('ratings'));
-    }
+    public function ratings()
+{
+    $ratings = Rating::get()->toArray();
+    //dd($ratings);
+    return view('project.owner.ratings.ratings')->with(compact('ratings'));
+}
+
 }
