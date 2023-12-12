@@ -34,30 +34,40 @@
     <h2 class="text-center mb-4">Book Now</h2>
 
         <label for="serviceCategory">Select a Service Category:</label>
-        <select id="serviceCategory" name="serviceCategory" class = "btn btn-custom">
-            @foreach($HairServices as $HairService)
+        <!-- <select id="serviceCategory" name="serviceCategory" class = "btn btn-custom"> -->
+        <button type="button" id="hairservices" class="btn btn-custom">   
+        @foreach($HairServices as $HairService)
                 <option value="{{ $HairService }}">{{ $HairService }}</option>
-            @endforeach
+        @endforeach
+            </button>
+            <button type="button" class="btn btn-custom">
             @foreach($BridalServices as $BridalService)
                 <option value="{{ $BridalService }}">{{ $BridalService }}</option>
             @endforeach
+            </button>
+            <button type="button" class="btn btn-custom">
             @foreach($NailServices as $NailService)
                 <option value="{{ $NailService }}">{{ $NailService }}</option>
             @endforeach
+            </button>
+            <button type="button" class="btn btn-custom">
             @foreach($OtherServices as $OtherService)
                 <option value="{{ $OtherService }}">{{ $OtherService }}</option>
             @endforeach
-        </select>
+        </button>
         <br><br>
 
         <label for="service">Select a Service:</label>
-        <select id="service" name="service">
+        <button type="button" class="btn btn-custom"> 
             @foreach($HairCutsL as $HairCutL)
                 <option value="{{ $HairCutL }}">{{ $HairCutL }}</option>
             @endforeach
+        </button>
+        <button type="button" class="btn btn-custom"> 
             @foreach($HairCutsG as $HairCutG)
                 <option value="{{ $HairCutG }}">{{ $HairCutG }}</option>
             @endforeach
+        </button>
         </select>
         <br><br>
 
@@ -86,6 +96,16 @@
 </div>
 
     <script>
+        function handleClick(){
+            
+        }
+
+
+
+
+
+
+
         // Initialize Flatpickr on the date input field
         document.addEventListener('DOMContentLoaded', function () {
             var datePicker = document.getElementById('datePicker');
