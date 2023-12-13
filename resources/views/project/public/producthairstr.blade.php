@@ -57,9 +57,18 @@ session_start();
                 <form action="/Product/ManageCart" method="GET">
                     <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
                     <div class="desc">Dreamdron</div>
+                    <!--<div class="box">
+                        <div class="desc">Dreamdron</div>
+                        <button type="submit" name="review" class="btn">Review</button>
+                    </div>-->
                     <div class="box">
                         <div class="price">Rs.2500</div>
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
+                    <!--<button type="submit" name="review" class="btn">Review</button>-->
+                    </div>
+                    <div class="box">
+                        <!-- <button type="submit" name="review" class="btn">Review</button> -->
+                        <a href="{{ url('/reviewform')}}">Review</a>
                     </div>
                     <input type="hidden" name="desc" value="Dreamdron">
                     <input type="hidden" name="price" value="Rs.2500">
