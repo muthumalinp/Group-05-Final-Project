@@ -178,12 +178,12 @@ Route::get('/home', function () {
     return view('/project/admin/admin_home');
 });
 */
-
+Route::middleware(['auth', 'role:owner'])->group(function () {
 Route::get('/owner', function () {
     $message = "";
     return view('/project/owner/owner', compact('message'));
 });
-
+});
 
 /*Route::get('/admin_home', function () {
     $message = "";
@@ -686,6 +686,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth', 'auth.role:owner'])->group(function () {
+    route::get('/HomeTry/Owner',[HomeTryController::class, 'owner']);
+});
+
+Route::middleware(['auth', 'auth.role:admin'])->group(function () {
+    route::get('/HomeTry/Admin',[HomeTryController::class, 'admin']);
+});
+
+Route::middleware(['auth', 'auth.role:owner'])->group(function () {
+    route::get('/HomeTry/Owner',[HomeTryController::class, 'owner']);
 });
 
 route::get('/HomeTry',[HomeTryController::class, 'index']);
