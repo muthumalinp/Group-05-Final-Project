@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class ServiceCategory extends Model
 {
-    protected $table = 'services';
+    protected $table = 'service_categories';
     protected $primaryKey = 'id';
-    protected $fillable = ['service_name', 'service_price', 'service_category_id']; // Update this line
+    protected $fillable = ['id','name'];
     use HasFactory;
 }

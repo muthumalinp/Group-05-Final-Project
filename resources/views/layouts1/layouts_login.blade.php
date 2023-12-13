@@ -55,6 +55,26 @@
         #i {
             fill: #F7E19F;
         }
+
+        .eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.toggle-password {
+    background-image: url('path-to-your-eye-icon.png');
+}
+
     </style>
   </head>
   <body>

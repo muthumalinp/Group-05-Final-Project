@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,7 +11,7 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('emp_fname');
             $table->string('emp_lname');
-            $table->string('emp_jobtitle'); // Note: It's better to have separate columns for job titles
+            $table->json('emp_jobtitles')->nullable(); // JSON column for job titles
             $table->string('emp_phone')->nullable();
             $table->string('emp_email')->unique();
             $table->string('emp_bsalary');

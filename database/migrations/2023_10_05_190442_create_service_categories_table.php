@@ -1,5 +1,4 @@
 <?php
-
 // database/migrations/2023_01_01_000000_create_service_categories_table.php
 
 use Illuminate\Database\Migrations\Migration;
@@ -12,8 +11,9 @@ class CreateServiceCategoriesTable extends Migration
     {
         Schema::create('service_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
-        });
+        });        
     }
 
     public function down()

@@ -16,19 +16,36 @@ class HomeTryController extends Controller
                 if($role == 'customer') {
                     return view('project.customer.dashboard');
                 }
-                else if($role == 'owner') {
-                    return view('project.owner.owner');
-                }
-                else if($role == 'admin') {
-                    return view('project.admin.admin_home');
-                }
-                else if($role == 'employee') {
-                    return view('project.employee.dashboard');
-                }
             }
     }
-}
 
+    public function owner() {
+        if(Auth::id()) {
+            $role = Auth()->user()->role;
+            if($role == 'owner') {
+                return view('project.owner.owner');
+            }
+        }
+    }
+
+    public function admin() {
+        if(Auth::id()) {
+            $role = Auth()->user()->role;
+            if($role == 'admin') {
+                return view('project.admin.admin_home');
+            }
+        }
+    }
+
+    public function employee() {
+        if(Auth::id()) {
+            $role = Auth()->user()->role;
+            if($role == 'employee') {
+                return view('project.employee.dashboard');
+            }
+        }
+    }
+}
 
 
 // resources\views\project\owner\owner.blade.php
