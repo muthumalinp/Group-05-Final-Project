@@ -13,7 +13,7 @@ class RatingController extends Controller
         if($request->isMethod('post')){
             $data = $request->all();
             echo "<pre>"; print_r($data); die;
-            $user_id = Auth::user
+            $user_id = Auth::user   
 
             //Check if user not already rate this product
             $ratingCount = Rating::where(['user_id'=>$user_id,'product_id'=>$data['product_id']])->count();
