@@ -12,6 +12,8 @@ use App\Http\Controllers\PjwelController;
 use App\Http\Controllers\BdlwrController;
 use App\Http\Controllers\PwrController;
 
+use App\Http\Controllers\RatingController;
+
 
 use App\Http\Controllers\bookingPediController;
 use App\Http\Controllers\ShowController;
@@ -368,6 +370,16 @@ use App\Http\Controllers\AppointmentController;
 // Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\Front\RatingController as FrontRatingController;
+
+Route::get('/reviewform', function () {
+    return view('/project/public/reviewform');
+});
+//Add Rating/Review
+Route::post('add-rating', [FrontRatingController::class, 'addRating'])->name('add-rating');
+
+//Route::get('add-rating', [RatingController::class, 'addRating']);
+
 
 // Other routes...
 
@@ -525,8 +537,15 @@ Auth::routes();
         return view('/project/owner/settings');
     });
 
+    Route::get('/Ratings', function () {
+        return view('resources/views/project/owner/ratings/ratings');
+    });
+
+    //Route::get('ratings','RatingController@ratings');
+    Route::get('ratings', [RatingController::class, 'ratings']);
+
     //Ratings
-    Route::get('ratings', 'RatingController@index')->name('ratings');
+    //Route::get('ratings', 'RatingController@index')->name('ratings');
 
 
     /*-----employee button route-----*/

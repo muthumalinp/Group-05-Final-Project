@@ -21,7 +21,8 @@
             <div class="Header">Customer Feedbacks</div>
             <div class="info">
                 <div>
-                    <h3>This is the feedback Page</h3>
+                <h3>Products Reviews</h3>
+
                 </div>
                
             </div>
