@@ -24,6 +24,11 @@
                 <h3>Products Reviews</h3>
 
                 </div>
+
+                
+
+                <!-- <a @if(Session::get('page')=="ratings") @endif href="{{url('admin/ratings')}}">Ratings</a> -->
+               <a href="{{ url('/ratings')}}">Ratings</a>
                
             </div>
          </div> 
