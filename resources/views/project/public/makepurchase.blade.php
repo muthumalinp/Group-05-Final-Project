@@ -43,10 +43,10 @@ session_start();
                         if (isset($_SESSION['cart'])) {
                             foreach ($_SESSION['cart'] as $key => $value) {
                                 $total += intval(explode(".", $value['price'])[1]);
-
+                                $pn=$key+1;
                                 echo "
                                     <tr>
-                                        <td>1</td>
+                                        <td>$pn</td>
                                         <td>$value[desc]</td>
                                         <td>$value[price]</td>
                                         <td><input class='taxt-center' type='number' value='$value[Quantity]' min='1' max='10'></td>

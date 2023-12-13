@@ -71,7 +71,7 @@ session_start();
                         <a href="{{ url('/reviewform')}}">Review</a>
                     </div>
                     <input type="hidden" name="desc" value="Dreamdron">
-                    <input type="hidden" name="price" value="Rs.2500">
+                    <input type="hidden" name="price" value="2500">
                 </form>
             </div>
 
@@ -82,13 +82,14 @@ session_start();
              <div class="card">
                 <form action="/Product/ManageCart" method="GET">
                     <div class="img"><img src="css/hairstr12.jpg" alt="" ></div>
-                    <div class="desc">   Bellose</div>
+                    <div class="desc">Bellose</div>
+                    <!-- <div class="pn">222</div> -->
                     <div class="box">
                         <div class="price">Rs.6500</div>
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
                     <input type="hidden" name="desc" value="Bellose">
-                    <input type="hidden" name="price" value="Rs.6500">
+                    <input type="hidden" name="price" value="6500">
                 </form>
             </div>
 
@@ -98,14 +99,15 @@ session_start();
 
              <div class="card">
                 <form action="/Product/ManageCart" method="GET">
-                    <div class="img"><img src="{{ asset('css/hairstr13.jpg') }}" alt="" ></div>
+                    <div class="img"><img src="{{ asset('css/hairstr14.jpg') }}" alt="" ></div>
                     <div class="desc">Xtenso</div>
+                    <!-- <div class="pn">333</div> -->
                     <div class="box">
                         <div class="price">Rs.7500</div>
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
                     <input type="hidden" name="desc" value="Xtenso">
-                    <input type="hidden" name="price" value="Rs.7500">
+                    <input type="hidden" name="price" value="7500">
                 </form>   
             </div>
 
@@ -117,12 +119,13 @@ session_start();
                 <form action="/Product/ManageCart" method="GET">
                     <div class="img"><img src="{{ asset('css/hairstr14.jpg') }}" alt="" ></div>
                     <div class="desc">Streax-Canvo</div>
+                    <!-- <div class="pn">444</div> -->
                     <div class="box">
                         <div class="price">Rs.4500</div>
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
                     <input type="hidden" name="desc" value="Streax-Canvo">
-                    <input type="hidden" name="price" value="Rs.4500">
+                    <input type="hidden" name="price" value="4500">
                 </form>    
             </div>
 

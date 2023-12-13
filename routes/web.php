@@ -466,32 +466,6 @@ Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])-
 /****************EMPLOYEE ROUTE END*************************/
 /***********************************************************/
 
-/*-------- Starter of Booking form database table ---------*/
-// Route::post('/booking',function() {
-
-//     $booked_appointments = new BookedAppointment();
-//     $booked_appointments->fuName = request('fuName');
-//     $booked_appointments->eMail = request('eMail');
-//     $booked_appointments->nbrCode = request('nbrCode');
-//     $booked_appointments->phone = request('phone');
-//     $booked_appointments->contact = request('contact');
-//     $booked_appointments->massage = request('massage');
-//     $booked_appointments->save();
-
-// });
-/*--------- End of Booking form database table ----------*/
-
-
-
-
-
-
-
-/*--------- End of Customer Routes ----------*/
-
-
-/*--------- End of Customer Routes ----------*/
-
 
 Auth::routes();
 
@@ -675,11 +649,6 @@ Route::get('/customer_details',[ShowController::class,'show']);
 /*-------- product data form --------*/
 Route::get('/manage_product',[ShowController::class,'item']);
 Route::get('/delivered_product',[ShowController::class,'cell']);
-
-
-
-
-
 
 /*-------- manage appoinment form --------*/
 Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);

@@ -55,35 +55,31 @@ session_start();
                  <table class="table">
                     <thead class="text-center">
                         <tr>
-                        <th scope="col">Produc No</th>
+                        <th scope="col">Product No</th>
                         <th scope="col">Product Name</th>
                         <th scope="col">Product Price</th>
                         <th scope="col">Quantity</th>
-                        <th scope="col"></th>
+                        <th scope="col">Total</th>                        
                         </tr>
                     </thead>
 
                     <tbody class="text-center">
                         <?php
-                                         
-                            $total=0;
-                           
                             if(isset($_SESSION['cart'])){
                                
                             
                                 foreach($_SESSION['cart'] as $key => $value)
                                 {
-                              
+                                     $pn=$key+1;
                                 
-                                    $total += intval(explode(".",$value['price'])[1]);
-                              
 
                                      echo "
                                         <tr>
-                                        <td>1</td>
-                                        <td>$value[desc]</td>
-                                        <td>$value[price]</td>
-                                        <td><input class='taxt-center' type='number' value='$value[Quantity]' min='1' max='10'></td>
+                                        <td class='productno'>$pn</td>
+                                        <td class='productname'>$value[desc]</td>
+                                        <td>$value[price]<input type='hidden' class='iprice' value='$value[price]'></td>
+                                        <td><input class='taxt-center iquantity' onchange='subTotal()' type='number' value='$value[Quantity]' min='1' max='10'></td>
+                                        <td class='itotal'></td>
                                         <td>
                                             <form action='/Product/ManageCart' method='GET'>
                                                  <button name='Remove_Item' class='btn btn-sm btn-outline-danger'>Remove</button>
@@ -103,28 +99,10 @@ session_start();
                 </table>
             </div>
 
-            <script>
-                    function updateQuantity(rowId, newQuantity) {
-                        // Assuming 'product-row-' + rowId is the id of the corresponding row
-                        var row = document.getElementById('product-row-' + rowId);
-                        var priceCell = row.cells[2]; // Index of the cell containing the price
-                        var totalCell = row.cells[4]; // Index of the cell containing the total
-
-                        // Extract the numeric part of the price
-                        var price = parseInt(priceCell.innerText.split('.')[1]);
-
-                        // Calculate the new total
-                        var newTotal = price * newQuantity;
-
-                        // Update the total cell
-                        totalCell.innerText = newTotal;
-                    }
-             </script>
-
             <div class="col-lg-3">
                 <div class="border bg-light rounded p-4">
-                    <h4>Total:</h4>
-                    <h5 class="text-right"><?php echo $total ?></h5>
+                    <h4>Grand Total:</h4>
+                    <h5 class="text-right" id="gtotal"></h5>
                     <br>
                     <!--<form>
 
@@ -145,6 +123,29 @@ session_start();
         </div>
       
     </div>
+    <script>
+
+                var gt=0;
+                var iprice=document.getElementsByClassName('iprice');
+                var iquantity=document.getElementsByClassName('iquantity');
+                var itotal=document.getElementsByClassName('itotal');
+                var gtotal=document.getElementById('gtotal');
+
+                function subTotal()
+                {
+                    gt=0;
+                    for(i=0;i<iprice.length;i++)
+                    {
+                        itotal[i].innerText=(iprice[i].value)*(iquantity[i].value);
+                        console.log(iprice[i].value);
+                        gt=gt+(iprice[i].value)*(iquantity[i].value);
+                    }
+                    gtotal.innerText=gt;
+                }
+                
+                    subTotal();
+    </script>
+
     <script src="{{asset('js/bootstrap.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
