@@ -360,6 +360,7 @@ use App\Http\Controllers\AppointmentController;
 // Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\Front\RatingController as FrontRatingController;
 
 Route::post('/Bookings', [AppointmentController::class, 'store'])->name('bookings.store');
 Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index');
@@ -503,6 +504,13 @@ Auth::routes();
     //Ratings
     //Route::get('ratings','RatingController@ratings');
     Route::get('ratings', [RatingController::class, 'ratings']);
+    Route::get('/reviewform', function () {
+        return view('/project/public/reviewform');
+    });
+    //Add Rating/Review
+    Route::post('add-rating', [FrontRatingController::class, 'addRating'])->name('add-rating');
+
+    //Route::get('add-rating', [RatingController::class, 'addRating']);
 
     /*-----employee button route-----*/
     Route::resource('employee', EmployeeController::class)->names([
