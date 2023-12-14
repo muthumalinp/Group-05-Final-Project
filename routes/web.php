@@ -634,7 +634,7 @@ Route::get('/emplLeave', function () {
 //leave requesting proccess
 use App\Http\Controllers\RequestEmployeeLeaveController;
 Route::post('/submit-leave-request', [RequestEmployeeLeaveController::class, 'submitLeaveRequest']);
-Route::get('/Leave-Request', [RequestEmployeeLeaveController::class, 'index']);
+
 Route::any('/accept-leave/{id}', [RequestEmployeeLeaveController::class, 'acceptLeave'])->name('acceptLeave');
 Route::delete('/reject-leave/{id}', [RequestEmployeeLeaveController::class, 'rejectLeave'])->name('rejectLeave');
 
@@ -689,17 +689,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::middleware(['auth', 'auth.role:owner'])->group(function () {
-    route::get('/HomeTry/Owner',[HomeTryController::class, 'owner']);
+    route::get('/Dashboard',[HomeTryController::class, 'index']);
+    Route::get('/Leave-Request', [RequestEmployeeLeaveController::class, 'index']);
 });
 
 Route::middleware(['auth', 'auth.role:admin'])->group(function () {
-    route::get('/HomeTry/Admin',[HomeTryController::class, 'admin']);
+    route::get('/Dashboard',[HomeTryController::class, 'index']);
 });
 
-Route::middleware(['auth', 'auth.role:owner'])->group(function () {
-    route::get('/HomeTry/Owner',[HomeTryController::class, 'owner']);
-});
+ Route::middleware(['auth', 'auth.role:employee'])->group(function () {
+     route::get('/Dashboard',[HomeTryController::class, 'index']);
+ });
 
-route::get('/HomeTry',[HomeTryController::class, 'index']);
+ route::get('/Dashboard',[HomeTryController::class, 'index']);
 
 require __DIR__.'/auth.php';
