@@ -52,6 +52,7 @@
         <div class="right">
             <div class="url"></div>
             <div class="pname"><h2>{{ $product->bdlwrstitle }}</h2></div>
+            <div class=""><h2>{{ $product->bdlwrsid }}</h2></div>
             
             <div class="ratings">
                 <i class="fas fa-star"></i>
@@ -71,7 +72,7 @@
                 <label for="rdate">Returning date:</label>
                 <input type="date" id="rdate" name="rdate">
 
-                <input type="hidden" name = "item_name" value="{{ $product->bdlwrstitle }}">
+                <input type="hidden" name = "item_name" value="{{ $product->bdlwrsid }}">
             </div>
 
             
