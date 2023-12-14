@@ -30,6 +30,16 @@ class HomeTryController extends Controller
                 }
 
             }
+
+
+
+            public function showTotalCustomers()
+    {
+
+        $totalCustomers = User::where('role', 'customer')->count();
+        //dd($totalCustomers);
+        return view('/project/admin/admin_home', compact('totalCustomers'));
+    }
     
 
 
