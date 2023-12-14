@@ -12,7 +12,9 @@ use App\Http\Controllers\PjwelController;
 use App\Http\Controllers\BdlwrController;
 use App\Http\Controllers\PwrController;
 
-use App\Http\Controllers\RatingController;
+use App\Http\Controllers\Admin\RatingController;
+
+
 
 
 use App\Http\Controllers\bookingPediController;
@@ -463,7 +465,7 @@ Route::middleware(['auth', 'auth.role:owner'])->group(function () {
         return view('/project/owner/settings');
     });
 
-    Route::get('/Ratings', function () {
+    Route::get('/ratings', function () {
         return view('resources/views/project/owner/ratings/ratings');
     });
 

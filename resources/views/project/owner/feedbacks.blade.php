@@ -25,11 +25,12 @@
 
                 </div>
 
+                <a href="{{ url('/ratings')}}">Ratings</a>
+
+
                 
 
-                <!-- <a @if(Session::get('page')=="ratings") @endif href="{{url('admin/ratings')}}">Ratings</a> -->
-               <a href="{{ url('/ratings')}}">Ratings</a>
-               
+
             </div>
          </div> 
       </div>
