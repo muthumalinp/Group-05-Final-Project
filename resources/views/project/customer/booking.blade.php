@@ -19,7 +19,10 @@
             width: 200px;
             text-align: left;
         }
-        .hidden-content {
+        .hidden-content-service {
+            display: none;
+        }
+        .hidden-content-stylist {
             display: none;
         }
     </style>
@@ -35,11 +38,12 @@
 
         <label for="serviceCategory">Select a Service Category:</label>
         <!-- <select id="serviceCategory" name="serviceCategory" class = "btn btn-custom"> -->
-        <button type="button" id="hairservices" class="btn btn-custom">   
-        @foreach($HairServices as $HairService)
-                <option value="{{ $HairService }}">{{ $HairService }}</option>
-        @endforeach
-            </button>
+        <button type="button" id="hairservicesCategory" class="btn btn-custom">   
+    @foreach($HairServices as $HairService)
+        <div data-value="{{ $HairService }}">{{ $HairService }}</div>
+    @endforeach
+</button>
+
             <button type="button" class="btn btn-custom">
             @foreach($BridalServices as $BridalService)
                 <option value="{{ $BridalService }}">{{ $BridalService }}</option>
@@ -57,20 +61,23 @@
         </button>
         <br><br>
 
+        
+        <div id="hairServices" class="hidden-content-service">
         <label for="service">Select a Service:</label>
-        <button type="button" class="btn btn-custom"> 
-            @foreach($HairCutsL as $HairCutL)
-                <option value="{{ $HairCutL }}">{{ $HairCutL }}</option>
-            @endforeach
-        </button>
-        <button type="button" class="btn btn-custom"> 
-            @foreach($HairCutsG as $HairCutG)
-                <option value="{{ $HairCutG }}">{{ $HairCutG }}</option>
-            @endforeach
-        </button>
-        </select>
+            <button type="button" class="btn btn-custom">
+                @foreach($HairCutsL as $HairCutL)
+                    <option value="{{ $HairCutL }}">{{ $HairCutL }}</option>
+                @endforeach
+            </button>
+            <button type="button" class="btn btn-custom">
+                @foreach($HairCutsG as $HairCutG)
+                    <option value="{{ $HairCutG }}">{{ $HairCutG }}</option>
+                @endforeach
+            </button>
+        </div>
         <br><br>
 
+        <div class="hidden-content-stylist">
         <label for="stylist">Select a Stylist:</label>
         <select id="stylist" name="stylist">
             @foreach($Hairstylists as $Hairstylist)
@@ -78,6 +85,7 @@
             @endforeach
         </select>
         <br><br>
+        </div>
 
         <label for="datePicker">Select Date and Time:</label>
         <input type="text" id="datePicker" name="bookingDate" readonly>
@@ -96,9 +104,18 @@
 </div>
 
     <script>
-        function handleClick(){
-            
-        }
+       document.addEventListener('DOMContentLoaded', function () {
+        var hairServicesButton = document.getElementById('hairservicesCategory');
+        var hairServicesDiv = document.getElementById('hairServices');
+        var Hairstylist = document.getElementById('')
+
+        hairServicesButton.addEventListener('click', function () {
+            // Toggle the visibility of the hairServices div
+            hairServicesDiv.classList.toggle('hidden-content-service');
+        });
+
+    });
+
 
 
 

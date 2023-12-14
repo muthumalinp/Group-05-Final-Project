@@ -305,7 +305,6 @@ Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index
 
 /*-------- Starter of Admin Routes ---------*/
 
-Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])->name('admin.dashboard');
 
 /*-------- End of Admin Routes ----------*/
 
@@ -548,6 +547,9 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/manage_appointment', function () {
         return view('/project/admin/manage_appoinment');
     });
+    Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])->name('admin.dashboard');
+
+
     Route::get('/manage_product', function () {
         return view('/project/admin/manage_product');
     });
