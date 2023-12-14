@@ -11,6 +11,10 @@ use App\Http\Controllers\BjwelController;
 use App\Http\Controllers\PjwelController;
 use App\Http\Controllers\BdlwrController;
 use App\Http\Controllers\PwrController;
+use App\Http\Controllers\CarteController;
+
+
+
 
 use App\Http\Controllers\Admin\RatingController;
 
@@ -225,6 +229,7 @@ Route::get('/rentbridlwrdisplay', function () {
 
 
 
+
 Route::get('add-bjwel', [BjwelController::class,'create']);
 Route::post('add-bjwel', [BjwelController::class,'store']);
 
@@ -242,6 +247,37 @@ Route::get('/bdlwrs', [BdlwrController::class, 'index']);
 Route::get('/bjwel', [BjwelController::class, 'index']);
 Route::get('/pwr', [PwrController::class, 'index']);
 Route::get('/pjwel', [PjwelController::class, 'index']);
+
+
+
+
+
+
+
+
+Route::get('carte', [PwrController::class, 'carte'])->name('carte');
+Route::post('padd-to-cart/{id}', [PwrController::class, 'addToCart'])->name('padd_to_cart');
+Route::patch('update-cart', [PwrController::class, 'update'])->name('update_cart');
+Route::delete('remove-from-cart', [PwrController::class, 'remove'])->name('remove_from_cart');
+
+Route::get('/bdlwrs', [BdlwrController::class, 'index']);
+Route::get('carte', [BdlwrController::class, 'carte'])->name('carte');
+Route::post('add-to-cart/{id}', [BdlwrController::class, 'addToCart'])->name('add_to_cart');
+Route::patch('update-cart', [BdlwrController::class, 'update'])->name('update_cart');
+Route::delete('remove-from-cart', [BdlwrController::class, 'remove'])->name('remove_from_cart');
+
+
+Route::get('carte', [BjwelController::class, 'carte'])->name('carte');
+Route::get('bjwadd-to-cart/{id}', [BjwelController::class, 'addToCart'])->name('bjwadd_to_cart');
+Route::patch('update-cart', [BjwelController::class, 'update'])->name('update_cart');
+Route::delete('remove-from-cart', [BjwelController::class, 'remove'])->name('remove_from_cart');
+
+
+Route::get('/cart/checkout', [CarteController::class, 'showCheckout'])->name('cart.checkout');
+Route::get('/cart/checkout-info', [CarteController::class, 'showCheckoutInfo'])->name('cart.checkout.info');
+
+
+
 
 
 

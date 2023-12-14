@@ -1,5 +1,8 @@
-@extends('layouts.main')
-@section('title', 'Rent')
+
+
+@extends('layoute')
+    
+@section('contente')
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +12,9 @@
     <link rel="stylesheet" href="{{asset('css/rentdisplay/rentdisplay.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body>
+<body  style =  "background:#e0c2c0">
+
+
 @foreach ($products as $product)
     <nav>
         <ul>
@@ -41,7 +46,8 @@
                 </div>
             </div>
         </div>
-
+        <form action="{{ route('padd_to_cart', $product->id)}}" method="POST">
+        @csrf
         <div class="right">
             <div class="url"></div>
             <div class="pname"><h2>{{ $product->pjwtitle }}</h2></div>
@@ -58,10 +64,10 @@
 
             <div class="date">
                 <label for="borrowingdate">Borrowing date:</label>
-                <input type="date" id="borrowingdate" name="borrowingdate"><br>
+                <input type="date" id="bdate" name="bdate"><br>
 
                 <label for="returningdate">Returning date:</label>
-                <input type="date" id="returningdate" name="returningdate">
+                <input type="date" id="rdate" name="rdate">
 
                     
 
@@ -72,7 +78,8 @@
                 <input type="number" min="1" max="5" value="1">
             </div>
             <div class="btn-box">
-                <button class="cart-btn">Add to Cart</button>
+            <button type="submit">Submit</button>
+            </form> 
               
             </div>
         </div>
@@ -85,6 +92,7 @@
             bigImg.src = pic;
         }
     </script>
+    @endsection
    
 </body>
 </html>
