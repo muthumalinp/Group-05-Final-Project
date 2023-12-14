@@ -128,7 +128,7 @@
 
         </div>
 
-        <a href ="{{url('create')}}">
+        <!-- <a href ="{{url('create')}}">
             <button type="button" class="btn btn-outline-light"><h3>Upload Bridal Jewelleries</h3></button>
             </a>
             
@@ -142,7 +142,7 @@
 
             <a href ="{{url('create4')}}">
             <button type="button" class="btn btn-outline-light"><h3>Upload Party Wears</h3></button>
-            </a>
+            </a> -->
 
             </div>
 

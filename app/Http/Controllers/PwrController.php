@@ -106,8 +106,66 @@ class PwrController extends Controller
         return redirect() ->back()->with('status','Product Data Added Successfully');
 
 
+        
+
+        
+
+
     
 
     }
 
+    public function carte()
+    {
+        return view('carte');
+    }
+    public function addToCart(Request $request, $id)
+    {
+        
+        $pwr = Pwr::findOrFail($id);
+ 
+        $carte = session()->get('carte', []);
+ 
+        if(isset($carte[$id])) {
+            $carte[$id]['quantity']++;
+        }  else {
+            $carte[$id] = [
+                "product_name" => $pwr->pwrstitle,
+                "price" => $pwr->pwrsprice,
+                "quantity" =>1,
+                "bdate" => $request->input('bdate'),
+                "rdate" => $request->input('rdate'),
+            ];
+        }
+ 
+        session()->put('carte', $carte);
+        return redirect()->back()->with('success', 'Product add to cart successfully!');
+    }
+ 
+    public function update(Request $request)
+    {
+        if($request->id && $request->quantity){
+            $carte = session()->get('carte');
+            $carte[$request->id]["quantity"] = $request->quantity;
+            session()->put('carte', $carte);
+            session()->flash('success', 'Cart successfully updated!');
+        }
+    }
+ 
+    public function remove(Request $request)
+    {
+        if($request->id) {
+            $carte = session()->get('carte');
+            if(isset($carte[$request->id])) {
+                unset($carte[$request->id]);
+                session()->put('carte', $carte);
+            }
+            session()->flash('success', 'Product successfully removed!');
+        }
+    }
 }
+
+
+
+
+

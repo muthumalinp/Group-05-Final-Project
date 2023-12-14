@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Bdlwr;
+use Illuminate\Support\Facades\View;
 
 class BdlwrController extends Controller
 {
@@ -103,7 +104,11 @@ class BdlwrController extends Controller
 
 
         $bdlwr->save();
-        return redirect() ->back()->with('status','Product Data Added Successfully');
+        return redirect() ->back()->with([
+            'success' => 'Product added to cart successfully!',
+            'rdate' => $request->input('rdate'),
+            'bdate' => $request->input('bdate'),
+        ]);
 
 
     
@@ -112,4 +117,87 @@ class BdlwrController extends Controller
 
 
 
+
+
+    public function carte()
+    {
+        return view('carte');
+    }
+
+    public function addToCart( Request $request, $id)
+    {
+        
+        $bdlwr = Bdlwr::findOrFail($id);
+ 
+        $carte = session()->get('carte', []);
+
+
+ 
+        if(isset($carte[$id])) {
+            $carte[$id]['quantity']++;
+          } else {
+            $carte[$id] = [
+              "product_name" => $bdlwr->bdlwrstitle,
+              "price" => $bdlwr->bdlwrsprice,
+              "quantity" => 1,
+              "bdate" => $request->input('bdate'),
+            "rdate" => $request->input('rdate'),
+            ];
+          }
+        
+
+
+ 
+        session()->put('carte', $carte);
+        $bdlwr->save();
+        return redirect()->back()->with(['success', 'Product add to cart successfully!', ]);
+    }
+ 
+    public function update(Request $request)
+    {
+        if($request->id && $request->quantity){
+            $carte = session()->get('carte');
+            $carte[$request->id]["quantity"] = $request->quantity;
+            session()->put('carte', $carte);
+            session()->flash('success', 'Cart successfully updated!');
+        }
+    }
+ 
+    public function remove(Request $request)
+    {
+        if($request->id) {
+            $carte = session()->get('carte');
+            if(isset($carte[$request->id])) {
+                unset($carte[$request->id]);
+                session()->put('carte', $carte);
+            }
+            session()->flash('success', 'Product successfully removed!');
+        }
+    }
+
+    public function showCheckoutInfo()
+    {
+        $cartItems = session('carte', []); 
+        
+
+        $total = 0;
+        foreach ($cartItems as $id => $details) {
+            $total += $details['price'] * $details['quantity'];
+        }
+
+       
+
+        return view('checkout_info', compact('cartItems'));
+    }
+
 }
+
+
+
+
+
+
+
+
+
+

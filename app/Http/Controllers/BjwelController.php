@@ -107,6 +107,72 @@ class BjwelController extends Controller
 
     }
 
+    public function carte()
+    {
+        return view('carte');
+    }
+    public function addToCart($id)
+    {
+        
+        $bjwel = Bjwel::findOrFail($id);
+ 
+        $carte = session()->get('carte', []);
+ 
+        if(isset($carte[$id])) {
+            $carte[$id]['quantity']++;
+        }  else {
+            $carte[$id] = [
+                "product_name" => $bjwel->bdlwrstitle,
+                "photo" =>  $bjwel->bdlwrsimg1,
+                "price" => $bjwel->bjwprice,
+                "quantity" => 1
+            ];
+        }
+ 
+        session()->put('carte', $carte);
+        return redirect()->back()->with('success', 'Product add to cart successfully!');
+    }
+ 
+    public function update(Request $request)
+    {
+        if($request->id && $request->quantity){
+            $carte = session()->get('carte');
+            $carte[$request->id]["quantity"] = $request->quantity;
+            session()->put('carte', $carte);
+            session()->flash('success', 'Cart successfully updated!');
+        }
+    }
+ 
+    public function remove(Request $request)
+    {
+        if($request->id) {
+            $carte = session()->get('carte');
+            if(isset($carte[$request->id])) {
+                unset($carte[$request->id]);
+                session()->put('carte', $carte);
+            }
+            session()->flash('success', 'Product successfully removed!');
+        }
+    }
+
+    public function showCheckoutInfo()
+    {
+        $cartItems = session('carte', []); 
+        
+
+        $total = 0;
+        foreach ($cartItems as $id => $details) {
+            $total += $details['price'] * $details['quantity'];
+        }
+
+       
+
+        return view('checkout_info', compact('cartItems'));
+    }
+
+
+
+    
 
 }
 ?>
