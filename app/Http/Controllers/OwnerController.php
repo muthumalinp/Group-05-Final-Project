@@ -10,10 +10,14 @@ use App\Models\Hairstr;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
-
+use Illuminate\Support\Facades\Auth;
 
 class OwnerController extends Controller
 {
+
+    public function index() {
+        
+    }
 
     public function store(Request $request)
 {
