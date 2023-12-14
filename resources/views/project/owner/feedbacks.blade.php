@@ -24,7 +24,7 @@
                 <h3>Products Reviews</h3>
 
                 </div>
-               
+                <a href="{{ url('/ratings')}}">Ratings</a>
             </div>
          </div> 
       </div>
