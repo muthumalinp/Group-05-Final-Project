@@ -1,3 +1,4 @@
+@extends('layouts.admin_navbar')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/admin/layout.css') }}">
 </head>
-<body>
+
+<!--<header>
+            <style>
+                body {
+                    background: #e0c2c0;
+                    margin-top: 30px;
+                    
+                }
+            </style>
+</header> -->
+
+<body style="background-color: #e0c2c0;  margin-top: 70px;">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -25,12 +38,12 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <td>Id</td>
-                                    <td>Product No</td>
-                                    <td>Product Name</td>
-                                    <td>Product Price</td>
-                                    <td>quantity</td>
-                                    <td>Submit</td>
+                                    <td><b>Id</b></td>
+                                    <td><b>Product No</b></td>
+                                    <td><b>Product Name</b></td>
+                                    <td><b>Product Price</b></td>
+                                    <td><b>quantity</b></td>
+                                    <td><b>Submit</b></td>
                                     
                                     
                                 </tr>

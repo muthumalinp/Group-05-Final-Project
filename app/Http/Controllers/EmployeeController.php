@@ -153,5 +153,13 @@ class EmployeeController extends Controller
         return view('employee.leave-requests', ['employee' => $employee, 'leaveRequests' => $leaveRequests]);
     }
 
+
+    public function name()
+    {
+        $profile = Employee::all();
+
+        return view('/project/owner/salary-management/show', ['employees' => $profile]);
+    }
+
     
 }

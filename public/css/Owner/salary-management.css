@@ -119,3 +119,25 @@
       width: 100%;
     }
   }
+
+
+
+
+  
+
+  .employee-profile {
+    border: 3px solid #f0afaf;
+    padding: 75px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    max-width: 400px;
+   
+}
+
+.employee-profile h2 {
+    color: #fa08a1;
+}
+
+.employee-profile p {
+    margin: 10px 0;
+}

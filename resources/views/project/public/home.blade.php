@@ -28,21 +28,27 @@
     </ul>
 
     <!-- Slides -->
-    <div class="carousel-inner container box">
+    <!--<div class="carousel-inner container box"> -->
+    <div class="carousel-inner box">
         <div class="carousel-item active">
             <img src="css/salon_image/4.jpg" >
+            
         </div>
-        <div class="carousel-item container box">
+        <div class="carousel-item  box">
             <img src="css/salon_image/chair.jpg" >
+            
         </div>
-        <div class="carousel-item container box">
+        <div class="carousel-item  box">
             <img src="css/salon_image/hair_styling_resize.jpg" >
+            
         </div>
-        <div class="carousel-item container box">
+        <div class="carousel-item  box">
             <img src="css/salon_image/tattoo.jpg" >
+            
         </div>
-        <div class="carousel-item container box">
+        <div class="carousel-item  box">
             <img src="css/salon_image/bride.jpg" >
+            
         </div>
         <!-- Add more slides as needed -->
     </div>
