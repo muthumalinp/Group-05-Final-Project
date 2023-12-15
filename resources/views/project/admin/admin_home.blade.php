@@ -56,8 +56,7 @@
                         <li><a href="/manage_product" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Product</a>
                         <li><a href="/manage_rented_item" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Rented Item</a>
                         <li><a href="/employee-leaves" class="nav-item nav-link"><i class="fa fa-th me-2"></i>My Leaves</a>
-                        <li><a href="/Home" class="nav-item nav-link"><i class="fa fa-th me-2"></i>LogOut</a>
-                    </ul>
+                        
                 </nav>
         </aside>
         

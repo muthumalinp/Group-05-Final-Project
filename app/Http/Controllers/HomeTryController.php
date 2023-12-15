@@ -16,8 +16,6 @@ class HomeTryController extends Controller
                 if($role == 'customer') {
                     return view('project.customer.dashboard');
                 }
-                // if(Auth::id()) {
-                //     $role = Auth()->user()->role;
                 else if($role == 'owner') {
                         return view('project.owner.owner');
                     }
@@ -33,13 +31,7 @@ class HomeTryController extends Controller
 
 
 
-            public function showTotalCustomers()
-    {
-
-        $totalCustomers = User::where('role', 'customer')->count();
-        //dd($totalCustomers);
-        return view('/project/admin/admin_home', compact('totalCustomers'));
-    }
+   
     
 
 

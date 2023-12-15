@@ -25,6 +25,9 @@
         .hidden-content-stylist {
             display: none;
         }
+        .hidden-content-date {
+            display: none;
+        }
     </style>
 </head>
 
@@ -64,7 +67,7 @@
         
         <div id="hairServices" class="hidden-content-service">
         <label for="service">Select a Service:</label>
-            <button type="button" class="btn btn-custom">
+            <button type="button" id="haircutLadies" class="btn btn-custom">
                 @foreach($HairCutsL as $HairCutL)
                     <option value="{{ $HairCutL }}">{{ $HairCutL }}</option>
                 @endforeach
@@ -77,7 +80,7 @@
         </div>
         <br><br>
 
-        <div class="hidden-content-stylist">
+        <div id="stylists" class="hidden-content-stylist">
         <label for="stylist">Select a Stylist:</label>
         <select id="stylist" name="stylist">
             @foreach($Hairstylists as $Hairstylist)
@@ -87,6 +90,7 @@
         <br><br>
         </div>
 
+        <div id="Date&Time" class="hidden-content-date">
         <label for="datePicker">Select Date and Time:</label>
         <input type="text" id="datePicker" name="bookingDate" readonly>
         <br><br>
@@ -97,7 +101,8 @@
                 <option value="{{ $timeSlot }}">{{ $timeSlot }}</option>
             @endforeach
         </select>
-        <br><br>  
+        <br><br>
+        </div>
 
         <input type="submit" value="Submit">
     </form>
@@ -107,11 +112,22 @@
        document.addEventListener('DOMContentLoaded', function () {
         var hairServicesButton = document.getElementById('hairservicesCategory');
         var hairServicesDiv = document.getElementById('hairServices');
-        var Hairstylist = document.getElementById('')
+        var Stylist = document.getElementById('stylists');
+        var DateTime = document.getElementById('Date&Time');
 
         hairServicesButton.addEventListener('click', function () {
             // Toggle the visibility of the hairServices div
             hairServicesDiv.classList.toggle('hidden-content-service');
+        });
+
+        hairServicesDiv.addEventListener('click', function () {
+            // Toggle the visibility of the hairServices div
+            Stylist.classList.toggle('hidden-content-stylist');
+        });
+
+        Stylist.addEventListener('click', function () {
+            // Toggle the visibility of the hairServices div
+            DateTime.classList.toggle('hidden-content-date');
         });
 
     });

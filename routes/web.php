@@ -582,9 +582,7 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/manage_appointment', function () {
         return view('/project/admin/manage_appoinment');
     });
-    Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])->name('admin.dashboard');
-
-
+    
     Route::get('/manage_product', function () {
         return view('/project/admin/manage_product');
     });
