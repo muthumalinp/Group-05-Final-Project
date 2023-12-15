@@ -11,6 +11,7 @@ use App\Http\Controllers\BjwelController;
 use App\Http\Controllers\PjwelController;
 use App\Http\Controllers\BdlwrController;
 use App\Http\Controllers\PwrController;
+use App\Http\Controllers\CarteController;
 
 
 use App\Http\Controllers\bookingPediController;
@@ -242,6 +243,36 @@ Route::get('/pjwel', [PjwelController::class, 'index']);
 
 
 
+
+
+
+
+Route::get('carte', [PwrController::class, 'carte'])->name('carte');
+Route::post('padd-to-cart/{id}', [PwrController::class, 'addToCart'])->name('padd_to_cart');
+Route::patch('update-cart', [PwrController::class, 'update'])->name('update_cart');
+Route::delete('remove-from-cart', [PwrController::class, 'remove'])->name('remove_from_cart');
+
+Route::get('/bdlwrs', [BdlwrController::class, 'index']);
+Route::get('carte', [BdlwrController::class, 'carte'])->name('carte');
+Route::post('add-to-cart/{id}', [BdlwrController::class, 'addToCart'])->name('add_to_cart');
+Route::patch('update-cart', [BdlwrController::class, 'update'])->name('update_cart');
+Route::delete('remove-from-cart', [BdlwrController::class, 'remove'])->name('remove_from_cart');
+
+
+Route::get('carte', [BjwelController::class, 'carte'])->name('carte');
+Route::get('bjwadd-to-cart/{id}', [BjwelController::class, 'addToCart'])->name('bjwadd_to_cart');
+Route::patch('update-cart', [BjwelController::class, 'update'])->name('update_cart');
+Route::delete('remove-from-cart', [BjwelController::class, 'remove'])->name('remove_from_cart');
+
+
+Route::get('/cart/checkout', [CarteController::class, 'showCheckout'])->name('cart.checkout');
+Route::get('/cart/checkout-info', [CarteController::class, 'showCheckoutInfo'])->name('cart.checkout.info');
+
+
+
+
+
+
 Route::get('/Booking-Customer', function () {
     return view('/project/customer/booking');
 })->name('customer.booking');
@@ -293,7 +324,7 @@ Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index
 
 /*-------- Starter of Admin Routes ---------*/
 
-Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])->name('admin.dashboard');
+
 
 /*-------- End of Admin Routes ----------*/
 
@@ -387,12 +418,8 @@ Route::get('/emplLeave', function () {
 Auth::routes();
 
 
-/*-------- customer data form --------*/
-Route::get('/customer_details',[ShowController::class,'show']);
 
-/*-------- product data form --------*/
-Route::get('/manage_product',[ShowController::class,'item']);
-Route::get('/delivered_product',[ShowController::class,'cell']);
+
 
 
 
@@ -545,6 +572,17 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/setting', function () {
         return view('/project/admin/setting');
     });
+
+    
+    
+    /*-------- customer data form --------*/
+    Route::get('/customer_details',[ShowController::class,'show']);
+
+    /*-------- product data form --------*/
+    Route::get('/manage_product',[ShowController::class,'item']);
+    Route::get('/delivered_product',[ShowController::class,'cell']);
+
+
 });
 
 Route::get('/dashboard', function () {
@@ -562,5 +600,7 @@ Route::middleware(['auth', 'auth.role:owner'])->group(function () {
 });
 
  route::get('/Dashboard',[HomeTryController::class, 'index']);
+
+ 
 
 require __DIR__.'/auth.php';

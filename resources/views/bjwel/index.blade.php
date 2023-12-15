@@ -1,6 +1,5 @@
 
 @extends('layoute')
-    
 @section('contente')
 <html lang="en">
 <head>
