@@ -486,6 +486,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'auth.role:owner'])->group(function () {
     route::get('/Dashboard',[HomeTryController::class, 'index']);
+    
     Route::get('/Leave-Request', [RequestEmployeeLeaveController::class, 'index']);
     
     Route::any('/accept-leave/{id}', [RequestEmployeeLeaveController::class, 'acceptLeave'])->name('acceptLeave');
