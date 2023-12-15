@@ -21,28 +21,28 @@
                     </div>
 
                     <div class="card-body">
-                        <table class="table table-bordered table-striped">
-                            <thead>
+                        <table id="deliveredTable"  class="table table-bordered table-striped">
+                        <thead>
                                 <tr>
-                                    <td>Id</td>
-                                    <td>Product No</td>
-                                    <td>Product Name</td>
-                                    <td>Product Price</td>
-                                    <td>quantity</td>
-                                    
+                                    <td><b>Id</b></td>
+                                    <td><b>Product No</b></td>
+                                    <td><b>Product Name</b></td>
+                                    <td><b>Product Price</b></td>
+                                    <td><b>quantity</b></td>
+                                    <td><b>Submit</b></td>
                                     
                                     
                                 </tr>
                             </thead>
 
                             <tbody>
-                            @foreach($buy as $buy)
+                            @foreach($sell as $sell)
                                 <tr>
-                                    <td>{{$buy->id}}</td>
-                                    <td>{{$buy->product_no}}</td>
-                                    <td>{{$buy->product_name}}</td>
-                                    <td>{{$buy->product_price}}</td>
-                                    <td>{{$buy->quantity}}</td>
+                                    <td>{{$sell->id}}</td>
+                                    <td>{{$sell->product_no}}</td>
+                                    <td>{{$sell->product_name}}</td>
+                                    <td>{{$sell->product_price}}</td>
+                                    <td>{{$sell->quantity}}</td>
                                     
                                     
 
