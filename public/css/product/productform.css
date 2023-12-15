@@ -126,6 +126,11 @@ body{
     padding: 0 20px;
 }
 
+.products .card .prono{
+      font-size: 15px;
+    padding: 0 20px;
+}
+
 .products .card .box{
     display: flex;
     justify-content: space-between;

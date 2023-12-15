@@ -57,6 +57,7 @@ session_start();
                 <form action="/Product/ManageCart" method="GET">
                     <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
                     <div class="desc">Dreamdron</div>
+                    <!-- <div class="prono">Product No : hs1</div> -->
                     <!--<div class="box">
                         <div class="desc">Dreamdron</div>
                         <button type="submit" name="review" class="btn">Review</button>
@@ -83,7 +84,7 @@ session_start();
                 <form action="/Product/ManageCart" method="GET">
                     <div class="img"><img src="css/hairstr12.jpg" alt="" ></div>
                     <div class="desc">Bellose</div>
-                    <!-- <div class="pn">222</div> -->
+                    <!-- <div class="prono">Product No : hs2</div> -->
                     <div class="box">
                         <div class="price">Rs.6500</div>
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
@@ -101,7 +102,7 @@ session_start();
                 <form action="/Product/ManageCart" method="GET">
                     <div class="img"><img src="{{ asset('css/hairstr14.jpg') }}" alt="" ></div>
                     <div class="desc">Xtenso</div>
-                    <!-- <div class="pn">333</div> -->
+                    <!-- <div class="prono">Product No : hs3</div> -->
                     <div class="box">
                         <div class="price">Rs.7500</div>
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
@@ -119,7 +120,7 @@ session_start();
                 <form action="/Product/ManageCart" method="GET">
                     <div class="img"><img src="{{ asset('css/hairstr14.jpg') }}" alt="" ></div>
                     <div class="desc">Streax-Canvo</div>
-                    <!-- <div class="pn">444</div> -->
+                    <!-- <div class="prono">Product No : hs4</div> -->
                     <div class="box">
                         <div class="price">Rs.4500</div>
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>

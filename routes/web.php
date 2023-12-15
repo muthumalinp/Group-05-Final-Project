@@ -37,6 +37,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EmployeeRegistered;
+use App\Http\Controllers\ProductController;
 
 /*Route::get('/test-email', function () {
     $employeeData = ['emp_fname' => 'muthumali', 'emp_email' => 'muthumalinp@gamil.com'];
@@ -45,7 +46,6 @@ use App\Mail\EmployeeRegistered;
 });*/
 
 
-use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,7 +64,7 @@ Route::post('Create11',[HairstrController::class,'store']);
 Route::get('Edit1/{id}',[HairstrController::class,'edit1']);
 Route::get('Delete1/{id}',[HairstrController::class,'delete1']);
 Route::put('Update1/{id}', [HairstrController::class, 'update1']);
-Route::post('/products', [ProductController::class, 'store'])->name('cartstore');
+Route::post('/products', [ProductController::class, 'cartstore'])->name('cartstore');
 
 
 
