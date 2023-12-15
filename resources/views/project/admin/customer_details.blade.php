@@ -1,4 +1,4 @@
-@extends('layouts1.admin_navbar')
+@extends('layouts.admin_navbar')
 <!DOCTYPE html>
 <html lang="en">
 <head>

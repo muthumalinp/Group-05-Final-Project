@@ -16,6 +16,8 @@ class HomeTryController extends Controller
                 if($role == 'customer') {
                     return view('project.customer.dashboard');
                 }
+                // if(Auth::id()) {
+                //     $role = Auth()->user()->role;
                 else if($role == 'owner') {
                         return view('project.owner.owner');
                     }
@@ -31,24 +33,10 @@ class HomeTryController extends Controller
 
 
 
-   
     
 
 
-
-    // public function admin() {
-    //     if(Auth::id()) {
-    //         $role = Auth()->user()->role;
-            
-    //     }
-    // }
-
-    // public function employee() {
-    //     if(Auth::id()) {
-    //         $role = Auth()->user()->role;
-            
-    //     }
-    // }
+   
 }
 
 
