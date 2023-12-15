@@ -109,8 +109,7 @@
                         
                     </div>
                     <div class="card">
-                        <h1 style="color:#633030; font-weight:bold">Total Customers</h1>
-                        <h2><b>Total Customers: {{ $totalCustomers }}</b><h2>
+                        
                         <img src="{{ asset('css/admin/customer.jpeg') }}" alt="Admin" width="150px" height="60px" class="mx-auto d-block img-fluid">
                         
                         <h2>Available Rent Items</h2>
