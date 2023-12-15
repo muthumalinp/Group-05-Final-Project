@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 Use App\Models\User;
 Use App\Models\Product;
+use App\Models\Owner;
 
 
 class ShowController extends Controller
@@ -36,6 +37,9 @@ class ShowController extends Controller
         return view('/project/admin/delivered_product',compact('buy'));
         
     }
+
+   
+    
 
     
 

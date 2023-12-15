@@ -1,5 +1,7 @@
-@extends('layouts.main')
-@section('title', 'Rent')
+
+@extends('layoute')
+    
+@section('contente')
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +11,7 @@
     <link rel="stylesheet" href="{{asset('css/rentdisplay/rentdisplay.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body>
+<body  style =  "background:#e0c2c0">
 @foreach ($products as $product)
     <nav>
         <ul>
@@ -72,7 +74,7 @@
                 <input type="number" min="1" max="5" value="1">
             </div>
             <div class="btn-box">
-                <button class="cart-btn">Add to Cart</button>
+            <p class="btn-holder"><a href="{{ route('bjwadd_to_cart', $product->id) }}" class="btn btn-primary btn-block text-center" role="button">Add to cart</a> </p>
               
             </div>
         </div>
@@ -85,6 +87,6 @@
             bigImg.src = pic;
         }
     </script>
-   
+   @endsection
 </body>
 </html>

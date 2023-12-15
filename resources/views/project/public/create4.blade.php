@@ -1,7 +1,7 @@
 @extends('layouts1.main')
 @section('title', 'Rent')
 
-@extends('layouts.app')
+@extends('layouts1.app')
 
 
 @section('content')
