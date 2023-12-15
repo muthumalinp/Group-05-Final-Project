@@ -43,10 +43,14 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EventCalendarController;
 use App\Http\Controllers\UploadimageController;
 use App\Models\EventCalendar;
+<<<<<<< Updated upstream
 
 //use App\Http\Controllers\Admin\RatingController;
 //use App\Http\Controllers\Front\RatingController as ;
 
+=======
+use App\Models\Renteditems;
+>>>>>>> Stashed changes
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -602,7 +606,8 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
 
     /*-------- product data form --------*/
     Route::get('/manage_product',[ShowController::class,'item']);
-    Route::get('/delivered_product',[ShowController::class,'cell']);
+    Route::get('/manage_rented_item',[ShowController::class,'cell']);
+    Route::get('/returned_rented_item',[ShowController::class,'rent']);
 
 
 });
