@@ -1,22 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
-// Example in a controller
 use App\Models\Product;
-
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function store(Request $request)
+    public function cartstore(Request $request)
     {
         $product = Product::create([
-            'Product No' => $request->input('product_no'),
-            'Product Name' => $request->input('product_name'),
-            'Product Price' => $request->input('product_price'),
-            'Quantity' => $request->input('quantity'),
+            'productno' => $request->input('product_no'),
+            'productname' => $request->input('product_name'),
+            'iprice' => $request->input('product_price'),
+            'iquantity' => $request->input('quantity'),
+            'itotal' => $request->input('total'),
         ]);
 
           return redirect()->route('cartstore');

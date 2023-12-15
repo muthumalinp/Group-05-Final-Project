@@ -43,10 +43,21 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EmployeeRegistered;
-use App\Http\Controllers\RequestEmployeeLeaveController;
+
 use App\Http\Controllers\ProductController;
+
+/*Route::get('/test-email', function () {
+    $employeeData = ['emp_fname' => 'muthumali', 'emp_email' => 'muthumalinp@gamil.com'];
+    Mail::to('muthumalinp@gmail.com')->send(new EmployeeRegistered($employeeData));
+    return 'Test email sent successfully';
+});*/
+
+
+
+use App\Http\Controllers\RequestEmployeeLeaveController;
 use App\Http\Controllers\EventCalendarController;
 use App\Models\EventCalendar;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,7 +76,7 @@ Route::post('Create11',[HairstrController::class,'store']);
 Route::get('Edit1/{id}',[HairstrController::class,'edit1']);
 Route::get('Delete1/{id}',[HairstrController::class,'delete1']);
 Route::put('Update1/{id}', [HairstrController::class, 'update1']);
-Route::post('/products', [ProductController::class, 'store'])->name('cartstore');
+Route::post('/products', [ProductController::class, 'cartstore'])->name('cartstore');
 
 
 
@@ -396,6 +407,7 @@ Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index
 /***********************************************************/
 
 
+
 Auth::routes();
 
 
@@ -433,6 +445,7 @@ Route::get('/emplLeave', function () {
 
 
 /*-------- End of Employee Routes ----------*/
+
 
 Auth::routes();
 
@@ -608,6 +621,22 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     /*-------- product data form --------*/
 Route::get('/manage_product',[ShowController::class,'item']);
 Route::get('/delivered_product',[ShowController::class,'cell']);
+
+
+/*-------- manage appoinment form --------*/
+Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);
+
+
+
+use App\Http\Controllers\EventCalendarController;
+use App\Models\EventCalendar;
+
+Route::get('/geteventcalendar',[EventCalendarController::class,'geteventcalendar']);
+Route::get('/createeventcalendar',[EventCalendarController::class,'createeventcalendar']);
+Route::get('/deleteeventcalendar',[EventCalendarController::class,'deleteeventcalendar']);
+
+Route::get('/', function () {
+    return view('project.public.home');
 
 });
 

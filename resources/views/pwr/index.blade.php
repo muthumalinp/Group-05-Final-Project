@@ -1,8 +1,7 @@
 
+@extends('layouts1.main')
+@section('title', 'Rent')
 
-@extends('layoute')
-    
-@section('contente')
 <html lang="en">
 <head>
     <meta charset="UTF-8">

@@ -11,10 +11,11 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('product_no');
+            $table->string('product_no')->default('1');
             $table->string('product_name');
             $table->decimal('product_price',10,2);
             $table->integer('quantity');
+            $table->integer('total');
             $table->timestamps();
         });
     }
