@@ -37,7 +37,7 @@ class EmployeeSeeder extends Seeder
                 'emp_lname' => 'De Silva',
                 'emp_jobtitles' => ['Hairstylist', 'NailArtist', 'BridalDresser'],
                 'emp_phone' => '987654321',
-                'emp_email' => 'yeshan@gmail.com',
+                'emp_email' => 'employee@example.com',
                 'emp_bsalary' => '60000',
                 'emp_rewards' => '7',
             ],

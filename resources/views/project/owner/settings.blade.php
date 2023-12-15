@@ -22,7 +22,7 @@
             <p>Salon Details <a href="{{url('/salon-details')}}" class="btn btn-success btn-sm float-end"> Edit Salon Details</a> </p>
          </div>
          <div class="card">
-            <p>Home images <a href="{{url('/uploadimage')}}" class="btn btn-success btn-sm float-end"> Edit Home Page</a> </p> 
+            <p>Home images <a href="{{url('/home-page')}}" class="btn btn-success btn-sm float-end"> Edit Home Page</a> </p> 
          </div>
          <div class="card">
             <p>Gallery <a href="{{url('/gallery-page')}}" class="btn btn-success btn-sm float-end"> Edit Gallery Page</a> </p>
