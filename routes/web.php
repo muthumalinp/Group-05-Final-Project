@@ -324,7 +324,7 @@ Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index
 
 /*-------- Starter of Admin Routes ---------*/
 
-Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])->name('admin.dashboard');
+
 
 /*-------- End of Admin Routes ----------*/
 
@@ -418,12 +418,8 @@ Route::get('/emplLeave', function () {
 Auth::routes();
 
 
-/*-------- customer data form --------*/
-Route::get('/customer_details',[ShowController::class,'show']);
 
-/*-------- product data form --------*/
-Route::get('/manage_product',[ShowController::class,'item']);
-Route::get('/delivered_product',[ShowController::class,'cell']);
+
 
 
 
@@ -576,6 +572,17 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/setting', function () {
         return view('/project/admin/setting');
     });
+
+    
+    
+    /*-------- customer data form --------*/
+    Route::get('/customer_details',[ShowController::class,'show']);
+
+    /*-------- product data form --------*/
+    Route::get('/manage_product',[ShowController::class,'item']);
+    Route::get('/delivered_product',[ShowController::class,'cell']);
+
+
 });
 
  Route::middleware(['auth', 'auth.role:employee'])->group(function () {
@@ -584,5 +591,7 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
  });
 
  route::get('/Dashboard',[HomeTryController::class, 'index']);
+
+ 
 
 require __DIR__.'/auth.php';
