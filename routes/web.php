@@ -13,6 +13,8 @@ use App\Http\Controllers\BdlwrController;
 use App\Http\Controllers\PwrController;
 use App\Http\Controllers\CarteController;
 
+//use App\Http\Controllers\RatingController;
+use App\Http\Controllers\Admin\RatingController;
 
 use App\Http\Controllers\bookingPediController;
 use App\Http\Controllers\ShowController;
@@ -291,6 +293,14 @@ use App\Http\Controllers\AppointmentController;
 
 use App\Http\Controllers\BookingController;
 
+use App\Http\Controllers\Front\RatingController as FrontRatingController;
+
+Route::get('/reviewform', function () {
+    return view('/project/public/reviewform');
+});
+//Add Rating/Review
+Route::post('add-rating', [FrontRatingController::class, 'addRating'])->name('add-rating');
+
 // Other routes...
 
 // Use the 'index' method for the '/BookNow' route
@@ -480,7 +490,11 @@ Route::middleware(['auth', 'auth.role:owner'])->group(function () {
     });
 
     //Ratings
-    Route::get('ratings', 'RatingController@index')->name('ratings');
+    Route::get('/ratings', function () {
+        return view('resources/views/project/owner/ratings/ratings');
+    });
+    //Route::get('ratings', 'RatingController@index')->name('ratings');
+    Route::get('ratings', [RatingController::class, 'ratings']);
 
 
     /*-----employee button route-----*/
