@@ -39,11 +39,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="/employee-meetings">
-                                <i class="bi bi-bar-chart"></i> Meetings
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link " href="/employee-leaves">
                                 <i class="bi bi-bookmarks"></i> My Leaves
                             </a>
@@ -69,7 +64,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/logout"
+                            <a class="nav-link" href="/employee-logout"
                                  onclick="confirmLogout(event)">
                                 <i class="bi bi-box-arrow-left"></i> Logout
                             </a>
