@@ -52,6 +52,11 @@ use App\Http\Controllers\ProductController;
 });*/
 
 
+
+use App\Http\Controllers\RequestEmployeeLeaveController;
+use App\Http\Controllers\EventCalendarController;
+use App\Models\EventCalendar;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -401,6 +406,7 @@ Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index
 /***********************************************************/
 
 
+
 Auth::routes();
 
 
@@ -438,6 +444,7 @@ Route::get('/emplLeave', function () {
 
 
 /*-------- End of Employee Routes ----------*/
+
 
 Auth::routes();
 
