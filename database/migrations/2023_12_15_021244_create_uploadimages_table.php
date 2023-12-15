@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ratings', function (Blueprint $table) {
+        Schema::create('uploadimages', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id'); 
-            $table->integer('product_id');
-            $table->text('review');
-            $table->integer('rating');
-            $table->tinyInteger('status');
+            $table->string('page_name');
+            $table->string('image_name');
+            $table->string('profile_image');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ratings');
+        Schema::dropIfExists('uploadimages');
     }
 };
