@@ -41,7 +41,12 @@ use App\Mail\EmployeeRegistered;
 use App\Http\Controllers\RequestEmployeeLeaveController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EventCalendarController;
+use App\Http\Controllers\UploadimageController;
 use App\Models\EventCalendar;
+
+//use App\Http\Controllers\Admin\RatingController;
+//use App\Http\Controllers\Front\RatingController as ;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,6 +67,7 @@ Route::get('Delete1/{id}',[HairstrController::class,'delete1']);
 Route::put('Update1/{id}', [HairstrController::class, 'update1']);
 Route::post('/products', [ProductController::class, 'store'])->name('cartstore');
 
+//Rating********
 
 
 Route::get('/Home', function () {
@@ -148,8 +154,10 @@ Route::get('/LogIn', function () {
     return view('/project/public/login');
 });
 
-
-
+// IMAGE - CRUD ***********************************************
+Route::get('uploadimage', [UploadimageController::class, 'imageUp']);
+Route::get('add-uploadimage', [UploadimageController::class, 'create']);
+Route::post('add-uploadimage', [UploadimageController::class, 'store']);
 // Route::get('/Dashboard-Customer', function () {
 //     return view('/project/customer/dashboard');
 // })->name('customer.dashboard');

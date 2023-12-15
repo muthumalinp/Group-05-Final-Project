@@ -16,25 +16,13 @@
   
    <body>
    @section('cont')
-      <div class="main_container">
-         <div class="container">
-            <div class="Header">Customer Feedbacks</div>
-            <div class="info">
-                <div>
-                <h3>Products Reviews</h3>
-
-                </div>
-
-                <a href="{{ url('/ratings')}}">Ratings</a>
-
-
-                
-
-
-            </div>
-         </div> 
+      <h2>Customer Feedbacks</h2>
+      <div class="cards" style="margin-top:50px">
+         <div class="card">
+            <p>Products Reviews <a href="{{url('/ratings')}}" class="btn btn-success btn-sm float-end"> Products Ratings</a> </p>
+         </div>
       </div>
       
-    @endsection  
+   @endsection
    </body>
 </html>
