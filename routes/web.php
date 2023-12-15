@@ -11,14 +11,6 @@ use App\Http\Controllers\BjwelController;
 use App\Http\Controllers\PjwelController;
 use App\Http\Controllers\BdlwrController;
 use App\Http\Controllers\PwrController;
-use App\Http\Controllers\CarteController;
-
-
-
-
-use App\Http\Controllers\Admin\RatingController;
-
-
 
 
 use App\Http\Controllers\bookingPediController;
@@ -43,21 +35,10 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EmployeeRegistered;
-
-use App\Http\Controllers\ProductController;
-
-/*Route::get('/test-email', function () {
-    $employeeData = ['emp_fname' => 'muthumali', 'emp_email' => 'muthumalinp@gamil.com'];
-    Mail::to('muthumalinp@gmail.com')->send(new EmployeeRegistered($employeeData));
-    return 'Test email sent successfully';
-});*/
-
-
-
 use App\Http\Controllers\RequestEmployeeLeaveController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EventCalendarController;
 use App\Models\EventCalendar;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,7 +57,7 @@ Route::post('Create11',[HairstrController::class,'store']);
 Route::get('Edit1/{id}',[HairstrController::class,'edit1']);
 Route::get('Delete1/{id}',[HairstrController::class,'delete1']);
 Route::put('Update1/{id}', [HairstrController::class, 'update1']);
-Route::post('/products', [ProductController::class, 'cartstore'])->name('cartstore');
+Route::post('/products', [ProductController::class, 'store'])->name('cartstore');
 
 
 
@@ -240,7 +221,6 @@ Route::get('/rentbridlwrdisplay', function () {
 
 
 
-
 Route::get('add-bjwel', [BjwelController::class,'create']);
 Route::post('add-bjwel', [BjwelController::class,'store']);
 
@@ -262,37 +242,6 @@ Route::get('/pjwel', [PjwelController::class, 'index']);
 
 
 
-
-
-
-
-Route::get('carte', [PwrController::class, 'carte'])->name('carte');
-Route::post('padd-to-cart/{id}', [PwrController::class, 'addToCart'])->name('padd_to_cart');
-Route::patch('update-cart', [PwrController::class, 'update'])->name('update_cart');
-Route::delete('remove-from-cart', [PwrController::class, 'remove'])->name('remove_from_cart');
-
-Route::get('/bdlwrs', [BdlwrController::class, 'index']);
-Route::get('carte', [BdlwrController::class, 'carte'])->name('carte');
-Route::post('add-to-cart/{id}', [BdlwrController::class, 'addToCart'])->name('add_to_cart');
-Route::patch('update-cart', [BdlwrController::class, 'update'])->name('update_cart');
-Route::delete('remove-from-cart', [BdlwrController::class, 'remove'])->name('remove_from_cart');
-
-
-Route::get('carte', [BjwelController::class, 'carte'])->name('carte');
-Route::get('bjwadd-to-cart/{id}', [BjwelController::class, 'addToCart'])->name('bjwadd_to_cart');
-Route::patch('update-cart', [BjwelController::class, 'update'])->name('update_cart');
-Route::delete('remove-from-cart', [BjwelController::class, 'remove'])->name('remove_from_cart');
-
-
-Route::get('/cart/checkout', [CarteController::class, 'showCheckout'])->name('cart.checkout');
-Route::get('/cart/checkout-info', [CarteController::class, 'showCheckoutInfo'])->name('cart.checkout.info');
-
-
-
-
-
-
-
 Route::get('/Booking-Customer', function () {
     return view('/project/customer/booking');
 })->name('customer.booking');
@@ -310,16 +259,6 @@ use App\Http\Controllers\AppointmentController;
 // Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
 
 use App\Http\Controllers\BookingController;
-use App\Http\Controllers\Front\RatingController as FrontRatingController;
-
-Route::get('/reviewform', function () {
-    return view('/project/public/reviewform');
-});
-//Add Rating/Review
-Route::post('add-rating', [FrontRatingController::class, 'addRating'])->name('add-rating');
-
-//Route::get('add-rating', [RatingController::class, 'addRating']);
-
 
 // Other routes...
 
@@ -354,7 +293,7 @@ Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index
 
 /*-------- Starter of Admin Routes ---------*/
 
-
+Route::get('/Dashboard-Admin',[CustomerController::class,'showTotalCustomers'])->name('admin.dashboard');
 
 /*-------- End of Admin Routes ----------*/
 
@@ -407,7 +346,6 @@ Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index
 /***********************************************************/
 
 
-
 Auth::routes();
 
 
@@ -446,13 +384,15 @@ Route::get('/emplLeave', function () {
 
 /*-------- End of Employee Routes ----------*/
 
-
 Auth::routes();
 
 
+/*-------- customer data form --------*/
+Route::get('/customer_details',[ShowController::class,'show']);
 
-
-
+/*-------- product data form --------*/
+Route::get('/manage_product',[ShowController::class,'item']);
+Route::get('/delivered_product',[ShowController::class,'cell']);
 
 
 
@@ -488,7 +428,7 @@ Route::middleware(['auth', 'auth.role:owner'])->group(function () {
     route::get('/Dashboard',[HomeTryController::class, 'index']);
     
     Route::get('/Leave-Request', [RequestEmployeeLeaveController::class, 'index']);
-    
+    Route::post('/submit-leave-request', [RequestEmployeeLeaveController::class, 'submitLeaveRequest']);
     Route::any('/accept-leave/{id}', [RequestEmployeeLeaveController::class, 'acceptLeave'])->name('acceptLeave');
     Route::delete('/reject-leave/{id}', [RequestEmployeeLeaveController::class, 'rejectLeave'])->name('rejectLeave');
 
@@ -512,15 +452,8 @@ Route::middleware(['auth', 'auth.role:owner'])->group(function () {
         return view('/project/owner/settings');
     });
 
-    Route::get('/ratings', function () {
-        return view('resources/views/project/owner/ratings/ratings');
-    });
-
-    //Route::get('ratings','RatingController@ratings');
-    Route::get('ratings', [RatingController::class, 'ratings']);
-
     //Ratings
-    //Route::get('ratings', 'RatingController@index')->name('ratings');
+    Route::get('ratings', 'RatingController@index')->name('ratings');
 
 
     /*-----employee button route-----*/
@@ -612,43 +545,13 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/setting', function () {
         return view('/project/admin/setting');
     });
-    Route::get('/returned_rented_item', function () {
-        return view('/project/admin/returned_rented_item');
-    });
-
-    /*-------- customer data form --------*/
-    Route::get('/customer_details',[ShowController::class,'show']);
-
-    /*-------- product data form --------*/
-    Route::get('/manage_product',[ShowController::class,'item']);
-    Route::get('/delivered_product',[ShowController::class,'cell']);
-
-
-
-    /*-------- manage appoinment form --------*/
-    Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);
-
-    //Route::get('/', function () {
-        //return view('project.public.home');
-    
-    //Products Adding Routes begin
-    Route::get('Index1',[HairstrController::class,'index1']);
 });
-
-
-
-
-
-
 
  Route::middleware(['auth', 'auth.role:employee'])->group(function () {
      route::get('/Dashboard',[HomeTryController::class, 'index']);
-     Route::post('/submit-leave-request', [RequestEmployeeLeaveController::class, 'submitLeaveRequest']);
 
  });
 
  route::get('/Dashboard',[HomeTryController::class, 'index']);
-
- Route::get('/Dashboard',[HomeTryController::class,'showTotalCustomers'])->name('admin.home');
 
 require __DIR__.'/auth.php';
