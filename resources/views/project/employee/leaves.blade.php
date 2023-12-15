@@ -198,10 +198,10 @@
                                                     >
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label for="input4">Mobile Number</label>
+                                                <label for="input4">Email</label>
                                                 <input type="text" class="form-control" id="input4"
-                                                    name="contact_number" value=""
-                                                    placeholder="Enter Mobile Numbe">
+                                                    name="email" value=""
+                                                    placeholder="Enter Email">
                                             </div>
                                         </div>
 
