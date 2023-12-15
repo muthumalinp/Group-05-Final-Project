@@ -585,10 +585,19 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
 
 });
 
- Route::middleware(['auth', 'auth.role:employee'])->group(function () {
-     route::get('/Dashboard',[HomeTryController::class, 'index']);
+Route::get('/dashboard', function () {
+    return view('project.customer.dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
- });
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth', 'auth.role:owner'])->group(function () {
+    route::get('/HomeTry/Owner',[HomeTryController::class, 'owner']);
+});
 
  route::get('/Dashboard',[HomeTryController::class, 'index']);
 

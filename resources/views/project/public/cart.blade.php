@@ -78,10 +78,7 @@ session_start();
                                         <td class='productno'>$pn</td>
                                         <td class='productname'>$value[desc]</td>
                                         <td>$value[price]<input type='hidden' class='iprice' value='$value[price]'></td>
-                                        <td>
-                                            <form action='/Product/ManageCart' method='GET'>
-                                            <input class='taxt-center iquantity' name='Mod_Quantity' onchange='this.for.submit();' type='number' value='$value[Quantity]' min='1' max='10'></td>
-                                            </form>
+                                        <td><input class='taxt-center iquantity' onchange='subTotal()' type='number' value='$value[Quantity]' min='1' max='10'></td>
                                         <td class='itotal'></td>
                                         <td>
                                             <form action='/Product/ManageCart' method='GET'>
@@ -116,9 +113,9 @@ session_start();
                             </label>
                         </div>-->
                         <br>
-                        <!-- <a href="/Product/MakePurchase"> -->
+                        <a href="/Product/MakePurchase">
                     <button id="btn">Make Purchase</button>
-                <!-- </a> -->
+                </a>
                    <!-- </form>-->
                 </div>
                 </div>
