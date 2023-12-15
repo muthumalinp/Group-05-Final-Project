@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone_number');
             $table->enum('gender', ['male', 'female', 'other']);
-            $table->date('dob');
+            $table->date('dob')->nullable();
             $table->string('password');
             // $table->string('usertype')->default('customer');
             $table->string('role')->default('customer');

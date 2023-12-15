@@ -487,7 +487,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware(['auth', 'auth.role:owner'])->group(function () {
     route::get('/Dashboard',[HomeTryController::class, 'index']);
     Route::get('/Leave-Request', [RequestEmployeeLeaveController::class, 'index']);
-    Route::post('/submit-leave-request', [RequestEmployeeLeaveController::class, 'submitLeaveRequest']);
+    
     Route::any('/accept-leave/{id}', [RequestEmployeeLeaveController::class, 'acceptLeave'])->name('acceptLeave');
     Route::delete('/reject-leave/{id}', [RequestEmployeeLeaveController::class, 'rejectLeave'])->name('rejectLeave');
 
@@ -642,6 +642,7 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
 
  Route::middleware(['auth', 'auth.role:employee'])->group(function () {
      route::get('/Dashboard',[HomeTryController::class, 'index']);
+     Route::post('/submit-leave-request', [RequestEmployeeLeaveController::class, 'submitLeaveRequest']);
 
  });
 

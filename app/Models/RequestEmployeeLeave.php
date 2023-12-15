@@ -12,9 +12,10 @@ class RequestEmployeeLeave extends Model
     protected $table = 'request_employee_leaves';
     protected $primarykey = 'id';
     protected $fillable = [
+        'user_id',
         'leave_emp_name',
         'leave_emp_position',
-        'leave_emp_phone',
+        'leave_emp_email',
         'leave_start_date',
         'leave_end_date',
         'leave_reason',
@@ -22,4 +23,9 @@ class RequestEmployeeLeave extends Model
     ];
 
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
