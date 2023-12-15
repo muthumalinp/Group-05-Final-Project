@@ -615,30 +615,30 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
         return view('/project/admin/returned_rented_item');
     });
 
-/*-------- customer data form --------*/
+    /*-------- customer data form --------*/
     Route::get('/customer_details',[ShowController::class,'show']);
 
     /*-------- product data form --------*/
-Route::get('/manage_product',[ShowController::class,'item']);
-Route::get('/delivered_product',[ShowController::class,'cell']);
-
-
-/*-------- manage appoinment form --------*/
-Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);
+    Route::get('/manage_product',[ShowController::class,'item']);
+    Route::get('/delivered_product',[ShowController::class,'cell']);
 
 
 
-use App\Http\Controllers\EventCalendarController;
-use App\Models\EventCalendar;
+    /*-------- manage appoinment form --------*/
+    Route::get('/manage_appoinment',[ShowController::class,'showAppointment']);
 
-Route::get('/geteventcalendar',[EventCalendarController::class,'geteventcalendar']);
-Route::get('/createeventcalendar',[EventCalendarController::class,'createeventcalendar']);
-Route::get('/deleteeventcalendar',[EventCalendarController::class,'deleteeventcalendar']);
-
-Route::get('/', function () {
-    return view('project.public.home');
-
+    //Route::get('/', function () {
+        //return view('project.public.home');
+    
+    //Products Adding Routes begin
+    Route::get('Index1',[HairstrController::class,'index1']);
 });
+
+
+
+
+
+
 
  Route::middleware(['auth', 'auth.role:employee'])->group(function () {
      route::get('/Dashboard',[HomeTryController::class, 'index']);
