@@ -6,14 +6,15 @@
 .header {
     
     text-align: center;
-    color: #7a4141;
+    color: #f71568;
+    margin-top: 50px;
 }
 
 .square {
     border: 3px solid black;
     width: 65px;
     height: 470px;
-    background-color: #7a4141;
+    background-color: #a18ba6;
     text-align: center;
     color: #fff;
     font-size: 24px;
@@ -22,7 +23,7 @@
 
 .header1 {
     text-align: center;
-    color: black;
+    color: rgb(37, 5, 5);
     margin-top: 8px;
 }
 
