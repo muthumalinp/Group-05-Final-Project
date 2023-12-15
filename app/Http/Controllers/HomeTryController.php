@@ -30,13 +30,23 @@ class HomeTryController extends Controller
                 }
 
             }
-
-
-
     
 
 
-   
+
+    // public function admin() {
+    //     if(Auth::id()) {
+    //         $role = Auth()->user()->role;
+            
+    //     }
+    // }
+
+    // public function employee() {
+    //     if(Auth::id()) {
+    //         $role = Auth()->user()->role;
+            
+    //     }
+    // }
 }
 
 

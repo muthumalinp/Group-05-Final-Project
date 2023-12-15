@@ -12,10 +12,10 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.js"></script>
 
     <style>
-        .btn-custom:active, .btn-custom:focus {
-            background-color: #fff;
-            border-color: #ffff;
-            color: black;
+        .btn {
+            background-color: #BB9CC0;
+            border-color: #FED9ED;
+            color: #67729D;
             width: 200px;
             text-align: left;
         }
@@ -26,6 +26,9 @@
             display: none;
         }
         .hidden-content-date {
+            display: none;
+        }
+        .hidden-content-time{
             display: none;
         }
     </style>
@@ -81,28 +84,49 @@
         <br><br>
 
         <div id="stylists" class="hidden-content-stylist">
-        <label for="stylist">Select a Stylist:</label>
-        <select id="stylist" name="stylist">
-            @foreach($Hairstylists as $Hairstylist)
-                <option value="{{ $Hairstylist }}">{{ $Hairstylist }}</option>
-            @endforeach
-        </select>
+            <label for="stylist">Select a Stylist:</label>
+            <select id="stylist" name="stylist">
+                <div id="HD1">
+                @foreach($Hairstylists1 as $Hairstylist1)
+                <option value="{{ $Hairstylist1 }}">{{ $Hairstylist1 }}</option>
+                @endforeach
+                </div>
+                <div id="HD2">
+                @foreach($Hairstylists2 as $Hairstylist2)
+                <option value="{{ $Hairstylist2 }}">{{ $Hairstylist2 }}</option>
+                @endforeach
+                </div>
+                <div id="HD3">
+                @foreach($Hairstylists3 as $Hairstylist3)
+                <option value="{{ $Hairstylist3 }}">{{ $Hairstylist3 }}</option>
+                @endforeach
+                </div>
+                <div id="HD4">
+                @foreach($Hairstylists4 as $Hairstylist4)
+                <option value="{{ $Hairstylist4 }}">{{ $Hairstylist4 }}</option>
+                @endforeach
+                </div>
+            </select>
         <br><br>
         </div>
 
-        <div id="Date&Time" class="hidden-content-date">
-        <label for="datePicker">Select Date and Time:</label>
-        <input type="text" id="datePicker" name="bookingDate" readonly>
-        <br><br>
 
-        <label for="timeSlot">Select a Time Slot:</label>
-        <select id="timeSlot" name="timeSlot">
-            @foreach($timeSlots as $timeSlot)
-                <option value="{{ $timeSlot }}">{{ $timeSlot }}</option>
-            @endforeach
-        </select>
-        <br><br>
+
+        <div id="Date_Picker" class="hidden-content-date">
+   <label for="datePicker">Select Date:</label>
+   <input type="text" id="datePicker" name="bookingDate" readonly>
+   <br><br>
         </div>
+
+    <div id="str_time" class="hidden-content-time">
+   <label for="adjustedTimeSlots">Select a Time Slot:</label>
+   <select id="adjustedTimeSlots" name="adjustedTimeSlots">
+   @foreach($availableTimeSlots as $availableTimeSlot)
+                <option value="{{ $availableTimeSlot }}">{{ $availableTimeSlot }}</option>
+            @endforeach
+   </select>
+   <br><br>
+</div>
 
         <input type="submit" value="Submit">
     </form>
@@ -113,7 +137,9 @@
         var hairServicesButton = document.getElementById('hairservicesCategory');
         var hairServicesDiv = document.getElementById('hairServices');
         var Stylist = document.getElementById('stylists');
-        var DateTime = document.getElementById('Date&Time');
+        var HairDresser1 = document.getElementById('HD1');
+        var date_picker = document.getElementById('Date_Picker');
+        var str_time = document.getElementById('str_time');
 
         hairServicesButton.addEventListener('click', function () {
             // Toggle the visibility of the hairServices div
@@ -127,8 +153,19 @@
 
         Stylist.addEventListener('click', function () {
             // Toggle the visibility of the hairServices div
-            DateTime.classList.toggle('hidden-content-date');
+            date_picker.classList.toggle('hidden-content-date');    
         });
+        
+        date_picker.addEventListener('click', function () {
+            // Toggle the visibility of the hairServices div
+            str_time.classList.toggle('hidden-content-time');    
+
+
+        });
+
+
+
+
 
     });
 
@@ -139,21 +176,27 @@
 
 
 
-        // Initialize Flatpickr on the date input field
-        document.addEventListener('DOMContentLoaded', function () {
-            var datePicker = document.getElementById('datePicker');
+    var today = new Date(); // Get today's date
+    var twoWeeksLater = new Date();
+    twoWeeksLater.setDate(today.getDate() + 14); // Calculate date 2 weeks later
 
-            flatpickr(datePicker, {
-                enable: [
-                    // Specify available dates or a range of dates
-                    '2023-01-01',
-                    '2023-01-10',
-                    { from: '2000-01-01', to: '2030-12-31' }
-                ],
-                dateFormat: 'Y-m-d', // Adjust the date format as needed
-                // Additional options go here
-            });
-        });
+    flatpickr(datePicker, {
+    enable: [
+        '2000-01-01',
+        '2030-12-31',
+        { from: today, to: twoWeeksLater }
+    ],
+    dateFormat: 'Y-m-d',
+    // Additional options go here
+    onReady: function (selectedDates, dateStr, instance) {
+            // Customize the styles here
+            instance.calendarContainer.style.border = '2px solid #FF69B4'; // Pink border
+            instance.calendarContainer.style.borderRadius = '5px';
+            instance.calendarContainer.style.boxShadow = '0 0 10px rgba(255, 105, 180, 0.5)'; // Pink shadow
+            instance.calendarContainer.style.background = '#BB9CC0'; // black background
+            instance.calendarContainer.style.color = 'pink';
+        }
+});
     </script>
 
 </div>
