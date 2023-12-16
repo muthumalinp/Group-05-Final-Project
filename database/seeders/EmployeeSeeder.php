@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Employee;
+use Illuminate\Support\Str;
 
 class EmployeeSeeder extends Seeder
 {
@@ -50,6 +51,7 @@ class EmployeeSeeder extends Seeder
                 'emp_bsalary' => '60000',
                 'emp_rewards' => '7',
             ],
+
         ];
 
         // Insert the sample data into the 'employees' table
