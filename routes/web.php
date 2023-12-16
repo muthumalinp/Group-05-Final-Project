@@ -49,6 +49,7 @@ use App\Http\Controllers\EventCalendarController;
 use App\Http\Controllers\UploadimageController;
 use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\RatingsViewController;
+use App\Http\Controllers\AdminLoController;
 use App\Models\EventCalendar;
  
 
@@ -598,7 +599,12 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     });
     Route::get('/setting', function () {
         return view('/project/admin/setting');
+
+    Route::post('/admin/logout', [AdminLoController::class, 'logout'])->name('admin.logout');
+
     });
+    
+
 
 
 
@@ -623,15 +629,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth', 'auth.role:owner'])->group(function () {
-    route::get('/HomeTry/Owner',[HomeTryController::class, 'owner']);
-});
  Route::middleware(['auth', 'auth.role:employee'])->group(function () {
      route::get('/Dashboard',[HomeTryController::class, 'index']);
      Route::post('/submit-leave-request', [RequestEmployeeLeaveController::class, 'submitLeaveRequest']);
 
  });
 
- route::get('/Dashboard',[HomeTryController::class, 'index']);
+ Route::middleware(['web', 'auth', 'auth.role:customer'])->group(function () {
+    Route::get('/Dashboard', [HomeTryController::class, 'index']);
+});
 
 require __DIR__.'/auth.php';
