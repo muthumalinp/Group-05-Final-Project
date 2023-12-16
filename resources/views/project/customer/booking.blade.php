@@ -118,15 +118,13 @@
    <br><br>
         </div>
 
-    <div id="str_time" class="hidden-content-time">
-   <label for="adjustedTimeSlots">Select a Time Slot:</label>
-   <select id="adjustedTimeSlots" name="adjustedTimeSlots">
-   @foreach($availableTimeSlots as $availableTimeSlot)
-                <option value="{{ $availableTimeSlot }}">{{ $availableTimeSlot }}</option>
-            @endforeach
-   </select>
-   <br><br>
-</div>
+        <div id="str_time" class="hidden-content-time">
+                <label for="adjustedTimeSlots">Select a Time Slot:</label>
+                <select id="adjustedTimeSlots" name="adjustedTimeSlots">
+                    <!-- Adjusted time slots will be dynamically updated here -->
+                </select>
+                <br><br>
+            </div>
 
         <input type="submit" value="Submit">
     </form>
@@ -140,6 +138,7 @@
         var HairDresser1 = document.getElementById('HD1');
         var date_picker = document.getElementById('Date_Picker');
         var str_time = document.getElementById('str_time');
+        var adjustedTimeSlotsSelect = document.getElementById('adjustedTimeSlots');
 
         hairServicesButton.addEventListener('click', function () {
             // Toggle the visibility of the hairServices div
@@ -183,11 +182,31 @@
             // Log or use the selected date as needed
             console.log(selectedDate);
 
-            // Continue with your logic or submit the form programmatically if needed
-            // For example, uncomment the line below to submit the form
-            // event.target.form.submit();
-            
-        });
+            /// Continue with your logic or submit the form programmatically if needed
+                // For example, uncomment the line below to submit the form
+                // event.target.form.submit();
+
+                // Use JavaScript to get the available time slots and update the dropdown
+                var availableTimeSlots = calculateAvailableTimeSlots(selectedDate);
+                updateAdjustedTimeSlots(adjustedTimeSlotsSelect, availableTimeSlots);
+            });
+
+            function calculateAvailableTimeSlots(selectedDate) {
+                // Implement your logic to calculate available time slots based on the selected date
+                // This can involve making an Ajax request to the server or any other logic you have
+                // For demonstration purposes, return a hardcoded array
+                return [];
+            }
+
+            function updateAdjustedTimeSlots(selectElement, timeSlots) {
+                selectElement.innerHTML = '';
+                timeSlots.forEach(function (timeSlot) {
+                    var option = document.createElement('option');
+                    option.value = timeSlot;
+                    option.text = timeSlot;
+                    selectElement.add(option);
+                });
+            }
 
 
 

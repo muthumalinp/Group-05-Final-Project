@@ -50,19 +50,11 @@ use App\Http\Controllers\UploadimageController;
 use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\RatingsViewController;
 use App\Models\EventCalendar;
-<<<<<<< Updated upstream
-
-=======
  
->>>>>>> Stashed changes
 
 //use App\Http\Controllers\Admin\RatingController;
 //use App\Http\Controllers\Front\RatingController as ;
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 use App\Models\Renteditems;
 
 /*
@@ -582,6 +574,8 @@ Route::middleware(['auth', 'auth.role:owner'])->group(function () {
     Route::get('/viewemployee_salary', function () {
         return view('/project/owner/salary-management/show');
     });
+
+    Route::post('/owner/logout', [OwnerController::class, 'logout'])->name('owner.logout');
 });
 
 Route::middleware(['auth', 'auth.role:admin'])->group(function () {

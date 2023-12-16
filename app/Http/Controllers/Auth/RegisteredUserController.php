@@ -55,6 +55,7 @@ class RegisteredUserController extends Controller
             'fname' => $request->fname,
             'lname' => $request->lname,
             'email' => $request->email,
+            'email_verified_at' => $request->email_verified_at, 
             'phone_number' => $request->phone_number,
             'gender' => $request->gender,
             'dob' => $request->dob,

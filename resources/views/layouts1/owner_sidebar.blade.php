@@ -54,7 +54,12 @@
                         <li><a href="/profile" class="nav-item nav-link"><i class="fas fa-user"><span class="text">Profile</span></a></i>
                         <li><a href="/Full-Report" class="nav-item nav-link"><i class="fas fa-chart-pie"><span class="text">Report</span></a></i>
                         <li><a href="/Settings" class="nav-item nav-link"><i class="fas fa-gears"><span class="text">Web Setting</span></a></i>
-                        <li><a href="/Home" class="nav-item nav-link"><i class="fa-solid fa-right-from-bracket"><span class="text">Log Out</span></a></i>
+                        <!-- Add this in the owner's dashboard view -->
+<form method="POST" action="{{ route('owner.logout') }}">
+    @csrf
+    <button type="submit">Log Out</button>
+</form>
+
                         <!--<li><a href="/test" class="nav-item nav-link"><i class="fas fa-gears"><span class="text">Test</span></a></i>-->
                     </ul>
                 </nav>
