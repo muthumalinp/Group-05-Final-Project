@@ -43,14 +43,11 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EventCalendarController;
 use App\Http\Controllers\UploadimageController;
 use App\Models\EventCalendar;
-<<<<<<< Updated upstream
 
 //use App\Http\Controllers\Admin\RatingController;
 //use App\Http\Controllers\Front\RatingController as ;
 
-=======
 use App\Models\Renteditems;
->>>>>>> Stashed changes
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -475,9 +472,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'auth.role:owner'])->group(function () {
     route::get('/Dashboard',[HomeTryController::class, 'index']);
+    route::get('/viewemployee_salary',[EmployeeController:: class, 'name']);
     
     Route::get('/Leave-Request', [RequestEmployeeLeaveController::class, 'index']);
-    Route::post('/submit-leave-request', [RequestEmployeeLeaveController::class, 'submitLeaveRequest']);
     Route::any('/accept-leave/{id}', [RequestEmployeeLeaveController::class, 'acceptLeave'])->name('acceptLeave');
     Route::delete('/reject-leave/{id}', [RequestEmployeeLeaveController::class, 'rejectLeave'])->name('rejectLeave');
 
@@ -625,6 +622,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware(['auth', 'auth.role:owner'])->group(function () {
     route::get('/HomeTry/Owner',[HomeTryController::class, 'owner']);
 });
+ Route::middleware(['auth', 'auth.role:employee'])->group(function () {
+     route::get('/Dashboard',[HomeTryController::class, 'index']);
+     Route::post('/submit-leave-request', [RequestEmployeeLeaveController::class, 'submitLeaveRequest']);
+
+ });
 
  route::get('/Dashboard',[HomeTryController::class, 'index']);
 

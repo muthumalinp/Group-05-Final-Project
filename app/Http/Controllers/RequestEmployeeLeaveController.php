@@ -77,17 +77,26 @@ class RequestEmployeeLeaveController extends Controller
     
         // Update the leave status to "accepted"
         $leaveRequest->update(['leave_status' => 'accepted']);
+
+        // Calculate the number of leave dates
+        $startDate = Carbon::parse($leaveRequest->leave_start_date);
+        $endDate = Carbon::parse($leaveRequest->leave_end_date);
+        $numberOfDays = $endDate->diffInDays($startDate);
+
+        // Update the number_of_days column
+        $leaveRequest->update(['number_of_days' => $numberOfDays]);
+
     
         // Send email with the request status
-        $user = User::find($leaveRequest->user_id);
+        // $user = User::find($leaveRequest->user_id);
     
-        // Check if the user exists
-        if ($user) {
-            \Mail::to($user->email)->send(new LeaveRequestStatus('accepted'));
-            return redirect()->back()->with('success', 'Leave request accepted & email sent successfully.');
-        } else {
-            return redirect()->back()->with('error', 'User not found for the leave request.');
-        }
+        // // Check if the user exists
+        // if ($user) {
+        //     \Mail::to($user->email)->send(new LeaveRequestStatus('accepted'));
+             return redirect()->back()->with('success', 'Leave request accepted.');
+        // } else {
+        //     return redirect()->back()->with('error', 'User not found for the leave request.');
+        // }
     }
     
     public function rejectLeave($id)
@@ -101,11 +110,11 @@ class RequestEmployeeLeaveController extends Controller
         $leaveRequest->update(['leave_status' => 'rejected']);
     
         // Check if the user exists
-        if ($leaveRequest->user) {
-            \Mail::to($leaveRequest->user->email)->send(new LeaveRequestStatus('rejected'));
-            return redirect()->back()->with('success', 'Leave request rejected & email sent successfully.');
-        } else {
-            return redirect()->back()->with('error', 'User not found for the leave request.');
-        }
+        // if ($leaveRequest->user) {
+        //     \Mail::to($leaveRequest->user->email)->send(new LeaveRequestStatus('rejected'));
+        return redirect()->back()->with('success', 'Leave request rejected.');
+        // } else {
+        //     return redirect()->back()->with('error', 'User not found for the leave request.');
+        // }
     }
 }

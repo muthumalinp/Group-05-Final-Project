@@ -10,6 +10,10 @@ use App\Models\User;
 use App\Mail\EmployeeRegistered;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
+
+
+use Illuminate\Support\Facades\Auth;
 
 
 class EmployeeController extends Controller
@@ -42,6 +46,11 @@ class EmployeeController extends Controller
         // Handle file upload
         $path = $request->file('owner_photo') ? $request->file('owner_photo')->store('owner_photos', 'public') : 'css/owner/owner_profile_image.jpeg';
 
+        
+        // Set the desired password manually
+        $manualPassword = '12345678';
+
+
         // Save the employee data
         $employee = new Employee([
             'emp_fname' => $request->input('emp_fname'),
@@ -66,14 +75,16 @@ class EmployeeController extends Controller
             'lname' => $request->input('emp_lname'),
             'email' => $request->input('emp_email'),
             'phone_number' => $request->input('emp_phone'),
-            'password' => bcrypt($request->input('emp_password')), // Set a default password or use the employee's password
+            'password' => bcrypt($manualPassword), // Set a default password or use the employee's password
             'role' => 'employee', // Adjust the role accordingly
+            'remember_token' => Str::random(60),
         ]);
 
         // Send email notification
         $employeeData = [
             'emp_fname' => $employee->emp_fname,
             'emp_email' => $employee->emp_email,
+            'password' => $manualPassword,
         ];
 
         
@@ -83,7 +94,7 @@ class EmployeeController extends Controller
             return redirect()->route('employee.index')->with('success', 'Employee registered successfully!');
     
             // Log the exception
-            Log::error("Error sending email: " . $e->getMessage());
+            //::error("Error sending email: " . $e->getMessage());
         
             // Redirect or return a response with an error message
             return redirect('/employees')->with('success', 'Employee registered successfully!');
@@ -128,6 +139,17 @@ class EmployeeController extends Controller
             'emp_name' => $request->input('name'),
             'emp_email' => $request->input('email'),
             'emp_password' => Hash::make($request->input('password')),
+            'remember_token' => Str::random(60),
+        ]);
+
+        Auth::login($employee);
+
+        // Create a new user with remember_token
+        $user = User::create([
+        'name' => $request->input('name'),
+        'email' => $request->input('email'),
+        'password' => bcrypt($request->input('password')),
+        'remember_token' => Str::random(60),
         ]);
 
         // Send the email
