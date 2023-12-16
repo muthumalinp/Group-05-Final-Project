@@ -9,12 +9,11 @@ class Rating extends Model
 {
     use HasFactory;
 
-    public function user(){
-        return $this->belongsTo('App\Models\User','user_id');
-    }
-
-    public function hairstrs(){
-        return $this->belongsTo('App\Models\Hairstr','product_ID');
-        return $this->belongsTo('App\Models\Hairstr','name');
-    }
+    protected $fillable = [
+        'user_id',
+        'product_ID',
+        'review',
+        'rating',
+        'status',
+    ];
 }
