@@ -95,7 +95,7 @@
 <body>
 
     <h1>Cart Information</h1>
-
+    <form action="{{ route('submit.order') }}" method="post">
     <table>
         <thead>
             <tr>
@@ -129,7 +129,7 @@
 
     <p>Total: ${{ $total }}</p>
 
-    <form action="" method="post">
+    
         @csrf
 
         <label for="name">Name:</label>
