@@ -44,7 +44,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/employee-apoinments">
+                            <a class="nav-link" href="/employee-appointments">
                                 <i class="bi bi-bookmarks"></i> Appoinments
                             </a>
                         </li>
@@ -92,10 +92,8 @@
                         </div>
                     </div>
                     <ul class="weekdays" id="weekdaysList">
-                        <!-- Days of the week -->
                     </ul>
                     <ul class="days" id="daysList">
-                        <!-- Days will be dynamically populated here -->
                     </ul>
                 </div>
                 <div class="holidays-list" id="holidaysList">

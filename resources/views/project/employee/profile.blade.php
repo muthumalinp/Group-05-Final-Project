@@ -46,7 +46,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/employee-apoinments">
+                            <a class="nav-link" href="/employee-appointments">
                                 <i class="bi bi-bookmarks"></i> Appoinments
                             </a>
                         </li>

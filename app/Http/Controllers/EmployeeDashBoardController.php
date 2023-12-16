@@ -10,6 +10,7 @@ use App\Models\EmployeeLeave;
 use App\Models\EmployeeLeaveRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\BookedAppointment;
 
 class EmployeeDashBoardController extends Controller
 {
@@ -19,9 +20,20 @@ class EmployeeDashBoardController extends Controller
         $employee = Employee::where('emp_email', $user->email)->first();
         $employee_leave = EmployeeLeave::where('employee_id', $employee->id)->first();
         $employee_details = EmployeeDetails::where('user_id', $user->id)->first();
+        $bookedAppointments = BookedAppointment::where('emp_id', $employee->id)
+            ->where('booking_date', '>=', now()->toDateString())
+            ->where(function ($query) {
+                    $query->where('booking_date', '>', now()->toDateString())
+                        ->orWhere(function ($query) {
+                            $query->where('booking_date', '=', now()->toDateString())
+                                ->where('end_time', '>', now()->toTimeString());
+                        });
+                })
+                ->get();
         return view('/project/employee/dashboard',compact(
             'user',
-            'employee'
+            'employee',
+            'bookedAppointments'
         ));
     }
 }
