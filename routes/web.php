@@ -352,7 +352,6 @@ Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index
 /*-------- Starter of Admin Routes ---------*/
 
 
-
 /*-------- End of Admin Routes ----------*/
 
 /*************************************************************/
@@ -445,9 +444,12 @@ Route::get('/emplLeave', function () {
 Auth::routes();
 
 
+/*-------- customer data form --------*/
+Route::get('/customer_details',[ShowController::class,'show']);
 
-
-
+/*-------- product data form --------*/
+Route::get('/manage_product',[ShowController::class,'item']);
+Route::get('/delivered_product',[ShowController::class,'cell']);
 
 
 
@@ -588,6 +590,7 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/manage_appointment', function () {
         return view('/project/admin/manage_appoinment');
     });
+    
     Route::get('/manage_product', function () {
         return view('/project/admin/manage_product');
     });
