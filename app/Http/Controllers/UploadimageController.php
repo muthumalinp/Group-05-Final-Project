@@ -35,4 +35,9 @@ class UploadimageController extends Controller
         return redirect()->back()->with('status','Image Added Successfully');
     }
 
+    public function edit($id){
+        $uploadimage = uploadimage::find($id);
+        return view('project.owner.uploadimage.create.edit');
+    }
+
 }
