@@ -369,6 +369,9 @@ Route::get('/employee-meetings', function () {
     return view('/project/employee/meetings');
 });
 
+////employee leave part
+Route::get('/employee-leaves', [EmployeeLeaveController::class, 'employeeDetails'])->name('employee.leaves');
+Route::post('/employee-leave-request', [EmployeeLeaveController::class, 'requestLeave'])->name('employee.leave.request.form');
 
 
 Route::get('/employee-apoinments', function () {
