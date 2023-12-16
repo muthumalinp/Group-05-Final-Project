@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Auth;
 class OwnerController extends Controller
 {
 
-    public function index() {
-        
-    }
+    // public function index() {
+    //     return view('project.owner.owner');
+    // }
 
     public function store(Request $request)
 {
@@ -104,6 +104,17 @@ class OwnerController extends Controller
         $totalProducts = Hairstr::count();
         //dd($totalCustomers);
         return view('/project/owner/report', compact('totalCustomers','totalEmployees','totalProducts'));
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 
     //owner profile display function
