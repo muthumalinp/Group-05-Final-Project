@@ -20,6 +20,7 @@ class RequestEmployeeLeave extends Model
         'leave_end_date',
         'leave_reason',
         'leave_status',
+        'number_of_days',
     ];
 
     use HasFactory;
