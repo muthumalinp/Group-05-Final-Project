@@ -41,10 +41,10 @@
                 <img src="{{ asset('css/gallery/images/10.png') }}" alt="Image 4" class="img-fluid rectangular-img">
             </div>
             <div class="col-md-4">
-                <img src="{{ asset('css/gallery/images/11.png') }}" alt="Image 5" class="img-fluid rectangular-img">
+                <img src="{{ asset('css/gallery/images/11.jpg') }}" alt="Image 5" class="img-fluid rectangular-img">
             </div>
             <div class="col-md-4">
-                <img src="{{ asset('css/gallery/images/12.png') }}" alt="Image 6" class="img-fluid rectangular-img">
+                <img src="{{ asset('css/gallery/images/12.jpeg') }}" alt="Image 6" class="img-fluid rectangular-img">
             </div>
         </div>
         <div style="text-align: center; margin: 50px 50px 10px 50px; color: #E0C2C0;">

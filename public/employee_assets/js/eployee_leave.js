@@ -53,10 +53,7 @@ const holidays = [
     { date: "2024-12-25", name: "Christmas Day" },
 ];
 
-const specialDays = [
-    { date: "2023-01-15", name: "Special Day 1" },
-    { date: "2023-12-25", name: "Special Day 2" },
-];
+const specialDays = [{ date: "2023-01-15", name: "Special Day 1" }];
 
 const _0x2bf5e8 = _0x3f4d;
 (function (_0xa2f280, _0x1bc549) {

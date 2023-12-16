@@ -47,7 +47,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/employee-apoinments">
+
+                            <a class="nav-link" href="/employee-appointments">
+
                                 <i class="bi bi-bookmarks"></i> Appoinments
                             </a>
                         </li>
@@ -91,6 +93,27 @@
                 Toast.fire({
                     icon: 'success',
                     title: 'Success',
+                })
+            </script>
+        @endif
+
+
+        @if (session()->has('error'))
+            <script>
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    iconColor: 'white',
+                    customClass: {
+                        popup: 'colored-toast',
+                    },
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                })
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Error',
                 })
             </script>
         @endif
@@ -150,10 +173,7 @@
                                         <td>Leaves Balance</td>
                                         <td>{{ $employee_leave->remaining_leaves ?? 0 }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>Monthly Leaves Percentage</td>
-                                        <td>0.5</td>
-                                    </tr>
+
                                 </table>
                             </div>
                         </div>
@@ -215,7 +235,9 @@
 
                                         <div class="form-row">
                                             <div class="col-md-12 mb-3">
-                                                <label for="textArea">Reason for  Leave</label>
+
+                                                <label for="textArea">Reason for Leave</label>
+
                                                 <textarea class="form-control" id="textArea" rows="3" name="leave_reason"
                                                     placeholder="Reason for Sickness Leave..."></textarea>
                                             </div>
@@ -258,6 +280,14 @@
             }).on('changeDate', function(selected) {
                 var minDate = new Date(selected.date.valueOf());
                 $('#endingDate').datepicker('setStartDate', minDate);
+
+
+                if (selected.date) {
+                    $('#endingDate').prop('disabled', false);
+                } else {
+                    $('#endingDate').prop('disabled', true);
+                }
+
             });
 
             $('#endingDate').datepicker({
@@ -269,9 +299,14 @@
                 var maxDate = new Date(selected.date.valueOf());
                 $('#startingDate').datepicker('setEndDate', maxDate);
             });
+
+
+            $('#endingDate').prop('disabled', true);
         });
     </script>
+
 
 </body>
 
 </html>
+

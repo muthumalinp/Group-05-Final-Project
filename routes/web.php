@@ -34,7 +34,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmployeeProfileController;
 use App\Http\Controllers\EmployeeDashBoardController;
 use App\Http\Controllers\EmployeeLeaveController;
-use App\Http\Controllers\EmployeeLeaveAcceptNotification;
+use App\Http\Controllers\EmployeeAppointmentsController;
 use App\Http\Controllers\HomeTryController;
 
 use Illuminate\Auth\AuthManager;
@@ -382,10 +382,12 @@ Route::get('/employee-meetings', function () {
 Route::get('/employee-leaves', [EmployeeLeaveController::class, 'employeeDetails'])->name('employee.leaves');
 Route::post('/employee-leave-request', [EmployeeLeaveController::class, 'requestLeave'])->name('employee.leave.request.form');
 
+Route::get('/employee-leaves', [EmployeeLeaveController::class, 'employeeDetails'])->name('employee.leaves');
 
-Route::get('/employee-apoinments', function () {
-    return view('/project/employee/appoinments');
-});
+Route::post('/employee-leave-request', [EmployeeLeaveController::class, 'requestLeave'])->name('employee.leave.request.form');
+
+
+Route::get('/employee-appointments', [EmployeeAppointmentsController::class, 'getEmployeeAppointmentsDetails']);
 
 Route::get('/employee-holidays', function () {
     return view('/project/employee/holidays');
@@ -589,7 +591,7 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/manage_appointment', function () {
         return view('/project/admin/manage_appoinment');
     });
-    
+
     Route::get('/manage_product', function () {
         return view('/project/admin/manage_product');
     });

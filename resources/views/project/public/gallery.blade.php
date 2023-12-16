@@ -74,11 +74,11 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="img-container">
-                    <img src="{{ asset('css/gallery/first/10.png') }}" alt="Image 1" class="img-fluid">
+                    <img src="{{ asset('css/gallery/first/10.jpg') }}" alt="Image 1" class="img-fluid">
                 </div>
                 <a href="/Gallery/Tattoo">
                 <button class="btn">MORE PHOTOS</button>
-                <h1 class="centered1">TATTOOS</h1>
+                <h1 class="centered1">NAILS</h1>
                 </a>
             </div>
             <div class="col-md-4">
