@@ -46,11 +46,21 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EventCalendarController;
 use App\Http\Controllers\UploadimageController;
 use App\Models\EventCalendar;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 //use App\Http\Controllers\Admin\RatingController;
 //use App\Http\Controllers\Front\RatingController as ;
 
+<<<<<<< Updated upstream
 use App\Models\Renteditems;
+=======
+
+use App\Models\Renteditems;
+
+>>>>>>> Stashed changes
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -162,6 +172,7 @@ Route::get('/LogIn', function () {
 Route::get('uploadimage', [UploadimageController::class, 'imageUp']);
 Route::get('add-uploadimage', [UploadimageController::class, 'create']);
 Route::post('add-uploadimage', [UploadimageController::class, 'store']);
+Route::post('edit-uploadimage/{id}', [UploadimageController::class, 'edit']);
 // Route::get('/Dashboard-Customer', function () {
 //     return view('/project/customer/dashboard');
 // })->name('customer.dashboard');

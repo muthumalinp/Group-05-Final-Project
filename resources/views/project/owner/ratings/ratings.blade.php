@@ -37,20 +37,21 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>User ID</th>
+                                        <th>Product ID</th>
                                         <th>Product Name</th>
-                                        <th>User Email</th>
-                                        <th>Review</th>
-                                        <th>Rating</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
+                                        <th>Review Status</th>
+                                        <th>Ratings</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($ratings as $rating)
                                     <tr>
-                                        <td>{{$rating['id']}}</td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{ $rating['id'] }}</td>
+                                        <td>{{ $rating['user_id'] }}</td>
+                                        <td>{{ $rating['hairstrs']['product_ID'] }}</td> 
+                                        <td>{{ $rating['hairstrs']['name'] }}</td>
                                         <td>{{ $rating['review'] }}</td>
                                         <td>{{ $rating['rating'] }}</td>
                                         <td>
@@ -62,7 +63,7 @@
                                             @else 
                                             <a class="updateRatingStatus" id="rating-{{$rating['id']}}" 
                                             rating_id="{{$rating['id']}}" href="javascrip:void(0)">
-                                            <i style="font-size: 25px;" class="mdi mdi-bookmark-check" status="Active"></i>
+                                            <i style="font-size: 25px;" class="mdi mdi-bookmark-check" status="Inactive"></i>
                                             </a>
                                             @endif
                                             <a href="javascript:void(0)" class="confirmDelete" module="rating" moduleid="{{$rating['id']}}">
