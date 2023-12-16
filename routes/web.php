@@ -51,10 +51,12 @@ use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\RatingsViewController;
 use App\Http\Controllers\AdminLoController;
 use App\Models\EventCalendar;
+
  
 
 //use App\Http\Controllers\Admin\RatingController;
 //use App\Http\Controllers\Front\RatingController as ;
+
 
 use App\Models\Renteditems;
 
@@ -502,6 +504,14 @@ Route::middleware(['auth', 'auth.role:owner'])->group(function () {
         return view('/project/owner/settings');
     });
 
+    Route::get('/Monitoring', function () {
+        return view('/project/owner/records');
+    });
+    Route::get('/customer_details', function () {
+        return view('/project/admin/customer_details');
+    });
+
+
     // Ratings
     Route::get('/ratings', [RatingsViewController::class, 'showRatings'])->name('ratings.ratings');
 
@@ -637,8 +647,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
  });
 
- Route::middleware(['web', 'auth', 'auth.role:customer'])->group(function () {
+ //Route::middleware(['web', 'auth', 'auth.role:customer'])->group(function () {
     Route::get('/Dashboard', [HomeTryController::class, 'index']);
-});
+//});
 
 require __DIR__.'/auth.php';
