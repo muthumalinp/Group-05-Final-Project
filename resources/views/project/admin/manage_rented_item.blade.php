@@ -1,4 +1,4 @@
-@extends('layouts1.admin_navbar')
+@extends('layouts.admin_navbar')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +31,7 @@
                             Manage Rent Item
                             <div style="display: flex; justify-content: flex-end;">
                                 <a href="{{url('returned_rented_item')}}" class="btn btn-primary float-end" style="margin-right: 20px;">Returned</a>
-                                <a href="{{url('Dashboard-Admin')}}" class="btn btn-primary float-end">Back</a>
+                                <a href="{{url('Dashboard')}}" class="btn btn-primary float-end">Back</a>
                             </div> 
                         
                         </h4>
@@ -41,16 +41,79 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <td><b>Id</b></td>
-                                    <td><b>Item No</b></td>
+                                    <!--<td><b>ID</b></td>-->
+                                    <td><b>Item Id</b></td>
                                     <td><b>Item Name</b></td>
+                                    
+                                    <td><b>Quantity</b></td>
+                                    <td><b>customer name</b></td>
+                                    <td><b>Customer Email</b></td>
+                                    <td><b>Mobile No</b></td>
                                     <td><b>Item Price</b></td>
                                     <td><b>Ishue Date</b></td>
-                                    <td><b>Ishue</b></td>
+                                    <td><b>Ishued</b></td>
                                     
                                     
                                 </tr>
                             </thead>
+
+                            <tbody>
+                            @foreach($buy as $buy)
+                                <tr>
+                                    <!--<td>{{$buy->id}}</td>-->
+                                    <td>{{$buy->ItemId}}</td>
+                                    <td>{{$buy->ItemName}}</td>
+                                    
+                                    <td>{{$buy->ItemQuantity}}</td>
+                                    <td>{{$buy->CustomerName}}</td>
+                                    <td>{{$buy->CustomerEmail}}</td>
+                                    <td>{{$buy->CustomerMobileNo}}</td>
+                                    <td>{{$buy->price}}</td>
+                                    <td>{{$buy->BorrowedDate}}</td>
+                                    
+                                    <td id="deliveryRow{{$buy->id}}">
+                                        <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery(this,{{$buy->id}})">Ishued</a>
+                                    </td>
+
+                                        <script>
+                                            function handleDelivery(button, id) {
+                                                var isDelivered = localStorage.getItem('deliveryState' + id);
+
+                                                if (isDelivered) {
+                                                    var successMessage = document.createElement('span');
+                                                    successMessage.textContent = 'Ishued successful!';
+                                                    
+                                                    var deliveryRow = document.getElementById('deliveryRow' + id);
+                                                    deliveryRow.innerHTML = '';
+                                                    deliveryRow.appendChild(successMessage);
+
+                                                    // Don't proceed further if already delivered
+                                                    return;
+                                                }
+
+                                                var successMessage = document.createElement('span');
+                                                successMessage.textContent = 'Ishued successful!';
+
+                                                var deliveryRow = document.getElementById('deliveryRow' + id);
+                                                deliveryRow.innerHTML = '';
+                                                deliveryRow.appendChild(successMessage);
+
+                                                localStorage.setItem('deliveryState' + id, 'true');
+                                            }
+                                        </script>
+
+                                    
+                                    
+                                    
+
+
+
+
+                                    
+                                </tr>
+                               
+                                @endforeach
+                            </tbody>
                         
                         </table>
                     </div>

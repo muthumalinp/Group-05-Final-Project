@@ -1,4 +1,4 @@
-@extends('layouts1.admin_navbar')
+@extends('layouts.admin_navbar')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +36,7 @@
                     <div class="card-header">
                         <h4>
                             Customer Details
-                            <a href="{{url('Dashboard-Admin')}}" class="btn btn-primary float-end">Back</a>
+                            <a href="{{url('Dashboard')}}" class="btn btn-primary float-end">Back</a>
                         </h4>
                     </div>
 

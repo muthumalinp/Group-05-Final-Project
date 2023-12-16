@@ -13,7 +13,8 @@ class Rating extends Model
         return $this->belongsTo('App\Models\User','user_id');
     }
 
-    public function product(){
-        return $this->belongsTo('App\Models\Product','product_id');
+    public function hairstrs(){
+        return $this->belongsTo('App\Models\Hairstr','product_ID');
+        return $this->belongsTo('App\Models\Hairstr','name');
     }
 }

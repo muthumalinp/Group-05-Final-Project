@@ -11,20 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        /*Schema::table('employees', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
-        });*/
+        Schema::create('uploadimages', function (Blueprint $table) {
+            $table->id();
+            $table->string('page_name');
+            $table->string('image_name');
+            $table->string('profile_image');
+            $table->timestamps();
+        });
     }
-    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        /*Schema::table('employees', function (Blueprint $table) {
-            $table->dropColumn('user_id');
-        });*/
+        Schema::dropIfExists('uploadimages');
     }
-    
 };
