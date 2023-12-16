@@ -18,6 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->string('owner_photo')->default('css/owner/owner_profile_image.jpeg');
             $table->string('emp_rewards');
             $table->string('emp_password')->default('12345678');
+            $table->rememberToken();
             //personal infomation
            /* $table->date('emp_birth_date');
             $table->string('emp_nic_no');

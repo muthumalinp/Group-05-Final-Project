@@ -96,6 +96,20 @@
                     }
                 }
             }
+            if(isset($_GET['Mod_Quantity']))
+            {
+                foreach($_SESSION['cart'] as $key => $value)
+                {
+                    if($value['desc']==$_GET['desc'])
+                    {    
+                        $_SESSION['cart'][$key]['Quantity']=$_GET['Mod_Quantity'];                
+                       
+                        echo"<script>                            
+                        window.location.href='/Product/Cart';
+                             </script>";
+                    }
+                }  
+            }
         }
     ?>
 
