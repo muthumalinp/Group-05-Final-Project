@@ -125,12 +125,12 @@
                         <div class="col-sm-12 col-12 mb-4 mb-sm-0">
                             <h1 class="secondary-font-color" style="text-transform: capitalize;">
                                 My Leaves</h1>
-                            <p>Lorem, ipsum dolor sit amet consectetur
+                            <!-- <p>Lorem, ipsum dolor sit amet consectetur
                                 adipisicing elit. Suscipit nobis minus libero nihil odio quisquam
                                 reprehenderit, deleniti consequatur? Totam ipsa error velit dolore ut amet
                                 aspernatur ab
                                 voluptatibus
-                                ad. Fuga?</p>
+                                ad. Fuga?</p> -->
                         </div>
                     </div>
                 </div>
@@ -209,7 +209,7 @@
                                                 <label for="input3">Position</label>
                                                 <input type="text" class="form-control" id="input3"
                                                     name="leave_emp_position"
-                                                    value="{{ implode(', ', $employee->emp_jobtitles) }}"
+                                                    value="{{ is_array($employee->emp_jobtitles) ? implode(', ', $employee->emp_jobtitles) : $employee->emp_jobtitles }}"
                                                     onfocus="this.blur()">
                                             </div>
                                             <div class="col-md-6 mb-3">

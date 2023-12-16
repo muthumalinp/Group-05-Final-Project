@@ -55,7 +55,7 @@ class EmployeeController extends Controller
         $employee = new Employee([
             'emp_fname' => $request->input('emp_fname'),
             'emp_lname' => $request->input('emp_lname'),
-            'emp_jobtitle' => $request->input('emp_jobtitle'),
+            'emp_jobtitles' => [$request->input('emp_jobtitle')],
             'emp_phone' => $request->input('emp_phone'),
             'emp_email' => $request->input('emp_email'),
             'emp_bsalary' => $request->input('emp_bsalary'),
