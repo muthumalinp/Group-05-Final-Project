@@ -170,6 +170,25 @@
     });
 
 
+    var submitButton = document.querySelector('input[type="submit"]');
+        var datePickerInput = document.getElementById('datePicker');
+
+        submitButton.addEventListener('click', function (event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Get the selected date value
+            var selectedDate = datePickerInput.value;
+
+            // Log or use the selected date as needed
+            console.log(selectedDate);
+
+            // Continue with your logic or submit the form programmatically if needed
+            // For example, uncomment the line below to submit the form
+            // event.target.form.submit();
+            
+        });
+
 
 
 

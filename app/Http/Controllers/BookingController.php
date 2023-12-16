@@ -85,12 +85,7 @@ class BookingController extends Controller
         
         // Adjust the time slots based on the duration
         $duration = Service::where('id', '=', '1')->value('duration');
-        $adjustedTimeSlots = array_map(function ($time) use ($duration) {
-            return date('H:i', strtotime($time) + ($duration * 60));
-        }, $availableTimeSlots);
         
-        // Output the adjusted time slots
-        print_r($adjustedTimeSlots);
         
 
 // $duration = Service::where('id', '=', '1')->value('duration');
@@ -112,6 +107,7 @@ class BookingController extends Controller
                                                         'Hairstylists3',
                                                         'Hairstylists4',
                                                         'availableTimeSlots',
+                                                        'duration',
                                                         'bookedTimeStart',
                                                         'bookedTimeEnd',
                                                         // 'BridalDresser',
