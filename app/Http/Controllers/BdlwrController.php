@@ -27,6 +27,7 @@ class BdlwrController extends Controller
 
         $request->validate([
             'id' => 'required',
+            'bdlwrsid' => 'required',
             'bdlwrstitle' => 'required',
             'bdlwrsdesc' => 'required',
             'price' => 'required|numeric',
@@ -142,6 +143,7 @@ class BdlwrController extends Controller
               "quantity" => 1,
               "bdate" => $request->input('bdate'),
             "rdate" => $request->input('rdate'),
+            "bdlwrsid" => $bdlwr ->bdlwrsid,
             ];
           }
         

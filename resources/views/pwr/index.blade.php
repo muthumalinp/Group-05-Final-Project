@@ -1,8 +1,6 @@
-
-
 @extends('layoute')
-    
 @section('contente')
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">

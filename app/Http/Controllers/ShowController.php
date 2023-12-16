@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 Use App\Models\User;
 Use App\Models\Product;
 use App\Models\Owner;
+use App\Models\Renteditems;
 
 
 class ShowController extends Controller
@@ -33,8 +34,18 @@ class ShowController extends Controller
     public function cell()
     {
 
-        $buy=Product::all();
-        return view('/project/admin/delivered_product',compact('buy'));
+        $buy=Renteditems::all();
+        return view('/project/admin/manage_rented_item',compact('buy'));
+        
+        
+    }
+
+    public function rent()
+    {
+
+        $point=Renteditems::all();
+        return view('/project/admin/returned_rented_item',compact('point'));
+        
         
     }
 

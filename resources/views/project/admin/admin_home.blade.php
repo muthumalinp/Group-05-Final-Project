@@ -50,7 +50,7 @@
                     <ul>
                         
                         <li><a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Dashboard</a>
-                        <li><a href="/view_profile" class="nav-item nav-link"><i class="fa fa-th me-2"></i>View Profile</a>
+                        <li><a href="/profile" class="nav-item nav-link"><i class="fa fa-th me-2"></i>View Profile</a>
                         <li><a href="/customer_details" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Customer Details</a>
                         <li><a href="/manage_appointment" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Appoinment</a>
                         <li><a href="/manage_product" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Product</a>
@@ -108,8 +108,7 @@
                         
                     </div>
                     <div class="card">
-                        <h1 style="color:#633030; font-weight:bold">Total Customers</h1>
-                        <h2><b>Total Customers: {{ $totalCustomers }}</b><h2>
+                        
                         <img src="{{ asset('css/admin/customer.jpeg') }}" alt="Admin" width="150px" height="60px" class="mx-auto d-block img-fluid">
                         
                         <h2>Available Rent Items</h2>

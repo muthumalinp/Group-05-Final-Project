@@ -31,7 +31,7 @@
                     <div class="card-header">
                         <h4>
                             Manage Appointment
-                            <a href="{{url('Dashboard-Admin')}}" class="btn btn-primary float-end">Back</a>
+                            <a href="{{url('Dashboard')}}" class="btn btn-primary float-end">Back</a>
                         
                         </h4>
                     </div>

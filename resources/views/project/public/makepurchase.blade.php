@@ -20,7 +20,7 @@ session_start();
     <div class="container">
         <form method="POST" action="{{route('cartstore')}}">
             @csrf
-        <div class="row">
+             <div class="row">
             <div class="col-lg-12 text-center border rounded bg-light my-5">
                 <h1>PURCHASE SUMMARY</h1>
             </div>
@@ -33,24 +33,28 @@ session_start();
                             <th scope="col">Product Name</th>
                             <th scope="col">Product Price</th>
                             <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>    
                         </tr>
                     </thead>
 
                     <tbody class="text-center">
                         <?php
-                        $total = 0;
+                      
 
                         if (isset($_SESSION['cart'])) {
-                            foreach ($_SESSION['cart'] as $key => $value) {
-                                $total += intval(explode(".", $value['price'])[1]);
 
+                            foreach ($_SESSION['cart'] as $key => $value) {
+
+                               
+                                 $pn=$key+1;
                                 echo "
-                                    <tr>
-                                        <td>1</td>
-                                        <td>$value[desc]</td>
-                                        <td>$value[price]</td>
-                                        <td><input class='taxt-center' type='number' value='$value[Quantity]' min='1' max='10'></td>
-                                    </tr>
+                                <tr>
+                                <td class='productno'>$pn</td>
+                                <td class='productname'>$value[desc]</td>
+                                <td>$value[price]<input type='hidden' class='iprice' value='$value[price]'></td>
+                                <td><input class='taxt-center iquantity' onchange='subTotal()' type='number' value='$value[Quantity]' min='1' max='10'></td>
+                                <td class='itotal'></td>                                                         
+                                </tr>
 
                                 ";
                             }
@@ -63,16 +67,38 @@ session_start();
 
             <div class="col-lg-3">
                 <div class="border bg-light rounded p-4">
-                    <h4>Total:</h4>
-                    <h5 class="text-right"><?php echo $total ?></h5>
+                    <h4>Grand Total:</h4>
+                    <h5 class="text-right" id="gtotal"></h5>
                     <br>
                     
                     <button id="paymentDoneBtn">Payment Done</button>
                 </div>
             </div>
         </div>
+                    </form>
     </div>
-                    
+    <script>
+
+var gt=0;
+var iprice=document.getElementsByClassName('iprice');
+var iquantity=document.getElementsByClassName('iquantity');
+var itotal=document.getElementsByClassName('itotal');
+var gtotal=document.getElementById('gtotal');
+
+function subTotal()
+{
+    gt=0;
+    for(i=0;i<iprice.length;i++)
+    {
+        itotal[i].innerText=(iprice[i].value)*(iquantity[i].value);
+        console.log(iprice[i].value);
+        gt=gt+(iprice[i].value)*(iquantity[i].value);
+    }
+    gtotal.innerText=gt;
+}
+
+    subTotal();
+</script>            
    
 
 

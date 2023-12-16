@@ -29,7 +29,7 @@
                     <div class="card-header">
                         <h4>
                             Manage Products
-                            <a href="{{url('Dashboard-Admin')}}" class="btn btn-primary float-end">Back</a>
+                            <a href="{{url('Dashboard')}}" class="btn btn-primary float-end">Back</a>
                         
                         </h4>
                     </div>
@@ -60,12 +60,12 @@
                                     <td id="deliveryRow{{$sell->id}}">
                                         <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery(this,{{$sell->id}})">Delivered</a>
                                     </td>
+                                    
 
                                     
-                                    <script>
+<!--<script>
                                         
                                         var isDelivered = localStorage.getItem('deliveryState{{$sell->id}}');
-
                                         if (isDelivered) {
                                             
                                             var successMessage = document.createElement('span');
@@ -90,7 +90,49 @@
                                             
                                             localStorage.setItem('deliveryState' + id, 'true');
                                         }
+                                    </script>  -->
+
+
+                            
+
+                                    <script>
+                                        function handleDelivery(button, id) {
+                                            var isDelivered = localStorage.getItem('deliveryState' + id);
+
+                                            if (isDelivered) {
+                                                var successMessage = document.createElement('span');
+                                                successMessage.textContent = 'Delivery successful!';
+                                                
+                                                var deliveryRow = document.getElementById('deliveryRow' + id);
+                                                deliveryRow.innerHTML = '';
+                                                deliveryRow.appendChild(successMessage);
+
+                                                // Don't proceed further if already delivered
+                                                return;
+                                            }
+
+                                            var successMessage = document.createElement('span');
+                                            successMessage.textContent = 'Delivery successful!';
+
+                                            var deliveryRow = document.getElementById('deliveryRow' + id);
+                                            deliveryRow.innerHTML = '';
+                                            deliveryRow.appendChild(successMessage);
+
+                                            localStorage.setItem('deliveryState' + id, 'true');
+                                        }
                                     </script>
+                                    
+
+
+
+                                    
+
+
+
+                                    
+
+
+                                    
                                     
 
 
