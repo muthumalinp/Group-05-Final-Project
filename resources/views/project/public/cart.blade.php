@@ -24,6 +24,7 @@ session_start();
             <li><a href="/Product/Facial&CleanUp" >Facial & Cleanup</a></li>
             <li>
             <div>
+            
                 <?php
                     $count=0;
                     if(isset($_SESSION['cart']))
@@ -44,13 +45,14 @@ session_start();
         </div>
     </nav>
     <!--navigation bar end-->
-
+    <form method="post" action="{{ route('make.purchase') }}">
+            @csrf
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center border rounded bg-light my-5">
                 <h1>MY CART</h1>
             </div>
-
+            
             <div class="col-lg-8">
                  <table class="table">
                     <thead class="text-center">
@@ -78,7 +80,12 @@ session_start();
                                         <td class='productno'>$pn</td>
                                         <td class='productname'>$value[desc]</td>
                                         <td>$value[price]<input type='hidden' class='iprice' value='$value[price]'></td>
-                                        <td><input class='taxt-center iquantity' onchange='subTotal()' type='number' value='$value[Quantity]' min='1' max='10'></td>
+                                        <td>
+                                            <form action='/Product/ManageCart' method='GET'>
+                                            <input class='taxt-center iquantity' name='Mod_Quantity' onchange='this.form.submit();' type='number' value='$value[Quantity]' min='1' max='10'>
+                                            <input type='hidden' name='desc' value='$value[desc]'>
+                                            </form>
+                                        </td>
                                         <td class='itotal'></td>
                                         <td>
                                             <form action='/Product/ManageCart' method='GET'>
@@ -104,26 +111,40 @@ session_start();
                     <h4>Grand Total:</h4>
                     <h5 class="text-right" id="gtotal"></h5>
                     <br>
-                    <!--<form>
+                                        
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" name="fullname" class="form-control">
+                            </div>
 
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="number" name="phone_no" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="email" class="form-control">
+                            </div>
+                            
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Cash On Delivery
                             </label>
-                        </div>-->
+                        </div>
                         <br>
-                        <a href="/Product/MakePurchase">
-                    <button id="btn">Make Purchase</button>
-                </a>
-                   <!-- </form>-->
-                </div>
-                </div>
+                
+                <button type="submit">Make Purchase</button>
+
+                   
+                 </div>
+            </div>
 
         </div>
       
     </div>
-    <script>
+     <script>
 
                 var gt=0;
                 var iprice=document.getElementsByClassName('iprice');
@@ -144,6 +165,30 @@ session_start();
                 }
                 
                     subTotal();
+
+                    function makePurchase() {
+            $.ajax({
+                url: "{{ route('make.purchase') }}",
+                type: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    full_name: $('input[name="full_name"]').val(),
+                    phone_number: $('input[name="phone_number"]').val(),
+                    email: $('input[name="email"]').val(),
+                },
+                success: function(response) {
+                    // Handle the response, e.g., show a success message
+                    alert('Purchase successful!');
+                },
+                error: function(error) {
+                    // Handle the error, e.g., display an error message
+                    alert('Purchase failed. Please try again.');
+                }
+            });
+        }
+
+
+
     </script>
 
     <script src="{{asset('js/bootstrap.js')}}"></script>

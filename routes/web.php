@@ -14,6 +14,8 @@ use App\Http\Controllers\PwrController;
 use App\Http\Controllers\CarteController;
 use App\Http\Controllers\RsubmitOrderController;
 
+use App\Http\Controllers\PurchaseController;
+
 //use App\Http\Controllers\RatingController;
 use App\Http\Controllers\Admin\RatingController;
 
@@ -280,9 +282,12 @@ Route::delete('remove-from-cart', [BjwelController::class, 'remove'])->name('rem
 Route::get('/cart/checkout', [CarteController::class, 'showCheckout'])->name('cart.checkout');
 Route::get('/cart/checkout-info', [CarteController::class, 'showCheckoutInfo'])->name('cart.checkout.info');
 
+
 Route::post('/submit-order', [RsubmitOrderController::class, 'submitOrder'])->name('submit.order');
 
 
+//product to database
+Route::post('/make-purchase', [PurchaseController::class, 'makePurchase'])->name('make.purchase');
 
 
 
