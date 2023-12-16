@@ -6,13 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\Owner;
 use App\Models\Employee;
 use App\Models\User;
+use App\Models\Hairstr;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
-
+use Illuminate\Support\Facades\Auth;
 
 class OwnerController extends Controller
 {
+
+    public function index() {
+        
+    }
 
     public function store(Request $request)
 {
@@ -78,6 +83,7 @@ class OwnerController extends Controller
         'owner_rewards' => $request->input('owner_rewards'),
     ]);*/
 
+    
     // Redirect back with a success message
     return redirect()->back()->with('flash_message', 'Owner Details Stored Successfully!');
 }
@@ -95,8 +101,9 @@ class OwnerController extends Controller
 
         $totalCustomers = User::where('role', 'customer')->count();
         $totalEmployees = Employee::count();
+        $totalProducts = Hairstr::count();
         //dd($totalCustomers);
-        return view('/project/owner/report', compact('totalCustomers','totalEmployees'));
+        return view('/project/owner/report', compact('totalCustomers','totalEmployees','totalProducts'));
     }
 
     //owner profile display function
@@ -109,6 +116,14 @@ class OwnerController extends Controller
         }
         return view('/project/owner/owner', compact('owner'));
     }--*/
+
+    /*public function showProfile()
+    {
+        $owner = Owner::first();
+        return view('project.owner.owner', ['owner' => $owner]);
+    }*/
+
+    
 
 
 }

@@ -1,4 +1,4 @@
-@extends('layouts.owner_sidebar')
+@extends('layouts1.owner_sidebar')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,13 +23,7 @@
       <p class="text-blk team-head-text">
           Our Team
       </p>
-      <div class="col-md-2">
-        <div class="row container1">
-          <a href="{{url('/employeeleave')}}" class="btn btn-success btn-sm" title="Attendance">
-          <i class="fa fa-plus" aria-hidden="true"></i> Employee Leaves
-          </a><br/>
-        </div>
-      </div>
+      <br/><br/>
       <div class="responsive-container-block teamcard-container">
         <div class="responsive-cell-block wk-desk-3 wk-mobile-12 wk-tab-4 wk-ipadp-4 team-card-container">
           <div class="team-card">
@@ -40,7 +34,7 @@
             </div>
             <div class="team-card-content">
               <p class="text-blk name">
-                Roger Lubin
+                Yaraa De Silva
               </p>
               <p class="text-blk position">
                 CEO
@@ -55,7 +49,7 @@
             </div>
             <div class="team-card-content">
               <p class="text-blk name">
-                Roger Lubin
+                Shyalika Laknali
               </p>
               <p class="text-blk position">
                 CEO
@@ -70,7 +64,7 @@
             </div>
             <div class="team-card-content">
               <p class="text-blk name">
-                 Roger Lubin
+                 Yashika Kodikara
               </p>
               <p class="text-blk position">
                 CEO
@@ -85,7 +79,7 @@
             </div>
             <div class="team-card-content">
               <p class="text-blk name">
-                Roger Lubin
+                Nilupa Jayarathna
               </p>
               <p class="text-blk position">
                 CEO
@@ -100,7 +94,7 @@
             </div>
             <div class="team-card-content">
               <p class="text-blk name">
-                Roger Lubin
+                Subash jasinghe
               </p>
               <p class="text-blk position">
                 CEO
@@ -115,7 +109,7 @@
             </div>
             <div class="team-card-content">
               <p class="text-blk name">
-                Roger Lubin
+                Pilip Kaizer 
               </p>
               <p class="text-blk position">
                 CEO
@@ -130,7 +124,7 @@
             </div>
             <div class="team-card-content">
               <p class="text-blk name">
-                Roger Lubin
+                Chandimal
               </p>
               <p class="text-blk position">
                  CEO
@@ -145,7 +139,7 @@
             </div>
             <div class="team-card-content">
               <p class="text-blk name">
-                Roger Lubin
+              Chandimal
               </p>
               <p class="text-blk position">
                 CEO
@@ -160,7 +154,7 @@
             </div>
             <div class="team-card-content">
               <p class="text-blk name">
-                Roger Lubin
+              Chandimal
               </p>
               <p class="text-blk position">
                 CEO
@@ -175,7 +169,7 @@
             </div>
             <div class="team-card-content">
               <p class="text-blk name">
-                Roger Lubin
+              Chandimal
               </p>
               <p class="text-blk position">
                  CEO
@@ -190,7 +184,7 @@
             </div>
             <div class="team-card-content">
               <p class="text-blk name">
-                Roger Lubin
+              Chandimal
               </p>
               <p class="text-blk position">
                  CEO
@@ -205,7 +199,7 @@
             </div>
             <div class="team-card-content">
               <p class="text-blk name">
-                Roger Lubin
+              Chandimal
               </p>
               <p class="text-blk position">
                 CEO

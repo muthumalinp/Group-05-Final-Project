@@ -1,7 +1,7 @@
-@extends('layouts.main')
+@extends('layouts1.main')
 @section('title', 'Rent')
 
-@extends('layouts.app')
+@extends('layouts1.app')
 
 
 @section('content')
@@ -28,6 +28,18 @@
                         <div class="form-group mb-3">
                                 <label for="">Jwellary ID</label>
                                 <input type="text" name="id" class="form-control">
+                            </div>
+
+                            <div class="form-group mb3">
+                                <label for="">Jwellary Title</label>
+                                <input type="text" name="pjwtitle" class="form-control">
+
+                            </div>
+
+                            <div class="form-group mb3">
+                                <label for="">Jwellary Description</label>
+                                <input type="text" name="pjwdesc" class="form-control">
+
                             </div>
 
                             <div class="form-group mb3">
@@ -63,6 +75,12 @@
                             <div class="form-group mb3">
                                 <label for="">BridalJwellary Picture 4</label>
                                 <input type="file" name="pjwimg4" class="form-control">
+
+                            </div>
+
+                            <div class="form-group mb3">
+                                <label for="">BridalJwellary Picture 5</label>
+                                <input type="file" name="pjwimg5" class="form-control">
 
                             </div>
 

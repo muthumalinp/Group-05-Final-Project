@@ -15,24 +15,41 @@ class EmployeeSeeder extends Seeder
         // Sample data for employees
         $employees = [
             [
-                'emp_fname' => 'John',
-                'emp_lname' => 'Doe',
-                'emp_jobtitle' => 'Hairstylist',
+                'emp_fname' => 'Sandy',
+                'emp_lname' => 'Dilshani',
+                'emp_jobtitles' => ['Hairstylist', 'BridalDresser'],
                 'emp_phone' => '123456789',
-                'emp_email' => 'john.doe@example.com',
+                'emp_email' => 'sandydilshani@gmail.com',
                 'emp_bsalary' => '50000',
                 'emp_rewards' => '5',
             ],
             [
-                'emp_fname' => 'Jane',
-                'emp_lname' => 'Smith',
-                'emp_jobtitle' => 'Colorist',
+                'emp_fname' => 'Kevin',
+                'emp_lname' => 'Perera',
+                'emp_jobtitles' => ['Hairstylist'],
                 'emp_phone' => '987654321',
-                'emp_email' => 'jane.smith@example.com',
+                'emp_email' => 'kevinperera@gmail.com',
                 'emp_bsalary' => '60000',
                 'emp_rewards' => '7',
             ],
-            // Add more employees as needed
+            [
+                'emp_fname' => 'Yeshani',
+                'emp_lname' => 'De Silva',
+                'emp_jobtitles' => ['Hairstylist', 'NailArtist', 'BridalDresser'],
+                'emp_phone' => '987654321',
+                'emp_email' => 'yeshan@gmail.com',
+                'emp_bsalary' => '60000',
+                'emp_rewards' => '7',
+            ],
+            [
+                'emp_fname' => 'Malki',
+                'emp_lname' => 'Jayawardena',
+                'emp_jobtitles' => ['Hairstylist', 'NailArtist'],
+                'emp_phone' => '987654321',
+                'emp_email' => 'malkijaya@gmail.com',
+                'emp_bsalary' => '60000',
+                'emp_rewards' => '7',
+            ],
         ];
 
         // Insert the sample data into the 'employees' table

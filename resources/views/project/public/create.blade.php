@@ -1,7 +1,7 @@
-@extends('layouts.main')
+@extends('layouts1.main')
 @section('title', 'Rent')
 
-@extends('layouts.app')
+@extends('layouts1.app')
 
 
 @section('content')
@@ -26,25 +26,61 @@
                         <form action="{{url('add-bjwel')}}" method = "POST" enctype="multipart/form-data">
                             @csrf
                         <div class="form-group mb-3">
-                                <label for="">BridalJwellaryID</label>
+                                <label for="">BridalJwellary ID</label>
                                 <input type="text" name="id" class="form-control">
                             </div>
 
                             <div class="form-group mb3">
-                                <label for="">BridalJwellaryprice</label>
+                                <label for="">BridalJwellary Title</label>
+                                <input type="text" name="bjwtitle" class="form-control">
+
+                            </div>
+
+                            <div class="form-group mb3">
+                                <label for="">BridalJwellary Description</label>
+                                <input type="text" name="bjwdesc" class="form-control">
+
+                            </div>
+
+                            <div class="form-group mb3">
+                                <label for="">BridalJwellary price</label>
                                 <input type="text" name="price" class="form-control">
 
                             </div>
 
                             <div class="form-group mb3">
-                                <label for="">BridalJwellaryquantity</label>
+                                <label for="">BridalJwellary quantity</label>
                                 <input type="text" name="quantity" class="form-control">
 
                             </div>
 
                             <div class="form-group mb3">
-                                <label for="">BridalJwellary Picture</label>
-                                <input type="file" name="image" class="form-control">
+                                <label for="">BridalJwellary Picture 1</label>
+                                <input type="file" name="bjwimg1" class="form-control">
+
+                            </div>
+
+                            <div class="form-group mb3">
+                                <label for="">BridalJwellary Picture 2</label>
+                                <input type="file" name="bjwimg2" class="form-control">
+
+                            </div>
+
+                            <div class="form-group mb3">
+                                <label for="">BridalJwellary Picture 3</label>
+                                <input type="file" name="bjwimg3" class="form-control">
+
+                            </div>
+
+                            <div class="form-group mb3">
+                                <label for="">BridalJwellary Picture 4</label>
+                                <input type="file" name="bjwimg4" class="form-control">
+
+                            </div>
+
+                            <div class="form-group mb3">
+                                <label for="">BridalJwellary Picture 5</label>
+                                <input type="file" name="bjwimg5" class="form-control">
 
                             </div>
 

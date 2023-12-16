@@ -2,17 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-
-use Attribute;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -21,16 +17,13 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $table = 'users';
-    protected $primarykey = 'id';
-    public $incrementing = false;
-    protected $keyType = 'string';
     protected $fillable = [
         'fname',
         'lname',
         'email',
-        'remember_token',
         'phone_number',
+        'gender',
+        'dob',
         'password',
         'role',
     ];
@@ -54,12 +47,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
-    // public function getRoleAttribute($value)
-    // {
-    //     return ["customer", "admin", "owner", "employee"][(int) $value];
-    // }
-
-    
-
 }

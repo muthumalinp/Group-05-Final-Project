@@ -1,4 +1,4 @@
-@extends('layouts.admin_navbar')
+@extends('layouts1.admin_navbar')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -25,7 +25,7 @@
                 }
 
                 nav {
-                    width:1px
+                    width:1px;
                     background-color: #333;
                     color: white;
                     padding: 20px;
@@ -48,13 +48,15 @@
             <button id="sidebar-toggle"><h3>Salon</h3></button>
                 <nav>
                     <ul>
+                        
                         <li><a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Dashboard</a>
-                        <li><a href="/manage_product" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Product</a>
-                        <li><a href="/view_profile" class="nav-item nav-link"><i class="fa fa-th me-2"></i>View Profile</a>
+                        <li><a href="/profile" class="nav-item nav-link"><i class="fa fa-th me-2"></i>View Profile</a>
                         <li><a href="/customer_details" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Customer Details</a>
                         <li><a href="/manage_appointment" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Appoinment</a>
+                        <li><a href="/manage_product" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Product</a>
                         <li><a href="/manage_rented_item" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Rented Item</a>
-                        <li><a href="/setting" class="nav-item nav-link"><i class="fa fa-th me-2"></i>setting</a>
+                        <li><a href="/employee-leaves" class="nav-item nav-link"><i class="fa fa-th me-2"></i>My Leaves</a>
+                        <li><a href="/Home" class="nav-item nav-link"><i class="fa fa-th me-2"></i>LogOut</a>
                     </ul>
                 </nav>
         </aside>
@@ -86,7 +88,7 @@
                     
                     <div class="card">
                         <div>
-                            <h2>To Do List</h2>
+                            <h1 style="color:#633030; font-weight:bold">To Do List</h1>
                             
                         </div>
 
@@ -107,14 +109,13 @@
                         
                     </div>
                     <div class="card">
-                        <h2>Total Customers</h2>
-                        <p><b>Total Customers: {{ $totalCustomers }}</b><p>
+                        
                         <img src="{{ asset('css/admin/customer.jpeg') }}" alt="Admin" width="150px" height="60px" class="mx-auto d-block img-fluid">
                         
                         <h2>Available Rent Items</h2>
-                        <a href="{{url('/rentitems')}}" class="btn btn-secondary float-end">Check</a>
+                        <a href="{{url('/rentitems')}}" class="btn btn-secondary float-end">View</a>
                         <h2>Available Products</h2>
-                        <a href="{{url('/Index1')}}" class="btn btn-secondary float-end">Check</a>
+                        <a href="{{url('/Index1')}}" class="btn btn-secondary float-end">View</a>
 
                     </div>
                     

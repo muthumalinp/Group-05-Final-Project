@@ -1,5 +1,5 @@
-@extends('layouts.main')
-@extends('layouts.layouts_login')
+@extends('layouts1.main')
+@extends('layouts1.layouts_login')
 @section('title', 'Registration')
 @section('content')
 

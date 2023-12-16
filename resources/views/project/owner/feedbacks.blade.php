@@ -1,4 +1,4 @@
-@extends('layouts.owner_sidebar')
+@extends('layouts1.owner_sidebar')
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -16,18 +16,13 @@
   
    <body>
    @section('cont')
-      <div class="main_container">
-         <div class="container">
-            <div class="Header">Customer Feedbacks</div>
-            <div class="info">
-                <div>
-                    <h3>This is the feedback Page</h3>
-                </div>
-               
-            </div>
-         </div> 
+      <h2>Customer Feedbacks</h2>
+      <div class="cards" style="margin-top:50px">
+         <div class="card">
+            <p>Products Reviews <a href="{{url('/ratings')}}" class="btn btn-success btn-sm float-end"> Products Ratings</a> </p>
+         </div>
       </div>
       
-    @endsection  
+   @endsection
    </body>
 </html>

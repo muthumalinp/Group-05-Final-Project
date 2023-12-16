@@ -1,3 +1,4 @@
+@extends('layouts1.owner_forms')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +10,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="margin-top:100px">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>
+                <div class="card" style="width:1200px; margin-left:80px">
+                    <div class="card-header text-bg-dark p-3">
+                        <h3>
                             Available Products
-                            <a href="{{url('Create11')}}" class="btn btn-primary float-end">Add Products</a>
-                        </h4>
+                        </h3>
                     </div>
 
                     <div class="card-body">
+                    <a href="{{url('Create11')}}" class="btn btn-success btn-sm">Add Products</a>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>

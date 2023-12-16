@@ -16,7 +16,19 @@
             <li><a href="/Product/HairColoring&Highliting">Hair Coloring & Highlighting </a></li>
             <li><a href="/Product/HairTreatment" >Hair Treatment</a></li>
             <li><a href="/Product/Facial&CleanUp" class="active" >Facial & Cleanup</a></li>
-            <li><a href="/Product/Cart" ><i class="fas fa-shopping-cart"></i></a></li>
+            <li>
+            <div>
+                <?php
+                    $count=0;
+                    if(isset($_SESSION['cart']))
+                    {
+                        $count=count($_SESSION['cart']);
+                    }
+                ?>
+                <a href="/Product/Cart" ><i class="fas fa-shopping-cart"> <?php echo $count; ?></i></a>
+                
+            </div>
+            </li>
         </ul>
 
 <!--for responsive button-->
@@ -46,7 +58,7 @@
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
                     <input type="hidden" name="desc" value="Gold Infusion">
-                    <input type="hidden" name="price" value="Rs.2500">
+                    <input type="hidden" name="price" value="2500">
                 </form>
             </div>
             <!--card end-->
@@ -62,7 +74,7 @@
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
                     <input type="hidden" name="desc" value="Grow Me">
-                    <input type="hidden" name="price" value="Rs.6500">
+                    <input type="hidden" name="price" value="6500">
                 </form>
             </div>
 
@@ -78,7 +90,7 @@
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
                     <input type="hidden" name="desc" value="Omni">
-                    <input type="hidden" name="price" value="Rs.7500">
+                    <input type="hidden" name="price" value="7500">
                 </form>
             </div>
 
@@ -95,7 +107,7 @@
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
                     <input type="hidden" name="desc" value="Spa Ceylon">
-                    <input type="hidden" name="price" value="Rs.5000">
+                    <input type="hidden" name="price" value="5000">
                 </form>
             </div>
 

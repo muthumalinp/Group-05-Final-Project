@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Booking</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.js"></script>
+
     <style>
-        .body1 {
-            padding-top: 200px;
-        }
         .btn-custom:active, .btn-custom:focus {
             background-color: #fff;
             border-color: #ffff;
@@ -24,130 +24,105 @@
         }
     </style>
 </head>
-<body class="body1">
-    <div class="container">
-        <form action="{{ route('appointments.store') }}" method="POST">
-            @csrf
-        </form>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="col-12">
-                    <button type="button" class="btn btn-custom" onclick="toggleContent('hairContent')">Hair Services</button><br/>
-                    <button type="button" class="btn btn-custom" onclick="toggleContent('bridalContent')">Bridal Services</button><br/>
-                    <button type="button" class="btn btn-custom" onclick="toggleContent('nailContent')">Nail Services</button><br/>
-                    <button type="button" class="btn btn-custom" onclick="toggleContent('otherContent')">Other Services</button><br/>
-                </div>
-            </div>
 
-            <div class="col-md-6">
-                <div id="hairContent" class="hidden-content">
-                    <!-- first service -->
-                    <div class="row">
-                        <div class="col-8">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">Hair Cut-Ladies</button>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="stylist">Select a Stylist:</label>
-                                <select class="form-control" name="stylist" id="stylistSelect" required>
-                                    @foreach($hairstylists as $hairstylist)
-                                        <option value="{{ $hairstylist->emp_fname }}">{{ $hairstylist->emp_fname }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">BOOK NOW</button>
-                        </div>
-                    </div>
-                    <!-- second service -->
-                    <div class="row">
-                        <div class="col-8">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">Hair Cut-Ladies</button>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="stylist">Select a Stylist:</label>
-                                <select class="form-control" name="stylist" id="stylistSelect" required>
-                                    @foreach($hairstylists as $hairstylist)
-                                        <option value="{{ $hairstylist->emp_fname }}">{{ $hairstylist->emp_fname }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">BOOK NOW</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="bridalContent" class="hidden-content">
-                <div class="row">
-                        <div class="col-8">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">Hair Cut-Ladies</button>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label for="stylist">Select a Stylist:</label>
-                                <select class="form-control" name="stylist" id="stylistSelect" required>
-                                    @foreach($hairstylists as $hairstylist)
-                                        <option value="{{ $hairstylist->emp_fname }}">{{ $hairstylist->emp_fname }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#hairCutLModel">BOOK NOW</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="nailContent" class="hidden-content">
-                    Content for Finish & Treats goes here.
-                </div>
-                
-                <div id="otherContent" class="hidden-content">
-                    Content for Keratin Treatment goes here.
-                </div>
-            </div>
-        </div>
-    </div>
+<body>
+<!-- <div style="padding-top: 100px"> -->
 
-    <!-- Modal for Cut & Blow Dry -->
-    <div class="modal fade" id="cutBlowDryModal" tabindex="-1" role="dialog" aria-labelledby="cutBlowDryModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="cutBlowDryModalLabel">Cut & Blow Dry</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Content for the Cut & Blow Dry pop-up goes here -->
-                    This is the content for Cut & Blow Dry. Stylist: {{ $selectedStylist ?? 'No stylist selected' }}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container mt-5 bg-white">
+    <form action="" method="post">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <h2 class="text-center mb-4">Book Now</h2>
+
+        <label for="serviceCategory">Select a Service Category:</label>
+        <!-- <select id="serviceCategory" name="serviceCategory" class = "btn btn-custom"> -->
+        <button type="button" id="hairservices" class="btn btn-custom">   
+        @foreach($HairServices as $HairService)
+                <option value="{{ $HairService }}">{{ $HairService }}</option>
+        @endforeach
+            </button>
+            <button type="button" class="btn btn-custom">
+            @foreach($BridalServices as $BridalService)
+                <option value="{{ $BridalService }}">{{ $BridalService }}</option>
+            @endforeach
+            </button>
+            <button type="button" class="btn btn-custom">
+            @foreach($NailServices as $NailService)
+                <option value="{{ $NailService }}">{{ $NailService }}</option>
+            @endforeach
+            </button>
+            <button type="button" class="btn btn-custom">
+            @foreach($OtherServices as $OtherService)
+                <option value="{{ $OtherService }}">{{ $OtherService }}</option>
+            @endforeach
+        </button>
+        <br><br>
+
+        <label for="service">Select a Service:</label>
+        <button type="button" class="btn btn-custom"> 
+            @foreach($HairCutsL as $HairCutL)
+                <option value="{{ $HairCutL }}">{{ $HairCutL }}</option>
+            @endforeach
+        </button>
+        <button type="button" class="btn btn-custom"> 
+            @foreach($HairCutsG as $HairCutG)
+                <option value="{{ $HairCutG }}">{{ $HairCutG }}</option>
+            @endforeach
+        </button>
+        </select>
+        <br><br>
+
+        <label for="stylist">Select a Stylist:</label>
+        <select id="stylist" name="stylist">
+            @foreach($Hairstylists as $Hairstylist)
+                <option value="{{ $Hairstylist }}">{{ $Hairstylist }}</option>
+            @endforeach
+        </select>
+        <br><br>
+
+        <label for="datePicker">Select Date and Time:</label>
+        <input type="text" id="datePicker" name="bookingDate" readonly>
+        <br><br>
+
+        <label for="timeSlot">Select a Time Slot:</label>
+        <select id="timeSlot" name="timeSlot">
+            @foreach($timeSlots as $timeSlot)
+                <option value="{{ $timeSlot }}">{{ $timeSlot }}</option>
+            @endforeach
+        </select>
+        <br><br>  
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
     <script>
-        function toggleContent(contentId) {
-            // Hide all content sections
-            var allContent = document.querySelectorAll('.hidden-content');
-            allContent.forEach(function(content) {
-                content.style.display = 'none';
-            });
-
-            // Show the selected content section
-            var content = document.getElementById(contentId);
-            content.style.display = 'block';
+        function handleClick(){
+            
         }
+
+
+
+
+
+
+
+        // Initialize Flatpickr on the date input field
+        document.addEventListener('DOMContentLoaded', function () {
+            var datePicker = document.getElementById('datePicker');
+
+            flatpickr(datePicker, {
+                enable: [
+                    // Specify available dates or a range of dates
+                    '2023-01-01',
+                    '2023-01-10',
+                    { from: '2000-01-01', to: '2030-12-31' }
+                ],
+                dateFormat: 'Y-m-d', // Adjust the date format as needed
+                // Additional options go here
+            });
+        });
     </script>
+
+</div>
 </body>
 </html>

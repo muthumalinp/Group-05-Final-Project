@@ -12,6 +12,25 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div style="padding-top: 100px;">
+<x-app-layout>
+        <x-slot name="header">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Dashboard') }}
+            </h2>
+        </x-slot>
+
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900">
+                        {{ __("You're logged in!") }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </x-app-layout>
+</div>
     <div class="container"></div>
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -27,6 +46,9 @@
         <li data-target="#myCarousel" data-slide-to="7"></li> -->
         <!-- Add more indicators as needed -->
     </ul>
+
+   
+
 
     <!-- Slides -->
     <div class="carousel-inner container box">
@@ -99,5 +121,15 @@ $(document).ready(function() {
     <!-- <div class="foalt-image">
         <img src="/css/Home/15.jpg" id="m">
     </div> -->
+
+    @if(Session::has('user_data'))
+    <h1>Welcome, {{ Session::get('user_data')['fname'] }}!</h1>
+    <p>Email: {{ Session::get('user_data')['email'] }}</p>
+    <p>Role: {{ Session::get('user_data')['role'] }}</p>
+    <!-- Add any other fields you want to display -->
+@else
+    <h1>Guest User</h1>
+@endif
+
 </body>
 </html>

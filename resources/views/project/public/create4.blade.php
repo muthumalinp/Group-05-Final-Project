@@ -1,7 +1,7 @@
-@extends('layouts.main')
+@extends('layouts1.main')
 @section('title', 'Rent')
 
-@extends('layouts.app')
+@extends('layouts1.app')
 
 
 @section('content')
@@ -32,13 +32,19 @@
                             </div>
 
                             <div class="form-group mb3">
-                                <label for="">Partywear Size</label>
-                                <input type="text" name="size" class="form-control">
+                                <label for="">Partywear Title</label>
+                                <input type="text" name="title" class="form-control">
 
                             </div>
 
                             <div class="form-group mb3">
-                                <label for="">Partywear price</label>
+                                <label for="">Partywear Description</label>
+                                <input type="text" name="desc" class="form-control">
+
+                            </div>
+
+                            <div class="form-group mb3">
+                                <label for="">Partywear Price</label>
                                 <input type="text" name="price" class="form-control">
 
                             </div>

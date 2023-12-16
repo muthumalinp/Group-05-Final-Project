@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\EmployeeLeave;
@@ -10,20 +9,21 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Mail\EmployeeRegistered;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
+
 
 class EmployeeController extends Controller
 {
     protected $employee;
 
-    public function __construct(Employee $employee){
-        $this->employee = $employee;
+    public function __construct(){
+        $this->employee = new Employee();
         
     }
     public function index()
     {
         $response['employees'] = $this->employee->all();
         return view('project.owner.Employee.index')->with($response);
-
     }
     
     public function store(Request $request)
@@ -38,6 +38,9 @@ class EmployeeController extends Controller
         'emp_bsalary' => ['required', 'string', 'max:225'],
         'emp_rewards' => ['required', 'string', 'max:225'],
         ]);
+
+        // Handle file upload
+        $path = $request->file('owner_photo') ? $request->file('owner_photo')->store('owner_photos', 'public') : 'css/owner/owner_profile_image.jpeg';
 
         // Save the employee data
         $employee = new Employee([
@@ -58,6 +61,15 @@ class EmployeeController extends Controller
             'remaining_leaves' => 0,
         ]);
 
+        $user = User::create([
+            'fname' => $request->input('emp_fname'),
+            'lname' => $request->input('emp_lname'),
+            'email' => $request->input('emp_email'),
+            'phone_number' => $request->input('emp_phone'),
+            'password' => bcrypt($request->input('emp_password')), // Set a default password or use the employee's password
+            'role' => 'employee', // Adjust the role accordingly
+        ]);
+
         // Send email notification
         $employeeData = [
             'emp_fname' => $employee->emp_fname,
@@ -69,7 +81,7 @@ class EmployeeController extends Controller
         
             // Redirect or return a response
             return redirect()->route('employee.index')->with('success', 'Employee registered successfully!');
-        
+    
             // Log the exception
             Log::error("Error sending email: " . $e->getMessage());
         
@@ -124,6 +136,29 @@ class EmployeeController extends Controller
 
         // return a response...
         return response()->json(['message' => 'Employee registered successfully'], 201);
+    }
+
+
+    public function leaveRequests($id)
+    {
+        $employee = Employee::find($id);
+
+        if (!$employee) {
+            // Handle the case where the employee is not found, e.g., redirect or show an error
+            return redirect()->route('some.error.route');
+        }
+
+        $leaveRequests = $employee->leaveRequests;
+
+        return view('employee.leave-requests', ['employee' => $employee, 'leaveRequests' => $leaveRequests]);
+    }
+
+
+    public function name()
+    {
+        $profile = Employee::all();
+
+        return view('/project/owner/salary-management/show', ['employees' => $profile]);
     }
 
     

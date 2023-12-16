@@ -11,7 +11,7 @@
 </head>
 <body>
     
-<nav class="navbar">
+<!-- <nav class="navbar">
         <div class="logo"><h1>Salon Yaara</h1></div>
         <ul class="menu">
             <li><a href="/Product/HairStraghtening" class="active">Hair Straightening</a></li>
@@ -33,12 +33,10 @@
             </li>
         </ul>
 
-                <!--for responsive button-->
-
         <div class="menu-btn">
             <i class="fa-bars"></i>
         </div>
-    </nav><!--navigation bar end-->
+    </nav>navigation bar end -->
     
       
     
