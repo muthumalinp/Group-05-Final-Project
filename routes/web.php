@@ -17,7 +17,7 @@ use App\Http\Controllers\RsubmitOrderController;
 use App\Http\Controllers\PurchaseController;
 
 //use App\Http\Controllers\RatingController;
-use App\Http\Controllers\Admin\RatingController;
+use App\Http\Controllers\RatingController;
 
 use App\Http\Controllers\bookingPediController;
 use App\Http\Controllers\ShowController;
@@ -47,13 +47,22 @@ use App\Http\Controllers\RequestEmployeeLeaveController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EventCalendarController;
 use App\Http\Controllers\UploadimageController;
+use App\Http\Controllers\ProductRatingController;
+use App\Http\Controllers\RatingsViewController;
 use App\Models\EventCalendar;
+<<<<<<< Updated upstream
 
+=======
+ 
+>>>>>>> Stashed changes
 
 //use App\Http\Controllers\Admin\RatingController;
 //use App\Http\Controllers\Front\RatingController as ;
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 use App\Models\Renteditems;
 
 /*
@@ -322,7 +331,7 @@ Route::get('/reviewform', function () {
     return view('/project/public/reviewform');
 });
 //Add Rating/Review
-Route::post('add-rating', [FrontRatingController::class, 'addRating'])->name('add-rating');
+Route::post('add-rating', [ProductRatingController::class, 'addRating']);
 
 // Other routes...
 
@@ -498,12 +507,12 @@ Route::middleware(['auth', 'auth.role:owner'])->group(function () {
         return view('/project/owner/settings');
     });
 
-    //Ratings
-    Route::get('/ratings', function () {
-        return view('resources/views/project/owner/ratings/ratings');
-    });
-    //Route::get('ratings', 'RatingController@index')->name('ratings');
-    Route::get('ratings', [RatingController::class, 'ratings']);
+    // Ratings
+    Route::get('/ratings', [RatingsViewController::class, 'showRatings'])->name('ratings.ratings');
+
+// Route::get('ratings', 'RatingController@index')->name('ratings');
+
+
 
 
     /*-----employee button route-----*/
