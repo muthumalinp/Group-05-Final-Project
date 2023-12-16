@@ -16,10 +16,9 @@
                     display: flex;
                 }
                 nav {
-                    width:1px;
-                    background-color: #333;
+                    width:20px;
                     color: white;
-                    padding: 20px;
+                    padding: 10px;
                 }
                 main {
                 flex: 1;
