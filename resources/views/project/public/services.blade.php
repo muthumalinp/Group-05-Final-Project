@@ -59,7 +59,7 @@
                           <li>Perms and Relaxers</li>
                           <li>Updos and Special Occasion Hairstyles</li>
                       </ul>
-                      <a class="read_more" href="service.html">Read More</a>
+                      <!--<a class="read_more" href="service.html">Read More</a>-->
                   </div>
                </div>
                <div class="col-md-4">
@@ -72,7 +72,7 @@
                                 <li>Waxing and Threading</li>
                                 <li>Eyebrows and Eyelash Tinting</li>
                      </ul>
-                     <a class="read_more" href="service.html">Read More</a>
+                     <!--<a class="read_more" href="service.html">Read More</a>-->
                   </div>
                </div>
                <div class="col-md-4">
@@ -86,7 +86,7 @@
                                 <li>Beauty Products</li>
                                 <li>Health and Wellness Products</li>
                       </ul>
-                      <a class="read_more" href="service.html">Read More</a>
+                      <!--<a class="read_more" href="service.html">Read More</a>-->
                   </div>
                </div>
             </div>
@@ -102,7 +102,7 @@
                           <li>Bridal Dressing</li>
                           <li>Normal Dressing</li>
                           </ul>
-                      <a class="read_more" href="service.html">Read More</a>
+                      <!--<a class="read_more" href="service.html">Read More</a>-->
                   </div>
                </div>
                <div class="col-md-4">
@@ -113,7 +113,7 @@
                                 <li>Makeup Application(Bridal & Normal)</li>
                                 <li>Makeup Lessons & Consultation</li>
                      </ul>
-                     <a class="read_more" href="service.html">Read More</a>
+                     <!--<a class="read_more" href="service.html">Read More</a>-->
                   </div>
                </div>
                <div class="col-md-4">
@@ -126,7 +126,7 @@
                                 <li>Nail Designs</li>
                                 <li>Overlays & Extensions</li>
                                 </ul>
-                      <a class="read_more" href="service.html">Read More</a>
+                      <!--<a class="read_more" href="service.html">Read More</a>-->
                   </div>
                </div>
             </div>

@@ -47,7 +47,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
+
                             <a class="nav-link" href="/employee-appointments">
+
                                 <i class="bi bi-bookmarks"></i> Appoinments
                             </a>
                         </li>
@@ -94,6 +96,7 @@
                 })
             </script>
         @endif
+
 
         @if (session()->has('error'))
             <script>
@@ -170,6 +173,7 @@
                                         <td>Leaves Balance</td>
                                         <td>{{ $employee_leave->remaining_leaves ?? 0 }}</td>
                                     </tr>
+
                                 </table>
                             </div>
                         </div>
@@ -231,7 +235,9 @@
 
                                         <div class="form-row">
                                             <div class="col-md-12 mb-3">
+
                                                 <label for="textArea">Reason for Leave</label>
+
                                                 <textarea class="form-control" id="textArea" rows="3" name="leave_reason"
                                                     placeholder="Reason for Sickness Leave..."></textarea>
                                             </div>
@@ -265,6 +271,7 @@
     <script>
         $(document).ready(function() {
             var currentYear = new Date().getFullYear();
+
             $('#startingDate').datepicker({
                 format: 'yyyy-mm-dd',
                 autoclose: true,
@@ -274,11 +281,13 @@
                 var minDate = new Date(selected.date.valueOf());
                 $('#endingDate').datepicker('setStartDate', minDate);
 
+
                 if (selected.date) {
                     $('#endingDate').prop('disabled', false);
                 } else {
                     $('#endingDate').prop('disabled', true);
                 }
+
             });
 
             $('#endingDate').datepicker({
@@ -291,6 +300,7 @@
                 $('#startingDate').datepicker('setEndDate', maxDate);
             });
 
+
             $('#endingDate').prop('disabled', true);
         });
     </script>
@@ -299,3 +309,4 @@
 </body>
 
 </html>
+
