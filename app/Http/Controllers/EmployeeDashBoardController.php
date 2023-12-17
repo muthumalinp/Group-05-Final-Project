@@ -21,12 +21,12 @@ class EmployeeDashBoardController extends Controller
         $employee_leave = EmployeeLeave::where('employee_id', $employee->id)->first();
         $employee_details = EmployeeDetails::where('user_id', $user->id)->first();
         $bookedAppointments = BookedAppointment::where('emp_id', $employee->id)
-            ->where('booking_date', '>=', now()->toDateString())
+            ->where('bookingDate', '>=', now()->toDateString())
             ->where(function ($query) {
-                    $query->where('booking_date', '>', now()->toDateString())
+                    $query->where('bookingDate', '>', now()->toDateString())
                         ->orWhere(function ($query) {
-                            $query->where('booking_date', '=', now()->toDateString())
-                                ->where('end_time', '>', now()->toTimeString());
+                            $query->where('bookingDate', '=', now()->toDateString())
+                                ->where('endTimeResult', '>', now()->toTimeString());
                         });
                 })
                 ->get();

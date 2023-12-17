@@ -16,8 +16,11 @@ return new class extends Migration
             $table->string('selectedServiceCategory')->nullable();
             $table->string('selectedService')->nullable();
             $table->string('stylist');
+            $table->unsignedBigInteger('emp_id')->nullable();
+            $table->foreign('emp_id')->references('id')->on('employees');
             $table->string('bookingDate');
             $table->string('adjustedTimeSlots');
+            $table->string('endTimeResult')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('user_email');
