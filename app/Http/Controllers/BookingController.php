@@ -169,6 +169,7 @@ public function store(Request $request)
         'stylist' => $request->input('stylist'),
         'bookingDate' => $request->input('bookingDate'),
         'adjustedTimeSlots' => $request->input('adjustedTimeSlots'),
+        'endTimeResult' => $request->input('endTimeResult'),
         'user_id' => $user->id,
         'user_email' => $user->email,
     ]);

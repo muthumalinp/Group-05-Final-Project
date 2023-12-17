@@ -97,13 +97,13 @@
             <!-- <div class="card">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h5>Calendar</h5>
+                        <h5>Calendar</h5> 
                     </div>
                     <div class="panel-body" >
                         <div id='calendar'></div>
                     </div>
-                </div>-->
-                <!--<script>
+                </div>
+                <script>
                     $(document).ready(function () {
                         var calendar = $('#calendar').fullCalendar({
                             header: {

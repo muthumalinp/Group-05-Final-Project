@@ -127,7 +127,10 @@
    </select>
    <br><br>
 </div>
-
+<button type="button" onclick="calculateEndTime()">Calculate End Time</button>
+ <!-- Display the calculated end time here -->
+ <div id="endTimeResult"></div>
+ 
 <input type="submit" value="Submit">
     </form>
 </div>
@@ -163,6 +166,21 @@
 
 
         });
+
+        function calculateEndTime() {
+        // Get the selected service
+        var selectedService = document.querySelector('input[name="selectedService"]:checked').value;
+
+        // Assuming you have variables $adjustedTimeSlots, $serviceTime in your backend
+        var endTime;
+
+        // Check the selected service and perform actions accordingly
+        if (selectedService === '{{ $HairCutsL[0] }}') {
+            // Adjusted time slots and service time can be fetched from the backend
+            endTime = $adjustedTimeSlots + $duration;
+        } // Display the calculated end time
+            document.getElementById('endTimeResult').innerHTML = 'End Time: ' + endTime;
+    }
 
 
 

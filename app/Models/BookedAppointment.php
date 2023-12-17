@@ -12,8 +12,10 @@ class BookedAppointment extends Model
         'selectedServiceCategory',
         'selectedService',
         'stylist',
+        'emp_id',
         'bookingDate',
         'adjustedTimeSlots',
+        'endTimeResult',
         'user_id',  // Add user ID column
         'user_email',  // Add user email column
 
