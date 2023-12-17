@@ -24,7 +24,7 @@
             @if (session('status'))
                 <h6 class="alert alert-success">{{ session('status') }}</h6>
             @endif
-                <div class="card">
+                <div class="card" style="margin: 200px 300px 0 100px; width: 1000px;">
                     <div class="card-header">
                         <h4>Add IMAGE
                             <a href="{{ url('uploadimage') }}" class="btn btn-danger float-end">Back</a>
