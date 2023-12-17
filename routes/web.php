@@ -31,8 +31,10 @@ use App\Models\Owner;
 
 use App\Models\BookedAppointment;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\EmployeeProfileController;
 use App\Http\Controllers\EmployeeDashBoardController;
 use App\Http\Controllers\EmployeeLeaveController;
+use App\Http\Controllers\EmployeeLeaveAcceptNotification;
 use App\Http\Controllers\HomeTryController;
 
 use Illuminate\Auth\AuthManager;
@@ -47,10 +49,13 @@ use App\Http\Controllers\EventCalendarController;
 use App\Http\Controllers\UploadimageController;
 use App\Models\EventCalendar;
 
+
 //use App\Http\Controllers\Admin\RatingController;
 //use App\Http\Controllers\Front\RatingController as ;
 
+
 use App\Models\Renteditems;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -162,6 +167,7 @@ Route::get('/LogIn', function () {
 Route::get('uploadimage', [UploadimageController::class, 'imageUp']);
 Route::get('add-uploadimage', [UploadimageController::class, 'create']);
 Route::post('add-uploadimage', [UploadimageController::class, 'store']);
+Route::post('edit-uploadimage/{id}', [UploadimageController::class, 'edit']);
 // Route::get('/Dashboard-Customer', function () {
 //     return view('/project/customer/dashboard');
 // })->name('customer.dashboard');
@@ -352,53 +358,35 @@ Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index
 /*-------- Starter of Admin Routes ---------*/
 
 
-
 /*-------- End of Admin Routes ----------*/
 
 /*************************************************************/
 /****************EMPLOYEE ROUTE BEGIN*************************/
 /************************************************************/
-//Route::middleware(['employee_protect'])->group(function () {
-    //Route::get('/employee-dashboard', EmployeeDashBoardController::class)->name('employee.dashboard');
+Route::get('/employee-dashboard', EmployeeDashBoardController::class)->name('employee.dashboard');
 
-    Route::get('/employee-dashboard',function(){
-        return view('/project/employee/dashboard');
-    });
-    
-    Route::get('/employee-meetings', function () {
-        return view('/project/employee/meetings');
-    });
+Route::get('/employee-meetings', function () {
+    return view('/project/employee/meetings');
+});
 
-    //Route::get('/employee-leaves', [EmployeeLeaveController::class, 'employeeDetails'])->name('employee.leaves');
+////employee leave part
+Route::get('/employee-leaves', [EmployeeLeaveController::class, 'employeeDetails'])->name('employee.leaves');
+Route::post('/employee-leave-request', [EmployeeLeaveController::class, 'requestLeave'])->name('employee.leave.request.form');
 
-    Route::get('/employee-apoinments', function () {
-        return view('/project/employee/appoinments');
-    });
 
-    Route::get('/employee-holidays', function () {
-        return view('/project/employee/holidays');
-    });
+Route::get('/employee-apoinments', function () {
+    return view('/project/employee/appoinments');
+});
 
-    Route::get('/employee-profile', function () {
-        return view('/project/employee/profile');
-    });
+Route::get('/employee-holidays', function () {
+    return view('/project/employee/holidays');
+});
 
-    Route::get('/employee-leaves', function () {
-        return view('/project/employee/leaves');
-    });
+Route::get('/employee-profile', [EmployeeProfileController::class, 'editProfile'])->name('employee.profile');
 
-    //Route::get('/employee-profile', [ProfileController::class, 'editProfile'])
-    //->name('employee.profile');
+Route::put('/update-profile', [EmployeeProfileController::class, 'updateProfile'])->name('update-profile');
 
-    //Route::put('/update-profile/{id}', [ProfileController::class, 'updateProfile'])
-    //->name('update-profile');
-
-    //Route::get('/employee-leave-request', [EmployeeLeaveController::class, 'employeeDetails'])
-    //->name('employee.leave.request');
-
-    //Route::post('/employee-leave-request', [EmployeeLeaveController::class, 'requestLeave'])
-    //->name('employee.leave.request.form');
-//});
+Route::get('/logout-employee', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('custom.logout');
 /***********************************************************/
 /****************EMPLOYEE ROUTE END*************************/
 /***********************************************************/
@@ -445,9 +433,12 @@ Route::get('/emplLeave', function () {
 Auth::routes();
 
 
+/*-------- customer data form --------*/
+Route::get('/customer_details',[ShowController::class,'show']);
 
-
-
+/*-------- product data form --------*/
+Route::get('/manage_product',[ShowController::class,'item']);
+Route::get('/delivered_product',[ShowController::class,'cell']);
 
 
 
@@ -480,8 +471,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'auth.role:owner'])->group(function () {
     route::get('/Dashboard',[HomeTryController::class, 'index']);
+
     route::get('/viewemployee_salary',[EmployeeController:: class, 'name']);
-    
+
     Route::get('/Leave-Request', [RequestEmployeeLeaveController::class, 'index']);
     Route::any('/accept-leave/{id}', [RequestEmployeeLeaveController::class, 'acceptLeave'])->name('acceptLeave');
     Route::delete('/reject-leave/{id}', [RequestEmployeeLeaveController::class, 'rejectLeave'])->name('rejectLeave');
@@ -588,6 +580,7 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/manage_appointment', function () {
         return view('/project/admin/manage_appoinment');
     });
+    
     Route::get('/manage_product', function () {
         return view('/project/admin/manage_product');
     });
@@ -604,8 +597,8 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
         return view('/project/admin/setting');
     });
 
-    
-    
+
+
     /*-------- customer data form --------*/
     Route::get('/customer_details',[ShowController::class,'show']);
 
@@ -637,7 +630,5 @@ Route::middleware(['auth', 'auth.role:owner'])->group(function () {
  });
 
  route::get('/Dashboard',[HomeTryController::class, 'index']);
-
- 
 
 require __DIR__.'/auth.php';

@@ -9,7 +9,7 @@ use App\Models\Rating;
 class RatingController extends Controller
 {
     public function ratings(){
-        $ratings = Rating::with(['user','product'])->get()->toArray();
+        $ratings = Rating::with(['user','hairstrs'])->get()->toArray();
 
         //dd($ratings);
         return view('project.owner.ratings.ratings')->with(compact('ratings'));

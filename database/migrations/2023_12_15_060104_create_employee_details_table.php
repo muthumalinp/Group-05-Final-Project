@@ -11,17 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        /*Schema::create('employee_emergency_contacts', function (Blueprint $table) {
+        Schema::create('employee_details', function (Blueprint $table) {
             $table->id();
+            $table->date('birth_date')->nullable();
+            $table->string('nic_no')->nullable();
+            $table->string('address')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('marital_status')->nullable();
             $table->string('name')->nullable();
             $table->string('relationship')->nullable();
             $table->string('mobile_number_primary')->nullable();
             $table->string('mobile_number_secondary')->nullable();
             $table->string('address_primary')->nullable();
             $table->string('address_secondary')->nullable();
-            $table->timestamps();
             $table->foreignId('user_id')->constrained();
-        });*/
+            $table->timestamps();
+        });
     }
 
     /**
@@ -29,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        /*Schema::dropIfExists('employee_emergency_contacts');*/
+        Schema::dropIfExists('employee_details');
     }
 };

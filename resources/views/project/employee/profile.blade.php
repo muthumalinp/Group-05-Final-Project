@@ -41,11 +41,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/employee-meetings">
-                                <i class="bi bi-bar-chart"></i> Meetings
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="/employee-leaves">
                                 <i class="bi bi-bookmarks"></i> My Leaves
                             </a>
@@ -71,7 +66,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/logout"
+                            <a class="nav-link" href="/logout-employee"
                                 onclick="confirmLogout(event)">
                                 <i class="bi bi-box-arrow-left"></i> Logout
                             </a>
@@ -111,7 +106,7 @@
                         @endif
                         <!-- Form START -->
                         <form class="file-upload" method="POST"
-                            action="" enctype="multipart/form-data">
+                            action="{{ route('update-profile') }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row mb-5 gx-5">
@@ -124,12 +119,12 @@
                                                 <div class="square position-relative display-2 mb-3"
                                                     style="max-height: 300px">
                                                     <img id="showProfileImage"
-                                                        src="{{ !empty($employee->profile_image) ? url('employee_assets/uploads/' . $employee->profile_image) : url('employee_assets/uploads/nodp.png') }}"
+                                                        src="{{ !empty($employee->owner_photo) ? url('employee_assets/uploads/' . $employee->owner_photo) : url('employee_assets/uploads/nodp.png') }}"
                                                         srcset="" alt="Profile Image" style="max-height: 250px">
                                                 </div>
                                                 <input type="hidden" id="currentProfileImage"
                                                     name="currentProfileImage"
-                                                    value="{{ $employee->profile_image ?? '' }}">
+                                                    value="{{ $employee->owner_photo ?? '' }}">
                                                 <input type="file" id="profileImage" name="profileImage"
                                                     hidden="" value="Hello">
                                                 <label class="btn btn-success-soft btn-block"
@@ -138,7 +133,7 @@
                                                     id="removeButton">Remove</button>
                                                 <div class="mt-5">
                                                     <h2 style="text-transform: capitalize">
-                                                        </h2>
+                                                        {{ $user->fname . ' ' . $user->lname }}</h2>
                                                 </div>
                                             </div>
                                         </div>
@@ -148,10 +143,10 @@
                                 <div class="col-xxl-8 mb-5 mb-xxl-0">
                                     <div class="bg-secondary-soft px-4 pt-10 pb-3 rounded mb-5">
                                         <div class="row g-3">
-                                            <h4 class="mb-4 mt-0">Employee ID: </h4>
-                                            <h4 class="mb-4 mt-0">Join Date: </h4>
-                                            <h4 class="mb-4 mt-0">Role: Develper</h4>
-                                            <h4 class="mb-4 mt-0">Salary: </h4>
+                                            <h4 class="mb-4 mt-0">Employee ID: {{ $employee->id }}</h4>
+                                            <h4 class="mb-4 mt-0">Join Date: {{ $employee->created_at }}</h4>
+                                            <h4 class="mb-4 mt-0">Role: Develper{{ $employee->emp_jobtitle }}</h4>
+                                            <h4 class="mb-4 mt-0">Salary: {{ $employee->emp_bsalary }}</h4>
                                         </div>
                                     </div>
                                     <div class="bg-secondary-soft px-4 py-5 rounded">
@@ -161,35 +156,35 @@
                                                 <label class="form-label">First Name *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     aria-label="First name" name="fname"
-                                                    value="">
+                                                    value="{{ $user->fname }}">
                                                 @error('fname')
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger">*{{ $message }}</span>
                                                 @enderror
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label">Last Name *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     aria-label="Last name" name="lname"
-                                                    value="">
+                                                    value="{{ $user->lname }}">
                                                 @error('lname')
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger">*{{ $message }}</span>
                                                 @enderror
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label">Mobile number *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     aria-label="Phone number" name="phone_number"
-                                                    value="">
+                                                    value="{{ $user->phone_number }}">
                                                 @error('phone_number')
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger">*{{ $message }}</span>
                                                 @enderror
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="inputEmail4" class="form-label">Email *</label>
                                                 <input type="email" class="form-control" id="inputEmail4"
-                                                    name="email" value="">
+                                                    name="email" value="{{ $user->email }}">
                                                 @error('email')
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger">*{{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
@@ -210,7 +205,7 @@
                                                     *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     name="birth_date" aria-label="Pinterest"
-                                                    value="" onfocus="this.blur()"">
+                                                    value="{{ $employee_details->birth_date }}" onfocus="this.blur()">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label"><i
@@ -219,9 +214,9 @@
                                                     *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     name="nic_no" aria-label="Facebook"
-                                                    value="">
+                                                    value="{{ $employee_details->nic_no }}" onfocus="this.blur()">
                                                 @error('nic_no')
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger">*{{ $message }}</span>
                                                 @enderror
                                             </div>
                                             <div class="col-md-6">
@@ -230,9 +225,9 @@
                                                     *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     name="address" aria-label="Twitter"
-                                                    value="">
+                                                    value="{{ $employee_details->address }}">
                                                 @error('address')
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger">*{{ $message }}</span>
                                                 @enderror
                                             </div>
                                             <div class="col-md-6">
@@ -241,9 +236,9 @@
                                                     *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     name="nationality" aria-label="Linkedin"
-                                                    value="">
+                                                    value="{{ $employee_details->nationality }}">
                                                 @error('nationality')
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger">*{{ $message }}</span>
                                                 @enderror
                                             </div>
                                             <div class="col-md-6">
@@ -252,9 +247,9 @@
                                                     *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     name="religion" aria-label="Instragram"
-                                                    value="">
+                                                    value="{{ $employee_details->religion }}">
                                                 @error('religion')
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger">*{{ $message }}</span>
                                                 @enderror
                                             </div>
                                             <div class="col-md-6">
@@ -264,9 +259,9 @@
                                                     *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     name="marital_status" aria-label="Dribble"
-                                                    value="">
+                                                    value="{{ $employee_details->marital_status }}">
                                                 @error('marital_status')
-                                                    <span class="text-danger">*</span>
+                                                    <span class="text-danger">*{{ $message }}</span>
                                                 @enderror
                                             </div>
 
@@ -284,7 +279,7 @@
                                                         class="fab fa-fw fa-facebook me-2 text-facebook"></i>Name
                                                     *</label>
                                                 <input type="text" class="form-control" placeholder=""
-                                                    aria-label="Facebook" value=""
+                                                    aria-label="Facebook" value="{{ $employee_details->name }}"
                                                     onfocus="this.disabled=true;" disabled>
                                             </div>
                                             <!-- Twitter -->
@@ -294,7 +289,7 @@
                                                     *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     aria-label="Twitter"
-                                                    value=""
+                                                    value="{{ $employee_details->relationship }}"
                                                     onfocus="this.disabled=true;" disabled>
                                             </div>
                                             <!-- Linkedin -->
@@ -305,7 +300,7 @@
                                                     *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     aria-label="Linkedin"
-                                                    value=""
+                                                    value="{{ $employee_details->mobile_number_primary }}"
                                                     onfocus="this.disabled=true;" disabled>
                                             </div>
                                             <!-- Instragram -->
@@ -316,7 +311,7 @@
                                                     *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     aria-label="Instragram"
-                                                    value=""
+                                                    value="{{ $employee_details->mobile_number_secondary }}"
                                                     onfocus="this.disabled=true;" disabled>
                                             </div>
                                             <!-- Dribble -->
@@ -327,7 +322,7 @@
                                                     *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     aria-label="Dribble"
-                                                    value=""
+                                                    value="{{ $employee_details->address_primary }}"
                                                     onfocus="this.disabled=true;" disabled>
                                             </div>
                                             <!-- Pinterest -->
@@ -337,7 +332,7 @@
                                                     *</label>
                                                 <input type="text" class="form-control" placeholder=""
                                                     aria-label="Pinterest"
-                                                    value=""
+                                                    value="{{ $employee_details->address_secondary }}"
                                                     onfocus="this.disabled=true;" disabled>
                                             </div>
                                         </div> <!-- Row END -->
@@ -375,13 +370,13 @@
                                                     id="exampleInputPassword3">
                                             </div>
                                             @error('password')
-                                                <span class="text-danger">*</span>
+                                                <span class="text-danger">*{{ $message }}</span>
                                             @enderror
                                             @error('confirm_password')
-                                                <span class="text-danger">*</span>
+                                                <span class="text-danger">*{{ $message }}</span>
                                             @enderror
                                             @error('old_password')
-                                                <span class="text-danger">*</span>
+                                                <span class="text-danger">*{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
