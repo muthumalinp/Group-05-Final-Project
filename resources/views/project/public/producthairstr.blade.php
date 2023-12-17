@@ -69,7 +69,7 @@ session_start();
                     </div>
                     <div class="box">
                         <!-- <button type="submit" name="review" class="btn">Review</button> -->
-                        <a href="{{ url('/reviewform')}}">Review</a>
+                        <a href="{{ url('/reviewform')}}"><button class="btn">Ratings</button></a>
                     </div>
                     <input type="hidden" name="desc" value="Dreamdron">
                     <input type="hidden" name="price" value="2500">
@@ -89,6 +89,10 @@ session_start();
                         <div class="price">Rs.6500</div>
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
+                    <div class="box">
+                        <!-- <button type="submit" name="review" class="btn">Review</button> -->
+                        <a href="{{ url('/reviewform')}}"><button class="btn">Ratings</button></a>
+                    </div>
                     <input type="hidden" name="desc" value="Bellose">
                     <input type="hidden" name="price" value="6500">
                 </form>
@@ -107,6 +111,10 @@ session_start();
                         <div class="price">Rs.7500</div>
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
                     </div>
+                    <div class="box">
+                        <!-- <button type="submit" name="review" class="btn">Review</button> -->
+                        <a href="{{ url('/reviewform')}}"><button class="btn">Ratings</button></a>
+                    </div>
                     <input type="hidden" name="desc" value="Xtenso">
                     <input type="hidden" name="price" value="7500">
                 </form>   
@@ -124,6 +132,10 @@ session_start();
                     <div class="box">
                         <div class="price">Rs.4500</div>
                         <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
+                    </div>
+                    <div class="box">
+                        <!-- <button type="submit" name="review" class="btn">Review</button> -->
+                        <a href="{{ url('/reviewform')}}"><button class="btn">Ratings</button></a>
                     </div>
                     <input type="hidden" name="desc" value="Streax-Canvo">
                     <input type="hidden" name="price" value="4500">
