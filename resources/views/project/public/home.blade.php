@@ -42,10 +42,10 @@
             <img src="css/salon_image/hair_styling_resize.jpg" >
             
         </div>
-        <div class="carousel-item  box">
+        <!--<div class="carousel-item  box">
             <img src="css/salon_image/tattoo.jpg" >
             
-        </div>
+        </div>-->
         <div class="carousel-item  box">
             <img src="css/salon_image/bride.jpg" >
             
