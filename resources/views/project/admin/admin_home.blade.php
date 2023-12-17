@@ -56,7 +56,7 @@
                         <li><a href="/manage_product" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Product</a>
                         <li><a href="/manage_rented_item" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Rented Item</a>
                         <li><a href="/employee-leaves" class="nav-item nav-link"><i class="fa fa-th me-2"></i>My Leaves</a>
-                        <form method="POST" action="{{ route('owner.logout') }}">
+                        <form method="POST" action="{{ route('admin.logout') }}">
     @csrf
     <button type="submit">Log Out</button>
 </form>

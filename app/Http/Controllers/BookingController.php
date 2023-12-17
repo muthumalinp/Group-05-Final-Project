@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\Service;
 use App\Models\ServiceCategory;
-use App\Booking;
 use App\Models\BookedAppointment;
 use DateTime;
 use DateInterval;
@@ -79,14 +78,23 @@ class BookingController extends Controller
         $availableTimeSlots = array_diff($timeSlots, $bookedTimeSlots);
         
         // Output the available time slots
-        print_r($availableTimeSlots);
+        // print_r($availableTimeSlots);
+
+        
         
         
         
         // Adjust the time slots based on the duration
         $duration = Service::where('id', '=', '1')->value('duration');
         
-        
+        // Adjust the time slots based on the duration
+// $duration = Service::where('id', '=', '1')->value('duration');
+// $adjustedTimeSlots = array_map(function ($time) use ($duration) {
+//     return date('H:i', strtotime($time) + ($duration * 60));
+// }, $availableTimeSlots);
+
+// Output the adjusted time slots
+// print_r($adjustedTimeSlots);
 
 // $duration = Service::where('id', '=', '1')->value('duration');
 // $timeSlots = array_map(function ($time) use ($duration) {
@@ -107,6 +115,7 @@ class BookingController extends Controller
                                                         'Hairstylists3',
                                                         'Hairstylists4',
                                                         'availableTimeSlots',
+                                                        // 'adjustedTimeSlots',
                                                         'duration',
                                                         'bookedTimeStart',
                                                         'bookedTimeEnd',
@@ -148,25 +157,32 @@ class BookingController extends Controller
 //     }
 // }
 
-    public function store(Request $request)
-    {
-        // Validate the form data
-        $validatedData = $request->validate([
-            'employee_id' => 'required|exists:employees,id',
-            'service_id' => 'required|exists:services,id',
-            'booking_datetime' => 'required|date',
-            'customer_name' => 'required|string',
-            'customer_email' => 'required|email',
-            'customer_phone' => 'required|string',
-            // Add other necessary validation rules
-        ]);
 
-        // Create a new booking
-        Booking::create($validatedData);
 
-        // Redirect or perform any other actions after successful submission
-        return redirect()->back()->with('success', 'Booking created successfully');
-    }
+public function store(Request $request)
+{
+    // Validate the incoming request data
+    $request->validate([
+        'emp_id' => 'required|exists:employees,id',
+        'emp_fname' => 'required|string',
+        'booking_date' => 'required|date',
+        'start_time' => 'required|date_format:H:i',
+        'end_time' => 'required|date_format:H:i|after:start_time',
+    ]);
 
-    // Add other methods for updating and deleting bookings
+    // Create a new booked appointment instance
+    $bookedAppointment = new BookedAppointment([
+        'emp_id' => $request->input('emp_id'),
+        'emp_fname' => $request->input('emp_fname'),
+        'booking_date' => $request->input('booking_date'),
+        'start_time' => $request->input('start_time'),
+        'end_time' => $request->input('end_time'),
+    ]);
+
+    // Save the booked appointment to the database
+    $bookedAppointment->save();
+
+    // You can return a response or redirect as needed
+    return response()->json(['message' => 'Booking saved successfully']);
+}
 }

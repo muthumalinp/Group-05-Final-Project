@@ -10,23 +10,22 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
-    Schema::create('booked_appointments', function (Blueprint $table) {
-        $table->id();
-        $table->unsignedBigInteger('emp_id');
-        $table->string('emp_fname');
-        $table->date('booking_date');
-        $table->time('start_time');
-        $table->time('end_time');
-        $table->timestamps();
+    {
+        Schema::create('booked_appointments', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('emp_id');
+            $table->string('emp_fname');
+            $table->date('booking_date');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->timestamps();
 
-        $table->foreign('emp_id')->references('id')->on('Employees')->onDelete('cascade');
-    });
-}
+            $table->foreign('emp_id')->references('id')->on('employees')->onDelete('cascade');
+        });
+    }
 
-public function down()
-{
-    Schema::dropIfExists('booked_appointments');
-}
-
+    public function down()
+    {
+        Schema::dropIfExists('booked_appointments');
+    }
 };
