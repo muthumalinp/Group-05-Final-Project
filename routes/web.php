@@ -331,11 +331,12 @@ Route::post('add-rating', [ProductRatingController::class, 'addRating']);
 
 // Use the 'index' method for the '/BookNow' route
 Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index');
+Route::get('/booking', [BookingController::class, 'getBookedAppointments'])->name('booking.getBookedAppointments');
 
 // // Define a route for fetching services based on the selected category
 // Route::get('/api/services/{category}', [BookingController::class, 'getServices']);
 
- Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+ Route::post('/booking', [BookingController::class, 'store'])->name('bookings.store');
 
 // Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 
@@ -611,8 +612,6 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/setting', function () {
         return view('/project/admin/setting');
 
-    Route::post('/admin/logout', [AdminLoController::class, 'logout'])->name('admin.logout');
-
     });
     
 
@@ -646,8 +645,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
  });
 
- //Route::middleware(['web', 'auth', 'auth.role:customer'])->group(function () {
     Route::get('/Dashboard', [HomeTryController::class, 'index']);
-//});
+
 
 require __DIR__.'/auth.php';
