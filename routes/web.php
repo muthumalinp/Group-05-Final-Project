@@ -645,7 +645,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
  });
 
- 
     Route::get('/Dashboard', [HomeTryController::class, 'index']);
 
 
