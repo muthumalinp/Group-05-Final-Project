@@ -8,6 +8,7 @@ Use App\Models\User;
 Use App\Models\Product;
 use App\Models\Owner;
 use App\Models\Renteditems;
+use App\Models\BookedAppointment;
 
 
 class ShowController extends Controller
@@ -29,6 +30,8 @@ class ShowController extends Controller
     }
 
 
+
+
     
 
     public function cell()
@@ -45,6 +48,15 @@ class ShowController extends Controller
 
         $point=Renteditems::all();
         return view('/project/admin/returned_rented_item',compact('point'));
+        
+        
+    }
+
+    public function appointment()
+    {
+
+        $book=BookedAppointment::all();
+        return view('/project/admin/manage_appointment',compact('book'));
         
         
     }

@@ -42,18 +42,34 @@
                                 <tr>
                                     <td><b>Id</b></td>
                                     <td><b>Name</b></td>
-                                    <td><b>Email</b></td>
-                                    <td><b>Beautisian</b></td>
-                                    <td><b>Duration</b></td>
-                                    <td><b>Service</b></td>
-                                    <td><b>Time</b></td>
                                     <td><b>Date</b></td>
-                                    <td><b>Submit</b></td>
+                                    <td><b>Start Time</b></td>
+                                    <td><b>End Time</b></td>
+                                    
+                                   
 
                                     
                                     
                                 </tr>
                             </thead>
+
+                            <tbody>
+                            @foreach($book as $book)
+                                <tr>
+                                    <td>{{$book->emp_id}}</td>
+                                    <td>{{$book->emp_fname}}</td>
+                                    <td>{{$book->booking_date}}</td>
+                                    <td>{{$book->start_time}}</td>
+                                    <td>{{$book->end_time}}</td>
+                                    
+                                    
+
+
+                                    
+                                </tr>
+                               
+                                @endforeach
+                            </tbody>
                         
                         </table>
                     </div>
