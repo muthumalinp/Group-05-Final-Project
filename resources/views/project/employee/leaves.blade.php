@@ -160,7 +160,7 @@
                             </div>
                             <div class="leaves" id="holidaysList">
 
-                                <table>
+                                <!-- <table>
                                     <tr>
                                         <td>Total Leaves for This Month</td>
                                         <td>{{ $employee_leave->available_leaves ?? 0 }}</td>
@@ -174,7 +174,7 @@
                                         <td>{{ $employee_leave->remaining_leaves ?? 0 }}</td>
                                     </tr>
 
-                                </table>
+                                </table> -->
                             </div>
                         </div>
                     </div>
