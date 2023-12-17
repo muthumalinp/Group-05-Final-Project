@@ -70,9 +70,11 @@
             </div>
             <form action="{{ url('add-rating')}}" method="POST" name="formRating" id="formRating">
             @csrf
-
+            
+            @auth
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-    <input type="hidden" name="product_ID" value="A12">
+            @endauth
+            <input type="hidden" name="product_ID" value="A12">
 
             <div class="rate">
                 <input type="radio" id="star5" name="rating" value="5" />
