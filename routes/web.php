@@ -57,7 +57,6 @@ use App\Models\EventCalendar;
 //use App\Http\Controllers\Admin\RatingController;
 //use App\Http\Controllers\Front\RatingController as ;
 
-
 use App\Models\Renteditems;
 
 /*
