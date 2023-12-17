@@ -629,6 +629,9 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/setting', function () {
         return view('/project/admin/setting');
     });
+
+    }); 
+
     Route::get('/manage_rented_item', function () {
         return view('/project/admin/manage_rented_item');
     });
