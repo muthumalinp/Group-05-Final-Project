@@ -597,6 +597,9 @@ Route::middleware(['auth', 'auth.role:owner'])->group(function () {
         return view('/project/owner/salary-management/show');
     });
 
+
+    
+
     Route::post('/owner/logout', [OwnerController::class, 'logout'])->name('owner.logout');
 });
 
@@ -615,6 +618,7 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/customer_details', function () {
         return view('/project/admin/customer_details');
     });
+<<<<<<< Updated upstream
     // Route::get('/manage_rented_item', function () {
     //     return view('/project/admin/manage_rented_item');
     // });
@@ -625,6 +629,13 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
 
     Route::get('/setting', function () {
         return view('/project/admin/setting');
+=======
+    Route::get('/manage_rented_item', function () {
+        return view('/project/admin/manage_rented_item');
+    });
+    Route::get('/workers', function () {
+        return view('/project/admin/workers');
+>>>>>>> Stashed changes
 
     });
     
@@ -639,6 +650,22 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/manage_product',[ShowController::class,'item']);
     Route::get('/manage_rented_item',[ShowController::class,'cell']);
     Route::get('/returned_rented_item',[ShowController::class,'rent']);
+    Route::get('/manage_appointment',[ShowController::class,'appointment']);
+    Route::get('/workers',[ShowController::class,'details']);
+
+    /*-------add rent product button route----*/
+    Route::get('/rentitems', function () {
+        return view('/project/owner/rentproduct/index');
+    });
+
+    // routes/web.php
+
+
+
+
+
+
+    
 
 
 });
