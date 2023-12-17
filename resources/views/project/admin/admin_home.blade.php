@@ -58,7 +58,9 @@
                         <li><a href="/manage_rented_item" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Rented Item</a>
 
 
+
                         <li><a href="/Home" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Logout</a>
+
                 </nav>
         </aside>
         

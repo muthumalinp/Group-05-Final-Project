@@ -102,12 +102,7 @@
                         <div class="col-sm-12 col-12 mb-4 mb-sm-0">
                             <h1 class="secondary-font-color" style="text-transform: capitalize;">
                                 Appoinments</h1>
-                            <p>Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Suscipit nobis minus libero nihil odio quisquam
-                                reprehenderit, deleniti consequatur? Totam ipsa error velit dolore ut amet
-                                aspernatur ab
-                                voluptatibus
-                                ad. Fuga?</p>
+                            
                         </div>
                     </div>
                 </div>
