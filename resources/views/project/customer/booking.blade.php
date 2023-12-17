@@ -42,49 +42,52 @@
     @csrf
     <h2 class="text-center mb-4">Book Now</h2>
 
-        <label for="serviceCategory">Select a Service Category:</label>
-        <!-- <select id="serviceCategory" name="serviceCategory" class = "btn btn-custom"> -->
-        <button type="button" id="hairservicesCategory" class="btn btn-custom">   
-    @foreach($HairServices as $HairService)
-        <div data-value="{{ $HairService }}">{{ $HairService }}</div>
-    @endforeach
-</button>
-
-            <button type="button" class="btn btn-custom">
-            @foreach($BridalServices as $BridalService)
+    <label for="serviceCategory">Select a Service Category:</label>
+    <!-- Add a hidden input field to store the selected service category -->
+    <select id="selectedServiceCategory" name="selectedServiceCategory">
+      class="btn btn-custom">   
+        @foreach($HairServices as $HairService)
+        <option id="hairservicesCategory" value="{{ $HairService }}">{{ $HairService }}</option>
+        @endforeach
+        @foreach($BridalServices as $BridalService)
                 <option value="{{ $BridalService }}">{{ $BridalService }}</option>
             @endforeach
-            </button>
-            <button type="button" class="btn btn-custom">
             @foreach($NailServices as $NailService)
                 <option value="{{ $NailService }}">{{ $NailService }}</option>
             @endforeach
-            </button>
-            <button type="button" class="btn btn-custom">
+           
             @foreach($OtherServices as $OtherService)
                 <option value="{{ $OtherService }}">{{ $OtherService }}</option>
             @endforeach
-        </button>
+        
         <br><br>
+    </select>
+
+     
+
+            
+           
+            
+           
 
         
         <div id="hairServices" class="hidden-content-service">
         <label for="service">Select a Service:</label>
-            <button type="button" id="haircutLadies" class="btn btn-custom">
+        <select id="selectedService" name="selectedService">
+          
                 @foreach($HairCutsL as $HairCutL)
                     <option value="{{ $HairCutL }}">{{ $HairCutL }}</option>
                 @endforeach
-            </button>
-            <button type="button" class="btn btn-custom">
                 @foreach($HairCutsG as $HairCutG)
                     <option value="{{ $HairCutG }}">{{ $HairCutG }}</option>
                 @endforeach
-            </button>
+            
         </div>
         <br><br>
 
         <div id="stylists" class="hidden-content-stylist">
             <label for="stylist">Select a Stylist:</label>
+            <input type="hidden" id="selectedStylist" name="selectedStylist">
             <select id="stylist" name="stylist">
                 <div id="HD1">
                 @foreach($Hairstylists1 as $Hairstylist1)
@@ -114,12 +117,14 @@
 
         <div id="Date_Picker" class="hidden-content-date">
    <label for="datePicker">Select Date:</label>
+   <input type="hidden" id="selectedSDate" name="selectedDate">
    <input type="text" id="datePicker" name="bookingDate" readonly>
    <br><br>
         </div>
 
         <div id="str_time" class="hidden-content-time">
    <label for="adjustedTimeSlots">Select a Time Slot:</label>
+   <input type="hidden" id="selectedSTime" name="selectedTime">
    <select id="adjustedTimeSlots" name="adjustedTimeSlots">
    @foreach($availableTimeSlots as $availableTimeSlot)
                 <option value="{{ $availableTimeSlot }}">{{ $availableTimeSlot }}</option>
@@ -143,9 +148,14 @@
         var adjustedTimeSlotsSelect = document.getElementById('adjustedTimeSlots');
 
         hairServicesButton.addEventListener('click', function () {
-            // Toggle the visibility of the hairServices div
-            hairServicesDiv.classList.toggle('hidden-content-service');
-        });
+    // Toggle the visibility of the hairServices div
+    hairServicesDiv.classList.toggle('hidden-content-service');
+
+    // Set the selectedServiceCategory value when a category is selected
+    var selectedCategory = /* Logic to get the selected category */;
+    document.getElementById('selectedServiceCategory').value = selectedCategory;
+});
+
 
         hairServicesDiv.addEventListener('click', function () {
             // Toggle the visibility of the hairServices div

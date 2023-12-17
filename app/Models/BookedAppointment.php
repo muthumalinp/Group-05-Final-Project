@@ -8,7 +8,13 @@ use App\Models\Employee;
 
 class BookedAppointment extends Model
 {
-    protected $fillable = ['emp_id','emp_fname', 'booking_date', 'start_time','end_time'];
+    protected $fillable = [
+        'selectedServiceCategory',
+        'selectedService',
+        'selectedStylist',
+        'selectedDate',
+        'selectedTime',
+    ];
 
     public function stylist()
     {

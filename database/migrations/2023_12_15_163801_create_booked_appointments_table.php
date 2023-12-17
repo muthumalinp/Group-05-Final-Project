@@ -13,14 +13,20 @@ return new class extends Migration
     {
         Schema::create('booked_appointments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('emp_id');
-            $table->string('emp_fname');
-            $table->date('booking_date');
-            $table->time('start_time');
-            $table->time('end_time');
+            $table->string('selectedServiceCategory');
+            $table->string('selectedService');
+            $table->string('selectedStylist');
+            $table->string('selectedDate');
+            $table->string('selectedTime');
             $table->timestamps();
 
-            $table->foreign('emp_id')->references('id')->on('employees')->onDelete('cascade');
+            // $table->unsignedBigInteger('emp_id');
+            // $table->string('emp_fname');
+            // $table->date('booking_date');
+            // $table->time('start_time');
+            // $table->time('end_time');
+
+            // $table->foreign('emp_id')->references('id')->on('employees')->onDelete('cascade');
         });
     }
 

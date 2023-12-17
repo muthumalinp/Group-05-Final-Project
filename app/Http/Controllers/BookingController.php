@@ -36,8 +36,8 @@ class BookingController extends Controller
          $Hairstylists4 = Employee::whereJsonContains('emp_jobtitles', 'Hairstylist')->where('id', '4')->pluck('emp_fname');
         //  $emp1 = $Hairstylists->emp_fname;
 
-        $bookedTimeStart = BookedAppointment::where('emp_id', '=', '1')->pluck('start_time');
-        $bookedTimeEnd = BookedAppointment::where('emp_id', '=', '1')->pluck('end_time');
+        // $bookedTimeStart = BookedAppointment::where('emp_id', '=', '1')->pluck('start_time');
+        // $bookedTimeEnd = BookedAppointment::where('emp_id', '=', '1')->pluck('end_time');
         
         // Assuming your start time is 9:00 AM
         $startTime = new DateTime('09:00:00');
@@ -69,13 +69,13 @@ class BookingController extends Controller
         }
         
         // Filter out booked time slots
-        $bookedTimeSlots = [];
-        foreach ($bookedTimeStart as $index => $start) {
-            $end = $bookedTimeEnd[$index];
-            $bookedTimeSlots = array_merge($bookedTimeSlots, generateTimeSlots($start, $end, $interval));
-        }
+        // $bookedTimeSlots = [];
+        // foreach ($bookedTimeStart as $index => $start) {
+        //     $end = $bookedTimeEnd[$index];
+        //     $bookedTimeSlots = array_merge($bookedTimeSlots, generateTimeSlots($start, $end, $interval));
+        // }
         
-        $availableTimeSlots = array_diff($timeSlots, $bookedTimeSlots);
+        $availableTimeSlots = array_diff($timeSlots);
         
         // Output the available time slots
         // print_r($availableTimeSlots);
@@ -117,8 +117,8 @@ class BookingController extends Controller
                                                         'availableTimeSlots',
                                                         // 'adjustedTimeSlots',
                                                         'duration',
-                                                        'bookedTimeStart',
-                                                        'bookedTimeEnd',
+                                                        // 'bookedTimeStart',
+                                                        // 'bookedTimeEnd',
                                                         // 'BridalDresser',
                                                         // 'NailArtis'
                                                     ));
@@ -161,22 +161,13 @@ class BookingController extends Controller
 
 public function store(Request $request)
 {
-    // Validate the incoming request data
-    $request->validate([
-        'emp_id' => 'required|exists:employees,id',
-        'emp_fname' => 'required|string',
-        'booking_date' => 'required|date',
-        'start_time' => 'required|date_format:H:i',
-        'end_time' => 'required|date_format:H:i|after:start_time',
-    ]);
-
-    // Create a new booked appointment instance
+    dd($request->all());
     $bookedAppointment = new BookedAppointment([
-        'emp_id' => $request->input('emp_id'),
-        'emp_fname' => $request->input('emp_fname'),
-        'booking_date' => $request->input('booking_date'),
-        'start_time' => $request->input('start_time'),
-        'end_time' => $request->input('end_time'),
+        'selectedServiceCategory' => $request->input('selectedServiceCategory'),
+        'selectedService' => $request->input('selectedService'),
+        'selectedStylist' => $request->input('selectedStylist'),
+        'selectedDate' => $request->input('selectedDate'),
+        'selectedTime' => $request->input('selectedTime'),
     ]);
 
     // Save the booked appointment to the database
@@ -185,4 +176,5 @@ public function store(Request $request)
     // You can return a response or redirect as needed
     return response()->json(['message' => 'Booking saved successfully']);
 }
+    
 }
