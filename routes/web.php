@@ -240,6 +240,11 @@ Route::get('/rentbridlwrdisplay', function () {
     return view('/project/public/rentbridlwrdisplay');
 });
 
+Route::get('/pwindex', function () {
+    return view('/pwr/pwindex');
+});
+
+
 
 
 
@@ -256,12 +261,15 @@ Route::post('add-bdlwr', [BdlwrController::class, 'store']);
 
 Route::get('add-pwr', [PwrController::class, 'create4']);
 Route::post('add-pwr',[PwrController::class, 'store']);
+Route::get('edit-pwrs/{id}' , [PwrController::class, 'edit']);
+
 
 Route::get('/bdlwrs', [BdlwrController::class, 'index']);
 
 Route::get('/bjwel', [BjwelController::class, 'index']);
 Route::get('/pwr', [PwrController::class, 'index']);
 Route::get('/pjwel', [PjwelController::class, 'index']);
+Route::get('/pwindex', [PwrController::class, 'pwindex']);
 
 
 

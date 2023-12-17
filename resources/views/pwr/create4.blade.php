@@ -81,13 +81,16 @@
 
                             <div class="form-group mb-3">
                                 <button type="submit" class="btn btn-primary">Save Product</button>
+                                
                             </div>
                             
 
                             
                             
                         </form>
-
+                        <a href="{{url('pwrindex')}}">
+                        <button style = "background-color: blue; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#004080'" onmouseout="this.style.backgroundColor='blue'">View Added Products</button>
+                        </a>
                     </div>
             </div>
 

@@ -15,6 +15,13 @@ class PwrController extends Controller
 
     }
 
+    public function pwindex()
+    {
+        $products = Pwr::all();
+        return view('pwr.pwindex', ['products' => $products]);
+
+    }
+
     public function create4()
     {
         return view('pwr.create4');
@@ -163,7 +170,20 @@ class PwrController extends Controller
             session()->flash('success', 'Product successfully removed!');
         }
     }
+
+
+
+
+
+    public function edit($id)
+    {
+        $pwr = Pwr::findOrFail($id);
+        return view('pwrs.edit');
+    }
+
+    
 }
+
 
 
 
