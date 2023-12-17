@@ -161,20 +161,29 @@ class BookingController extends Controller
 
 public function store(Request $request)
 {
-    dd($request->all());
+    // dd($request->all());
+    $user = auth()->user();
     $bookedAppointment = new BookedAppointment([
         'selectedServiceCategory' => $request->input('selectedServiceCategory'),
         'selectedService' => $request->input('selectedService'),
-        'selectedStylist' => $request->input('selectedStylist'),
-        'selectedDate' => $request->input('selectedDate'),
-        'selectedTime' => $request->input('selectedTime'),
+        'stylist' => $request->input('stylist'),
+        'bookingDate' => $request->input('bookingDate'),
+        'adjustedTimeSlots' => $request->input('adjustedTimeSlots'),
+        'user_id' => $user->id,
+        'user_email' => $user->email,
     ]);
 
     // Save the booked appointment to the database
     $bookedAppointment->save();
+    
 
     // You can return a response or redirect as needed
-    return response()->json(['message' => 'Booking saved successfully']);
+    return view('project.customer.Successfullbokingmsg', [
+        'bookedAppointment' => $bookedAppointment,
+        'user' => $user,
+    ]);
+
+    // return ( '<h1>Hooray! Your appointment has been sprinkled into our schedule with a touch of magic. Expect wonders on the booked date! ✨📅</h1>');
 }
     
 }

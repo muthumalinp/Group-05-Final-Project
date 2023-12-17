@@ -11,9 +11,12 @@ class BookedAppointment extends Model
     protected $fillable = [
         'selectedServiceCategory',
         'selectedService',
-        'selectedStylist',
-        'selectedDate',
-        'selectedTime',
+        'stylist',
+        'bookingDate',
+        'adjustedTimeSlots',
+        'user_id',  // Add user ID column
+        'user_email',  // Add user email column
+
     ];
 
     public function stylist()

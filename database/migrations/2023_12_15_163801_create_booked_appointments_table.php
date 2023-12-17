@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('booked_appointments', function (Blueprint $table) {
             $table->id();
-            $table->string('selectedServiceCategory');
-            $table->string('selectedService');
-            $table->string('selectedStylist');
-            $table->string('selectedDate');
-            $table->string('selectedTime');
+            $table->string('selectedServiceCategory')->nullable();
+            $table->string('selectedService')->nullable();
+            $table->string('stylist');
+            $table->string('bookingDate');
+            $table->string('adjustedTimeSlots');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('user_email');
             $table->timestamps();
 
             // $table->unsignedBigInteger('emp_id');
