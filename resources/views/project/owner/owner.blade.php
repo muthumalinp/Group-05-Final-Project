@@ -94,15 +94,15 @@
                 </div>
             </div>
 
-            <div class="card">
-                <!--<div class="panel panel-primary">-->
+            <!-- <div class="card">
+                <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h5>Calendar</h5>
                     </div>
                     <div class="panel-body" >
                         <div id='calendar'></div>
                     </div>
-                <!--</div>-->
+                </div>-->
                 <!--<script>
                     $(document).ready(function () {
                         var calendar = $('#calendar').fullCalendar({
@@ -169,10 +169,10 @@
                             }
                         });
                     });
-                </script>-->
-            </div>
+                </script>
+            </div> -->
 
-            <div class="card">
+            <!-- <div class="card">
                         <div>
                             <h2>To Do List</h2>
                             
@@ -184,12 +184,12 @@
                         </div>
                         
                         <ul id="taskList">
-                         <!--   <li>Task 1</li>
+                            <li>Task 1</li>
                             <li>Task 2</li>
                             <li>Task 3</li>
                         </ul>
-                        -->      
-            </div>
+                              
+            </div> -->
 
 
         <script src="/js/Owner/owner.js"></script>

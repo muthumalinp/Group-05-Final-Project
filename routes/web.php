@@ -36,6 +36,7 @@ use App\Http\Controllers\EmployeeDashBoardController;
 use App\Http\Controllers\EmployeeLeaveController;
 use App\Http\Controllers\EmployeeAppointmentsController;
 use App\Http\Controllers\HomeTryController;
+use App\Http\Controllers\AdminRentedItemController;
 
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
@@ -606,9 +607,14 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/customer_details', function () {
         return view('/project/admin/customer_details');
     });
-    Route::get('/manage_rented_item', function () {
-        return view('/project/admin/manage_rented_item');
-    });
+    // Route::get('/manage_rented_item', function () {
+    //     return view('/project/admin/manage_rented_item');
+    // });
+
+
+    Route::get('/manage-rented-items', [AdminRentedItemController::class, 'index']);
+    Route::post('/sendemail', [AdminRentedItemController::class, 'issuedButtonclicked'])->name('sendemail');
+
     Route::get('/setting', function () {
         return view('/project/admin/setting');
 
