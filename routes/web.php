@@ -618,7 +618,6 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/customer_details', function () {
         return view('/project/admin/customer_details');
     });
-<<<<<<< Updated upstream
     // Route::get('/manage_rented_item', function () {
     //     return view('/project/admin/manage_rented_item');
     // });
@@ -629,13 +628,12 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
 
     Route::get('/setting', function () {
         return view('/project/admin/setting');
-=======
+    }); 
     Route::get('/manage_rented_item', function () {
         return view('/project/admin/manage_rented_item');
     });
     Route::get('/workers', function () {
         return view('/project/admin/workers');
->>>>>>> Stashed changes
 
     });
     
