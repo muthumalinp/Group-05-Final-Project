@@ -75,12 +75,14 @@
 
             
             
-            <div class="quantity">
+            <!-- <div class="quantity">
                 <p>Quantity :</p>
-                <input type="number" min="1" max="5" value="1">
+                <input type="number" min="1" max="5" value="1"> -->
             </div>
             <div class="btn-box">
-            <button type="submit">Submit</button>
+            <button type="submit" style="background-color: blue; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#004080'" onmouseout="this.style.backgroundColor='blue'">Submit</button>
+
+
             </form>
               
             </div>

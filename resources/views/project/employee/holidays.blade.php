@@ -39,17 +39,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="/employee-meetings">
-                                <i class="bi bi-bar-chart"></i> Meetings
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link " href="/employee-leaves">
                                 <i class="bi bi-bookmarks"></i> My Leaves
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/employee-apoinments">
+                            <a class="nav-link" href="/employee-appointments">
                                 <i class="bi bi-bookmarks"></i> Appoinments
                             </a>
                         </li>
@@ -69,7 +64,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/logout"
+                            <a class="nav-link" href="/employee-logout"
                                  onclick="confirmLogout(event)">
                                 <i class="bi bi-box-arrow-left"></i> Logout
                             </a>
@@ -97,10 +92,8 @@
                         </div>
                     </div>
                     <ul class="weekdays" id="weekdaysList">
-                        <!-- Days of the week -->
                     </ul>
                     <ul class="days" id="daysList">
-                        <!-- Days will be dynamically populated here -->
                     </ul>
                 </div>
                 <div class="holidays-list" id="holidaysList">

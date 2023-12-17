@@ -25,7 +25,7 @@ class HomeTryController extends Controller
                     return view('project.admin.admin_home');
                 }
                 else if($role == 'employee') {
-                    return view('project.employee.dashboard');
+                    return redirect()->route('employee.dashboard');
                 }
                 }
 
@@ -33,28 +33,18 @@ class HomeTryController extends Controller
 
 
 
-            public function showTotalCustomers()
-    {
-
-        $totalCustomers = User::where('role', 'customer')->count();
-        //dd($totalCustomers);
-        return view('/project/admin/admin_home', compact('totalCustomers'));
-    }
-    
-
-
 
     // public function admin() {
     //     if(Auth::id()) {
     //         $role = Auth()->user()->role;
-            
+
     //     }
     // }
 
     // public function employee() {
     //     if(Auth::id()) {
     //         $role = Auth()->user()->role;
-            
+
     //     }
     // }
 }

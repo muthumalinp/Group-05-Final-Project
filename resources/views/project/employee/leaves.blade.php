@@ -42,17 +42,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="/employee-meetings">
-                                <i class="bi bi-bar-chart"></i> Meetings
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link active" href="/employee-leaves">
                                 <i class="bi bi-bookmarks"></i> My Leaves
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/employee-apoinments">
+
+                            <a class="nav-link" href="/employee-appointments">
+
                                 <i class="bi bi-bookmarks"></i> Appoinments
                             </a>
                         </li>
@@ -72,7 +69,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/logout" onclick="confirmLogout(event)">
+                            <a class="nav-link" href="/employee-logout" onclick="confirmLogout(event)">
                                 <i class="bi bi-box-arrow-left"></i> Logout
                             </a>
                         </li>
@@ -80,7 +77,7 @@
                 </div>
             </div>
         </nav>
-        @if (session()->has('success'))
+        @if (session()->has('flash_message'))
             <script>
                 const Toast = Swal.mixin({
                     toast: true,
@@ -100,6 +97,27 @@
             </script>
         @endif
 
+
+        @if (session()->has('error'))
+            <script>
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    iconColor: 'white',
+                    customClass: {
+                        popup: 'colored-toast',
+                    },
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                })
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Error',
+                })
+            </script>
+        @endif
+
         <div class="h-screen flex-grow-1 overflow-y-lg-auto">
             <header class=" pt-6">
                 <div class="container-fluid">
@@ -107,12 +125,12 @@
                         <div class="col-sm-12 col-12 mb-4 mb-sm-0">
                             <h1 class="secondary-font-color" style="text-transform: capitalize;">
                                 My Leaves</h1>
-                            <p>Lorem, ipsum dolor sit amet consectetur
+                            <!-- <p>Lorem, ipsum dolor sit amet consectetur
                                 adipisicing elit. Suscipit nobis minus libero nihil odio quisquam
                                 reprehenderit, deleniti consequatur? Totam ipsa error velit dolore ut amet
                                 aspernatur ab
                                 voluptatibus
-                                ad. Fuga?</p>
+                                ad. Fuga?</p> -->
                         </div>
                     </div>
                 </div>
@@ -145,20 +163,17 @@
                                 <table>
                                     <tr>
                                         <td>Total Leaves for This Month</td>
-                                        <td></td>
+                                        <td>{{ $employee_leave->available_leaves ?? 0 }}</td>
                                     </tr>
                                     <tr>
                                         <td>Leaves Used</td>
-                                        <td></td>
+                                        <td>{{ $employee_leave->used_leaves ?? 0 }}</td>
                                     </tr>
                                     <tr>
                                         <td>Leaves Balance</td>
-                                        <td></td>
+                                        <td>{{ $employee_leave->remaining_leaves ?? 0 }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>Monthly Leaves Percentage</td>
-                                        <td>0.5</td>
-                                    </tr>
+
                                 </table>
                             </div>
                         </div>
@@ -170,22 +185,21 @@
                                 <div class=" px-5 py-3 mt-5 shadow secondary-bg">
                                     <h1 class="text-denger text-center mt-3 mb-4">Request Leave</h1>
 
-                                    
-                                    <form method="post" action="{{ url('/submit-leave-request') }}">
+                                    <form method="POST" action="{{ route('employee.leave.request.form') }}">
                                         @csrf
                                         <div class="form-row row g-3">
                                             <div class="col-md-6 mb-3">
                                                 <label for="input1">Employee ID</label>
                                                 <input type="text" class="form-control" id="input1"
-                                                    name="employee_id" value=""
-                                                    >
+                                                    name="employee_id" value="{{ $employee->id }}"
+                                                    onfocus="this.blur()">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="input2">Employee Name</label>
                                                 <input type="text" class="form-control" id="input2"
-                                                    name="employee_name"
-                                                    value=""
-                                                    >
+                                                    name="leave_emp_name"
+                                                    value="{{ $employee->emp_fname . ' ' . $employee->emp_lname }}"
+                                                    onfocus="this.blur()">
                                             </div>
                                         </div>
 
@@ -194,14 +208,15 @@
                                             <div class="col-md-6 mb-3">
                                                 <label for="input3">Position</label>
                                                 <input type="text" class="form-control" id="input3"
-                                                    name="position" value=""
-                                                    >
+                                                    name="leave_emp_position"
+                                                    value="{{ is_array($employee->emp_jobtitles) ? implode(', ', $employee->emp_jobtitles) : $employee->emp_jobtitles }}"
+                                                    onfocus="this.blur()">
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label for="input4">Email</label>
+                                                <label for="input4">Mobile Number</label>
                                                 <input type="text" class="form-control" id="input4"
-                                                    name="email" value=""
-                                                    placeholder="Enter Email">
+                                                    name="leave_emp_phone" value="{{ $employee->emp_phone }}"
+                                                    placeholder="Enter Mobile Numbe">
                                             </div>
                                         </div>
 
@@ -210,17 +225,20 @@
                                                 leaven</label>
                                             <div class="input-group input-daterange col-md-4 mb-3">
                                                 <input type="text" class="start-date form-control"
-                                                    id="startingDate" value="<?php echo date('Y-m-d'); ?>" name="start_date">
+                                                    id="startingDate" value="<?php echo date('Y-m-d'); ?>"
+                                                    name="leave_start_date">
                                                 <span class="input-group-addon mx-3">to</span>
                                                 <input type="text" class="end-date form-control" id="endingDate"
-                                                    value="<?php echo date('Y-m-d'); ?>" name="end_date">
+                                                    value="<?php echo date('Y-m-d'); ?>" name="leave_end_date">
                                             </div>
                                         </div>
 
                                         <div class="form-row">
                                             <div class="col-md-12 mb-3">
-                                                <label for="textArea">Reason for Sickness Leave</label>
-                                                <textarea class="form-control" id="textArea" rows="3" name="reason"
+
+                                                <label for="textArea">Reason for Leave</label>
+
+                                                <textarea class="form-control" id="textArea" rows="3" name="leave_reason"
                                                     placeholder="Reason for Sickness Leave..."></textarea>
                                             </div>
                                         </div>
@@ -231,7 +249,6 @@
                                             </div>
                                         </div>
                                     </form>
-                                   
                                 </div>
                             </div>
                         </div>
@@ -263,6 +280,14 @@
             }).on('changeDate', function(selected) {
                 var minDate = new Date(selected.date.valueOf());
                 $('#endingDate').datepicker('setStartDate', minDate);
+
+
+                if (selected.date) {
+                    $('#endingDate').prop('disabled', false);
+                } else {
+                    $('#endingDate').prop('disabled', true);
+                }
+
             });
 
             $('#endingDate').datepicker({
@@ -274,6 +299,9 @@
                 var maxDate = new Date(selected.date.valueOf());
                 $('#startingDate').datepicker('setEndDate', maxDate);
             });
+
+
+            $('#endingDate').prop('disabled', true);
         });
     </script>
 
@@ -281,3 +309,4 @@
 </body>
 
 </html>
+

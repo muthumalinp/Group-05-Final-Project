@@ -39,17 +39,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/employee-meetings">
-                                <i class="bi bi-bar-chart"></i> Meetings
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="/employee-leaves">
                                 <i class="bi bi-bookmarks"></i> My Leaves
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/employee-apoinments">
+                            <a class="nav-link" href="/employee-appointments">
                                 <i class="bi bi-bookmarks"></i> Appoinments
                             </a>
                         </li>
@@ -69,8 +64,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/logout"
-                                 onclick="confirmLogout(event)">
+                            <a class="nav-link" href="/employee-logout" onclick="confirmLogout(event)">
                                 <i class="bi bi-box-arrow-left"></i> Logout
                             </a>
                         </li>
@@ -88,14 +82,15 @@
                             <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                                 <!-- Title -->
                                 <h1 class="h2 mb-0 ls-tight secondary-font-color" style="text-transform: capitalize">
-
+                                    Hello, {{ $user->fname . ' ' . $user->lname }}</h1>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </header>
             <!-- Main -->
-            {{-- <main class="py-6">
+            <main class="py-6">
                 <div class="container-fluid">
                     <!-- Card stats -->
                     <div class="row g-6 mb-6">
@@ -104,13 +99,10 @@
                                 <div class="card-body ">
                                     <div class="row ">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Budget</span>
-                                            <span class="h3 font-bold mb-0">$11590.90</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape  text-white text-lg rounded-circle">
-                                                <i class="bi bi-credit-card"></i>
-                                            </div>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Leaves
+                                                Count</span>
+                                            <span
+                                                class="h3 font-bold mb-0">{{ $employee_leave->available_leaves ?? 0 }}</span>
                                         </div>
                                     </div>
                                     <div class="mt-2 mb-0 text-sm">
@@ -124,9 +116,10 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">New
-                                                projects</span>
-                                            <span class="h3 font-bold mb-0">320</span>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Used Leaves
+                                                Count</span>
+                                            <span
+                                                class="h3 font-bold mb-0">{{ $employee_leave->used_leaves ?? 0 }}</span>
                                         </div>
                                         <div class="col-auto">
                                         </div>
@@ -142,9 +135,10 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total
-                                                hours</span>
-                                            <span class="h3 font-bold mb-0">4.100</span>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Leaves
+                                                Balance</span>
+                                            <span
+                                                class="h3 font-bold mb-0">{{ $employee_leave->remaining_leaves ?? 0 }}</span>
                                         </div>
                                         <div class="col-auto">
                                         </div>
@@ -160,9 +154,10 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Work
-                                                load</span>
-                                            <span class="h3 font-bold mb-0">88%</span>
+                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Appoinments
+                                                Counts</span>
+                                            <span
+                                                class="h3 font-bold mb-0">{{ $bookedAppointments->count() ?? 0 }}</span>
                                         </div>
                                         <div class="col-auto">
                                         </div>
@@ -176,383 +171,58 @@
                     </div>
                     <div class="card shadow border-0 mb-7 secondary-bg">
                         <div class="card-header border-0">
-                            <h5 class="mb-0">Applications</h5>
+                            <h5 class="mb-0">Appoinment Details</h5>
                         </div>
                         <div class="table-responsive border-0">
                             <table class="table table-hover table-nowrap">
                                 <thead style="background-color: #C1A0A0" class="border-0">
                                     <tr>
-                                        <th scope="col" class="border-0">Date</th>
-                                        <th scope="col" class="border-0">Name</th>
-                                        <th scope="col" class="border-0">Company</th>
-                                        <th scope="col" class="border-0">Offer</th>
-                                        <th scope="col" class="border-0">Meeting</th>
-                                        <th class="border-0"></th>
+                                        <th scope="col" class="border-0">Appoinment Date</th>
+                                        <th scope="col" class="border-0">Appoinment Start Time</th>
+                                        <th scope="col" class="border-0">Appoinment End End Time</th>
+                                        <th scope="col" class="border-0">Appoinment Duration</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                                class="avatar avatar-sm rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Jason Martinez
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            Feb 15, 2023
-                                        </td>
-                                        <td class="border-0">
-                                            <img alt="..." src="https://bytewebster.com/img/logo.png"
-                                                class="avatar avatar-xs rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="https://www.bytewebster.com/">
-                                                Bytewebster
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            $3.500
-                                        </td>
-                                        <td class="border-0">
-                                            <span class="badge badge-lg badge-dot">
-                                                <i class="bg-success"></i>Scheduled
-                                            </span>
-                                        </td>
-                                        <td class="text-end border-0">
-                                            <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                            <button type="button" onclick="showSweetAlert()"
-                                                class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                                class="avatar avatar-sm rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Ashley Williams
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            Apr 15, 2023
-                                        </td>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://preview.webpixels.io/web/img/other/logos/logo-2.png"
-                                                class="avatar avatar-xs rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Netguru
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            $2.750
-                                        </td>
-                                        <td class="border-0">
-                                            <span class="badge badge-lg badge-dot">
-                                                <i class="bg-warning"></i>Postponed
-                                            </span>
-                                        </td>
-                                        <td class="text-end border-0">
-                                            <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                            <button type="button" onclick="showSweetAlert()"
-                                                class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                                class="avatar avatar-sm rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Melissa Chen
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            Mar 20, 2023
-                                        </td>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://preview.webpixels.io/web/img/other/logos/logo-3.png"
-                                                class="avatar avatar-xs rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Figma
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            $4.200
-                                        </td>
-                                        <td class="border-0">
-                                            <span class="badge badge-lg badge-dot">
-                                                <i class="bg-success"></i>Scheduled
-                                            </span>
-                                        </td>
-                                        <td class="text-end border-0">
-                                            <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                            <button type="button" onclick="showSweetAlert()"
-                                                class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                                class="avatar avatar-sm rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Emily Davis
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            Feb 15, 2023
-                                        </td>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://preview.webpixels.io/web/img/other/logos/logo-4.png"
-                                                class="avatar avatar-xs rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Mailchimp
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            $3.500
-                                        </td>
-                                        <td class="border-0">
-                                            <span class="badge badge-lg badge-dot">
-                                                <i class="bg-dark"></i>Not discussed
-                                            </span>
-                                        </td>
-                                        <td class="text-end border-0">
-                                            <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                            <button type="button" onclick="showSweetAlert()"
-                                                class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                                class="avatar avatar-sm rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Thomas Nguyen
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            Apr 10, 2023
-                                        </td>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://preview.webpixels.io/web/img/other/logos/logo-5.png"
-                                                class="avatar avatar-xs rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Webpixels
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            $1.500
-                                        </td>
-                                        <td class="border-0">
-                                            <span class="badge badge-lg badge-dot">
-                                                <i class="bg-danger"></i>Canceled
-                                            </span>
-                                        </td>
-                                        <td class="text-end border-0">
-                                            <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                            <button type="button" onclick="showSweetAlert()"
-                                                class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                                class="avatar avatar-sm rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Jason Martinez
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            Feb 15, 2023
-                                        </td>
-                                        <td class="border-0">
-                                            <img alt="..." src="https://bytewebster.com/img/logo.png"
-                                                class="avatar avatar-xs rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="https://www.bytewebster.com/">
-                                                Bytewebster
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            $3.500
-                                        </td>
-                                        <td class="border-0">
-                                            <span class="badge badge-lg badge-dot">
-                                                <i class="bg-success"></i>Scheduled
-                                            </span>
-                                        </td>
-                                        <td class="text-end border-0">
-                                            <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                            <button type="button" onclick="showSweetAlert()"
-                                                class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                                class="avatar avatar-sm rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Ashley Williams
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            Apr 15, 2023
-                                        </td>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://preview.webpixels.io/web/img/other/logos/logo-2.png"
-                                                class="avatar avatar-xs rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Netguru
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            $2.750
-                                        </td>
-                                        <td class="border-0">
-                                            <span class="badge badge-lg badge-dot">
-                                                <i class="bg-warning"></i>Postponed
-                                            </span>
-                                        </td>
-                                        <td class="text-end border-0">
-                                            <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                            <button type="button" onclick="showSweetAlert()"
-                                                class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                                class="avatar avatar-sm rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Melissa Chen
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            Mar 20, 2023
-                                        </td>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://preview.webpixels.io/web/img/other/logos/logo-3.png"
-                                                class="avatar avatar-xs rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Figma
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            $4.200
-                                        </td>
-                                        <td class="border-0">
-                                            <span class="badge badge-lg badge-dot">
-                                                <i class="bg-success"></i>Scheduled
-                                            </span>
-                                        </td>
-                                        <td class="text-end border-0">
-                                            <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                            <button type="button" onclick="showSweetAlert()"
-                                                class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                                class="avatar avatar-sm rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Emily Davis
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            Feb 15, 2023
-                                        </td>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://preview.webpixels.io/web/img/other/logos/logo-4.png"
-                                                class="avatar avatar-xs rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Mailchimp
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            $3.500
-                                        </td>
-                                        <td class="border-0">
-                                            <span class="badge badge-lg badge-dot">
-                                                <i class="bg-dark"></i>Not discussed
-                                            </span>
-                                        </td>
-                                        <td class="text-end border-0">
-                                            <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                            <button type="button" onclick="showSweetAlert()"
-                                                class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
-                                                class="avatar avatar-sm rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Thomas Nguyen
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            Apr 10, 2023
-                                        </td>
-                                        <td class="border-0">
-                                            <img alt="..."
-                                                src="https://preview.webpixels.io/web/img/other/logos/logo-5.png"
-                                                class="avatar avatar-xs rounded-circle me-2">
-                                            <a class="text-heading font-semibold" href="#">
-                                                Webpixels
-                                            </a>
-                                        </td>
-                                        <td class="border-0">
-                                            $1.500
-                                        </td>
-                                        <td class="border-0">
-                                            <span class="badge badge-lg badge-dot">
-                                                <i class="bg-danger"></i>Canceled
-                                            </span>
-                                        </td>
-                                        <td class="text-end border-0">
-                                            <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                            <button type="button" onclick="showSweetAlert()"
-                                                class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    @if ($bookedAppointments->isNotEmpty())
+                                        @foreach ($bookedAppointments as $appointment)
+                                            <tr>
+                                                <td class="border-0">
+                                                    {{ $appointment->booking_date }}
+                                                </td>
+                                                <td class="border-0">
+                                                    {{ $appointment->start_time }}
+                                                </td>
+                                                <td class="border-0">
+                                                    {{ $appointment->end_time }}
+                                                </td>
+                                                <td class="border-0">
+                                                    {{ \Carbon\Carbon::parse($appointment->start_time)->diff(\Carbon\Carbon::parse($appointment->end_time))->format('%H:%I') }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @else
+                                        <tr>
+                                            <td class="border-0">
+                                                null
+                                            </td>
+                                            <td class="border-0">
+                                                null
+                                            </td>
+                                            <td class="border-0">
+                                                null
+                                            </td>
+                                            <td class="border-0">
+                                                null
+                                            </td>
+                                        </tr>
+                                    @endif
+
+
                                 </tbody>
                             </table>
                         </div>
-                        <div class="card-footer border-0 py-5">
+                        {{-- <div class="card-footer border-0 py-5">
                             <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
@@ -565,10 +235,10 @@
                                     <li class="page-item"><a class="page-link" href="#">Next</a></li>
                                 </ul>
                             </nav>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
-            </main> --}}
+            </main>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

@@ -283,4 +283,3 @@ generateCalendar(currentMonth, currentYear),
                 generateCalendar(currentMonth, currentYear);
         }
     );
-

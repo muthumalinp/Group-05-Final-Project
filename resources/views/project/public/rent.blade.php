@@ -12,9 +12,9 @@
 
                 width: 1440px;
                 height: 1024px;
-                background:linear-gradient(208deg, #FEF6F6 -8.2%, #000 78.59%);
+                background:#e0c2c0;
                 margin: 0 auto;
-                border: 1px solid #252020;
+                border: 1px solid #e0c2c0;
 
             }
 

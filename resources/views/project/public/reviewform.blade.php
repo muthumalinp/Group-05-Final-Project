@@ -71,6 +71,9 @@
             <form action="{{ url('add-rating')}}" method="POST" name="formRating" id="formRating">
             @csrf
 
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+    <input type="hidden" name="product_ID" value="A12">
+
             <div class="rate">
                 <input type="radio" id="star5" name="rating" value="5" />
                 <label for="star5" title="text">5 stars</label>
@@ -84,15 +87,13 @@
                 <label for="star1" title="text">1 star</label>
             </div>
 
-                <div class="formContent">
-                    <!-- <label>Comment :</label> -->
-                    <!-- <textarea id="massage" name="massage" placeholder="Review" rows="5" cols="60" ></textarea><br> -->
-                    <textarea name="review" class="text-area u-s-m-b-8" id="review-text-area" placeholder="Your Review" required></textarea>
-                </div>
+            <div class="formContent">
+        <textarea name="review" class="text-area u-s-m-b-8" id="review-text-area" placeholder="Your Review" required></textarea>
+    </div>
 
-                <div class="tailButn">
-                    <button class="button button-outline-secondary">Submit Review</button>
-                </div>
+    <div class="tailButn">
+        <button type="submit" class="button button-outline-secondary">Submit Review</button>
+    </div>
 
 
             </form>
