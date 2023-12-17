@@ -19,8 +19,8 @@
                </div>
                <div class="profile_wrap">
                   <div class="profile">
-                     <img class="rounded-circle" src="css/Owner/owner_profile_image.jpeg" alt="profile_pic">
-                     <span class="name">Yaara</span>
+                     <img class="rounded-circle" src="css/admin/picture.jpg" alt="profile_pic">
+                     <span class="name">Kavi</span>
                      <span class="icon"><i class="fas fa-caret-down"></i></span>
                   </div>
                </div>

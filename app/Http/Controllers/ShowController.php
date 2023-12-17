@@ -9,6 +9,9 @@ Use App\Models\Product;
 use App\Models\Owner;
 use App\Models\Renteditems;
 use App\Models\BookedAppointment;
+use App\Models\Employee;
+
+
 
 
 class ShowController extends Controller
@@ -60,6 +63,20 @@ class ShowController extends Controller
         
         
     }
+
+
+
+
+    public function details()
+    {
+
+        $sad=Employee::all();
+        return view('/project/admin/workers',compact('sad'));
+        
+        
+    }
+
+
 
    
     
