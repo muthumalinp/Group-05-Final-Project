@@ -71,7 +71,7 @@
             <form action="{{ url('add-rating')}}" method="POST" name="formRating" id="formRating">
             @csrf
             
-            @auth
+            @auth  
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             @endauth
             <input type="hidden" name="product_ID" value="A12">
