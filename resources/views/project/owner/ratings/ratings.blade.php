@@ -23,7 +23,7 @@
         <div class="content-wrapper">
             <div class="row">
                 <div class=".col-lg-12 grid-margin stretch-card">
-                    <div class="card">
+                    <div class="card" style="margin: 200px 300px 0 100px; width: 1000px;">
                         <div class="card-body">
                             <h4 class="card-title">Ratings</h4>
 

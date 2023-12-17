@@ -47,6 +47,7 @@ use App\Http\Controllers\RequestEmployeeLeaveController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EventCalendarController;
 use App\Http\Controllers\UploadimageController;
+use App\Http\Controllers\GUploadimageController;
 use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\RatingsViewController;
 use App\Http\Controllers\AdminLoController;
@@ -171,6 +172,13 @@ Route::get('uploadimage', [UploadimageController::class, 'imageUp']);
 Route::get('add-uploadimage', [UploadimageController::class, 'create']);
 Route::post('add-uploadimage', [UploadimageController::class, 'store']);
 Route::post('edit-uploadimage/{id}', [UploadimageController::class, 'edit']);
+
+// Gallery - CRUD***********************************************
+Route::get('guploadimage', [GUploadimageController::class, 'gimageUp']);
+Route::get('add-guploadimage', [GUploadimageController::class, 'gcreate']);
+Route::post('add-guploadimage', [GUploadimageController::class, 'gstore']);
+
+
 // Route::get('/Dashboard-Customer', function () {
 //     return view('/project/customer/dashboard');
 // })->name('customer.dashboard');

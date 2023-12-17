@@ -26,30 +26,29 @@
             @endif
                 <div class="card" style="margin: 200px 300px 0 100px; width: 1000px;">
                     <div class="card-header">
-                        <h4>Edit IMAGE with Details
-                            <a href="{{ url('uploadimage') }}" class="btn btn-danger float-end">Back</a>
+                        <h4>Add IMAGE
+                            <a href="{{ url('guploadimage') }}" class="btn btn-danger float-end">Back</a>
                         </h4>
                     </div>
                     <div class="card-body">
 
-                        <form action="{{ url('update-uploadimage/'.$uploadimage->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ url('add-guploadimage') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             
                             <div class="form-group mb-3">
                                 <label for="">PAGE NAME</label>
-                                <input type="text" name="page_name" value="{{$uploadimage->page_name}}" class="form-control">
+                                <input type="text" name="page_name" class="form-control">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="">IMAGE NAME</label>
-                                <input type="text" name="image_name" value="{{$uploadimage->image_name}}" class="form-control">
+                                <input type="text" name="image_name" class="form-control">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="">INSERT IMAGE</label>
-                                <input type="file" name="profile_image"  class="form-control">
-                                <img src="{{ asset('uploads/uploadimages/'.$uploadimage->profile_image) }}"  width="70px" height="70px" alt="Image">
+                                <input type="file" name="profile_image" class="form-control">
                             </div>
                             <div class="form-group mb-3">
-                                <button type="submit" class="btn btn-primary">Update Image</button>
+                                <button type="submit" class="btn btn-primary">Save Image</button>
                             </div>
                         </form>
                     </div>
