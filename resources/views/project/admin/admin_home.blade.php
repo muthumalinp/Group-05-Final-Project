@@ -52,21 +52,17 @@
                         <li><a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Dashboard</a>
                         <li><a href="/profile" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Edit Profile</a>
                         <li><a href="/customer_details" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Customer Details</a>
+                        <li><a href="/workers" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Employee Details</a>
                         <li><a href="/manage_appointment" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Appoinment</a>
                         <li><a href="/manage_product" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Product</a>
                         <li><a href="/manage_rented_item" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Rented Item</a>
-                        <!--<li><a href="/employee-leaves" class="nav-item nav-link"><i class="fa fa-th me-2"></i>My Leaves</a>-->
+
+
+
                         <li><a href="/Home" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Logout</a>
-                        <!--<form method="POST" action="{{ route('owner.logout') }}">
-    @csrf
-    <button type="submit">Log Out</button>
-</form>-->
+
                 </nav>
         </aside>
-        
-        
-       
-        
         
         <main>
             <h1>Admin Dashboard</h1>
@@ -76,12 +72,12 @@
                                  <div class="border-right">
                                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                                        <h3 style="color:#633030; font-weight:bold">PROFILE</h3>
-                                       <img class="rounded-circle mt-0" width="118px" src="css/Owner/owner_profile_image.jpeg">
+                                       <img class="rounded-circle mt-0" width="118px" src="css/admin/picture.jpg">
                                        <span> ...</span>
-                                       <span class="font-weight-bold">Yaraa De Silva</span>
-                                       <span class="text-black-50">salonyaraa@gmail.com</span>
-                                       <span class="text-black-50">+94 702 016 166</span>
-                                       <span class="text-black-50">No.45, Highlevel Road, Maharagama</span>
+                                       <span class="font-weight-bold">Kavindi Hirunika</span>
+                                       <span class="text-black-50">kavindi@gmail.com</span>
+                                       <span class="text-black-50">+94 703456876</span>
+                                       <span class="text-black-50">No.45, mapalagamuwa, bandarawela</span>
                                        <span> </span>
                                     </div>
                                  </div>
@@ -101,11 +97,7 @@
                         </div>
                         
                         <ul id="taskList">
-                         <!--   <li>Task 1</li>
-                            <li>Task 2</li>
-                            <li>Task 3</li>
-                        </ul>
-                        -->
+                         
                         
                         
 
@@ -123,8 +115,8 @@
                     </div>
                     
                     <div class="card">
-                        <h2>Card 4</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h2></h2>
+                        <img src="{{ asset('css/admin/home1.jpeg') }}" alt="Admin" width="500px" height="140px" class="mx-auto d-block img-fluid">
                     </div>
                 </div>
         </main>

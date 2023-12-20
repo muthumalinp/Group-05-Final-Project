@@ -34,12 +34,12 @@
     </style>
 </head>
 
-<body>
+<body style="padding-top: 100px">
 <!-- <div style="padding-top: 100px"> -->
 
 <div class="container mt-5 bg-white">
-    <form action="" method="post">
-
+<form action="{{ route('bookings.store') }}" method="post">
+    @csrf
     <h2 class="text-center mb-4">Book Now</h2>
 
         <label for="serviceCategory">Select a Service Category:</label>
@@ -119,14 +119,19 @@
         </div>
 
         <div id="str_time" class="hidden-content-time">
-                <label for="adjustedTimeSlots">Select a Time Slot:</label>
-                <select id="adjustedTimeSlots" name="adjustedTimeSlots">
-                    <!-- Adjusted time slots will be dynamically updated here -->
-                </select>
-                <br><br>
-            </div>
-
-        <input type="submit" value="Submit">
+   <label for="adjustedTimeSlots">Select a Time Slot:</label>
+   <select id="adjustedTimeSlots" name="adjustedTimeSlots">
+   @foreach($availableTimeSlots as $availableTimeSlot)
+                <option value="{{ $availableTimeSlot }}">{{ $availableTimeSlot }}</option>
+            @endforeach
+   </select>
+   <br><br>
+</div>
+<button type="button" onclick="calculateEndTime()">Calculate End Time</button>
+ <!-- Display the calculated end time here -->
+ <div id="endTimeResult"></div>
+ 
+<input type="submit" value="Submit">
     </form>
 </div>
 
@@ -162,6 +167,21 @@
 
         });
 
+        function calculateEndTime() {
+        // Get the selected service
+        var selectedService = document.querySelector('input[name="selectedService"]:checked').value;
+
+        // Assuming you have variables $adjustedTimeSlots, $serviceTime in your backend
+        var endTime;
+
+        // Check the selected service and perform actions accordingly
+        if (selectedService === '{{ $HairCutsL[0] }}') {
+            // Adjusted time slots and service time can be fetched from the backend
+            endTime = $adjustedTimeSlots + $duration;
+        } // Display the calculated end time
+            document.getElementById('endTimeResult').innerHTML = 'End Time: ' + endTime;
+    }
+
 
 
 
@@ -169,44 +189,7 @@
     });
 
 
-    var submitButton = document.querySelector('input[type="submit"]');
-        var datePickerInput = document.getElementById('datePicker');
-
-        submitButton.addEventListener('click', function (event) {
-            // Prevent the default form submission
-            event.preventDefault();
-
-            // Get the selected date value
-            var selectedDate = datePickerInput.value;
-
-            // Log or use the selected date as needed
-            console.log(selectedDate);
-
-            /// Continue with your logic or submit the form programmatically if needed
-                // For example, uncomment the line below to submit the form
-                // event.target.form.submit();
-
-                // Use JavaScript to get the available time slots and update the dropdown
-                var availableTimeSlots = calculateAvailableTimeSlots(selectedDate);
-                updateAdjustedTimeSlots(adjustedTimeSlotsSelect, availableTimeSlots);
-            });
-
-            function calculateAvailableTimeSlots(selectedDate) {
-                // Implement your logic to calculate available time slots based on the selected date
-                // This can involve making an Ajax request to the server or any other logic you have
-                // For demonstration purposes, return a hardcoded array
-                return [];
-            }
-
-            function updateAdjustedTimeSlots(selectElement, timeSlots) {
-                selectElement.innerHTML = '';
-                timeSlots.forEach(function (timeSlot) {
-                    var option = document.createElement('option');
-                    option.value = timeSlot;
-                    option.text = timeSlot;
-                    selectElement.add(option);
-                });
-            }
+    
 
 
 

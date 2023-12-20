@@ -36,6 +36,7 @@ use App\Http\Controllers\EmployeeDashBoardController;
 use App\Http\Controllers\EmployeeLeaveController;
 use App\Http\Controllers\EmployeeAppointmentsController;
 use App\Http\Controllers\HomeTryController;
+use App\Http\Controllers\AdminRentedItemController;
 
 use Illuminate\Auth\AuthManager;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
@@ -47,6 +48,7 @@ use App\Http\Controllers\RequestEmployeeLeaveController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EventCalendarController;
 use App\Http\Controllers\UploadimageController;
+use App\Http\Controllers\GUploadimageController;
 use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\RatingsViewController;
 use App\Http\Controllers\AdminLoController;
@@ -171,6 +173,13 @@ Route::get('uploadimage', [UploadimageController::class, 'imageUp']);
 Route::get('add-uploadimage', [UploadimageController::class, 'create']);
 Route::post('add-uploadimage', [UploadimageController::class, 'store']);
 Route::post('edit-uploadimage/{id}', [UploadimageController::class, 'edit']);
+
+// Gallery - CRUD***********************************************
+Route::get('guploadimage', [GUploadimageController::class, 'gimageUp']);
+Route::get('add-guploadimage', [GUploadimageController::class, 'gcreate']);
+Route::post('add-guploadimage', [GUploadimageController::class, 'gstore']);
+
+
 // Route::get('/Dashboard-Customer', function () {
 //     return view('/project/customer/dashboard');
 // })->name('customer.dashboard');
@@ -331,11 +340,12 @@ Route::post('add-rating', [ProductRatingController::class, 'addRating']);
 
 // Use the 'index' method for the '/BookNow' route
 Route::get('/BookNow', [BookingController::class, 'index'])->name('booking.index');
+Route::get('/booking', [BookingController::class, 'getBookedAppointments'])->name('booking.getBookedAppointments');
 
 // // Define a route for fetching services based on the selected category
 // Route::get('/api/services/{category}', [BookingController::class, 'getServices']);
 
- Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+ Route::post('/booking', [BookingController::class, 'store'])->name('bookings.store');
 
 // Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 
@@ -587,6 +597,9 @@ Route::middleware(['auth', 'auth.role:owner'])->group(function () {
         return view('/project/owner/salary-management/show');
     });
 
+
+    
+
     Route::post('/owner/logout', [OwnerController::class, 'logout'])->name('owner.logout');
 });
 
@@ -605,13 +618,24 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/customer_details', function () {
         return view('/project/admin/customer_details');
     });
-    Route::get('/manage_rented_item', function () {
-        return view('/project/admin/manage_rented_item');
-    });
+    // Route::get('/manage_rented_item', function () {
+    //     return view('/project/admin/manage_rented_item');
+    // });
+
+
+    Route::get('/manage-rented-items', [AdminRentedItemController::class, 'index']);
+    Route::post('/sendemail', [AdminRentedItemController::class, 'issuedButtonclicked'])->name('sendemail');
+
     Route::get('/setting', function () {
         return view('/project/admin/setting');
 
-    Route::post('/admin/logout', [AdminLoController::class, 'logout'])->name('admin.logout');
+    }); 
+
+    Route::get('/manage_rented_item', function () {
+        return view('/project/admin/manage_rented_item');
+    });
+    Route::get('/workers', function () {
+        return view('/project/admin/workers');
 
     });
     
@@ -626,6 +650,22 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/manage_product',[ShowController::class,'item']);
     Route::get('/manage_rented_item',[ShowController::class,'cell']);
     Route::get('/returned_rented_item',[ShowController::class,'rent']);
+    Route::get('/manage_appointment',[ShowController::class,'appointment']);
+    Route::get('/workers',[ShowController::class,'details']);
+
+    /*-------add rent product button route----*/
+    Route::get('/rentitems', function () {
+        return view('/project/owner/rentproduct/index');
+    });
+
+    // routes/web.php
+
+
+
+
+
+
+    
 
 
 });
@@ -646,8 +686,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
  });
 
- //Route::middleware(['web', 'auth', 'auth.role:customer'])->group(function () {
-    Route::get('/Dashboard', [HomeTryController::class, 'index']);
-//});
+Route::get('/Dashboard', [HomeTryController::class, 'index']);
+
 
 require __DIR__.'/auth.php';

@@ -22,8 +22,8 @@
             <div class=".col-lg-12">
                 <div class="card" style="margin: 200px 300px 0 100px; width: 1000px;">
                     <div class="card-header">
-                        <h4>IMAGE CRUD
-                            <a href="{{ url('add-uploadimage') }}" class="btn btn-primary float-end">Add Image</a>
+                        <h4>GALLERY IMAGE CRUD
+                            <a href="{{ url('add-guploadimage') }}" class="btn btn-primary float-end">Add Image</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -40,13 +40,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($uploadimage as $item)
+                                @foreach ($guploadimage as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->pName }}</td>
                                     <td>{{ $item->Iname }}</td>
                                     <td>
-                                        <img src="{{ asset('uploads/uploadimages/'.$item->profile_image) }}" width="70px" height="70px" alt="Image">
+                                        <img src="{{ asset('uploads/guploadimages/'.$item->profile_image) }}" width="70px" height="70px" alt="Image">
                                     </td>
                                     <td>
                                         <a href="" class="btn btn-primary btn-sm">Edit</a>

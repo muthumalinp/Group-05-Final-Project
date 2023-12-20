@@ -77,9 +77,7 @@
         <div class="h-screen flex-grow-1 overflow-y-lg-auto">
             <h1 class="secondary-font-color topic" style="text-transform: capitalize; margin: 20px 20px">
                 Holidays</h1>
-            <p class="description" style="margin: 0 20px">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit nobis minus libero nihil odio quisquam
-                reprehenderit, deleniti consequatur? Totam ipsa error velit dolore ut amet aspernatur ab voluptatibus
-                ad. Fuga?</p>
+            
             <div class="calander-container">
                 <div id="calendar">
                     <div class="month">

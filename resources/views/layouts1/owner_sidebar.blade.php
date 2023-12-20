@@ -52,9 +52,9 @@
                         <li><a href="/Monitoring" class="nav-item nav-link"><i class="fa-solid fa-rectangle-list"><span class="text">Records</span></a></i>  
                         <!-- <li><a href="/Manage-Salary" class="nav-item nav-link"><i class="fas fa-hand-holding-dollar"><span class="text">Manage Salary</span></a></i> -->
                         <li><a href="/Feedbacks" class="nav-item nav-link"><i class="fas fa-comments"><span class="text">Feedbacks</span></a></i>
-                        <li><a href="/profile" class="nav-item nav-link"><i class="fas fa-user"><span class="text">Profile</span></a></i>
+                        <!-- <li><a href="/profile" class="nav-item nav-link"><i class="fas fa-user"><span class="text">Profile</span></a></i> -->
                         <li><a href="/Full-Report" class="nav-item nav-link"><i class="fas fa-chart-pie"><span class="text">Report</span></a></i>
-                        <li><a href="/Settings" class="nav-item nav-link"><i class="fas fa-gears"><span class="text">Web Setting</span></a></i>
+                        <!-- <li><a href="/Settings" class="nav-item nav-link"><i class="fas fa-gears"><span class="text">Web Setting</span></a></i> -->
                         <!-- Add this in the owner's dashboard view -->
                         <li>
                             <form method="POST" action="{{ route('owner.logout') }}">

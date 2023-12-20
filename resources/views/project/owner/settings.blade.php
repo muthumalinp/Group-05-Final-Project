@@ -25,7 +25,7 @@
             <p>Home images <a href="{{url('/uploadimage')}}" class="btn btn-success btn-sm float-end"> Edit Home Page</a> </p> 
          </div>
          <div class="card">
-            <p>Gallery <a href="{{url('/gallery-page')}}" class="btn btn-success btn-sm float-end"> Edit Gallery Page</a> </p>
+            <p>Gallery <a href="{{url('/guploadimage')}}" class="btn btn-success btn-sm float-end"> Edit Gallery Page</a> </p>
          </div>
          <div class="card">
             <p>Service <a href="{{url('/service-page')}}" class="btn btn-success btn-sm float-end"> Edit Service Page</a> </p>

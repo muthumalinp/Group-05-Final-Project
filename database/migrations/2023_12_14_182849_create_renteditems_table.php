@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('price');
             $table->date('BorrowedDate');
             $table->date('ReturnedDate');
+            $table->string('Status')->default('Pending');
 
 
             $table->timestamps();

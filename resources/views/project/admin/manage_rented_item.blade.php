@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Display Products</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -50,8 +51,8 @@
                                     <td><b>Customer Email</b></td>
                                     <td><b>Mobile No</b></td>
                                     <td><b>Item Price</b></td>
-                                    <td><b>Ishue Date</b></td>
-                                    <td><b>Ishued</b></td>
+                                    <td><b>Issue Date</b></td>
+                                    <td><b>Issued</b></td>
                                     
                                     
                                 </tr>
@@ -72,33 +73,62 @@
                                     <td>{{$buy->BorrowedDate}}</td>
                                     
                                     <td id="deliveryRow{{$buy->id}}">
-                                        <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery(this,{{$buy->id}})">Ishued</a>
+<<<<<<< Updated upstream
+                                        <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery('{{$buy->CustomerEmail}}','{{$buy->id}}')">Ishued</a>
+=======
+                                        <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery(this,{{$buy->id}})">Issued</a>
+>>>>>>> Stashed changes
                                     </td>
-
+                                    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
                                         <script>
-                                            function handleDelivery(button, id) {
-                                                var isDelivered = localStorage.getItem('deliveryState' + id);
-
+                                            function handleDelivery(CustomerEmail,id1) {
+                                                var isDelivered = localStorage.getItem('deliveryState' + id1);
+console.log(CustomerEmail);
                                                 if (isDelivered) {
                                                     var successMessage = document.createElement('span');
                                                     successMessage.textContent = 'Ishued successful!';
                                                     
-                                                    var deliveryRow = document.getElementById('deliveryRow' + id);
+                                                    var deliveryRow = document.getElementById('deliveryRow' + id1);
                                                     deliveryRow.innerHTML = '';
                                                     deliveryRow.appendChild(successMessage);
 
-                                                    // Don't proceed further if already delivered
-                                                    return;
+                                                     //Don't proceed further if already delivered
+                                                    //return;
                                                 }
+var id ={'id':CustomerEmail};
+                                            $.ajax({
+                                                
+                                                        type: 'post',
+                                                        url: "{{ route('sendemail') }}",
+                                                        data: id,
+                                                        headers: {
+                                                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                                        },
+                                                        beforeSend: function(){
+                                                            console.log('beforeSend');
+                                                        },
+                                                        success: function(response){
+                                                            console.log(response);
+                                                            var successMessage = document.createElement('span');
+                                                            successMessage.textContent = 'Ishued successful!';
+                                                            var deliveryRow = document.getElementById('deliveryRow' + id1);
+                                                   deliveryRow.innerHTML = '';
+                                                   localStorage.setItem('deliveryState' + id1, 'true');
+                                                    deliveryRow.appendChild(successMessage);
+                                                        },
+                                                        complete: function(response){
+                                                            console.log(response);
+                                                        }
+                                                    });
 
-                                                var successMessage = document.createElement('span');
-                                                successMessage.textContent = 'Ishued successful!';
+                                                // var successMessage = document.createElement('span');
+                                                // successMessage.textContent = 'Ishued successful!';
 
-                                                var deliveryRow = document.getElementById('deliveryRow' + id);
-                                                deliveryRow.innerHTML = '';
-                                                deliveryRow.appendChild(successMessage);
+                                                // var deliveryRow = document.getElementById('deliveryRow' + id);
+                                                // deliveryRow.innerHTML = '';
+                                                // deliveryRow.appendChild(successMessage);
 
-                                                localStorage.setItem('deliveryState' + id, 'true');
+                                                // localStorage.setItem('deliveryState' + id, 'true');
                                             }
                                         </script>
 

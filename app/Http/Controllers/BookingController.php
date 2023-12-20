@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\Service;
 use App\Models\ServiceCategory;
-use App\Booking;
 use App\Models\BookedAppointment;
 use DateTime;
 use DateInterval;
@@ -37,8 +36,8 @@ class BookingController extends Controller
          $Hairstylists4 = Employee::whereJsonContains('emp_jobtitles', 'Hairstylist')->where('id', '4')->pluck('emp_fname');
         //  $emp1 = $Hairstylists->emp_fname;
 
-        $bookedTimeStart = BookedAppointment::where('emp_id', '=', '1')->pluck('start_time');
-        $bookedTimeEnd = BookedAppointment::where('emp_id', '=', '1')->pluck('end_time');
+        // $bookedTimeStart = BookedAppointment::where('emp_id', '=', '1')->pluck('start_time');
+        // $bookedTimeEnd = BookedAppointment::where('emp_id', '=', '1')->pluck('end_time');
         
         // Assuming your start time is 9:00 AM
         $startTime = new DateTime('09:00:00');
@@ -70,23 +69,32 @@ class BookingController extends Controller
         }
         
         // Filter out booked time slots
-        $bookedTimeSlots = [];
-        foreach ($bookedTimeStart as $index => $start) {
-            $end = $bookedTimeEnd[$index];
-            $bookedTimeSlots = array_merge($bookedTimeSlots, generateTimeSlots($start, $end, $interval));
-        }
+        // $bookedTimeSlots = [];
+        // foreach ($bookedTimeStart as $index => $start) {
+        //     $end = $bookedTimeEnd[$index];
+        //     $bookedTimeSlots = array_merge($bookedTimeSlots, generateTimeSlots($start, $end, $interval));
+        // }
         
-        $availableTimeSlots = array_diff($timeSlots, $bookedTimeSlots);
+        $availableTimeSlots = array_diff($timeSlots);
         
         // Output the available time slots
-        print_r($availableTimeSlots);
+        // print_r($availableTimeSlots);
+
+        
         
         
         
         // Adjust the time slots based on the duration
         $duration = Service::where('id', '=', '1')->value('duration');
         
-        
+        // Adjust the time slots based on the duration
+// $duration = Service::where('id', '=', '1')->value('duration');
+// $adjustedTimeSlots = array_map(function ($time) use ($duration) {
+//     return date('H:i', strtotime($time) + ($duration * 60));
+// }, $availableTimeSlots);
+
+// Output the adjusted time slots
+// print_r($adjustedTimeSlots);
 
 // $duration = Service::where('id', '=', '1')->value('duration');
 // $timeSlots = array_map(function ($time) use ($duration) {
@@ -107,9 +115,10 @@ class BookingController extends Controller
                                                         'Hairstylists3',
                                                         'Hairstylists4',
                                                         'availableTimeSlots',
+                                                        // 'adjustedTimeSlots',
                                                         'duration',
-                                                        'bookedTimeStart',
-                                                        'bookedTimeEnd',
+                                                        // 'bookedTimeStart',
+                                                        // 'bookedTimeEnd',
                                                         // 'BridalDresser',
                                                         // 'NailArtis'
                                                     ));
@@ -148,25 +157,34 @@ class BookingController extends Controller
 //     }
 // }
 
-    public function store(Request $request)
-    {
-        // Validate the form data
-        $validatedData = $request->validate([
-            'employee_id' => 'required|exists:employees,id',
-            'service_id' => 'required|exists:services,id',
-            'booking_datetime' => 'required|date',
-            'customer_name' => 'required|string',
-            'customer_email' => 'required|email',
-            'customer_phone' => 'required|string',
-            // Add other necessary validation rules
-        ]);
 
-        // Create a new booking
-        Booking::create($validatedData);
 
-        // Redirect or perform any other actions after successful submission
-        return redirect()->back()->with('success', 'Booking created successfully');
-    }
+public function store(Request $request)
+{
+    // dd($request->all());
+    $user = auth()->user();
+    $bookedAppointment = new BookedAppointment([
+        'selectedServiceCategory' => $request->input('selectedServiceCategory'),
+        'selectedService' => $request->input('selectedService'),
+        'stylist' => $request->input('stylist'),
+        'bookingDate' => $request->input('bookingDate'),
+        'adjustedTimeSlots' => $request->input('adjustedTimeSlots'),
+        'endTimeResult' => $request->input('endTimeResult'),
+        'user_id' => $user->id,
+        'user_email' => $user->email,
+    ]);
 
-    // Add other methods for updating and deleting bookings
+    // Save the booked appointment to the database
+    $bookedAppointment->save();
+    
+
+    // You can return a response or redirect as needed
+    return view('project.customer.Successfullbokingmsg', [
+        'bookedAppointment' => $bookedAppointment,
+        'user' => $user,
+    ]);
+
+    // return ( '<h1>Hooray! Your appointment has been sprinkled into our schedule with a touch of magic. Expect wonders on the booked date! ✨📅</h1>');
+}
+    
 }
