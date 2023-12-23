@@ -53,7 +53,14 @@
         </div>
 
 
-        
+        <h2>Terms And Conditions</h2>
+
+        <p>
+            <li>
+            <ul>Plaase Read Terms and Condtions carefully</ul>
+            <ul>tyhyth</ul>
+            </li>
+        </p>
 
             
         

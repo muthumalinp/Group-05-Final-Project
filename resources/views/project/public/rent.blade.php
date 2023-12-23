@@ -62,9 +62,9 @@
                 width: 301px;
                 height: 60px;
                 flex-shrink: 0;
-                margin-left: 1138px;
-                margin-right: 12px;
-                margin-top: 300px;
+                margin-left: 575px;
+                margin-right: 575px;
+                margin-top: 320px;
                 margin-bottom: 56px;
             
             }
@@ -74,8 +74,8 @@
                 height: 60px;
                 flex-shrink: 0;
                 border-radius: 30px;
-                border: 3px solid #836436;
-                background: #FEF6F6;
+                border: 3px solid #ff0000;
+                background: #ff0000;
             }
 
             .rect5{
@@ -261,8 +261,9 @@
 
         
    <div class="btn1">
-   <img src="{{ asset('css/Customer/Rent/hnda.jpg') }}" alt="Salon" class="hnda1" style="width: 60px;height: 60px; flex-shrink: 0; border-radius: 90px;">
-   <button type="button" class="btn btn-outline-dark"><h3>Please Rent</h3></button>
+   <a href ="{{url('rentbridalwr')}}">
+   <button type="button" class="btn btn-outline-dark"><h3>Rent Now!!!</h3></button>
+   </a>
    </div>
 
  </div>
@@ -304,13 +305,7 @@
 
             </div>
 
-    <div class="btn2">
-        <a href ="{{url('rentbridalwr')}}">
-    <img src="{{ asset('css/Customer/Rent/hnda.jpg') }}" alt="Salon" class="hnda1" style="width: 60px;height: 60px; flex-shrink: 0; border-radius: 90px;">
-    <button type="button" class="btn btn-outline-dark"><h3>Please Rent</h3></button>
-        </a>
-    </div>
-   
+    
 
     
 
