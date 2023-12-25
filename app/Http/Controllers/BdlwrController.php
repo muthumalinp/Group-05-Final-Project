@@ -25,27 +25,15 @@ class BdlwrController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'id' => 'required',
-            'bdlwrsid' => 'required',
-            'bdlwrstitle' => 'required',
-            'bdlwrsdesc' => 'required',
-            'price' => 'required|numeric',
-            'quantity' => 'required|integer',
-            'bdlwrsimg1' => 'required', // Adjust file type and size as needed
-            'bdlwrsimg2' => 'required', // Adjust file type and size as needed
-            'bdlwrsimg3' => 'required', // Adjust file type and size as needed
-            'bdlwrsimg4' => 'required', // Adjust file type and size as needed
-            'bdlwrsimg5' => 'required', // Adjust file type and size as needed
-        ]);
-
+      
+      
         $bdlwr = new Bdlwr;
         $bdlwr->bdlwrsid = $request-> input('id');
         $bdlwr->bdlwrstitle = $request-> input('bdlwrstitle');
         $bdlwr->bdlwrsdesc = $request-> input('bdlwrsdesc');
         $bdlwr->bdlwrsprice = $request-> input('price');
         $bdlwr->bdlwrsquantity = $request-> input('quantity');
-
+       
         if($request-> hasfile('bdlwrsimg1')){
 
             $file = $request->file('bdlwrsimg1');

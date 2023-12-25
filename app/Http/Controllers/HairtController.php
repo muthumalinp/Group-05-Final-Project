@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Hairstr;
+use App\Models\Hairt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 
-class HairstrController extends Controller
+class HairtController extends Controller
 {
     public function owner()
     {
         return view('project.owner');
     }
 
-    public function create11()
+    public function create13()
     {
-        return view('project.public.create11');
+        return view('project.public.create13');
     }
 
-    public function index1()
+    public function index3()
     {
-        $product = Hairstr::all();
+        $product = Hairt::all();
         
-        return view('project.public.index1',compact('product'));
+        return view('project.public.index3',compact('product'));
     }
 
     public function store(Request $request)
@@ -36,7 +36,7 @@ class HairstrController extends Controller
             'Quantity' => 'required|integer',
             'product_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $product = new Hairstr;
+        $product = new Hairt;
         // $product->product_ID = $request->input('product_ID');
         // $product->category = $request->input('category');
         $product->name = $request->input('name');
@@ -56,14 +56,14 @@ class HairstrController extends Controller
     
         public function edit1($id)
         {
-            $product = Hairstr::find($id);
+            $product = Hairt::find($id);
             
-            return view('project.public.edit1',compact('product'));
+            return view('project.public.edit3',compact('product'));
         }
 
-        public function update1(Request $request,$id)
+        public function update3(Request $request,$id)
         {
-            $product = Hairstr::find($id);
+            $product = Hairt::find($id);
             // $product->product_ID = $request->input('product_ID');
             // $product->category = $request->input('category');
             $product->name = $request->input('name');
@@ -90,9 +90,9 @@ class HairstrController extends Controller
             return redirect()->back()->with('status', 'Product Updated Successfully');
         }
 
-        public function delete1($id)
+        public function delete3($id)
         {
-            $product = Hairstr::find($id);
+            $product = Hairt::find($id);
             $destination = 'uploads/products/'.$product->product_image;
             if(File::exists($destination))
             {

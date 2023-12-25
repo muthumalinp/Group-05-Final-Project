@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display Hairstr Products</title>
+    <title>Display Products</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -16,12 +16,12 @@
                 <div class="card" style="width:1200px; margin-left:80px">
                     <div class="card-header text-bg-dark p-3">
                         <h3>
-                            Available Hair Straightening Products
+                            Available Hair Coloring & Highlighting Products
                         </h3>
                     </div>
 
                     <div class="card-body">
-                    <a href="{{url('Create11')}}" class="btn btn-success btn-sm">Add Products</a>
+                    <a href="{{url('Create12')}}" class="btn btn-success btn-sm">Add Products</a>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -37,7 +37,7 @@
                             </thead>
 
                             <tbody>
-                                @foreach($product as $item)
+                                @foreach($products as $item)
                                 <tr>
                                     <!-- <td>{{$item->product_ID}}</td> -->
                                     <!-- <td>{{$item->category}}</td> -->
@@ -45,9 +45,9 @@
                                     <td>{{$item->price}}</td>
                                     <td>{{$item->Quantity}}</td>
                                     <td><img src="{{asset('uploads/products/'.$item->product_image)}}" width="70px" height="70px" alt="Image"></td>
-                                    <td><a href="{{url('Edit1/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a></td>
+                                    <td><a href="{{url('Edit2/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a></td>
                                     <td>
-                                     <a href="{{url('Delete1/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                                     <a href="{{url('Delete2/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
 
                                     

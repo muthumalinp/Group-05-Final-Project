@@ -1,3 +1,7 @@
+<?php 
+session_start();   
+$products = \App\Models\Facial::all();  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +42,7 @@
         </div>
     </nav>
 
-    <section calss="content">
+    <section class="content">
         <h1>Grab your Beauty Products Now</h1>
         <p>Invest in your beauty,invest in yourself</p>
     </section>  
@@ -47,72 +51,27 @@
     <section class="sec">
         <div class="products">
 
-            <!--card starts-->
+        @foreach($products as $product)
+                <div class="card">
+                    <form action="/Product/ManageCart" method="GET">
+                        <div class="img">
+                        <img src="{{ asset('uploads/products/' . $product->product_image) }}" alt="">
 
-            <div class="card">
-                <form action="/Product/ManageCart" method="GET">
-                    <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
-                    <div class="desc">Gold Infusion</div>
-                    <div class="box">
-                        <div class="price">Rs.2500</div>
-                        <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
-                    </div>
-                    <input type="hidden" name="desc" value="Gold Infusion">
-                    <input type="hidden" name="price" value="2500">
-                </form>
-            </div>
-            <!--card end-->
-
-             <!--card starts-->
-
-             <div class="card">
-                <form action="/Product/ManageCart" method="GET">
-                    <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
-                    <div class="desc">Grow Me</div>
-                    <div class="box">
-                        <div class="price">Rs.6500</div>
-                        <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
-                    </div>
-                    <input type="hidden" name="desc" value="Grow Me">
-                    <input type="hidden" name="price" value="6500">
-                </form>
-            </div>
-
-            <!--card end-->
-
-             <!--card starts-->
-             <div class="card">
-                <form action="/Product/ManageCart" method="GET">
-                    <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
-                    <div class="desc">Omni</div>
-                    <div class="box">
-                        <div class="price">Rs.7500</div>
-                        <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
-                    </div>
-                    <input type="hidden" name="desc" value="Omni">
-                    <input type="hidden" name="price" value="7500">
-                </form>
-            </div>
-
-            <!--card end-->
-
-             <!--card starts-->
-
-             <div class="card">
-                <form action="/Product/ManageCart" method="GET">
-                    <div class="img"><img src="{{ asset('css/hairstr11.jpg') }}" alt="" ></div>
-                    <div class="desc">Spa Ceylon</div>
-                    <div class="box">
-                        <div class="price">Rs.5000</div>
-                        <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
-                    </div>
-                    <input type="hidden" name="desc" value="Spa Ceylon">
-                    <input type="hidden" name="price" value="5000">
-                </form>
-            </div>
-
-            <!--card end-->
-
+                        </div>
+                        <div class="desc">{{ $product->name }}</div>
+                        <div class="box">
+                            <div class="price">Rs.{{ $product->price }}</div>
+                            <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>
+                        </div>
+                        <div class="box">
+                            <button class="btn"><a href="{{ url('/reviewform')}}">Ratings</a></button>
+                        </div>
+                        <input type="hidden" name="desc" value="{{ $product->name }}">
+                        <input type="hidden" name="price" value="{{ $product->price }}">
+                    </form>
+                </div>
+            @endforeach
+            
         </div>
     </section>
     

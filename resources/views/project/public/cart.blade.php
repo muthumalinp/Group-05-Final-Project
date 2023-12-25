@@ -46,7 +46,8 @@ session_start();
     </nav>
     <!--navigation bar end-->
     <form method="post" action="{{ route('make.purchase') }}">
-            @csrf
+    @csrf
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center border rounded bg-light my-5">
@@ -82,7 +83,7 @@ session_start();
                                         <td>$value[price]<input type='hidden' class='iprice' value='$value[price]'></td>
                                         <td>
                                             <form action='/Product/ManageCart' method='GET'>
-                                            <input class='taxt-center iquantity' name='Mod_Quantity' onchange='this.form.submit();' type='number' value='$value[Quantity]' min='1' max='10'>
+                                            <input class='taxt-center iquantity' name='Mod_Quantity' onchange='subTotal(); this.form.submit();' type='number' value='$value[Quantity]' min='1' max='10'>
                                             <input type='hidden' name='desc' value='$value[desc]'>
                                             </form>
                                         </td>
@@ -130,7 +131,7 @@ session_start();
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                             <label class="form-check-label" for="flexRadioDefault2">
-                                Cash On Delivery
+                        Order placed
                             </label>
                         </div>
                         <br>
@@ -144,6 +145,7 @@ session_start();
         </div>
       
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
      <script>
 
                 var gt=0;
@@ -160,32 +162,13 @@ session_start();
                         itotal[i].innerText=(iprice[i].value)*(iquantity[i].value);
                         console.log(iprice[i].value);
                         gt=gt+(iprice[i].value)*(iquantity[i].value);
+                        
                     }
                     gtotal.innerText=gt;
                 }
                 
                     subTotal();
 
-                    function makePurchase() {
-            $.ajax({
-                url: "{{ route('make.purchase') }}",
-                type: "POST",
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    full_name: $('input[name="full_name"]').val(),
-                    phone_number: $('input[name="phone_number"]').val(),
-                    email: $('input[name="email"]').val(),
-                },
-                success: function(response) {
-                    // Handle the response, e.g., show a success message
-                    alert('Purchase successful!');
-                },
-                error: function(error) {
-                    // Handle the error, e.g., display an error message
-                    alert('Purchase failed. Please try again.');
-                }
-            });
-        }
 
 
 
