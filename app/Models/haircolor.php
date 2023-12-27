@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Hairstr extends Model
+class haircolor extends Model
 {
     use HasFactory;
-    protected $table = 'hairstrs';
+    protected $table = 'haircolors';
     protected $fillable = [
         // 'product_ID',
         // 'category',
@@ -18,6 +18,4 @@ class Hairstr extends Model
         'product_image',
 
     ];
-
-
 }

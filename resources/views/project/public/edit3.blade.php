@@ -32,10 +32,10 @@
                     <div class="card-header">
                         <h4>
                             Edit Products
-                            <a href="{{url('Index1')}}" class="btn btn-danger float-end">BACK</a>
+                            <a href="{{url('Index3')}}" class="btn btn-danger float-end">BACK</a>
                         </h4>
                     </div>
-                    <form action="{{ url('Update1/'.$product->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('Update3/'.$product->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                  <!-- <div class="form-group mb-3">

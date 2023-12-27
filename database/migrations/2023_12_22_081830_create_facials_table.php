@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hairstrs', function (Blueprint $table) {
+        Schema::create('facials', function (Blueprint $table) {
             $table->id();
             // $table->string('product_ID');
             // $table->string('category');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hairstrs');
+        Schema::dropIfExists('facials');
     }
 };

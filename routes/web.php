@@ -14,11 +14,13 @@ use App\Http\Controllers\PwrController;
 use App\Http\Controllers\CarteController;
 use App\Http\Controllers\RsubmitOrderController;
 
-use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\CartController;
 
 //use App\Http\Controllers\RatingController;
 use App\Http\Controllers\RatingController;
-
+use App\Http\Controllers\HaircolorController;
+use App\Http\Controllers\HairtController;
+use App\Http\Controllers\FacialController;
 use App\Http\Controllers\bookingPediController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\EmployeeController;
@@ -60,6 +62,7 @@ use App\Models\EventCalendar;
 //use App\Http\Controllers\Front\RatingController as ;
 
 use App\Models\Renteditems;
+use FFI\CType;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +75,7 @@ use App\Models\Renteditems;
 |
 */
 
-//Products Adding Routes begin
+//Hairstr Products Adding Routes begin
 Route::get('Index1',[HairstrController::class,'index1']);
 Route::get('Create11',[HairstrController::class,'create11']);
 Route::post('Create11',[HairstrController::class,'store']);
@@ -80,6 +83,31 @@ Route::get('Edit1/{id}',[HairstrController::class,'edit1']);
 Route::get('Delete1/{id}',[HairstrController::class,'delete1']);
 Route::put('Update1/{id}', [HairstrController::class, 'update1']);
 Route::post('/products', [ProductController::class, 'store'])->name('cartstore');
+
+//Hair Coloring Products Adding Routes begin
+Route::get('Index2',[HaircolorController::class,'index2']);
+Route::get('Create12',[HaircolorController::class,'create12']);
+Route::post('Create12',[HaircolorController::class,'store']);
+Route::get('Edit2/{id}',[HaircolorController::class,'edit2']);
+Route::get('Delete2/{id}',[HaircolorController::class,'delete2']);
+Route::put('Update2/{id}', [HaircolorController::class, 'update2']);
+
+//Hair Treatment Products Adding Routes begin
+Route::get('Index3',[HairtController::class,'index3']);
+Route::get('Create13',[HairtController::class,'create13']);
+Route::post('Create13',[HairtController::class,'store']);
+Route::get('Edit3/{id}',[HairtController::class,'edit3']);
+Route::get('Delete3/{id}',[HairtController::class,'delete3']);
+Route::put('Update3/{id}', [HairtController::class, 'update3']);
+
+//Facial Products Adding Routes begin
+Route::get('Index4',[FacialController::class,'index4']);
+Route::get('Create14',[FacialController::class,'create14']);
+Route::post('Create14',[FacialController::class,'store']);
+Route::get('Edit4/{id}',[FacialController::class,'edit4']);
+Route::get('Delete4/{id}',[FacialController::class,'delete4']);
+Route::put('Update4/{id}', [FacialController::class, 'update4']);
+
 
 //Rating********
 
@@ -129,6 +157,19 @@ Route::get('/Product', function () {
 Route::get('/Create11', function () {
     return view('/project/public/create11');
 });
+
+Route::get('/Create12', function () {
+    return view('/project/public/create12');
+});
+
+Route::get('/Create13', function () {
+    return view('/project/public/create13');
+});
+
+Route::get('/Create14', function () {
+    return view('/project/public/create14');
+});
+
 Route::get('/Product/HairStraghtening', function () {
     return view('/project/public/producthairstr');
 });
@@ -221,7 +262,7 @@ Route::get('/rentbridalwr', function () {
     return view('/project/public/rentbridalwr');
 });
 
-Route::get('/rentbridalwrgl', function () {
+Route::get('/rebridalwrglnt', function () {
     return view('/project/public/rentbridalwrgl');
 });
 
@@ -313,7 +354,7 @@ Route::post('/submit-order', [RsubmitOrderController::class, 'submitOrder'])->na
 
 
 //product to database
-Route::post('/make-purchase', [PurchaseController::class, 'makePurchase'])->name('make.purchase');
+Route::post('/make-purchase', [CartController::class, 'makePurchase'])->name('make.purchase');
 
 
 

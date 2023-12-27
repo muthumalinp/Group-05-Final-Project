@@ -16,12 +16,12 @@
                 <div class="card" style="width:1200px; margin-left:80px">
                     <div class="card-header text-bg-dark p-3">
                         <h3>
-                            Available Hair Straightening Products
+                            Available Facial Products
                         </h3>
                     </div>
 
                     <div class="card-body">
-                    <a href="{{url('Create11')}}" class="btn btn-success btn-sm">Add Products</a>
+                    <a href="{{url('Create14')}}" class="btn btn-success btn-sm">Add Products</a>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -45,9 +45,9 @@
                                     <td>{{$item->price}}</td>
                                     <td>{{$item->Quantity}}</td>
                                     <td><img src="{{asset('uploads/products/'.$item->product_image)}}" width="70px" height="70px" alt="Image"></td>
-                                    <td><a href="{{url('Edit1/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a></td>
+                                    <td><a href="{{url('Edit4/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a></td>
                                     <td>
-                                     <a href="{{url('Delete1/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                                     <a href="{{url('Delete4/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
 
                                     

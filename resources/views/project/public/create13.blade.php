@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hairstr Product Adding Form</title>
+    <title>Hairt Product Adding Form</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -20,10 +20,10 @@
                     <div class="card-header">
                         <h4>
                             Add Products
-                            <a href="{{url('Index1')}}" class="btn btn-danger float-end">BACK</a>
+                            <a href="{{url('Index3')}}" class="btn btn-danger float-end">BACK</a>
                         </h4>
                     </div>
-                    <form action="{{url('Create11')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{url('Create13')}}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <!-- <div class="form-group mb-3">

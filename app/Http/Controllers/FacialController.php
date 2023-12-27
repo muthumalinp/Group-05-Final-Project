@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Hairstr;
+use App\Models\Facial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 
-class HairstrController extends Controller
+class FacialController extends Controller
 {
     public function owner()
     {
         return view('project.owner');
     }
 
-    public function create11()
+    public function create14()
     {
-        return view('project.public.create11');
+        return view('project.public.create14');
     }
 
-    public function index1()
+    public function index4()
     {
-        $product = Hairstr::all();
+        $product = Facial::all();
         
-        return view('project.public.index1',compact('product'));
+        return view('project.public.index4',compact('product'));
     }
 
     public function store(Request $request)
@@ -36,7 +36,7 @@ class HairstrController extends Controller
             'Quantity' => 'required|integer',
             'product_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $product = new Hairstr;
+        $product = new Facial;
         // $product->product_ID = $request->input('product_ID');
         // $product->category = $request->input('category');
         $product->name = $request->input('name');
@@ -54,16 +54,16 @@ class HairstrController extends Controller
         return redirect()->back()->with('status', 'Product Added Successfully');
     }
     
-        public function edit1($id)
+        public function edit4($id)
         {
-            $product = Hairstr::find($id);
+            $product = Facial::find($id);
             
             return view('project.public.edit1',compact('product'));
         }
 
-        public function update1(Request $request,$id)
+        public function update4(Request $request,$id)
         {
-            $product = Hairstr::find($id);
+            $product =  Facial::find($id);
             // $product->product_ID = $request->input('product_ID');
             // $product->category = $request->input('category');
             $product->name = $request->input('name');
@@ -92,7 +92,7 @@ class HairstrController extends Controller
 
         public function delete1($id)
         {
-            $product = Hairstr::find($id);
+            $product = Facial::find($id);
             $destination = 'uploads/products/'.$product->product_image;
             if(File::exists($destination))
             {

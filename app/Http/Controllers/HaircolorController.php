@@ -2,32 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Hairstr;
+use App\Models\haircolor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
-
-class HairstrController extends Controller
+class HaircolorController extends Controller
 {
     public function owner()
     {
         return view('project.owner');
     }
 
-    public function create11()
+    public function create12()
     {
-        return view('project.public.create11');
+        return view('project.public.create12');
     }
 
-    public function index1()
+    public function index2()
     {
-        $product = Hairstr::all();
+        $products= haircolor::all();
         
-        return view('project.public.index1',compact('product'));
+        return view('project.public.index2',compact('products'));
     }
 
     public function store(Request $request)
+   
     {
+       
         $validatedData = $request->validate([
             // 'product_ID' => 'required',
             // 'category' => 'required',
@@ -35,11 +36,14 @@ class HairstrController extends Controller
             'price' => 'required|numeric',
             'Quantity' => 'required|integer',
             'product_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           
         ]);
-        $product = new Hairstr;
+
+      
+        $product = new haircolor;
         // $product->product_ID = $request->input('product_ID');
         // $product->category = $request->input('category');
-        $product->name = $request->input('name');
+        $product->name = $request->input('name'); 
         $product->price = $request->input('price');
         $product->Quantity = $request->input('Quantity'); 
         if ($request->hasfile('product_image')) {
@@ -49,21 +53,22 @@ class HairstrController extends Controller
             $file->move('uploads/products/', $filename);
             $product->product_image = $filename;
         }
-
+        
         $product->save();
+    
         return redirect()->back()->with('status', 'Product Added Successfully');
     }
     
-        public function edit1($id)
+        public function edit2($id)
         {
-            $product = Hairstr::find($id);
+            $product = haircolor::find($id);
             
-            return view('project.public.edit1',compact('product'));
+            return view('project.public.edit2',compact('products'));
         }
 
-        public function update1(Request $request,$id)
+        public function update2(Request $request,$id)
         {
-            $product = Hairstr::find($id);
+            $product = haircolor::find($id);
             // $product->product_ID = $request->input('product_ID');
             // $product->category = $request->input('category');
             $product->name = $request->input('name');
@@ -90,9 +95,9 @@ class HairstrController extends Controller
             return redirect()->back()->with('status', 'Product Updated Successfully');
         }
 
-        public function delete1($id)
+        public function delete3($id)
         {
-            $product = Hairstr::find($id);
+            $product = haircolor::find($id);
             $destination = 'uploads/products/'.$product->product_image;
             if(File::exists($destination))
             {
@@ -106,6 +111,5 @@ class HairstrController extends Controller
             
         }
 
-        
-
+                     
 }
