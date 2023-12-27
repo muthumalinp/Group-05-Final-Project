@@ -14,7 +14,7 @@ class HomeTryController extends Controller
                 $role = Auth()->user()->role;
 
                 if($role == 'customer') {
-                    return view('project.public.home    1');
+                    return view('project.public.home');
                 }
                 // if(Auth::id()) {
                 //     $role = Auth()->user()->role;
