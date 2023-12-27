@@ -37,8 +37,8 @@ class EmployeeController extends Controller
         'emp_fname' => ['required', 'string', 'max:255'],
         'emp_lname' => ['required', 'string', 'max:255'],
         'emp_jobtitle' => ['required', 'string', 'max:255'],
-        'emp_phone' => ['required', 'string', 'max:255'],
-        'emp_email' => ['required', 'string', 'email', 'max:255'],
+        'emp_phone' => ['required',  'regex:/^0[0-9]{9}$/'],
+        'emp_email' => ['required', 'string','lowercase', 'email', 'max:255'],
         'emp_bsalary' => ['required', 'string', 'max:225'],
         'emp_rewards' => ['required', 'string', 'max:225'],
         ]);
