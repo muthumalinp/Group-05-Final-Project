@@ -11,7 +11,7 @@ class CartController extends Controller
                 // Create a new Cart instance
         $cart = new Cart();
              $cart->hairstr_id = $request->input('productno');
-             dd($request->input('productno'));
+            //  dd($request->input('productno'));
         $cart->haircolor_id = $request->input('productno');
         $cart->quantity = $request->input('Mod_Quantity');
         $cart->total = $request->input('itotal');

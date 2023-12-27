@@ -131,11 +131,9 @@ session_start();
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                             <label class="form-check-label" for="flexRadioDefault2">
-<<<<<<< Updated upstream
+
                         Order placed
-=======
-                               Reserved Order
->>>>>>> Stashed changes
+
                             </label>
                         </div>
                         <br>
@@ -149,12 +147,10 @@ session_start();
         </div>
       
     </div>
-<<<<<<< Updated upstream
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-=======
+
     
     </form>
->>>>>>> Stashed changes
+
      <script>
 
                 var gt=0;
