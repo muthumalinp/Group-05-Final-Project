@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 Use App\Models\User;
-Use App\Models\Product;
+Use App\Models\Orderedproduct;
 use App\Models\Owner;
 use App\Models\Renteditems;
 use App\Models\BookedAppointment;
@@ -27,7 +27,7 @@ class ShowController extends Controller
     {
 
 
-        $sell=Product::all();
+        $sell=Orderedproduct::all();
         return view('/project/admin/manage_product',compact('sell'));
         
     }

@@ -675,13 +675,24 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/manage-rented-items', [AdminRentedItemController::class, 'index']);
     Route::post('/sendemail', [AdminRentedItemController::class, 'issuedButtonclicked'])->name('sendemail');
 
+    Route::get('/returned-rented-items', [ReturnedController::class, 'index1']);
+    Route::post('/sendemail-returned', [ReturnedController::class, 'returnedButtonclicked'])->name('sendemail-returned');
+
+    Route::post('/send-email', [YourController::class, 'sendEmail'])->name('send-email');
+
+
+
+    
+
     Route::get('/setting', function () {
         return view('/project/admin/setting');
-
-    }); 
-
+    });
     Route::get('/manage_rented_item', function () {
         return view('/project/admin/manage_rented_item');
+    });
+
+    Route::get('/returned_rented_item', function () {
+        return view('/project/admin/returned_rented_item');
     });
     Route::get('/workers', function () {
         return view('/project/admin/workers');
@@ -703,7 +714,7 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/workers',[ShowController::class,'details']);
 
     /*-------add rent product button route----*/
-    
+
 
     // routes/web.php
 
