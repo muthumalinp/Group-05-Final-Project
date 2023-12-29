@@ -38,11 +38,15 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <td><b>Id</b></td>
+                                    
                                     <td><b>Product No</b></td>
                                     <td><b>Product Name</b></td>
                                     <td><b>Product Price</b></td>
-                                    <td><b>quantity</b></td>
+                                    <td><b>Quantity</b></td>
+                                    <td><b>Total</b></td>
+                                    <td><b>Name</b></td>
+                                    <td><b>Phone no</b></td>
+                                    <td><b>Email</b></td>
                                     <td><b>Submit</b></td>
                                     
                                     
@@ -52,13 +56,17 @@
                             <tbody>
                             @foreach($sell as $sell)
                                 <tr>
-                                    <td>{{$sell->id}}</td>
                                     <td>{{$sell->product_no}}</td>
+                                    
                                     <td>{{$sell->product_name}}</td>
                                     <td>{{$sell->product_price}}</td>
-                                    <td>{{$sell->quantity}}</td>
+                                    <td>{{$sell->product_quantity}}</td>
+                                    <td>{{$sell->total}}</td>
+                                    <td>{{$sell->full_name}}</td>
+                                    <td>{{$sell->phoneno}}</td>
+                                    <td>{{$sell->email}}</td>
                                     <td id="deliveryRow{{$sell->id}}">
-                                        <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery(this,{{$sell->id}})">Delivered</a>
+                                        <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery(this,{{$sell->id}})">Ordered</a>
                                     </td>
                                     
 
@@ -101,7 +109,7 @@
 
                                             if (isDelivered) {
                                                 var successMessage = document.createElement('span');
-                                                successMessage.textContent = 'Delivery successful!';
+                                                successMessage.textContent = 'Ordered successful!';
                                                 
                                                 var deliveryRow = document.getElementById('deliveryRow' + id);
                                                 deliveryRow.innerHTML = '';
@@ -112,7 +120,7 @@
                                             }
 
                                             var successMessage = document.createElement('span');
-                                            successMessage.textContent = 'Delivery successful!';
+                                            successMessage.textContent = 'Ordered successful!';
 
                                             var deliveryRow = document.getElementById('deliveryRow' + id);
                                             deliveryRow.innerHTML = '';

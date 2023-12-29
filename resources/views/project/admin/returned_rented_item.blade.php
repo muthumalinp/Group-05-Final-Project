@@ -72,35 +72,61 @@
                                     <td>{{$point->ReturnedDate}}</td>
                                     
                                     <td id="deliveryRow{{$point->id}}">
-                                        <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery(this,{{$point->id}})">Returned</a>
+                                        <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery('{{$point->CustomerEmail}}','{{$point->id}}')">Returned</a>
                                     </td>
-
+                                    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
                                         <script>
-                                            function handleDelivery(button, id) {
-                                                var isDelivered = localStorage.getItem('deliveryState' + id);
-
+                                            function handleDelivery(CustomerEmail,id1) {
+                                                var isDelivered = localStorage.getItem('deliveryState' + id1);
+console.log(CustomerEmail);
                                                 if (isDelivered) {
                                                     var successMessage = document.createElement('span');
                                                     successMessage.textContent = 'Returned successful!';
                                                     
-                                                    var deliveryRow = document.getElementById('deliveryRow' + id);
+                                                    var deliveryRow = document.getElementById('deliveryRow' + id1);
                                                     deliveryRow.innerHTML = '';
                                                     deliveryRow.appendChild(successMessage);
 
-                                                    // Don't proceed further if already delivered
-                                                    return;
+                                                     //Don't proceed further if already delivered
+                                                    //return;
                                                 }
+var id ={'id':CustomerEmail};
+                                            $.ajax({
+                                                
+                                                        type: 'post',
+                                                        url: "{{ route('sendemail-returned') }}",
+                                                        data: id,
+                                                        headers: {
+                                                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                                        },
+                                                        beforeSend: function(){
+                                                            console.log('beforeSend');
+                                                        },
+                                                        success: function(response){
+                                                            console.log(response);
+                                                            var successMessage = document.createElement('span');
+                                                            successMessage.textContent = 'Ishued successful!';
+                                                            var deliveryRow = document.getElementById('deliveryRow' + id1);
+                                                   deliveryRow.innerHTML = '';
+                                                   localStorage.setItem('deliveryState' + id1, 'true');
+                                                    deliveryRow.appendChild(successMessage);
+                                                        },
+                                                        complete: function(response){
+                                                            console.log(response);
+                                                        }
+                                                    });
 
-                                                var successMessage = document.createElement('span');
-                                                successMessage.textContent = 'Returned successful!';
+                                                // var successMessage = document.createElement('span');
+                                                // successMessage.textContent = 'Ishued successful!';
 
-                                                var deliveryRow = document.getElementById('deliveryRow' + id);
-                                                deliveryRow.innerHTML = '';
-                                                deliveryRow.appendChild(successMessage);
+                                                // var deliveryRow = document.getElementById('deliveryRow' + id);
+                                                // deliveryRow.innerHTML = '';
+                                                // deliveryRow.appendChild(successMessage);
 
-                                                localStorage.setItem('deliveryState' + id, 'true');
+                                                // localStorage.setItem('deliveryState' + id, 'true');
                                             }
                                         </script>
+
 
                                     
                                     

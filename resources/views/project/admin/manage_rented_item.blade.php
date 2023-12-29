@@ -73,11 +73,7 @@
                                     <td>{{$buy->BorrowedDate}}</td>
                                     
                                     <td id="deliveryRow{{$buy->id}}">
-<<<<<<< Updated upstream
                                         <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery('{{$buy->CustomerEmail}}','{{$buy->id}}')">Ishued</a>
-=======
-                                        <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery(this,{{$buy->id}})">Issued</a>
->>>>>>> Stashed changes
                                     </td>
                                     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
                                         <script>

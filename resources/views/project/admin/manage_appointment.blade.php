@@ -40,12 +40,16 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <td><b>Id</b></td>
-                                    <td><b>Name</b></td>
-                                    <td><b>Date</b></td>
-                                    <td><b>Start Time</b></td>
-                                    <td><b>End Time</b></td>
-                                    
+                                    <td><b>Category</b></td>
+                                    <td><b>Service</b></td>
+                                    <td><b>Stylist</b></td>
+                                    <td><b>Emp Id</b></td>
+                                    <td><b>Booking Date</b></td>
+                                    <td><b>Time Slot</b></td>
+                                    <!--<td><b>End Time</b></td>-->
+                                    <td><b>Userid</b></td>
+                                    <td><b>User Email</b></td>
+                                    <td><b>Submit</b></td>
                                    
 
                                     
@@ -56,13 +60,49 @@
                             <tbody>
                             @foreach($book as $book)
                                 <tr>
+                                    <td>{{$book->selectedServiceCategory}}</td>
+                                    <td>{{$book->selectedService}}</td>
+                                    <td>{{$book->stylist}}</td>
                                     <td>{{$book->emp_id}}</td>
-                                    <td>{{$book->emp_fname}}</td>
-                                    <td>{{$book->booking_date}}</td>
-                                    <td>{{$book->start_time}}</td>
-                                    <td>{{$book->end_time}}</td>
+                                    <td>{{$book->bookingDate}}</td>
+                                    <td>{{$book->adjustedTimeSlots}}</td>
+                                    <!--<td>{{$book->endTimeResult}}</td>-->
+                                    <td>{{$book->user_id}}</td>
+                                    <td>{{$book->user_email}}</td>
+
+                                    <td id="deliveryRow{{$book->emp_id}}">
+                                        <a href="javascript:void(0);"  class="btn btn-secondary float-end" onclick="handleDelivery(this,{{$book->emp_id}})">Appointment</a>
+                                    </td>
+
+
+                                    <script>
+                                        function handleDelivery(button, emp_id) {
+                                            var isDelivered = localStorage.getItem('deliveryState' + emp_id);
+
+                                            if (isDelivered) {
+                                                var successMessage = document.createElement('span');
+                                                successMessage.textContent = 'Booking successful!';
+                                                
+                                                var deliveryRow = document.getElementById('deliveryRow' + emp_id);
+                                                deliveryRow.innerHTML = '';
+                                                deliveryRow.appendChild(successMessage);
+
+                                                // Don't proceed further if already delivered
+                                                return;
+                                            }
+
+                                            var successMessage = document.createElement('span');
+                                            successMessage.textContent = 'Booking successful!';
+
+                                            var deliveryRow = document.getElementById('deliveryRow' + emp_id);
+                                            deliveryRow.innerHTML = '';
+                                            deliveryRow.appendChild(successMessage);
+
+                                            localStorage.setItem('deliveryState' + emp_id, 'true');
+                                        }
+                                    </script>
                                     
-                                    
+
 
 
                                     
@@ -70,6 +110,10 @@
                                
                                 @endforeach
                             </tbody>
+
+                            
+
+                           
                         
                         </table>
                     </div>
