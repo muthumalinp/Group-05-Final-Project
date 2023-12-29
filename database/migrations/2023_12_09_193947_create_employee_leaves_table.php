@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('employee_id')->constrained();
             //$table->foreignId('employee_id')->constrained(); // Assuming you have an 'employees' table
-            $table->integer('available_leaves')->default(0);
+            $table->integer('available_leaves')->default(5);
             $table->integer('used_leaves')->default(0);
             $table->integer('remaining_leaves')->default(0);
             $table->timestamps();
