@@ -18,29 +18,29 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label>First Name</label>
-                            <input type="text" class="form-control" name="emp_fname" value="{{ $employee->emp_fname }}">
+                            <input type="text" class="form-control" name="emp_fname" value="{{ $employee->emp_fname }}" onfocus="this.blur()">
                         </div>
                         <div class="col-md-6">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" name="emp_lname" value="{{ $employee->emp_lname }}">
+                            <input type="text" class="form-control" name="emp_lname" value="{{ $employee->emp_lname }}" onfocus="this.blur()">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <label>Job Title</label>
-                            <input type="text" class="form-control" name="emp_jobtitle" value="{{ $employee->emp_jobtitle }}">
+                            <input type="text" class="form-control" name="emp_jobtitle" value="{{ $employee->emp_jobtitle }}" onfocus="this.blur()">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <label>Phone Number</label>
-                            <input type="text" class="form-control" name="emp_phone" value="{{ $employee->emp_phone }}">
+                            <input type="text" class="form-control" name="emp_phone" value="{{ $employee->emp_phone }}" onfocus="this.blur()">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <label>Email Address</label>
-                            <input type="text" class="form-control" name="emp_email" value="{{ $employee->emp_email }}">
+                            <input type="text" class="form-control" name="emp_email" value="{{ $employee->emp_email }}" onfocus="this.blur()">
                         </div>
                     </div>
                     <div class="row">
@@ -52,7 +52,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label>Rewards</label>
-                            <input type="text" class="form-control" name="emp_rewards" value="{{ $employee->emp_rewards }}">
+                            <input type="text" class="form-control" name="emp_rewards" value="{{ $employee->emp_rewards }}" onfocus="this.blur()">
                         </div>
                     </div>
                     <div class="row">
