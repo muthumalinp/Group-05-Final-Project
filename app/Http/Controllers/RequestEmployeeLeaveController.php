@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\RequestEmployeeLeave;
-use App\Mail\LeaveRequestStatus;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Mail\mailtoEmployee;
+use Illuminate\Http\Request;
+use App\Mail\LeaveRequestStatus;
+use App\Mail\rejectedmailtoEmployee;
+use App\Models\RequestEmployeeLeave;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\View;
 
 
 class RequestEmployeeLeaveController extends Controller
@@ -86,14 +89,15 @@ class RequestEmployeeLeaveController extends Controller
         // Update the number_of_days column
         $leaveRequest->update(['number_of_days' => $numberOfDays]);
 
-    
+        Mail::to($leaveRequest->leave_emp_email)->send(new mailtoEmployee($leaveRequest));
+
         // Send email with the request status
         // $user = User::find($leaveRequest->user_id);
     
         // // Check if the user exists
         // if ($user) {
         //     \Mail::to($user->email)->send(new LeaveRequestStatus('accepted'));
-             return redirect()->back()->with('success', 'Leave request accepted.');
+             return redirect()->back()->with('success', 'Leave request accepted & send email to the Requestor');
         // } else {
         //     return redirect()->back()->with('error', 'User not found for the leave request.');
         // }
@@ -108,13 +112,17 @@ class RequestEmployeeLeaveController extends Controller
         }
     
         $leaveRequest->update(['leave_status' => 'rejected']);
+
+        Mail::to($leaveRequest->leave_emp_email)->send(new rejectedmailtoEmployee($leaveRequest));
     
         // Check if the user exists
         // if ($leaveRequest->user) {
         //     \Mail::to($leaveRequest->user->email)->send(new LeaveRequestStatus('rejected'));
-        return redirect()->back()->with('success', 'Leave request rejected.');
+        return redirect()->back()->with('success', 'Leave request rejected & send email to the Requestor');
         // } else {
         //     return redirect()->back()->with('error', 'User not found for the leave request.');
         // }
+
+        
     }
 }
