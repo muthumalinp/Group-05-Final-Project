@@ -703,9 +703,7 @@ Route::middleware(['auth', 'auth.role:admin'])->group(function () {
     Route::get('/workers',[ShowController::class,'details']);
 
     /*-------add rent product button route----*/
-    Route::get('/rentitems', function () {
-        return view('/project/owner/rentproduct/index');
-    });
+    
 
     // routes/web.php
 
