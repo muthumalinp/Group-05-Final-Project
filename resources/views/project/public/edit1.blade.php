@@ -50,11 +50,10 @@
 
 
                             
-<!-- 
-                        <div class="form-group mb-3">
+                                <div class="form-group mb-3">
                             <label for="">Product ID</label>
                             <input type="text" name="product_ID" value="{{$product->product_ID}}" class="form-control">
-                        </div> -->
+                        </div>
 
                         <div class="form-group mb-3">
                             <label for="">Product Name</label>

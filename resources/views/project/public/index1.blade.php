@@ -25,7 +25,7 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <!-- <td>Product ID</td> -->
+                                     <td>Product ID</td> 
                                     <!-- <td>Product Category</td> -->
                                     <td>Product Name</td>
                                     <td>Product Price</td>
@@ -39,7 +39,7 @@
                             <tbody>
                                 @foreach($product as $item)
                                 <tr>
-                                    <!-- <td>{{$item->product_ID}}</td> -->
+                                    <td>{{$item->product_ID}}</td>
                                     <!-- <td>{{$item->category}}</td> -->
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->price}}</td>

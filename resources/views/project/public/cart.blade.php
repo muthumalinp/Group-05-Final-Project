@@ -45,8 +45,7 @@ session_start();
         </div>
     </nav>
     <!--navigation bar end-->
-    <form method="post" action="{{ route('make.purchase') }}">
-    @csrf
+ 
 
     <div class="container">
         <div class="row">
@@ -112,49 +111,51 @@ session_start();
                     <h4>Grand Total:</h4>
                     <h5 class="text-right" id="gtotal"></h5>
                     <br>
-                                        
+                               <?php 
+                                if(isset($_SESSION['cart']) && count($_SESSION['cart'])>0)
+                                {
+                               ?>    
+                     <form action="/purchase" method="GET">
+                        
                             <div class="form-group">
                                 <label>Full Name</label>
-                                <input type="text" name="fullname" class="form-control">
+                                <input type="text" name="full_name" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Phone Number</label>
-                                <input type="number" name="phone_no" class="form-control">
+                                <input type="number" name="phone_no" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" name="email" class="form-control">
+                                <input type="email" name="email" class="form-control" required>
                             </div>
                             
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <input class="form-check-input" type="radio" name="pay_mode" value="COD" id="flexRadioDefault2" checked>
                             <label class="form-check-label" for="flexRadioDefault2">
-<<<<<<< Updated upstream
+
                         Order placed
-=======
-                               Reserved Order
->>>>>>> Stashed changes
+
                             </label>
                         </div>
                         <br>
                 
-                <button type="submit">Make Purchase</button>
-
-                   
+                         <button class="btn btn-primary btn-block" name="purchase">Make Purchase</button>
+                 </form>
+                <?php 
+                                }
+                ?>
                  </div>
             </div>
 
         </div>
       
     </div>
-<<<<<<< Updated upstream
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-=======
-    
-    </form>
->>>>>>> Stashed changes
+
+
+
      <script>
 
                 var gt=0;

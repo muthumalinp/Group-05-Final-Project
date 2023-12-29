@@ -22,59 +22,14 @@ session_start();
             @csrf
              <div class="row">
             <div class="col-lg-12 text-center border rounded bg-light my-5">
-                <h1>PURCHASE SUMMARY</h1>
-            </div>
-
-            <div class="col-lg-8">
-                <table class="table">
-                    <thead class="text-center">
-                        <tr>
-                            <th scope="col">Product No</th>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">Product Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Total</th>    
-                        </tr>
-                    </thead>
-
-                    <tbody class="text-center">
-                        <?php
-                      
-
-                        if (isset($_SESSION['cart'])) {
-
-                            foreach ($_SESSION['cart'] as $key => $value) {
-
+                <h1>Your Oder is Successfull!</h1>
+                <p>please check yor email about the order details</p>
+                <h4>For more information please contact us.Thank you.</h4>
                                
-                                 $pn=$key+1;
-                                echo "
-                                <tr>
-                                <td class='productno'>$pn</td>
-                                <td class='productname'>$value[desc]</td>
-                                <td>$value[price]<input type='hidden' class='iprice' value='$value[price]'></td>
-                                <td><input class='taxt-center iquantity' onchange='subTotal()' type='number' value='$value[Quantity]' min='1' max='10'></td>
-                                <td class='itotal'></td>                                                         
-                                </tr>
 
-                                ";
-                            }
-                        }
-                        ?>
+                                <a href="{{url('/Product/HairStraghtening')}}" class="btn btn-danger float-end">BACK</a>
 
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-lg-3">
-                <div class="border bg-light rounded p-4">
-                    <h4>Grand Total:</h4>
-                    <h5 class="text-right" id="gtotal"></h5>
-                    <br>
-                    
-                    <button id="paymentDoneBtn">Payment Done</button>
-                </div>
-            </div>
-        </div>
+                                </div>
                     </form>
     </div>
     <script>
