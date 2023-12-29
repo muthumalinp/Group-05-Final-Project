@@ -45,7 +45,12 @@
         <p>Welcome to our Team!</p>
         <p>
             We are thrilled to have you on board at Salon Yaraa. Your talent and dedication will undoubtedly contribute to our success. If you have any questions or need assistance, feel free to reach out to us.
+            
         </p>
+        <p>Your basic salary:{{ $employeeData['emp_bsalary'] }}</br>
+        Login Details,</br>
+    User email: {{ $employeeData['emp_email'] }}</br>
+    User Password: 12345678 (You can change your password by remember password method) </p>
         <footer>
             <p>Salon Yaraa &copy; 2023. All rights reserved.</p>
         </footer>
