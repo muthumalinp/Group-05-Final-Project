@@ -102,7 +102,7 @@
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Leaves
                                                 Count</span>
                                             <span
-                                                class="h3 font-bold mb-0">{{ $employee_leave->available_leaves ?? 0 }}</span>
+                                                class="h3 font-bold mb-0">5</span>
                                         </div>
                                     </div>
                                     <div class="mt-2 mb-0 text-sm">
