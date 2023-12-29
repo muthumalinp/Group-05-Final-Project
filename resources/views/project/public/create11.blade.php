@@ -36,10 +36,10 @@
                             </select>
                         </div>
                              -->
-                        <!-- <div class="form-group mb-3">
+                         <div class="form-group mb-3">
                             <label for="product_ID">Product ID</label>
                             <input type="text" id="product_ID" name="product_ID" class="form-control">
-                        </div> -->
+                        </div> 
                         <div class="form-group mb-3">
                             <label for="name">Product Name</label>
                             <input type="text" id="name" name="name" class="form-control">

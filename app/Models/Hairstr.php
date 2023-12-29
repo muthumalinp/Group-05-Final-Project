@@ -10,7 +10,7 @@ class Hairstr extends Model
     use HasFactory;
     protected $table = 'hairstrs';
     protected $fillable = [
-        // 'product_ID',
+        'product_ID',
         // 'category',
         'name',
         'price',

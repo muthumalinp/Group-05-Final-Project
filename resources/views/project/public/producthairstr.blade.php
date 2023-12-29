@@ -1,5 +1,6 @@
 <?php 
 session_start();   
+// var_dump($_SESSION['cart']);
 $products = \App\Models\Hairstr::all();  
 ?>
 <!DOCTYPE html>
@@ -51,7 +52,7 @@ $products = \App\Models\Hairstr::all();
     <h1 class="pheading">Our Latest Beauty Products</h1>
      <section class="sec">
        <div class="products">
-
+      
        @foreach($products as $product)
                 <div class="card">
                     <form action="/Product/ManageCart" method="GET">
@@ -60,6 +61,7 @@ $products = \App\Models\Hairstr::all();
 
                         </div>
                         <div class="desc">{{ $product->name }}</div>
+                       
                         <div class="box">
                             <div class="price">Rs.{{ $product->price }}</div>
                             <button type="submit" name="Add_To_Cart" class="btn">Add to Cart</button>

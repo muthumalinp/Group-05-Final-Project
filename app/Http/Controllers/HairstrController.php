@@ -29,7 +29,7 @@ class HairstrController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            // 'product_ID' => 'required',
+             'product_ID' => 'required',
             // 'category' => 'required',
             'name' => 'required',
             'price' => 'required|numeric',
@@ -37,7 +37,7 @@ class HairstrController extends Controller
             'product_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $product = new Hairstr;
-        // $product->product_ID = $request->input('product_ID');
+         $product->product_ID = $request->input('product_ID');
         // $product->category = $request->input('category');
         $product->name = $request->input('name');
         $product->price = $request->input('price');
@@ -64,7 +64,7 @@ class HairstrController extends Controller
         public function update1(Request $request,$id)
         {
             $product = Hairstr::find($id);
-            // $product->product_ID = $request->input('product_ID');
+            $product->product_ID = $request->input('product_ID');
             // $product->category = $request->input('category');
             $product->name = $request->input('name');
             $product->price = $request->input('price');

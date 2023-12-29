@@ -10,11 +10,13 @@ class CartController extends Controller
     {
                 // Create a new Cart instance
         $cart = new Cart();
-             $cart->hairstr_id = $request->input('productno');
-            //  dd($request->input('productno'));
-        $cart->haircolor_id = $request->input('productno');
-        $cart->quantity = $request->input('Mod_Quantity');
-        $cart->total = $request->input('itotal');
+        foreach($_SESSION['cart'] as $key => $values)
+        {
+            $Product_Name=$values['desc'];
+            $Price=$values['price'];
+            $Quantity=$values['Quantity'];
+
+                            }
 
         // You may associate the cart with a user if you have an authentication system
         // Example: $cart->user_id = auth()->user()->id;

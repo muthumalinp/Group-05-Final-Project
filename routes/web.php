@@ -354,7 +354,7 @@ Route::post('/submit-order', [RsubmitOrderController::class, 'submitOrder'])->na
 
 
 //product to database
-Route::post('/make-purchase', [CartController::class, 'makePurchase'])->name('make.purchase');
+// Route::post('/make-purchase', [CartController::class, 'makePurchase'])->name('make.purchase');
 
 
 
@@ -485,7 +485,9 @@ Route::get('/emplLeave', function () {
 //leave requesting proccess
 
 
-
+Route::get('/purchase', function () {
+    return view('project\public\purchase');
+});
 
 
 //Route::get('/employee/{id}/leave-requests', [EmployeeController::class, 'leaveRequests']);
