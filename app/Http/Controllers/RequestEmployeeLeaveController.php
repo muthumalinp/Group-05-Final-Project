@@ -84,7 +84,7 @@ class RequestEmployeeLeaveController extends Controller
         // Calculate the number of leave dates
         $startDate = Carbon::parse($leaveRequest->leave_start_date);
         $endDate = Carbon::parse($leaveRequest->leave_end_date);
-        $numberOfDays = $endDate->diffInDays($startDate);
+        $numberOfDays = $endDate->diffInDays($startDate) +1;
 
         // Update the number_of_days column
         $leaveRequest->update(['number_of_days' => $numberOfDays]);
