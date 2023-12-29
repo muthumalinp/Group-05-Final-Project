@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Mail\mailtoEmployee;
 use Illuminate\Http\Request;
 use App\Mail\LeaveRequestStatus;
+use App\Mail\rejectedmailtoEmployee;
 use App\Models\RequestEmployeeLeave;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -96,7 +97,7 @@ class RequestEmployeeLeaveController extends Controller
         // // Check if the user exists
         // if ($user) {
         //     \Mail::to($user->email)->send(new LeaveRequestStatus('accepted'));
-             return redirect()->back()->with('success', 'Leave request accepted.');
+             return redirect()->back()->with('success', 'Leave request accepted & send email to the Requestor');
         // } else {
         //     return redirect()->back()->with('error', 'User not found for the leave request.');
         // }
@@ -111,13 +112,17 @@ class RequestEmployeeLeaveController extends Controller
         }
     
         $leaveRequest->update(['leave_status' => 'rejected']);
+
+        Mail::to($leaveRequest->leave_emp_email)->send(new rejectedmailtoEmployee($leaveRequest));
     
         // Check if the user exists
         // if ($leaveRequest->user) {
         //     \Mail::to($leaveRequest->user->email)->send(new LeaveRequestStatus('rejected'));
-        return redirect()->back()->with('success', 'Leave request rejected.');
+        return redirect()->back()->with('success', 'Leave request rejected & send email to the Requestor');
         // } else {
         //     return redirect()->back()->with('error', 'User not found for the leave request.');
         // }
+
+        
     }
 }

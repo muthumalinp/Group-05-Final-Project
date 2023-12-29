@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accepted Leave Request Email</title>
+    <title>Rejected Leave Request Email</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -41,13 +41,17 @@
         }
     </style>
 </head>
+</head>
 <body>
-<div class="container">
+    <div class="container">
     <h2>Hello {{ $leaveRequest->leave_emp_name }},</h2>
-    <p>Your Leave Request has been successfully accepted. Thank you!</p>
-    <footer>
+    <p>Your Leave Request has been rejected.We can't accept your request because of the busy shedule on those days.</p>
+        <p> If you have any issue about the rejection please meet miss.Yaraa. Thank you!</p>
+
+        <footer>
             <p>Salon Yaraa &copy; 2023. All rights reserved.</p>
         </footer>
     </div>
+    
 </body>
 </html>
