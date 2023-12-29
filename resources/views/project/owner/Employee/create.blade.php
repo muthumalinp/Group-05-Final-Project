@@ -8,25 +8,48 @@
         <form method="POST" action="{{ route('employee.store') }}">
             @csrf
             <label>First Name</label><br/>
-            <input type="text" class="form-control" name="emp_fname"><br/>
+            <input type="text" class="form-control" name="emp_fname">
+            
+            @error('emp_fname')
+            <div class="text-danger">please fill this field</div><br/>
+            @enderror
             
             <label>Last Name</label><br/>
-            <input type="text" class="form-control" name="emp_lname"><br/>
+            <input type="text" class="form-control" name="emp_lname">
+            
+            @error('emp_lname')
+            <div class="text-danger">please fill this field</div><br/>
+            @enderror
             
             <label>Job Title</label><br/>
-            <input type="text" class="form-control" name="emp_jobtitle"><br/>
+            <input type="text" class="form-control" name="emp_jobtitle">
+            @error('emp_jobtitle')
+            <div class="text-danger">please fill this field</div><br/>
+            @enderror
             
             <label>Phone Number</label><br/>
-            <input type="text" class="form-control" name="emp_phone"><br/>
+            <input type="text" class="form-control" name="emp_phone">
+            @error('emp_phone')
+            <div class="text-danger">please fill this field</div><br/>
+            @enderror
             
             <label>Email Address</label><br/>
-            <input type="text" class="form-control" name="emp_email"><br/>
+            <input type="text" class="form-control" name="emp_email">
+            @error('emp_email')
+            <div class="text-danger">invalid or used email</div><br/>
+            @enderror
             
             <label>Basic Salary</label><br/>
-            <input type="text" class="form-control" name="emp_bsalary"><br/>
+            <input type="text" class="form-control" name="emp_bsalary">
+            @error('emp_bsalary')
+            <div class="text-danger">please fill this field</div><br/>
+            @enderror
             
             <label>Rewards</label><br/>
-            <input type="text" class="form-control" name="emp_rewards"><br/>
+            <input type="text" class="form-control" name="emp_rewards">
+            @error('emp_rewards')
+            <div class="text-danger">please fill this field</div><br/>
+            @enderror
 
             <label>Gender</label><br/>
             <select class="form-select" aria-label="Default select example">
