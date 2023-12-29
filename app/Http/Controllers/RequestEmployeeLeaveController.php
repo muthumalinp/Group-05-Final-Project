@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\RequestEmployeeLeave;
-use App\Mail\LeaveRequestStatus;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Mail\mailtoEmployee;
+use Illuminate\Http\Request;
+use App\Mail\LeaveRequestStatus;
+use App\Models\RequestEmployeeLeave;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\View;
 
 
 class RequestEmployeeLeaveController extends Controller
@@ -86,7 +88,8 @@ class RequestEmployeeLeaveController extends Controller
         // Update the number_of_days column
         $leaveRequest->update(['number_of_days' => $numberOfDays]);
 
-    
+        Mail::to($leaveRequest->leave_emp_email)->send(new mailtoEmployee($leaveRequest));
+
         // Send email with the request status
         // $user = User::find($leaveRequest->user_id);
     
